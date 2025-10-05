@@ -1,5 +1,6 @@
-import { Box, Grid } from '@chakra-ui/react'
+import { Box, Flex, Grid } from '@chakra-ui/react'
 import { Header } from './components/Header'
+import { OutputPane } from './components/OutputPane'
 import { PyPenPane } from './components/PyPenPane'
 import { PythonPane } from './components/PythonPane'
 
@@ -8,11 +9,14 @@ function App() {
     <>
       <Grid templateRows="3rem calc(100% - 3rem)" w="100%" h="100%">
         <Header></Header>
-        <Grid templateColumns="1fr 2.5rem 1fr" w="100%" h="100%">
-          <PyPenPane></PyPenPane>
-          <Box></Box>
-          <PythonPane></PythonPane>
-        </Grid>
+        <Box w="100dvw" h="full">
+          <Flex w="100%" h="80%" overflow="hidden">
+            <PyPenPane></PyPenPane>
+            <Box w="2.5rem"></Box>
+            <PythonPane></PythonPane>
+          </Flex>
+          <OutputPane></OutputPane>
+        </Box>
       </Grid>
     </>
   )

@@ -1,13 +1,23 @@
-import { Grid, Stack, Text } from '@chakra-ui/react'
+import { Box, Flex, Stack, Text } from '@chakra-ui/react'
 import { Editor } from '@monaco-editor/react'
 
 export const PyPenPane = () => {
 	return (
-		<Grid templateRows="2.5rem 1fr">
-			<Stack justifyContent="center" paddingInline={4} gap={8}>
+		<Flex w="calc(50% - calc(2.5rem / 2))" h="full" direction="column">
+			<Stack justifyContent="center" paddingInline={4} gap={8} w="full" h="2.5rem">
 				<Text>PyPEN</Text>
 			</Stack>
-			<Editor width="100%" height="100%" defaultLanguage="text" theme="vs-dark" />
-		</Grid>
+			<Box w="full" h="calc(100% - 2.5rem)">
+				<Editor
+					defaultLanguage="python"
+					height="100%"
+					width="100%"
+					theme="vs-dark"
+					options={{
+						automaticLayout: true
+					}}
+				/>
+			</Box>
+		</Flex>
 	)
 }
