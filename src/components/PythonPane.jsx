@@ -15,6 +15,7 @@ export const PythonPane = () => {
 		setIsRunning(true)
 		clearOutput()
 		const pythonRunner = new PythonRunner(pythonContent)
+		console.log(pythonRunner)
 		pythonRunner.on('output', e => {
 			addOutputData({
 				type: 'text',

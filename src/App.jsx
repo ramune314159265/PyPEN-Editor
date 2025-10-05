@@ -1,6 +1,6 @@
 import { Box, Flex, Grid } from '@chakra-ui/react'
+import { ConsolePane } from './components/ConsolePane'
 import { Header } from './components/Header'
-import { OutputPane } from './components/OutputPane'
 import { PyPenPane } from './components/PyPenPane'
 import { PythonPane } from './components/PythonPane'
 
@@ -15,7 +15,7 @@ function App() {
             <Box w="2.5rem"></Box>
             <PythonPane></PythonPane>
           </Flex>
-          <OutputPane></OutputPane>
+          <ConsolePane></ConsolePane>
         </Box>
       </Grid>
     </>

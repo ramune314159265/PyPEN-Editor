@@ -18,6 +18,11 @@ export class PythonRunner extends EventEmitter2 {
 			await PythonRunner.load()
 		}
 
+		const stdinQueue = []
+
+		PythonRunner.pyodide.setStdin({
+			stdin: () => prompt()
+		})
 		PythonRunner.pyodide.setStdout({
 			batched: e => this.emit('output', e)
 		})

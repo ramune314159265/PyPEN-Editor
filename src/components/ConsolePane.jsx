@@ -1,7 +1,7 @@
 import { Box, Flex, Stack, Text } from '@chakra-ui/react'
 import { useOutput } from '../atoms/output'
 
-export const OutputPane = () => {
+export const ConsolePane = () => {
 	const [outputData] = useOutput()
 
 	return (
