@@ -523,7 +523,6 @@ var dncl = (function () {
 				vstack.length = vstack.length - n;
 				lstack.length = lstack.length - n;
 			}
-			_token_stack:
 			var lex = function () {
 				var token;
 				token = lexer.lex() || EOF;
@@ -1634,21 +1633,6 @@ function makeDirty(b) {
 		dirty = b;
 		document.getElementById("dirty").style.visibility = dirty ? "visible" : "hidden";
 	}
-}
-
-/**
- * 出力
- * @param {string} v
- */
-function output(v) {
-	console.log(v)
-}
-
-/**
- * 結果表示画面をクリアする
- */
-function clearOutput() {
-	console.log('output cleared')
 }
 
 /**
@@ -5143,34 +5127,6 @@ class Input extends Statement {
 	}
 }
 
-function openInputWindow() {
-	run_flag = false
-	setEditableflag(false);
-	var input_area = document.getElementById("input_area");
-	input_area.value = '';
-	input_area.readOnly = false;
-	input_area.focus();
-	document.getElementById("input_status").style.visibility = 'visible';
-	document.getElementById("sourceTextarea").readOnly = true;
-	editor.options.readOnly = true;
-	editor.getWrapperElement().classList.add("readonly");
-}
-
-function closeInputWindow() {
-	var val = document.getElementById("input_area").value;
-	document.getElementById("input_area").readOnly = true;
-	document.getElementById("input_status").style.visibility = 'hidden';
-	return val;
-}
-
-function keydownInput(e) {
-	var evt = e || window.event
-	if (evt.keyCode == 13) {
-		setRunflag(true);
-		step();
-	}
-}
-
 class InputBegin extends Statement {
 	/**
 	 * @constructor
@@ -7452,3 +7408,56 @@ function code_dump() {
 	}
 	console.log(str);
 }
+
+/**
+ * 出力
+ * @param {string} v
+ */
+function output(v) {
+	self.postMessage({
+		type: 'output',
+		content: v
+	})
+}
+
+/**
+ * 結果表示画面をクリアする
+ */
+function clearOutput() { }
+
+let inputValue = ''
+let isInputOpen = false
+
+function openInputWindow() {
+	isInputOpen = true
+	run_flag = false
+	self.postMessage({
+		type: 'startInput'
+	})
+}
+
+
+function closeInputWindow() {
+	isInputOpen = false
+	return inputValue
+}
+
+self.addEventListener('message', e => {
+	const data = e.data
+
+	switch (data.type) {
+		case 'run':
+			const code = data.content
+			run(code)
+			break
+		case 'input':
+			if (!isInputOpen) {
+				break
+			}
+			inputValue = data.content
+			run_flag = true
+			step()
+		default:
+			break
+	}
+})
