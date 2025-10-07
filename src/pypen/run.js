@@ -7388,8 +7388,7 @@ function makePython(code) {
 		var dncl_code = python_to_dncl(code);
 		var main_routine = new parsedMainRoutine(dncl.parse(dncl_code));
 		var python_code = main_routine.makePython();
-		clearOutput();
-		output(python_code);
+		return python_code;
 	}
 	catch (e) {
 		console.error(e)
@@ -7456,17 +7455,27 @@ self.addEventListener('message', e => {
 	const data = e.data
 
 	switch (data.type) {
-		case 'run':
+		case 'run': {
 			const code = data.content
 			run(code, data.fast ?? true)
 			break
-		case 'input':
+		}
+		case 'input': {
 			if (!isInputOpen) {
 				break
 			}
 			inputValue = data.content
 			run_flag = true
 			step()
+		}
+		case 'convert': {
+			const code = data.content
+			const converted = makePython(code)
+			self.postMessage({
+				type: 'convert_output',
+				content: converted
+			})
+		}
 		default:
 			break
 	}

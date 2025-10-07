@@ -1,14 +1,17 @@
+import { Tooltip } from "@/components/ui/tooltip"
 import { Box, Flex, IconButton, Spinner, Stack, Text } from '@chakra-ui/react'
 import { Editor } from '@monaco-editor/react'
 import { useState } from 'react'
-import { HiPlay } from 'react-icons/hi2'
+import { HiArrowLongRight, HiPlay } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
 import { usePyPen } from '../atoms/pypen'
+import { usePython } from '../atoms/python'
 import { PyPenRunner } from '../utils/pypen'
 
 export const PyPenPane = () => {
 	const [pyPenContent, { setPyPenContent }] = usePyPen()
-		const [output, { clearOutput, addOutputData }] = useOutput()
+	const [pythonContent, { setPythonContent }] = usePython()
+	const [output, { clearOutput, addOutputData }] = useOutput()
 	const [isRunning, setIsRunning] = useState(false)
 
 	const runPyPen = async () => {
@@ -24,6 +27,11 @@ export const PyPenPane = () => {
 		await pyPenRunner.run()
 		setIsRunning(false)
 	}
+	const convert = async () => {
+		clearOutput()
+		const converted = await PyPenRunner.convert(pyPenContent)
+		setPythonContent(converted)
+	}
 
 	return (
 		<Flex w="calc(50% - calc(2.5rem / 2))" h="full" direction="column">
@@ -34,6 +42,11 @@ export const PyPenPane = () => {
 						isRunning ? <Spinner /> : <HiPlay />
 					}
 				</IconButton>
+				<Tooltip showArrow content="PyPenからPythonに変換する">
+					<IconButton variant="ghost" onClick={convert}>
+						<HiArrowLongRight />
+					</IconButton>
+				</Tooltip>
 			</Stack>
 			<Box w="full" h="calc(100% - 2.5rem)">
 				<Editor

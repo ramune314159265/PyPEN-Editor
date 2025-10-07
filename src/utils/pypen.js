@@ -7,6 +7,28 @@ export class PyPenRunner extends EventEmitter2 {
 		PyPenRunner.pypenWorker = new Worker('src/pypen/run.js')
 	}
 
+	static async convert(code) {
+		const { promise, resolve } = Promise.withResolvers()
+		if (!PyPenRunner.pypenWorker) {
+			PyPenRunner.startPyPen()
+		}
+
+		const handle = e => {
+			if (e.data.type !== 'convert_output') {
+				return
+			}
+			PyPenRunner.pypenWorker.removeEventListener('message', handle)
+			resolve(e.data.content)
+		}
+		PyPenRunner.pypenWorker.addEventListener('message', handle)
+
+		PyPenRunner.pypenWorker.postMessage({
+			type: 'convert',
+			content: code
+		})
+		return promise
+	}
+
 	constructor(code) {
 		super()
 		this.code = code
