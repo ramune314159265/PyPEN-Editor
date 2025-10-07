@@ -1,4 +1,4 @@
-import { Tooltip } from "@/components/ui/tooltip"
+import { Tooltip } from '@/components/ui/tooltip'
 import { Box, Flex, IconButton, Spinner, Stack, Text } from '@chakra-ui/react'
 import { Editor } from '@monaco-editor/react'
 import { useState } from 'react'
@@ -37,11 +37,13 @@ export const PyPenPane = () => {
 		<Flex w="calc(50% - calc(2.5rem / 2))" h="full" direction="column">
 			<Stack justifyContent="flex-start" alignItems="center" direction="row" paddingInline={4} gap={2} w="full" h="2.5rem">
 				<Text>PyPEN</Text>
-				<IconButton variant="ghost" onClick={runPyPen} disabled={isRunning}>
-					{
-						isRunning ? <Spinner /> : <HiPlay />
-					}
-				</IconButton>
+				<Tooltip showArrow content="PyPenコードを実行">
+					<IconButton variant="ghost" onClick={runPyPen} disabled={isRunning}>
+						{
+							isRunning ? <Spinner /> : <HiPlay />
+						}
+					</IconButton>
+				</Tooltip>
 				<Tooltip showArrow content="PyPenからPythonに変換する">
 					<IconButton variant="ghost" onClick={convert}>
 						<HiArrowLongRight />
