@@ -7286,7 +7286,7 @@ function reset() {
 	output_str = ''
 }
 
-function run(pypen_source) {
+function run(pypen_source, fast = true) {
 	if (code == null) {
 		try {
 			reset()
@@ -7302,7 +7302,7 @@ function run(pypen_source) {
 		}
 	}
 	run_flag = true
-	step();
+	step(fast);
 }
 
 // busy wait !!
@@ -7312,7 +7312,7 @@ function wait(ms) {
 		;
 }
 
-function step() {
+function step(fast = true) {
 	// 次の行まで進める
 	var l = current_line;
 	do {
@@ -7325,7 +7325,10 @@ function step() {
 				wait(wait_time);
 				wait_time = 0;
 			}
-			setTimeout(step, 0);
+			if (fast)
+				step(fast)
+			else
+				setTimeout(() => step(false), 0);
 		}
 	}
 	else {
@@ -7448,7 +7451,7 @@ self.addEventListener('message', e => {
 	switch (data.type) {
 		case 'run':
 			const code = data.content
-			run(code)
+			run(code, data.fast ?? true)
 			break
 		case 'input':
 			if (!isInputOpen) {
