@@ -19,7 +19,7 @@ export const PythonPane = () => {
 		pythonRunner.on('output', e => {
 			addOutputData({
 				type: 'text',
-				content: e
+				content: `${e}\n`
 			})
 		})
 		await pythonRunner.run()

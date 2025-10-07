@@ -13,16 +13,14 @@ export const ConsolePane = () => {
 				width="full"
 				height="calc(100% - 2.5rem)"
 				padding={2}
-				display="inline-flex"
 				flexDirection="column"
-				color="fg.muted"
 				background="#000000"
 				fontFamily="consolas, monospace"
-				fontSize={18}
+				fontSize={16}
 				lineHeight={1.25}
 				overflowX="hidden"
 				overflowY="auto"
-				whiteSpace="collapse"
+				whiteSpace="pre-wrap"
 			>
 				{
 					outputData.map((d, i) => {

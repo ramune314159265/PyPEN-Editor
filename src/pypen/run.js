@@ -7294,10 +7294,10 @@ function run(pypen_source, fast = true) {
 			code = [new parsedMainRoutine(dncl.parse(dncl_source))];
 		}
 		catch (e) {
-			console.error(e)
 			reset()
 			if (e.line) output(e.line + "行目");
 			output("構文エラーです\n" + e.message + "\n");
+			outputEnd()
 			return;
 		}
 	}
@@ -7333,6 +7333,7 @@ function step(fast = true) {
 	}
 	else {
 		output("---\n");
+		outputEnd()
 		reset()
 	}
 }
@@ -7347,6 +7348,7 @@ function next_line() {
 		catch (e) {
 			if (e instanceof RuntimeError) output("\n" + e.line + "行目:" + e.message + "\n");
 			else output("実行時エラーです\n" + e + "\n");
+			outputEnd()
 			reset()
 		}
 	}
@@ -7428,6 +7430,12 @@ function output(v) {
  */
 function clearOutput() { }
 
+function outputEnd() {
+	self.postMessage({
+		type: 'end'
+	})
+}
+
 let inputValue = ''
 let isInputOpen = false
 
@@ -7438,7 +7446,6 @@ function openInputWindow() {
 		type: 'startInput'
 	})
 }
-
 
 function closeInputWindow() {
 	isInputOpen = false
