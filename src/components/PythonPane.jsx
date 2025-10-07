@@ -23,8 +23,16 @@ export const PythonPane = () => {
 				content: `${e}\n`
 			})
 		})
-		await pythonRunner.run()
-		setIsRunning(false)
+		try {
+			await pythonRunner.run()
+		} catch (e) {
+			addOutputData({
+				type: 'error',
+				content: e.message
+			})
+		} finally {
+			setIsRunning(false)
+		}
 	}
 
 	return (

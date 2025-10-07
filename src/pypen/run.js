@@ -7295,8 +7295,10 @@ function run(pypen_source, fast = true) {
 		}
 		catch (e) {
 			reset()
-			if (e.line) output(e.line + "行目");
-			output("構文エラーです\n" + e.message + "\n");
+			const texts = []
+			if (e.line) texts.push(e.line + "行目");
+			texts.push("構文エラーです\n" + e.message + "\n");
+			output(texts.join('\n'))
 			outputEnd()
 			return;
 		}
@@ -7391,7 +7393,6 @@ function makePython(code) {
 		return python_code;
 	}
 	catch (e) {
-		console.error(e)
 		highlightLine(-1);
 		clearOutput();
 		if (e.line && e.line > 0) output(e.line + "行目構文エラーです\n");

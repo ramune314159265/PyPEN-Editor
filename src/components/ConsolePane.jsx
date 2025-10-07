@@ -28,6 +28,9 @@ export const ConsolePane = () => {
 							case 'text': {
 								return (<span key={i}>{d.content}</span>)
 							}
+							case 'error': {
+								return (<span style={{ color: '#dc2626' }} key={i}>{d.content}</span>)
+							}
 							default: {
 								return (<span key={i}>{d.content}</span>)
 							}

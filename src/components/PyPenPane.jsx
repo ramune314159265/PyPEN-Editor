@@ -29,8 +29,15 @@ export const PyPenPane = () => {
 	}
 	const convert = async () => {
 		clearOutput()
-		const converted = await PyPenRunner.convert(pyPenContent)
-		setPythonContent(converted)
+		try {
+			const converted = await PyPenRunner.convert(pyPenContent)
+			setPythonContent(converted)
+		} catch (e) {
+			addOutputData({
+				type: 'error',
+				content: e
+			})
+		}
 	}
 
 	return (
