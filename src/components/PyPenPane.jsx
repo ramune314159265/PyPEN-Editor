@@ -1,7 +1,7 @@
 import { Tooltip } from '@/components/ui/tooltip'
 import { Box, Flex, IconButton, Spinner, Stack, Text } from '@chakra-ui/react'
-import { Editor } from '@monaco-editor/react'
-import { useState } from 'react'
+import * as monaco from 'monaco-editor'
+import { useEffect, useRef, useState } from 'react'
 import { HiArrowLongRight, HiPlay } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
 import { usePyPen } from '../atoms/pypen'
@@ -13,6 +13,7 @@ export const PyPenPane = () => {
 	const [pythonContent, { setPythonContent }] = usePython()
 	const [output, { clearOutput, addOutputData }] = useOutput()
 	const [isRunning, setIsRunning] = useState(false)
+	const editorRef = useRef(null)
 
 	const runPyPen = async () => {
 		setIsRunning(true)
@@ -40,6 +41,10 @@ export const PyPenPane = () => {
 		}
 	}
 
+	useEffect(() => {
+		editorRef.current.getModel().setValue(pyPenContent)
+	}, [pyPenContent])
+
 	return (
 		<Flex w="calc(50% - calc(2.5rem / 2))" h="full" direction="column">
 			<Stack justifyContent="flex-start" alignItems="center" direction="row" paddingInline={4} gap={2} w="full" h="2.5rem">
@@ -57,19 +62,26 @@ export const PyPenPane = () => {
 					</IconButton>
 				</Tooltip>
 			</Stack>
-			<Box w="full" h="calc(100% - 2.5rem)">
-				<Editor
-					defaultLanguage="python"
-					height="100%"
-					width="100%"
-					theme="vs-dark"
-					value={pyPenContent}
-					onChange={e => setPyPenContent(e)}
-					options={{
-						automaticLayout: true
-					}}
-				/>
+			<Box w="full" h="calc(100% - 2.5rem)" ref={e => {
+				(async () => {
+					if (editorRef.current !== null) {
+						return
+					}
+
+					const editor = monaco.editor.create(e, {
+						value: '',
+						theme: 'vs-dark',
+						language: 'text',
+						automaticLayout: true,
+					})
+					editorRef.current = editor
+
+					editor.getModel().onDidChangeContent(e => {
+						setPyPenContent(editor.getValue())
+					})
+				})()
+			}}>
 			</Box>
-		</Flex>
+		</Flex >
 	)
 }

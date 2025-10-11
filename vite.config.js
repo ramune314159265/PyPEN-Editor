@@ -25,11 +25,13 @@ export function viteStaticCopyPyodide() {
 
 // https://vite.dev/config/
 export default defineConfig({
-  optimizeDeps: { exclude: ["pyodide"] },
+  optimizeDeps: {
+    exclude: ["pyodide"]
+  },
   plugins: [react(), viteStaticCopyPyodide()],
   resolve: {
     alias: {
-      '@': path.resolve(import.meta.dirname, './src')
+      '@': path.resolve(import.meta.dirname, './src'),
     }
   },
 })
