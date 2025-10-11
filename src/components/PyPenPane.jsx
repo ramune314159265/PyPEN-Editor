@@ -2,7 +2,7 @@ import { Tooltip } from '@/components/ui/tooltip'
 import { Box, Flex, IconButton, Spinner, Stack, Text } from '@chakra-ui/react'
 import * as monaco from 'monaco-editor'
 import { useEffect, useRef, useState } from 'react'
-import { HiArrowLongRight, HiPlay } from 'react-icons/hi2'
+import { HiArrowLongRight, HiDocument, HiPlay } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
 import { usePyPen } from '../atoms/pypen'
 import { usePython } from '../atoms/python'
@@ -60,6 +60,13 @@ export const PyPenPane = () => {
 						{
 							isRunning ? <Spinner /> : <HiPlay />
 						}
+					</IconButton>
+				</Tooltip>
+				<Tooltip showArrow content="PyPENの文法">
+					<IconButton variant="ghost">
+						<a href="https://watayan.net/prog/PyPEN/manual/syntax.html" target='_blank'>
+							<HiDocument />
+						</a>
 					</IconButton>
 				</Tooltip>
 				<Tooltip showArrow content="PyPenからPythonに変換する">

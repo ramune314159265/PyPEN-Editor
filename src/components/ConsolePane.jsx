@@ -1,13 +1,20 @@
-import { Box, Flex, Stack, Text } from '@chakra-ui/react'
+import { Tooltip } from '@/components/ui/tooltip'
+import { Box, Flex, IconButton, Stack, Text } from '@chakra-ui/react'
+import { HiNoSymbol } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
 
 export const ConsolePane = () => {
-	const [outputData] = useOutput()
+	const [outputData, { clearOutput }] = useOutput()
 
 	return (
 		<Flex direction="column" w="full" h="30%">
-			<Stack h="2.5rem" justifyContent="center" paddingInline={4} gap={8}>
+			<Stack justifyContent="flex-start" alignItems="center" direction="row" paddingInline={4} gap={2} w="full" h="2.5rem">
 				<Text>出力</Text>
+				<Tooltip showArrow content="出力をクリア">
+					<IconButton variant="ghost" onClick={() => clearOutput()}>
+						<HiNoSymbol />
+					</IconButton>
+				</Tooltip>
 			</Stack>
 			<Box
 				width="full"
