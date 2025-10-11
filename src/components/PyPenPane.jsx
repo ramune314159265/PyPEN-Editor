@@ -6,6 +6,7 @@ import { HiArrowLongRight, HiPlay } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
 import { usePyPen } from '../atoms/pypen'
 import { usePython } from '../atoms/python'
+import { pyPenLanguageConfiguration, pyPenProvideCompletionItems, pyPenTokenizer } from '../utils/monacoPyPen'
 import { PyPenRunner } from '../utils/pypen'
 
 export const PyPenPane = () => {
@@ -13,6 +14,7 @@ export const PyPenPane = () => {
 	const [pythonContent, { setPythonContent }] = usePython()
 	const [output, { clearOutput, addOutputData }] = useOutput()
 	const [isRunning, setIsRunning] = useState(false)
+	const [value, setValue] = useState('')
 	const editorRef = useRef(null)
 
 	const runPyPen = async () => {
@@ -42,7 +44,11 @@ export const PyPenPane = () => {
 	}
 
 	useEffect(() => {
+		if (value === pyPenContent) {
+			return
+		}
 		editorRef.current.getModel().setValue(pyPenContent)
+		setValue(pyPenContent)
 	}, [pyPenContent])
 
 	return (
@@ -68,16 +74,27 @@ export const PyPenPane = () => {
 						return
 					}
 
+					monaco.languages.register({
+						id: 'pypen'
+					})
+					monaco.languages.registerCompletionItemProvider('pypen', {
+						provideCompletionItems: pyPenProvideCompletionItems
+					})
+					monaco.languages.setMonarchTokensProvider('pypen', {
+						tokenizer: pyPenTokenizer
+					})
+					monaco.languages.setLanguageConfiguration('pypen', pyPenLanguageConfiguration)
 					const editor = monaco.editor.create(e, {
 						value: '',
 						theme: 'vs-dark',
-						language: 'text',
+						language: 'pypen',
 						automaticLayout: true,
 					})
 					editorRef.current = editor
 
 					editor.getModel().onDidChangeContent(e => {
 						setPyPenContent(editor.getValue())
+						setValue(editor.getValue())
 					})
 				})()
 			}}>
