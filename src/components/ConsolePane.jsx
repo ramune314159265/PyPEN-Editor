@@ -9,6 +9,7 @@ export const ConsolePane = () => {
 	const [outputData, { addOutputData, clearOutput }] = useOutput()
 	const [runner] = useRunner()
 	const [inputContent, setInputContent] = useState('')
+	const consoleRef = useRef(null)
 	const inputRef = useRef(null)
 
 	useEffect(() => {
@@ -38,6 +39,10 @@ export const ConsolePane = () => {
 			inputRef.current.focus()
 		})
 	}, [runner])
+
+	useEffect(() => {
+		consoleRef.current.scrollTop = consoleRef.current.scrollHeight
+	}, [outputData])
 
 	const input = () => {
 		if (!inputContent) {
@@ -73,6 +78,7 @@ export const ConsolePane = () => {
 				overflowX="hidden"
 				overflowY="auto"
 				whiteSpace="pre-wrap"
+				ref={consoleRef}
 			>
 				{
 					outputData.map((d, i) => {
