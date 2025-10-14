@@ -7279,21 +7279,19 @@ function reset() {
 }
 
 function run(pypen_source, fast = true) {
-	if (code == null) {
-		try {
-			reset()
-			var dncl_source = python_to_dncl(pypen_source);
-			code = [new parsedMainRoutine(dncl.parse(dncl_source))];
-		}
-		catch (e) {
-			reset()
-			const texts = []
-			if (e.line) texts.push(e.line + "行目");
-			texts.push("構文エラーです\n" + e.message + "\n");
-			output(texts.join('\n'))
-			outputEnd()
-			return;
-		}
+	try {
+		reset()
+		var dncl_source = python_to_dncl(pypen_source);
+		code = [new parsedMainRoutine(dncl.parse(dncl_source))];
+	}
+	catch (e) {
+		reset()
+		const texts = []
+		if (e.line) texts.push(e.line + "行目");
+		texts.push("構文エラーです\n" + e.message + "\n");
+		output(texts.join('\n'))
+		outputEnd()
+		return;
 	}
 	run_flag = true
 	step(fast);

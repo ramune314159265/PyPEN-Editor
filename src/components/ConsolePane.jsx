@@ -1,6 +1,6 @@
 import { Tooltip } from '@/components/ui/tooltip'
-import { Box, Flex, IconButton, Stack, Text } from '@chakra-ui/react'
-import { useEffect } from 'react'
+import { Box, Button, Flex, IconButton, Input, Stack, Text } from '@chakra-ui/react'
+import { useEffect, useRef, useState } from 'react'
 import { HiNoSymbol } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
 import { useRunner } from '../atoms/runner'
@@ -8,6 +8,8 @@ import { useRunner } from '../atoms/runner'
 export const ConsolePane = () => {
 	const [outputData, { addOutputData, clearOutput }] = useOutput()
 	const [runner] = useRunner()
+	const [inputContent, setInputContent] = useState('')
+	const inputRef = useRef(null)
 
 	useEffect(() => {
 		if (!runner) {
@@ -32,7 +34,21 @@ export const ConsolePane = () => {
 				content: e
 			})
 		})
+		runner.on('inputRequest', () => {
+			inputRef.current.focus()
+		})
 	}, [runner])
+
+	const input = () => {
+		if (!inputContent) {
+			return
+		}
+		if (!runner) {
+			return
+		}
+		runner.emit('input', inputContent)
+		setInputContent('')
+	}
 
 	return (
 		<Flex direction="column" w="full" h="30%">
@@ -46,7 +62,7 @@ export const ConsolePane = () => {
 			</Stack>
 			<Box
 				width="full"
-				height="calc(100% - 2.5rem)"
+				height="calc(100% - 5rem)"
 				padding={2}
 				flexDirection="column"
 				background="#000000"
@@ -77,6 +93,19 @@ export const ConsolePane = () => {
 					})
 				}
 			</Box>
+			<Stack alignItems="center" direction="row" w="full" h="2.5rem" gap={0}>
+				<Input
+					placeholder="入力..."
+					w="calc(100% - 3rem)"
+					ref={inputRef}
+					value={inputContent}
+					onInput={e => setInputContent(e.target.value)}
+					onKeyDown={e => {
+						if (e.key === 'Enter') input()
+					}}
+				/>
+				<Button w="3rem" onClick={input}>入力</Button>
+			</Stack>
 		</Flex>
 	)
 }

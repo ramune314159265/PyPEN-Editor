@@ -64,6 +64,7 @@ export class PyPenRunner extends EventEmitter2 {
 
 		PyPenRunner.pypenWorker.onerror = e => {
 			this.emit('error', e.message)
+			resolve()
 		}
 
 		PyPenRunner.pypenWorker.postMessage({

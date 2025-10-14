@@ -17,9 +17,17 @@ export const PythonPane = () => {
 	const runPython = async () => {
 		const pythonRunner = new PythonRunner(pythonContent)
 		setRunner(pythonRunner)
-		await pythonRunner.run()
-		setRunner(null)
 	}
+	useEffect(() => {
+		if (!(runner instanceof PythonRunner)) {
+			return
+		}
+		(async () => {
+			await (new Promise(r => setTimeout(r, 0)))
+			await runner.run()
+			setRunner(null)
+		})()
+	}, [runner])
 
 	useEffect(() => {
 		if (value === pythonContent) {

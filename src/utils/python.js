@@ -1,37 +1,41 @@
 import EventEmitter2 from 'eventemitter2'
-import { loadPyodide } from 'pyodide'
+import Sk from 'skulpt'
 
 export class PythonRunner extends EventEmitter2 {
-	static pyodide
-
-	static async load() {
-		PythonRunner.pyodide = await loadPyodide()
-	}
-
 	constructor(code) {
 		super()
 		this.code = code
 	}
 
 	async run() {
-		if (!PythonRunner.pyodide) {
-			await PythonRunner.load()
+		const readInput = p => {
+			this.emit('output', p)
+			this.emit('inputRequest')
+			const { promise, resolve } = Promise.withResolvers()
+			this.on('input', e => resolve(e))
+			return promise
 		}
 
-		const stdinQueue = []
+		const builtinRead = x => {
+			if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+				throw `File not found: '${x}'`
+			return Sk.builtinFiles["files"][x]
+		}
 
-		PythonRunner.pyodide.setStdin({
-			stdin: () => prompt()
+		Sk.configure({
+			output: e => {
+				this.emit('output', e)
+			},
+			read: builtinRead,
+			inputfun: readInput,
+			inputfunTakesPrompt: true,
 		})
-		PythonRunner.pyodide.setStdout({
-			batched: e => this.emit('output', e + '\n')
-		})
-		PythonRunner.pyodide.setStderr({
-			batched: e => this.emit('error', e + '\n')
-		})
+		console.log(this)
+
 		try {
-			await PythonRunner.pyodide.runPythonAsync(this.code)
+			await Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, this.code, true))
 		} catch (e) {
+			throw e
 			this.emit('error', e.message)
 		}
 	}
