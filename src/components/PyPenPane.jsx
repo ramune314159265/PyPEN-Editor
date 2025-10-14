@@ -57,11 +57,11 @@ export const PyPenPane = () => {
 					</IconButton>
 				</Tooltip>
 				<Tooltip showArrow content="PyPENの文法">
-					<IconButton variant="ghost">
-						<a href="https://watayan.net/prog/PyPEN/manual/syntax.html" target='_blank'>
+					<a href="https://watayan.net/prog/PyPEN/manual/syntax.html" target='_blank'>
+						<IconButton variant="ghost">
 							<HiDocument />
-						</a>
-					</IconButton>
+						</IconButton>
+					</a>
 				</Tooltip>
 				<Tooltip showArrow content="PyPenからPythonに変換する">
 					<IconButton variant="ghost" onClick={convert}>
