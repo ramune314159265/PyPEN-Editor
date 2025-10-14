@@ -26,7 +26,7 @@ export function viteStaticCopyPyodide() {
 // https://vite.dev/config/
 export default defineConfig({
   optimizeDeps: {
-    exclude: ["pyodide"]
+    exclude: ["pyodide", "web-tree-sitter"]
   },
   plugins: [react(), viteStaticCopyPyodide()],
   resolve: {
