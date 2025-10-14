@@ -24,10 +24,10 @@ export class PythonRunner extends EventEmitter2 {
 			stdin: () => prompt()
 		})
 		PythonRunner.pyodide.setStdout({
-			batched: e => this.emit('output', e)
+			batched: e => this.emit('output', e + '\n')
 		})
 		PythonRunner.pyodide.setStderr({
-			batched: e => this.emit('error', e)
+			batched: e => this.emit('error', e + '\n')
 		})
 		try {
 			await PythonRunner.pyodide.runPythonAsync(this.code)

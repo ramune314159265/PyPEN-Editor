@@ -1453,6 +1453,7 @@ var test_limit_time = 0;
 var fontsize = 16;
 var python_lib = {};
 var editor = null;
+let canvas = null;
 
 /**
  * parsed...すべての親クラス
@@ -5320,19 +5321,14 @@ class GraphicStatement extends Statement {
 		else {
 			code[0].stack[0].index++;
 			if (this.command == 'gOpenWindow') {
-				var canvas = document.getElementById('canvas');
+				canvas = new OffscreenCanvas(this.args[0].getValue().value, this.args[1].getValue().value);
 				context = canvas.getContext('2d');
-				canvas.setAttribute("width", this.args[0].getValue().value + "px");
-				canvas.setAttribute("height", this.args[1].getValue().value + "px");
-				canvas.style.display = "block";
 			}
 			else if (this.command == 'gCloseWindow') {
-				var canvas = document.getElementById('canvas');
-				canvas.style.display = "none";
+				canvas = null;
 				context = null;
 			}
 			else if (this.command == 'gClearWindow') {
-				var canvas = document.getElementById('canvas');
 				context.clearRect(0, 0, canvas.width, canvas.height)
 			}
 			else if (this.command == 'gSetLineColor') {
@@ -5467,12 +5463,9 @@ class GraphicStatement extends Statement {
 			}
 			else if (this.command == 'gBarplot') {
 				if (context == null) {
-					var canvas = document.getElementById('canvas');
 					var w = this.args[0].getValue().value, h = this.args[1].getValue().value;
+					canvas = new OffscreenCanvas(w, h);
 					context = canvas.getContext('2d');
-					canvas.setAttribute("width", w + "px");
-					canvas.setAttribute("height", h + "px");
-					canvas.style.display = "block";
 				}
 				// 値の取得
 				var values = array2values(this.args[2], this.loc);
@@ -5515,12 +5508,9 @@ class GraphicStatement extends Statement {
 			}
 			else if (this.command == 'gLineplot') {
 				if (context == null) {
-					var canvas = document.getElementById('canvas');
 					var w = this.args[0].getValue().value, h = this.args[1].getValue().value;
+					canvas = new OffscreenCanvas(w, h);
 					context = canvas.getContext('2d');
-					canvas.setAttribute("width", w + "px");
-					canvas.setAttribute("height", h + "px");
-					canvas.style.display = "block";
 				}
 				// 値の取得
 				var values = array2values(this.args[2], this.loc);
@@ -7281,6 +7271,8 @@ function reset() {
 	current_line = -1;
 	run_flag = false
 	code = null;
+	canvas = null
+	context = null
 	wait_time = 0;
 	timeouts = [];
 	output_str = ''
@@ -7334,7 +7326,6 @@ function step(fast = true) {
 		}
 	}
 	else {
-		output("---\n");
 		outputEnd()
 		reset()
 	}
@@ -7431,6 +7422,18 @@ function output(v) {
 function clearOutput() { }
 
 function outputEnd() {
+	if (canvas) {
+		canvas.convertToBlob().then(b => {
+			self.postMessage({
+				type: 'image',
+				content: URL.createObjectURL(b)
+			})
+			self.postMessage({
+				type: 'end'
+			})
+		})
+		return
+	}
 	self.postMessage({
 		type: 'end'
 	})

@@ -50,6 +50,9 @@ export class PyPenRunner extends EventEmitter2 {
 				case 'output':
 					this.emit('output', data.content)
 					break
+				case 'image':
+					this.emit('image', data.content)
+					break
 				case 'end':
 					resolve()
 					break

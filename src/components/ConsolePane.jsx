@@ -17,13 +17,19 @@ export const ConsolePane = () => {
 		runner.on('output', e => {
 			addOutputData({
 				type: 'text',
-				content: `${e}\n`
+				content: e
+			})
+		})
+		runner.on('image', e => {
+			addOutputData({
+				type: 'image',
+				content: e
 			})
 		})
 		runner.on('error', e => {
 			addOutputData({
 				type: 'error',
-				content: `${e}\n`
+				content: e
 			})
 		})
 	}, [runner])
@@ -60,6 +66,9 @@ export const ConsolePane = () => {
 							}
 							case 'error': {
 								return (<span style={{ color: '#dc2626' }} key={i}>{d.content}</span>)
+							}
+							case 'image': {
+								return (<img src={d.content} key={i} style={{ background: '#ffffff' }} />)
 							}
 							default: {
 								return (<span key={i}>{d.content}</span>)
