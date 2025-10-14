@@ -1,10 +1,32 @@
 import { Tooltip } from '@/components/ui/tooltip'
 import { Box, Flex, IconButton, Stack, Text } from '@chakra-ui/react'
+import { useEffect } from 'react'
 import { HiNoSymbol } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
+import { useRunner } from '../atoms/runner'
 
 export const ConsolePane = () => {
-	const [outputData, { clearOutput }] = useOutput()
+	const [outputData, { addOutputData, clearOutput }] = useOutput()
+	const [runner] = useRunner()
+
+	useEffect(() => {
+		if (!runner) {
+			return
+		}
+		clearOutput()
+		runner.on('output', e => {
+			addOutputData({
+				type: 'text',
+				content: `${e}\n`
+			})
+		})
+		runner.on('error', e => {
+			addOutputData({
+				type: 'error',
+				content: `${e}\n`
+			})
+		})
+	}, [runner])
 
 	return (
 		<Flex direction="column" w="full" h="30%">

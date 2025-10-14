@@ -6,29 +6,23 @@ import { HiArrowLongRight, HiDocument, HiPlay } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
 import { usePyPen } from '../atoms/pypen'
 import { usePython } from '../atoms/python'
+import { useRunner } from '../atoms/runner'
 import { pyPenLanguageConfiguration, pyPenProvideCompletionItems, pyPenTokenizer } from '../utils/monacoPyPen'
 import { PyPenRunner } from '../utils/pypen'
 
 export const PyPenPane = () => {
 	const [pyPenContent, { setPyPenContent }] = usePyPen()
 	const [pythonContent, { setPythonContent }] = usePython()
+	const [runner, { setRunner, clearRunner }] = useRunner()
 	const [output, { clearOutput, addOutputData }] = useOutput()
-	const [isRunning, setIsRunning] = useState(false)
 	const [value, setValue] = useState('')
 	const editorRef = useRef(null)
 
 	const runPyPen = async () => {
-		setIsRunning(true)
-		clearOutput()
 		const pyPenRunner = new PyPenRunner(pyPenContent)
-		pyPenRunner.on('output', e => {
-			addOutputData({
-				type: 'text',
-				content: e
-			})
-		})
+		setRunner(pyPenRunner)
 		await pyPenRunner.run()
-		setIsRunning(false)
+		setRunner(null)
 	}
 	const convert = async () => {
 		clearOutput()
@@ -56,9 +50,9 @@ export const PyPenPane = () => {
 			<Stack justifyContent="flex-start" alignItems="center" direction="row" paddingInline={4} gap={2} w="full" h="2.5rem">
 				<Text>PyPEN</Text>
 				<Tooltip showArrow content="PyPenコードを実行">
-					<IconButton variant="ghost" onClick={runPyPen} disabled={isRunning}>
+					<IconButton variant="ghost" onClick={runPyPen} disabled={runner}>
 						{
-							isRunning ? <Spinner /> : <HiPlay />
+							runner ? <Spinner /> : <HiPlay />
 						}
 					</IconButton>
 				</Tooltip>

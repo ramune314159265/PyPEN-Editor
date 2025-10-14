@@ -4,38 +4,21 @@ import * as monaco from 'monaco-editor'
 import { MonacoPyrightProvider } from 'monaco-pyright-lsp'
 import { useEffect, useRef, useState } from 'react'
 import { HiPlay } from 'react-icons/hi2'
-import { useOutput } from '../atoms/output'
 import { usePython } from '../atoms/python'
+import { useRunner } from '../atoms/runner'
 import { PythonRunner } from '../utils/python'
 
 export const PythonPane = () => {
 	const [pythonContent, { setPythonContent }] = usePython()
-	const [output, { clearOutput, addOutputData }] = useOutput()
-	const [isRunning, setIsRunning] = useState(false)
+	const [runner, { setRunner, clearRunner }] = useRunner()
 	const [value, setValue] = useState('')
 	const editorRef = useRef(null)
 
 	const runPython = async () => {
-		setIsRunning(true)
-		clearOutput()
 		const pythonRunner = new PythonRunner(pythonContent)
-		console.log(pythonRunner)
-		pythonRunner.on('output', e => {
-			addOutputData({
-				type: 'text',
-				content: `${e}\n`
-			})
-		})
-		try {
-			await pythonRunner.run()
-		} catch (e) {
-			addOutputData({
-				type: 'error',
-				content: e.message
-			})
-		} finally {
-			setIsRunning(false)
-		}
+		setRunner(pythonRunner)
+		await pythonRunner.run()
+		setRunner(null)
 	}
 
 	useEffect(() => {
@@ -51,9 +34,9 @@ export const PythonPane = () => {
 			<Stack justifyContent="flex-start" alignItems="center" direction="row" paddingInline={4} gap={2} w="full" h="2.5rem">
 				<Text>Python</Text>
 				<Tooltip showArrow content="Pythonコードを実行">
-					<IconButton variant="ghost" onClick={runPython} disabled={isRunning}>
+					<IconButton variant="ghost" onClick={runPython} disabled={runner}>
 						{
-							isRunning ? <Spinner /> : <HiPlay />
+							runner ? <Spinner /> : <HiPlay />
 						}
 					</IconButton>
 				</Tooltip>

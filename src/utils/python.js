@@ -29,6 +29,10 @@ export class PythonRunner extends EventEmitter2 {
 		PythonRunner.pyodide.setStderr({
 			batched: e => this.emit('error', e)
 		})
-		await PythonRunner.pyodide.runPythonAsync(this.code)
+		try {
+			await PythonRunner.pyodide.runPythonAsync(this.code)
+		} catch (e) {
+			this.emit('error', e.message)
+		}
 	}
 }
