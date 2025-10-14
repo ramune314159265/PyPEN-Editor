@@ -15,42 +15,42 @@ export const pyPenProvideCompletionItems = (model, position) => {
 			{
 				label: '表示 print()',
 				kind: monaco.languages.CompletionItemKind.Function,
-				insertText: '表示する(${1:値})\n',
+				insertText: '表示する(${1:値})',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '値を表示する'
 			},
 			{
 				label: '改行なしで表示 print()',
 				kind: monaco.languages.CompletionItemKind.Function,
-				insertText: '改行無しで表示する(${1:値})\n',
+				insertText: '改行無しで表示する(${1:値})',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '値を改行なしで表示する'
 			},
 			{
 				label: '整数入力 int(input())',
 				kind: monaco.languages.CompletionItemKind.Function,
-				insertText: '${1:変数名} に整数を入力する\n',
+				insertText: '${1:変数名} に整数を入力する',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '変数に整数を入力する'
 			},
 			{
 				label: '実数入力 float(input())',
 				kind: monaco.languages.CompletionItemKind.Function,
-				insertText: '${1:変数名} に実数を入力する\n',
+				insertText: '${1:変数名} に実数を入力する',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '変数に実数を入力する'
 			},
 			{
 				label: '文字列入力 input()',
 				kind: monaco.languages.CompletionItemKind.Function,
-				insertText: '${1:変数名} に文字列を入力する\n',
+				insertText: '${1:変数名} に文字列を入力する',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '変数に文字列を入力する'
 			},
 			{
 				label: '真偽入力 bool(input())',
 				kind: monaco.languages.CompletionItemKind.Function,
-				insertText: '${1:変数名} に真偽を入力する\n',
+				insertText: '${1:変数名} に真偽を入力する',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '変数に真偽を入力する'
 			},
@@ -106,7 +106,7 @@ export const pyPenProvideCompletionItems = (model, position) => {
 			{
 				label: '繰り返しを抜ける break',
 				kind: monaco.languages.CompletionItemKind.Keyword,
-				insertText: '繰り返しを抜ける\n',
+				insertText: '繰り返しを抜ける',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '繰り返しを抜ける(break)'
 			},
@@ -120,21 +120,21 @@ export const pyPenProvideCompletionItems = (model, position) => {
 			{
 				label: '値を返す return',
 				kind: monaco.languages.CompletionItemKind.Keyword,
-				insertText: '${1:値} を返す\n',
+				insertText: '${1:値} を返す',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '値を返す(return)'
 			},
 			{
 				label: '配列に値を追加 append',
 				kind: monaco.languages.CompletionItemKind.Function,
-				insertText: '${1:変数配列} に ${2:値} を追加する\n',
+				insertText: '${1:変数配列} に ${2:値} を追加する',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '配列に値を追加(append)'
 			},
 			{
 				label: '配列に配列を連結 extend concat',
 				kind: monaco.languages.CompletionItemKind.Function,
-				insertText: '${1:変数配列} に ${2:配列} を連結する\n',
+				insertText: '${1:変数配列} に ${2:配列} を連結する',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '配列と配列を連結(extend)'
 			}
