@@ -12,7 +12,7 @@ export class PythonRunner extends EventEmitter2 {
 			this.emit('output', p)
 			this.emit('inputRequest')
 			const { promise, resolve } = Promise.withResolvers()
-			this.on('input', e => resolve(e))
+			this.once('input', e => resolve(e))
 			return promise
 		}
 

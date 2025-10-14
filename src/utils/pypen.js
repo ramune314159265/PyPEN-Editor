@@ -53,6 +53,9 @@ export class PyPenRunner extends EventEmitter2 {
 				case 'image':
 					this.emit('image', data.content)
 					break
+				case 'inputRequest':
+					this.emit('inputRequest')
+					break
 				case 'end':
 					resolve()
 					break
@@ -66,6 +69,13 @@ export class PyPenRunner extends EventEmitter2 {
 			this.emit('error', e.message)
 			resolve()
 		}
+
+		this.on('input', e => {
+			PyPenRunner.pypenWorker.postMessage({
+				type: 'input',
+				content: e
+			})
+		})
 
 		PyPenRunner.pypenWorker.postMessage({
 			type: 'run',

@@ -7444,7 +7444,7 @@ function openInputWindow() {
 	isInputOpen = true
 	run_flag = false
 	self.postMessage({
-		type: 'startInput'
+		type: 'inputRequest'
 	})
 }
 
@@ -7469,6 +7469,7 @@ self.addEventListener('message', e => {
 			inputValue = data.content
 			run_flag = true
 			step()
+			break
 		}
 		case 'convert': {
 			const code = data.content
@@ -7477,6 +7478,7 @@ self.addEventListener('message', e => {
 				type: 'convert_output',
 				content: converted
 			})
+			break
 		}
 		default:
 			break
