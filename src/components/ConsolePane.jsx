@@ -22,6 +22,7 @@ export const ConsolePane = () => {
 				padding={2}
 				flexDirection="column"
 				background="#000000"
+				color="#ffffff"
 				fontFamily="consolas, monospace"
 				fontSize={16}
 				lineHeight={1.25}
