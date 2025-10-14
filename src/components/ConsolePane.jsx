@@ -9,6 +9,7 @@ export const ConsolePane = () => {
 	const [outputData, { addOutputData, clearOutput }] = useOutput()
 	const [runner] = useRunner()
 	const [inputContent, setInputContent] = useState('')
+	const [waitingForInput, setWaitingForInput] = useState(false)
 	const consoleRef = useRef(null)
 	const inputRef = useRef(null)
 
@@ -36,6 +37,7 @@ export const ConsolePane = () => {
 			})
 		})
 		runner.on('inputRequest', () => {
+			setWaitingForInput(true)
 			inputRef.current.focus()
 		})
 	}, [runner])
@@ -53,6 +55,7 @@ export const ConsolePane = () => {
 		}
 		runner.emit('input', inputContent)
 		setInputContent('')
+		setWaitingForInput(false)
 	}
 
 	return (
@@ -101,7 +104,8 @@ export const ConsolePane = () => {
 			</Box>
 			<Stack alignItems="center" direction="row" w="full" h="2.5rem" gap={0}>
 				<Input
-					placeholder="入力..."
+					placeholder={waitingForInput ? 'ここに入力...' : '入力欄'}
+					disabled={!waitingForInput}
 					w="calc(100% - 3rem)"
 					ref={inputRef}
 					value={inputContent}
@@ -110,7 +114,7 @@ export const ConsolePane = () => {
 						if (e.key === 'Enter') input()
 					}}
 				/>
-				<Button w="3rem" onClick={input}>入力</Button>
+				<Button w="3rem" onClick={input} disabled={!waitingForInput}>入力</Button>
 			</Stack>
 		</Flex>
 	)
