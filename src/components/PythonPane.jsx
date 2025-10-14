@@ -62,6 +62,9 @@ export const PythonPane = () => {
 						theme: 'vs-dark',
 						language: 'python',
 						automaticLayout: true,
+						minimap: {
+							enabled: false
+						}
 					})
 					editorRef.current = editor
 

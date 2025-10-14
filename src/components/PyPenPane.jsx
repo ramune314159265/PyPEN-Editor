@@ -90,6 +90,9 @@ export const PyPenPane = () => {
 						theme: 'vs-dark',
 						language: 'pypen',
 						automaticLayout: true,
+						minimap: {
+							enabled: false
+						}
 					})
 					editorRef.current = editor
 
