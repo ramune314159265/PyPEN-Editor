@@ -137,6 +137,13 @@ export const pyPenProvideCompletionItems = (model, position) => {
 				insertText: '${1:変数配列} に ${2:配列} を連結する',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '配列と配列を連結(extend)'
+			},
+			{
+				label: '配列に値が含まれるか in includes',
+				kind: monaco.languages.CompletionItemKind.Function,
+				insertText: '${1:配列} の中に ${2:値}',
+				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+				documentation: '配列に値が含まれるか(in)'
 			}
 		)
 	}
