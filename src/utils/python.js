@@ -30,13 +30,12 @@ export class PythonRunner extends EventEmitter2 {
 			inputfun: readInput,
 			inputfunTakesPrompt: true,
 		})
-		console.log(this)
 
 		try {
 			await Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, this.code, true))
 		} catch (e) {
-			throw e
-			this.emit('error', e.message)
+			console.error(e)
+			this.emit('error', e.toString())
 		}
 	}
 }
