@@ -1,5 +1,5 @@
 import { Tooltip } from '@/components/ui/tooltip'
-import { Box, Button, Flex, IconButton, Input, Stack, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, IconButton, Input, NativeSelectField, NativeSelectIndicator, NativeSelectRoot, Stack, Text } from '@chakra-ui/react'
 import { useEffect, useRef, useState } from 'react'
 import { HiNoSymbol } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
@@ -10,6 +10,7 @@ export const ConsolePane = () => {
 	const [runner] = useRunner()
 	const [inputContent, setInputContent] = useState('')
 	const [waitingForInput, setWaitingForInput] = useState(false)
+	const [inputMode, setInputMode] = useState('letter')
 	const consoleRef = useRef(null)
 	const inputRef = useRef(null)
 
@@ -38,7 +39,7 @@ export const ConsolePane = () => {
 		})
 		runner.on('inputRequest', () => {
 			setWaitingForInput(true)
-			inputRef.current.focus()
+			setTimeout(() => inputRef.current.focus(), 0)
 		})
 	}, [runner])
 
@@ -56,6 +57,17 @@ export const ConsolePane = () => {
 		runner.emit('input', inputContent)
 		setInputContent('')
 		setWaitingForInput(false)
+	}
+
+	const keyHandle = e => {
+		if (inputMode === 'key') {
+			runner.emit('input', e.key)
+			e.preventDefault()
+			setInputContent('')
+			setWaitingForInput(false)
+			return
+		}
+		if (e.key === 'Enter') input()
 	}
 
 	return (
@@ -102,20 +114,27 @@ export const ConsolePane = () => {
 					})
 				}
 			</Box>
-			<Stack alignItems="center" direction="row" w="full" h="2.5rem" gap={0}>
+			<Grid alignItems="center" gridTemplateColumns={"1fr 4.5rem 3rem"} w="full" h="2.5rem" gap={0}>
 				<Input
 					placeholder={waitingForInput ? 'ここに入力...' : '入力欄'}
 					disabled={!waitingForInput}
-					w="calc(100% - 3rem)"
 					ref={inputRef}
 					value={inputContent}
 					onInput={e => setInputContent(e.target.value)}
-					onKeyDown={e => {
-						if (e.key === 'Enter') input()
-					}}
+					onKeyDown={keyHandle}
 				/>
-				<Button w="3rem" onClick={input} disabled={!waitingForInput}>入力</Button>
-			</Stack>
+				<NativeSelectRoot>
+					<NativeSelectField
+						value={inputMode}
+						onChange={e => setInputMode(e.currentTarget.value)}
+					>
+						<option value="letter">文字入力モード</option>
+						<option value="key">キー入力モード</option>
+					</NativeSelectField>
+					<NativeSelectIndicator></NativeSelectIndicator>
+				</NativeSelectRoot>
+				<Button onClick={input} disabled={!waitingForInput || inputMode === 'key'}>入力</Button>
+			</Grid>
 		</Flex>
 	)
 }
