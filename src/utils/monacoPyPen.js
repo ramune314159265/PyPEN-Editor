@@ -62,9 +62,9 @@ export const pyPenProvideCompletionItems = (model, position) => {
 				documentation: '条件分岐(if)'
 			},
 			{
-				label: 'そうではなくもし else if',
+				label: 'そうでなくもし else if',
 				kind: monaco.languages.CompletionItemKind.Keyword,
-				insertText: 'そうではなくもし ${1:条件式} ならば：\n\t',
+				insertText: 'そうでなくもし ${1:条件式} ならば：\n\t',
 				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
 				documentation: '条件分岐(else if)'
 			},
@@ -191,7 +191,7 @@ export const pyPenTokenizer = {
 	root: [
 		[/#.*$/, 'comment'],
 		[/".*?"/, 'string'],
-		[/(もし|ならば|そうではなくもし|そうでなければ|の間|を|から|まで|ずつ増やしながら|ずつ減らしながら|の要素|について繰り返す|関数|を連結する|を追加する|を返す|繰り返しを抜ける)/, 'keyword'],
+		[/(もし|ならば|そうでなくもし|そうでなければ|の間|を|から|まで|ずつ増やしながら|ずつ減らしながら|の要素|について繰り返す|関数|を連結する|を追加する|を返す|繰り返しを抜ける)/, 'keyword'],
 		[/\b(True|False)\b/, 'constant'],
 		[/\b\d+(\.\d+)?\b/, 'number'],
 		[/[a-zA-Z_]\w*/, 'identifier'],
