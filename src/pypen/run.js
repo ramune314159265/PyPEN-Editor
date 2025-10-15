@@ -7278,7 +7278,7 @@ function reset() {
 	output_str = ''
 }
 
-function run(pypen_source, fast = true) {
+function run(pypen_source) {
 	try {
 		reset()
 		var dncl_source = python_to_dncl(pypen_source);
@@ -7294,7 +7294,7 @@ function run(pypen_source, fast = true) {
 		return;
 	}
 	run_flag = true
-	step(fast);
+	step();
 }
 
 // busy wait !!
@@ -7304,7 +7304,9 @@ function wait(ms) {
 		;
 }
 
-function step(fast = true) {
+var fast_time = 0;
+
+function step() {
 	// 次の行まで進める
 	var l = current_line;
 	do {
@@ -7317,10 +7319,14 @@ function step(fast = true) {
 				wait(wait_time);
 				wait_time = 0;
 			}
-			if (fast)
-				step(fast)
-			else
-				setTimeout(() => step(false), 0);
+			fast_time++
+			if (1000 < fast_time) {
+				Promise.resolve().then(() => step())
+				fast_time = 0
+			}
+			else {
+				step()
+			}
 		}
 	}
 	else {
@@ -7459,7 +7465,7 @@ self.addEventListener('message', e => {
 	switch (data.type) {
 		case 'run': {
 			const code = data.content
-			run(code, data.fast ?? true)
+			run(code)
 			break
 		}
 		case 'input': {
