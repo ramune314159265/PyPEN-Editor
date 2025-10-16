@@ -1,5 +1,5 @@
 import { Tooltip } from '@/components/ui/tooltip'
-import { Box, Flex, IconButton, Spinner, Stack, Text } from '@chakra-ui/react'
+import { Box, Flex, IconButton, Spinner, Stack } from '@chakra-ui/react'
 import * as monaco from 'monaco-editor'
 import { MonacoPyrightProvider } from 'monaco-pyright-lsp'
 import { useEffect, useRef, useState } from 'react'
@@ -38,11 +38,10 @@ export const PythonPane = () => {
 	}, [pythonContent])
 
 	return (
-		<Flex w="calc(50% - calc(2.5rem / 2))" h="full" direction="column">
-			<Stack justifyContent="flex-start" alignItems="center" direction="row" paddingInline={4} gap={2} w="full" h="2.5rem">
-				<Text>Python</Text>
+		<Flex w="full" h="full" direction="column">
+			<Stack justifyContent="flex-start" alignItems="center" direction="row" gap={2} w="full">
 				<Tooltip showArrow content="Pythonコードを実行">
-					<IconButton variant="ghost" onClick={runPython} disabled={runner}>
+					<IconButton size="sm" variant="ghost" onClick={runPython} disabled={runner}>
 						{
 							runner ? <Spinner /> : <HiPlay />
 						}

@@ -1,8 +1,9 @@
 import { Tooltip } from '@/components/ui/tooltip'
-import { Box, Flex, IconButton, Spinner, Stack, Text } from '@chakra-ui/react'
+import { Box, Flex, IconButton, Spinner, Stack } from '@chakra-ui/react'
 import * as monaco from 'monaco-editor'
 import { useEffect, useRef, useState } from 'react'
-import { HiArrowLongRight, HiDocument, HiPlay } from 'react-icons/hi2'
+import { FaPython } from 'react-icons/fa'
+import { HiDocument, HiPlay } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
 import { usePyPen } from '../atoms/pypen'
 import { usePython } from '../atoms/python'
@@ -46,11 +47,10 @@ export const PyPenPane = () => {
 	}, [pyPenContent])
 
 	return (
-		<Flex w="calc(50% - calc(2.5rem / 2))" h="full" direction="column">
-			<Stack justifyContent="flex-start" alignItems="center" direction="row" paddingInline={4} gap={2} w="full" h="2.5rem">
-				<Text>PyPEN</Text>
+		<Flex w="full" h="full" direction="column">
+			<Stack justifyContent="flex-start" alignItems="center" direction="row" gap={2} w="full">
 				<Tooltip showArrow content="PyPenコードを実行">
-					<IconButton variant="ghost" onClick={runPyPen} disabled={runner}>
+					<IconButton size="sm" variant="ghost" onClick={runPyPen} disabled={runner}>
 						{
 							runner ? <Spinner /> : <HiPlay />
 						}
@@ -58,14 +58,14 @@ export const PyPenPane = () => {
 				</Tooltip>
 				<Tooltip showArrow content="PyPENの文法">
 					<a href="https://watayan.net/prog/PyPEN/manual/syntax.html" target='_blank'>
-						<IconButton variant="ghost">
+						<IconButton size="sm" variant="ghost">
 							<HiDocument />
 						</IconButton>
 					</a>
 				</Tooltip>
 				<Tooltip showArrow content="PyPenからPythonに変換する">
-					<IconButton variant="ghost" onClick={convert}>
-						<HiArrowLongRight />
+					<IconButton size="sm" variant="ghost" onClick={convert}>
+						<FaPython />
 					</IconButton>
 				</Tooltip>
 			</Stack>

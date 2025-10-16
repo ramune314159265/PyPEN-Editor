@@ -1,5 +1,5 @@
 import { Tooltip } from '@/components/ui/tooltip'
-import { Box, Button, Flex, Grid, IconButton, Input, NativeSelectField, NativeSelectIndicator, NativeSelectRoot, Stack, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, IconButton, Input, NativeSelectField, NativeSelectIndicator, NativeSelectRoot, Stack } from '@chakra-ui/react'
 import { useEffect, useRef, useState } from 'react'
 import { HiNoSymbol } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
@@ -71,18 +71,24 @@ export const ConsolePane = () => {
 	}
 
 	return (
-		<Flex direction="column" w="full" h="30%">
-			<Stack justifyContent="flex-start" alignItems="center" direction="row" paddingInline={4} gap={2} w="full" h="2.5rem">
-				<Text>出力</Text>
+		<Flex direction="column" w="full" h="full" position="relative">
+			<Stack
+				justifyContent="flex-start"
+				alignItems="center"
+				direction="row"
+				position="absolute"
+				top={0}
+				right={0}
+				h="2.5rem">
 				<Tooltip showArrow content="出力をクリア">
-					<IconButton variant="ghost" onClick={() => clearOutput()}>
+					<IconButton size="xs" variant="ghost" onClick={() => clearOutput()}>
 						<HiNoSymbol />
 					</IconButton>
 				</Tooltip>
 			</Stack>
 			<Box
 				width="full"
-				height="calc(100% - 5rem)"
+				height="calc(100% - 2.5rem)"
 				padding={2}
 				flexDirection="column"
 				background="#000000"
