@@ -2073,7 +2073,7 @@ class BooleanValue extends Value {
 		super(v ? true : false, loc);
 	}
 	clone() {
-		return BooleanValue(this.value, this.loc);
+		return new BooleanValue(this.value, this.loc);
 	}
 	getCode() {
 		return this.value ? 'True' : 'False';
