@@ -38,4 +38,8 @@ export class PythonRunner extends EventEmitter2 {
 			this.emit('error', e.toString())
 		}
 	}
+
+	abort() {
+
+	}
 }

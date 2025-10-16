@@ -83,4 +83,10 @@ export class PyPenRunner extends EventEmitter2 {
 		})
 		return promise
 	}
+
+	abort() {
+		if (PyPenRunner.pypenWorker) {
+			PyPenRunner.pypenWorker.terminate()
+		}
+	}
 }

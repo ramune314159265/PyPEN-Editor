@@ -15,6 +15,9 @@ export const PythonPane = () => {
 	const editorRef = useRef(null)
 
 	const runPython = async () => {
+		if(runner) {
+			runner.abort()
+		}
 		const pythonRunner = new PythonRunner(pythonContent)
 		setRunner(pythonRunner)
 	}
