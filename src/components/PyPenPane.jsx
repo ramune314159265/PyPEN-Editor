@@ -49,7 +49,7 @@ export const PyPenPane = () => {
 	return (
 		<Flex w="full" h="full" direction="column">
 			<Stack justifyContent="flex-start" alignItems="center" direction="row" gap={2} w="full">
-				<Tooltip showArrow content="PyPenコードを実行">
+				<Tooltip showArrow content="PyPenコードを実行(Ctrl + R)">
 					<IconButton size="sm" variant="ghost" onClick={runPyPen} disabled={runner}>
 						{
 							runner ? <Spinner /> : <HiPlay />
@@ -95,6 +95,12 @@ export const PyPenPane = () => {
 						}
 					})
 					editorRef.current = editor
+					editor.addCommand(
+						monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyR,
+						() => {
+							runPyPen()
+						}
+					)
 
 					editor.getModel().onDidChangeContent(e => {
 						setPyPenContent(editor.getValue())

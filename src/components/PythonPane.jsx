@@ -40,7 +40,7 @@ export const PythonPane = () => {
 	return (
 		<Flex w="full" h="full" direction="column">
 			<Stack justifyContent="flex-start" alignItems="center" direction="row" gap={2} w="full">
-				<Tooltip showArrow content="Pythonコードを実行">
+				<Tooltip showArrow content="Pythonコードを実行(Ctrl + R)">
 					<IconButton size="sm" variant="ghost" onClick={runPython} disabled={runner}>
 						{
 							runner ? <Spinner /> : <HiPlay />
@@ -66,6 +66,12 @@ export const PythonPane = () => {
 						}
 					})
 					editorRef.current = editor
+					editor.addCommand(
+						monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyR,
+						() => {
+							runPython()
+						}
+					)
 
 					editor.getModel().onDidChangeContent(e => {
 						setValue(editor.getValue())
