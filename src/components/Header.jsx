@@ -5,7 +5,7 @@ export const Header = () => {
 		<Box bg="bg.panel" height="full" px="1rem" userSelect="none">
 			<Flex height="full" alignItems="center" justifyContent="space-between">
 				<Heading>
-					PyPEN エティター
+					PyPEN エディター
 				</Heading>
 				<HStack>
 				</HStack>
