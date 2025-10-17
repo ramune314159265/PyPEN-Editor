@@ -43,11 +43,11 @@ export const PyPenPane = () => {
 	}
 	const saveNewFile = async () => {
 		const handler = await window.showSaveFilePicker({
-			suggestedName: 'pypen.pypen',
+			suggestedName: 'pypen.PyPEN',
 			types: [
 				{
 					description: "PyPENファイル",
-					accept: { "text/pypen": [".pypen"] },
+					accept: { "text/pypen": [".PyPEN"] },
 				},
 			]
 		})
