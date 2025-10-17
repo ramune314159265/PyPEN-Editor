@@ -17,6 +17,7 @@ export const PyPenPane = () => {
 	const [runner, { setRunner, clearRunner }] = useRunner()
 	const [output, { clearOutput, addOutputData }] = useOutput()
 	const [value, setValue] = useState('')
+	const [fileHandler, setFileHandler] = useState(null)
 	const editorRef = useRef(null)
 
 	const runPyPen = async () => {
@@ -40,7 +41,7 @@ export const PyPenPane = () => {
 			})
 		}
 	}
-	const saveFile = async () => {
+	const saveNewFile = async () => {
 		const handler = await window.showSaveFilePicker({
 			suggestedName: 'pypen.pypen',
 			types: [
@@ -51,7 +52,19 @@ export const PyPenPane = () => {
 			]
 		})
 
+		setFileHandler(handler)
 		const stream = await handler.createWritable()
+		const blob = new Blob([pyPenContent], { type: 'text/plain' })
+
+		await stream.write(blob)
+		await stream.close()
+	}
+	const saveFile = async () => {
+		if (!fileHandler) {
+			saveNewFile()
+			return
+		}
+		const stream = await fileHandler.createWritable()
 		const blob = new Blob([pyPenContent], { type: 'text/plain' })
 
 		await stream.write(blob)
@@ -89,7 +102,7 @@ export const PyPenPane = () => {
 					</IconButton>
 				</Tooltip>
 				<Tooltip showArrow content="保存">
-					<IconButton size="sm" variant="ghost" onClick={saveFile}>
+					<IconButton size="sm" variant="ghost" onClick={saveNewFile}>
 						<HiArrowDownTray />
 					</IconButton>
 				</Tooltip>
@@ -124,6 +137,12 @@ export const PyPenPane = () => {
 						monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyR,
 						() => {
 							runPyPen()
+						}
+					)
+					editor.addCommand(
+						monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS,
+						() => {
+							saveFile()
 						}
 					)
 
