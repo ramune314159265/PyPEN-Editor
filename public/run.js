@@ -7451,6 +7451,14 @@ let isInputOpen = false
 function openInputWindow() {
 	isInputOpen = true
 	run_flag = false
+	if (canvas) {
+		canvas.convertToBlob().then(b => {
+			self.postMessage({
+				type: 'image',
+				content: URL.createObjectURL(b)
+			})
+		})
+	}
 	self.postMessage({
 		type: 'inputRequest'
 	})
