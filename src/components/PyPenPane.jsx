@@ -21,9 +21,7 @@ export const PyPenPane = () => {
 	const editorRef = useRef(null)
 
 	const runPyPen = async () => {
-		if (runner) {
-			abortRunner()
-		}
+		abortRunner()
 		const pyPenRunner = new PyPenRunner(pyPenContent)
 		setRunner(pyPenRunner)
 		await pyPenRunner.run()

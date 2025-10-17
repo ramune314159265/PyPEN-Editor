@@ -1,32 +1,24 @@
 import EventEmitter2 from 'eventemitter2'
 
 export class PyPenRunner extends EventEmitter2 {
-	static pypenWorker
-
-	static startPyPen() {
-		PyPenRunner.pypenWorker = new Worker('./run.js')
-	}
-
 	static async convert(code) {
 		const { promise, resolve, reject } = Promise.withResolvers()
-		if (!PyPenRunner.pypenWorker) {
-			PyPenRunner.startPyPen()
-		}
+		const pyPenWorker = new Worker('./run.js')
 
 		const handle = e => {
 			if (e.data.type === 'output') {
-				PyPenRunner.pypenWorker.removeEventListener('message', handle)
+				pyPenWorker.removeEventListener('message', handle)
 				reject(e.data.content)
 			}
 			if (e.data.type !== 'convert_output') {
 				return
 			}
-			PyPenRunner.pypenWorker.removeEventListener('message', handle)
+			pyPenWorker.removeEventListener('message', handle)
 			resolve(e.data.content)
 		}
-		PyPenRunner.pypenWorker.addEventListener('message', handle)
+		pyPenWorker.addEventListener('message', handle)
 
-		PyPenRunner.pypenWorker.postMessage({
+		pyPenWorker.postMessage({
 			type: 'convert',
 			content: code
 		})
@@ -36,15 +28,13 @@ export class PyPenRunner extends EventEmitter2 {
 	constructor(code) {
 		super()
 		this.code = code
+		this.pyPenWorker = new Worker('./run.js')
 	}
 
 	run() {
 		const { promise, resolve } = Promise.withResolvers()
-		if (!PyPenRunner.pypenWorker) {
-			PyPenRunner.startPyPen()
-		}
 
-		PyPenRunner.pypenWorker.onmessage = e => {
+		this.pyPenWorker.onmessage = e => {
 			const data = e.data
 			switch (data.type) {
 				case 'output':
@@ -65,19 +55,19 @@ export class PyPenRunner extends EventEmitter2 {
 			}
 		}
 
-		PyPenRunner.pypenWorker.onerror = e => {
+		this.pyPenWorker.onerror = e => {
 			this.emit('error', e.message)
 			resolve()
 		}
 
 		this.on('input', e => {
-			PyPenRunner.pypenWorker.postMessage({
+			this.pyPenWorker.postMessage({
 				type: 'input',
 				content: e
 			})
 		})
 
-		PyPenRunner.pypenWorker.postMessage({
+		this.pyPenWorker.postMessage({
 			type: 'run',
 			content: this.code
 		})
@@ -85,8 +75,6 @@ export class PyPenRunner extends EventEmitter2 {
 	}
 
 	abort() {
-		if (PyPenRunner.pypenWorker) {
-			PyPenRunner.pypenWorker.terminate()
-		}
+		this.pyPenWorker.terminate()
 	}
 }
