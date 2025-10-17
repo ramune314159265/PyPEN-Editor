@@ -3,7 +3,7 @@ import { Box, Flex, IconButton, Spinner, Stack } from '@chakra-ui/react'
 import * as monaco from 'monaco-editor'
 import { MonacoPyrightProvider } from 'monaco-pyright-lsp'
 import { useEffect, useRef, useState } from 'react'
-import { HiPlay } from 'react-icons/hi2'
+import { HiArrowDownTray, HiPlay } from 'react-icons/hi2'
 import { usePython } from '../atoms/python'
 import { useRunner } from '../atoms/runner'
 import { PythonRunner } from '../utils/python'
@@ -15,11 +15,28 @@ export const PythonPane = () => {
 	const editorRef = useRef(null)
 
 	const runPython = async () => {
-		if(runner) {
+		if (runner) {
 			runner.abort()
 		}
 		const pythonRunner = new PythonRunner(pythonContent)
 		setRunner(pythonRunner)
+	}
+	const saveFile = async () => {
+		const handler = await window.showSaveFilePicker({
+			suggestedName: 'python.py',
+			types: [
+				{
+					description: "Pythonファイル",
+					accept: { "text/python": [".py"] },
+				},
+			]
+		})
+
+		const stream = await handler.createWritable()
+		const blob = new Blob([pythonContent], { type: 'text/plain' })
+
+		await stream.write(blob)
+		await stream.close()
 	}
 	useEffect(() => {
 		if (!(runner instanceof PythonRunner)) {
@@ -48,6 +65,11 @@ export const PythonPane = () => {
 						{
 							runner ? <Spinner /> : <HiPlay />
 						}
+					</IconButton>
+				</Tooltip>
+				<Tooltip showArrow content="保存">
+					<IconButton size="sm" variant="ghost" onClick={saveFile}>
+						<HiArrowDownTray />
 					</IconButton>
 				</Tooltip>
 			</Stack>

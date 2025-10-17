@@ -3,7 +3,7 @@ import { Box, Flex, IconButton, Spinner, Stack } from '@chakra-ui/react'
 import * as monaco from 'monaco-editor'
 import { useEffect, useRef, useState } from 'react'
 import { FaPython } from 'react-icons/fa'
-import { HiDocument, HiPlay } from 'react-icons/hi2'
+import { HiArrowDownTray, HiDocument, HiPlay } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
 import { usePyPen } from '../atoms/pypen'
 import { usePython } from '../atoms/python'
@@ -20,7 +20,7 @@ export const PyPenPane = () => {
 	const editorRef = useRef(null)
 
 	const runPyPen = async () => {
-		if(runner) {
+		if (runner) {
 			runner.abort()
 		}
 		const pyPenRunner = new PyPenRunner(pyPenContent)
@@ -39,6 +39,23 @@ export const PyPenPane = () => {
 				content: e
 			})
 		}
+	}
+	const saveFile = async () => {
+		const handler = await window.showSaveFilePicker({
+			suggestedName: 'pypen.pypen',
+			types: [
+				{
+					description: "PyPENファイル",
+					accept: { "text/pypen": [".pypen"] },
+				},
+			]
+		})
+
+		const stream = await handler.createWritable()
+		const blob = new Blob([pyPenContent], { type: 'text/plain' })
+
+		await stream.write(blob)
+		await stream.close()
 	}
 
 	useEffect(() => {
@@ -69,6 +86,11 @@ export const PyPenPane = () => {
 				<Tooltip showArrow content="PyPenからPythonに変換する">
 					<IconButton size="sm" variant="ghost" onClick={convert}>
 						<FaPython />
+					</IconButton>
+				</Tooltip>
+				<Tooltip showArrow content="保存">
+					<IconButton size="sm" variant="ghost" onClick={saveFile}>
+						<HiArrowDownTray />
 					</IconButton>
 				</Tooltip>
 			</Stack>
