@@ -17,7 +17,7 @@ export const PythonPane = () => {
 
 	const runPython = async () => {
 		if (runner) {
-			runner.abort()
+			abortRunner()
 		}
 		const pythonRunner = new PythonRunner(pythonContent)
 		setRunner(pythonRunner)

@@ -1,13 +1,13 @@
 import { Tooltip } from '@/components/ui/tooltip'
 import { Box, Button, Flex, Grid, IconButton, Input, NativeSelectField, NativeSelectIndicator, NativeSelectRoot, Stack } from '@chakra-ui/react'
 import { useEffect, useRef, useState } from 'react'
-import { HiNoSymbol } from 'react-icons/hi2'
+import { HiNoSymbol, HiStop } from 'react-icons/hi2'
 import { useOutput } from '../atoms/output'
 import { useRunner } from '../atoms/runner'
 
 export const ConsolePane = () => {
 	const [outputData, { addOutputData, clearOutput }] = useOutput()
-	const [runner] = useRunner()
+	const [runner, { abortRunner }] = useRunner()
 	const [inputContent, setInputContent] = useState('')
 	const [waitingForInput, setWaitingForInput] = useState(false)
 	const [inputMode, setInputMode] = useState('letter')
@@ -83,6 +83,11 @@ export const ConsolePane = () => {
 				<Tooltip showArrow content="出力をクリア">
 					<IconButton size="xs" variant="ghost" onClick={() => clearOutput()}>
 						<HiNoSymbol />
+					</IconButton>
+				</Tooltip>
+				<Tooltip showArrow content="中断">
+					<IconButton size="xs" variant="ghost" onClick={() => abortRunner()}>
+						<HiStop />
 					</IconButton>
 				</Tooltip>
 			</Stack>

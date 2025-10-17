@@ -5,9 +5,13 @@ export const runnerAtom = atom(null)
 export const useRunner = () => {
 	const [runner, setRunner] = useAtom(runnerAtom)
 
-	const clearRunner = () => {
+	const abortRunner = () => {
+		if (!runner) {
+			return
+		}
+		runner.abort()
 		setRunner(null)
 	}
 
-	return [runner, { setRunner }]
+	return [runner, { setRunner, abortRunner }]
 }

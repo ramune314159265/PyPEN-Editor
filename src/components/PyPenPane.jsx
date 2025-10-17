@@ -14,7 +14,7 @@ import { PyPenRunner } from '../utils/pypen'
 export const PyPenPane = () => {
 	const [pyPenContent, { setPyPenContent }] = usePyPen()
 	const [pythonContent, { setPythonContent }] = usePython()
-	const [runner, { setRunner, clearRunner }] = useRunner()
+	const [runner, { setRunner, abortRunner }] = useRunner()
 	const [output, { clearOutput, addOutputData }] = useOutput()
 	const [value, setValue] = useState('')
 	const [fileHandler, setFileHandler] = useState(null)
@@ -22,7 +22,7 @@ export const PyPenPane = () => {
 
 	const runPyPen = async () => {
 		if (runner) {
-			runner.abort()
+			abortRunner()
 		}
 		const pyPenRunner = new PyPenRunner(pyPenContent)
 		setRunner(pyPenRunner)
