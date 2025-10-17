@@ -4,7 +4,7 @@ export class PyPenRunner extends EventEmitter2 {
 	static pypenWorker
 
 	static startPyPen() {
-		PyPenRunner.pypenWorker = new Worker('src/pypen/run.js')
+		PyPenRunner.pypenWorker = new Worker('./run.js')
 	}
 
 	static async convert(code) {
