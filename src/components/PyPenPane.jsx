@@ -22,11 +22,12 @@ export const PyPenPane = () => {
 	const [value, setValue] = useState('')
 	const [fileHandler, setFileHandler] = useState(null)
 	const editorRef = useRef(null)
+	const pyPenContentRef = useRef(pyPenContent)
 	const lastFocusedRef = useRef(lastFocused)
 
 	const runPyPen = async () => {
 		abortRunner()
-		const pyPenRunner = new PyPenRunner(pyPenContent)
+		const pyPenRunner = new PyPenRunner(pyPenContentRef.current)
 		setRunner(pyPenRunner)
 		await pyPenRunner.run()
 		setRunner(null)
@@ -34,7 +35,7 @@ export const PyPenPane = () => {
 	const convert = async () => {
 		clearOutput()
 		try {
-			const converted = await PyPenRunner.convert(pyPenContent)
+			const converted = await PyPenRunner.convert(pyPenContentRef.current)
 			setPythonContent(converted)
 		} catch (e) {
 			addOutputData({
@@ -56,7 +57,7 @@ export const PyPenPane = () => {
 
 		setFileHandler(handler)
 		const stream = await handler.createWritable()
-		const blob = new Blob([pyPenContent], { type: 'text/plain' })
+		const blob = new Blob([pyPenContentRef.current], { type: 'text/plain' })
 
 		await stream.write(blob)
 		await stream.close()
@@ -67,7 +68,7 @@ export const PyPenPane = () => {
 			return
 		}
 		const stream = await fileHandler.createWritable()
-		const blob = new Blob([pyPenContent], { type: 'text/plain' })
+		const blob = new Blob([pyPenContentRef.current], { type: 'text/plain' })
 
 		await stream.write(blob)
 		await stream.close()
@@ -81,6 +82,9 @@ export const PyPenPane = () => {
 		setValue(pyPenContent)
 	}, [pyPenContent])
 
+	useEffect(() => {
+		pyPenContentRef.current = pyPenContent
+	}, [pyPenContent])
 	useEffect(() => {
 		lastFocusedRef.current = lastFocused
 	}, [lastFocused])
