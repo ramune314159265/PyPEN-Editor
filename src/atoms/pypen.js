@@ -11,9 +11,9 @@ export const usePyPen = () => {
 	const [pyPenContent, setPyPenContent] = useAtom(pyPenAtom)
 
 	useEffect(() => {
-		debounce(() => {
+		debounce('pypen', () => {
 			localStorage.setItem('ramune314159265.pypeneditor.pypencontent', pyPenContent)
-		}, 1000)()
+		}, 1000)
 	}, [pyPenContent])
 
 	return [pyPenContent, { setPyPenContent }]

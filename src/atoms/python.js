@@ -11,9 +11,10 @@ export const usePython = () => {
 	const [pythonContent, setPythonContent] = useAtom(pythonAtom)
 
 	useEffect(() => {
-		debounce(() => {
+		debounce('python', () => {
+			console.log('save')
 			localStorage.setItem('ramune314159265.pypeneditor.pythoncontent', pythonContent)
-		}, 1000)()
+		}, 1000)
 	}, [pythonContent])
 
 	return [pythonContent, { setPythonContent }]
