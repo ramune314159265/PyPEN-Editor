@@ -4,6 +4,7 @@ import * as monaco from 'monaco-editor'
 import { useEffect, useRef, useState } from 'react'
 import { FaPython } from 'react-icons/fa'
 import { HiArrowDownTray, HiDocument, HiPlay } from 'react-icons/hi2'
+import { useLastFocused } from '../atoms/focused'
 import { useOutput } from '../atoms/output'
 import { usePyPen } from '../atoms/pypen'
 import { usePython } from '../atoms/python'
@@ -12,13 +13,16 @@ import { pyPenLanguageConfiguration, pyPenProvideCompletionItems, pyPenTokenizer
 import { PyPenRunner } from '../utils/pypen'
 
 export const PyPenPane = () => {
+	const paneId = 'pypen'
 	const [pyPenContent, { setPyPenContent }] = usePyPen()
 	const [pythonContent, { setPythonContent }] = usePython()
 	const [runner, { setRunner, abortRunner }] = useRunner()
 	const [output, { clearOutput, addOutputData }] = useOutput()
+	const [lastFocused, { setLastFocused }] = useLastFocused()
 	const [value, setValue] = useState('')
 	const [fileHandler, setFileHandler] = useState(null)
 	const editorRef = useRef(null)
+	const lastFocusedRef = useRef(lastFocused)
 
 	const runPyPen = async () => {
 		abortRunner()
@@ -77,6 +81,10 @@ export const PyPenPane = () => {
 		setValue(pyPenContent)
 	}, [pyPenContent])
 
+	useEffect(() => {
+		lastFocusedRef.current = lastFocused
+	}, [lastFocused])
+
 	return (
 		<Flex w="full" h="full" direction="column">
 			<Stack justifyContent="flex-start" alignItems="center" direction="row" gap={2} w="full">
@@ -131,22 +139,31 @@ export const PyPenPane = () => {
 						}
 					})
 					editorRef.current = editor
-					editor.addCommand(
-						monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyR,
-						() => {
-							runPyPen()
+					document.addEventListener('keydown', ev => {
+						if (lastFocusedRef.current !== paneId) {
+							return
 						}
-					)
-					editor.addCommand(
-						monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS,
-						() => {
-							saveFile()
+						switch (true) {
+							case (ev.key === 'r' && ev.ctrlKey): {
+								ev.preventDefault()
+								runPyPen()
+								break
+							}
+							case (ev.key === 's' && ev.ctrlKey): {
+								ev.preventDefault()
+								saveFile()
+								break
+							}
 						}
-					)
+					})
 
 					editor.getModel().onDidChangeContent(e => {
 						setPyPenContent(editor.getValue())
 						setValue(editor.getValue())
+					})
+
+					editor.onDidFocusEditorText(() => {
+						setLastFocused(paneId)
 					})
 				})()
 			}}>

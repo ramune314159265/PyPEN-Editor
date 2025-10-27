@@ -12,7 +12,6 @@ export const usePython = () => {
 
 	useEffect(() => {
 		debounce('python', () => {
-			console.log('save')
 			localStorage.setItem('ramune314159265.pypeneditor.pythoncontent', pythonContent)
 		}, 1000)
 	}, [pythonContent])

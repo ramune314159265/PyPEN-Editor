@@ -4,16 +4,20 @@ import * as monaco from 'monaco-editor'
 import { MonacoPyrightProvider } from 'monaco-pyright-lsp'
 import { useEffect, useRef, useState } from 'react'
 import { HiArrowDownTray, HiPlay } from 'react-icons/hi2'
+import { useLastFocused } from '../atoms/focused'
 import { usePython } from '../atoms/python'
 import { useRunner } from '../atoms/runner'
 import { PythonRunner } from '../utils/python'
 
 export const PythonPane = () => {
+	const paneId = 'python'
 	const [pythonContent, { setPythonContent }] = usePython()
 	const [runner, { setRunner, clearRunner }] = useRunner()
+	const [lastFocused, { setLastFocused }] = useLastFocused()
 	const [value, setValue] = useState('')
 	const [fileHandler, setFileHandler] = useState(null)
 	const editorRef = useRef(null)
+	const lastFocusedRef = useRef(lastFocused)
 
 	const runPython = async () => {
 		if (runner) {
@@ -70,6 +74,10 @@ export const PythonPane = () => {
 		setValue(pythonContent)
 	}, [pythonContent])
 
+	useEffect(() => {
+		lastFocusedRef.current = lastFocused
+	}, [lastFocused])
+
 	return (
 		<Flex w="full" h="full" direction="column">
 			<Stack justifyContent="flex-start" alignItems="center" direction="row" gap={2} w="full">
@@ -104,22 +112,32 @@ export const PythonPane = () => {
 						}
 					})
 					editorRef.current = editor
-					editor.addCommand(
-						monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyR,
-						() => {
-							runPython()
+
+					document.addEventListener('keydown', ev => {
+						if (lastFocusedRef.current !== paneId) {
+							return
 						}
-					)
-					editor.addCommand(
-						monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS,
-						() => {
-							saveFile()
+						switch (true) {
+							case (ev.key === 'r' && ev.ctrlKey): {
+								ev.preventDefault()
+								runPython()
+								break
+							}
+							case (ev.key === 's' && ev.ctrlKey): {
+								ev.preventDefault()
+								saveFile()
+								break
+							}
 						}
-					)
+					})
 
 					editor.getModel().onDidChangeContent(e => {
 						setValue(editor.getValue())
 						setPythonContent(editor.getValue())
+					})
+
+					editor.onDidFocusEditorText(() => {
+						setLastFocused(paneId)
 					})
 
 					await provider.init(monaco)
