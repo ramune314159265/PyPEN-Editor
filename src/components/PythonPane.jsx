@@ -15,10 +15,10 @@ export const PythonPane = () => {
 	const [runner, { setRunner, clearRunner }] = useRunner()
 	const [lastFocused, { setLastFocused }] = useLastFocused()
 	const [value, setValue] = useState('')
-	const [fileHandler, setFileHandler] = useState(null)
 	const editorRef = useRef(null)
 	const pythonContentRef = useRef(pythonContent)
 	const lastFocusedRef = useRef(lastFocused)
+	const fileHandlerRef = useRef(null)
 
 	const runPython = async () => {
 		if (runner) {
@@ -38,7 +38,7 @@ export const PythonPane = () => {
 			]
 		})
 
-		setFileHandler(handler)
+		fileHandlerRef.current = handler
 		const stream = await handler.createWritable()
 		const blob = new Blob([pythonContentRef.current], { type: 'text/plain' })
 
@@ -46,11 +46,11 @@ export const PythonPane = () => {
 		await stream.close()
 	}
 	const saveFile = async () => {
-		if (!fileHandler) {
+		if (!fileHandlerRef.current) {
 			saveNewFile()
 			return
 		}
-		const stream = await fileHandler.createWritable()
+		const stream = await fileHandlerRef.current.createWritable()
 		const blob = new Blob([pythonContentRef.current], { type: 'text/plain' })
 
 		await stream.write(blob)
