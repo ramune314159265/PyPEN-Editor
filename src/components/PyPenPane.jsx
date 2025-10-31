@@ -23,7 +23,8 @@ export const PyPenPane = () => {
 	const editorRef = useRef(null)
 	const pyPenContentRef = useRef(pyPenContent)
 	const lastFocusedRef = useRef(lastFocused)
-		const fileHandlerRef = useRef(null)
+	const fileHandlerRef = useRef(null)
+	const launchHandled = useRef(false)
 
 	const runPyPen = async () => {
 		abortRunner()
@@ -88,6 +89,22 @@ export const PyPenPane = () => {
 	useEffect(() => {
 		lastFocusedRef.current = lastFocused
 	}, [lastFocused])
+	useEffect(() => {
+		if (launchHandled.current) {
+			return
+		}
+		launchHandled.current = true
+		if ("launchQueue" in window) {
+			launchQueue.setConsumer(async (launchParams) => {
+				const file = await launchParams.files[0].getFile()
+				const reader = new FileReader()
+				reader.readAsText(file)
+				reader.addEventListener('load', () => {
+					setPyPenContent(reader.result)
+				})
+			})
+		}
+	}, [])
 
 	return (
 		<Flex w="full" h="full" direction="column">

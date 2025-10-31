@@ -18,7 +18,7 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 30000000
       },
       manifest: {
-        name: 'PyPenエディター',
+        name: 'PyPENエディター',
         theme_color: '#fff',
         display: 'standalone',
         lang: 'ja-jp',
