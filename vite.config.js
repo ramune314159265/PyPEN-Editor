@@ -14,6 +14,9 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
+      workbox: {
+        maximumFileSizeToCacheInBytes: 30000000
+      },
       manifest: {
         name: 'PyPenエディター',
         theme_color: '#fff',
