@@ -1,8 +1,31 @@
 import * as monaco from 'monaco-editor'
 
+export const getPyPenVars = content => {
+	const lines = content.split('\n')
+	const vars = lines.map(c => {
+		const contentTrimmed = c.trim()
+		const patterns = [
+			/^\s*(.*?)\s*=\s*.*/,
+			/^(\S+)\s*に.*を入力する$/,
+			/^(\S+)\s*を.*しながら：?$/,
+			/.*の要素(\S+)\s*について繰り返す：?$/,
+			/^(?:関数|手続き)\s+(\S+)\s*\(.*\)：?$/
+		]
+
+		for (const p of patterns) {
+			const m = contentTrimmed.match(p)
+			if (m) {
+				return m[1]
+			}
+		}
+	}).filter(c => c && !c.includes(' '))
+	return Array.from(new Set(vars))
+}
+
 // https://watayan.net/prog/PyPEN/manual/syntax.html
 export const pyPenProvideCompletionItems = (model, position) => {
 	const lineText = model.getLineContent(position.lineNumber)
+	const text = model.getValue()
 	const beforeCursor = lineText.substring(0, position.column - 1)
 	const afterCursor = lineText.substring(position.column - 1)
 
@@ -164,6 +187,19 @@ export const pyPenProvideCompletionItems = (model, position) => {
 			documentation: 'False'
 		},
 	)
+	const vars = getPyPenVars(text)
+	console.log(vars)
+	vars.forEach(v => {
+		suggestions.push(
+			{
+				label: v,
+				kind: monaco.languages.CompletionItemKind.Variable,
+				insertText: v,
+				insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+				documentation: v
+			}
+		)
+	})
 	return { suggestions }
 }
 
