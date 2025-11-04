@@ -35,7 +35,7 @@ export default defineConfig({
         ],
         file_handlers: [
           {
-            action: "/",
+            action: "./",
             accept: {
               "text/pypen": [".PyPEN"],
             }
