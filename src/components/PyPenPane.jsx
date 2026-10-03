@@ -107,7 +107,7 @@ export const PyPenPane = () => {
 	}, [])
 
 	return (
-		<Flex w="full" h="full" direction="column">
+		<Flex w="full" h="full" direction="column" overflowX='hidden'>
 			<Stack justifyContent="flex-start" alignItems="center" direction="row" gap={2} w="full">
 				<Tooltip showArrow content="PyPenコードを実行(Ctrl + R)">
 					<IconButton size="sm" variant="ghost" onClick={runPyPen} disabled={runner}>

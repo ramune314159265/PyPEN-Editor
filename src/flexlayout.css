@@ -352,7 +352,7 @@
   height: 100%;
   min-width: 1px;
   min-height: 1px;
-  overflow: auto;
+  overflow: hidden;
   box-sizing: border-box;
 }
 

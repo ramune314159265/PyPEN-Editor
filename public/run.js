@@ -71,115 +71,114 @@
 	recoverable: (boolean: TRUE when the parser has a error recovery rule available for this particular error)
   }
 */
-var tmp = ''
 var dncl = (function () {
-	var o = function (k, v, o, l) { for (o = o || {}, l = k.length; l--; o[k[l]] = v); return o }, $V0 = [4, 5, 6, 7, 8, 11, 19, 22, 31, 35, 37, 38, 39, 40, 41, 44, 46, 47, 50, 52, 53, 71, 72, 73, 74, 76, 77, 80, 113, 114, 115, 116, 117, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 143, 146], $V1 = [53, 113, 114], $V2 = [2, 61], $V3 = [1, 59], $V4 = [1, 60], $V5 = [1, 61], $V6 = [1, 62], $V7 = [1, 63], $V8 = [1, 64], $V9 = [1, 65], $Va = [1, 66], $Vb = [1, 67], $Vc = [1, 68], $Vd = [1, 69], $Ve = [1, 70], $Vf = [1, 71], $Vg = [1, 72], $Vh = [1, 22], $Vi = [1, 74], $Vj = [1, 21], $Vk = [1, 75], $Vl = [1, 78], $Vm = [1, 79], $Vn = [1, 57], $Vo = [1, 58], $Vp = [1, 55], $Vq = [1, 52], $Vr = [1, 53], $Vs = [1, 54], $Vt = [1, 77], $Vu = [1, 25], $Vv = [1, 26], $Vw = [1, 27], $Vx = [1, 28], $Vy = [1, 29], $Vz = [1, 30], $VA = [1, 31], $VB = [1, 32], $VC = [1, 33], $VD = [1, 34], $VE = [1, 35], $VF = [1, 36], $VG = [1, 37], $VH = [1, 38], $VI = [1, 39], $VJ = [1, 40], $VK = [1, 41], $VL = [1, 42], $VM = [1, 43], $VN = [1, 44], $VO = [1, 45], $VP = [1, 46], $VQ = [1, 47], $VR = [1, 48], $VS = [1, 49], $VT = [1, 50], $VU = [1, 56], $VV = [4, 5, 6, 7, 8, 11, 19, 22, 31, 35, 37, 38, 39, 40, 41, 44, 46, 47, 50, 52, 53, 71, 72, 73, 74, 75, 76, 77, 80, 84, 86, 113, 114, 115, 116, 117, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 143, 146], $VW = [2, 81], $VX = [2, 47], $VY = [2, 59], $VZ = [1, 99], $V_ = [1, 100], $V$ = [1, 101], $V01 = [1, 102], $V11 = [1, 103], $V21 = [1, 104], $V31 = [1, 105], $V41 = [1, 106], $V51 = [1, 107], $V61 = [1, 108], $V71 = [1, 109], $V81 = [1, 110], $V91 = [1, 111], $Va1 = [1, 112], $Vb1 = [1, 113], $Vc1 = [1, 114], $Vd1 = [1, 115], $Ve1 = [1, 116], $Vf1 = [1, 117], $Vg1 = [1, 118], $Vh1 = [1, 119], $Vi1 = [1, 120], $Vj1 = [1, 121], $Vk1 = [1, 122], $Vl1 = [1, 123], $Vm1 = [1, 124], $Vn1 = [1, 127], $Vo1 = [1, 159], $Vp1 = [1, 158], $Vq1 = [1, 160], $Vr1 = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 45, 46, 48, 49, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], $Vs1 = [1, 170], $Vt1 = [1, 175], $Vu1 = [1, 176], $Vv1 = [1, 177], $Vw1 = [1, 178], $Vx1 = [45, 53], $Vy1 = [48, 53], $Vz1 = [23, 45, 48, 53, 113, 114], $VA1 = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 44, 45, 46, 48, 49, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], $VB1 = [23, 53], $VC1 = [75, 84, 86], $VD1 = [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 45, 46, 48, 49, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], $VE1 = [23, 33, 34, 36, 45, 46, 48, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], $VF1 = [10, 11, 16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 45, 46, 48, 49, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], $VG1 = [16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 45, 46, 48, 49, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], $VH1 = [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 45, 46, 48, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], $VI1 = [2, 39], $VJ1 = [4, 5, 6, 7, 8, 11, 19, 22, 31, 35, 37, 38, 39, 40, 41, 44, 46, 47, 50, 52, 53, 71, 72, 73, 74, 75, 76, 77, 80, 84, 86, 113, 114, 115, 116, 117, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 143];
+	var o = function (k, v, o, l) { for (o = o || {}, l = k.length; l--; o[k[l]] = v); return o }, $V0 = [65, 121, 122], $V1 = [2, 73], $V2 = [1, 61], $V3 = [1, 62], $V4 = [1, 63], $V5 = [1, 64], $V6 = [1, 65], $V7 = [1, 66], $V8 = [1, 67], $V9 = [1, 68], $Va = [1, 69], $Vb = [1, 70], $Vc = [1, 71], $Vd = [1, 72], $Ve = [1, 73], $Vf = [1, 74], $Vg = [1, 76], $Vh = [1, 77], $Vi = [1, 81], $Vj = [1, 82], $Vk = [1, 58], $Vl = [1, 59], $Vm = [1, 60], $Vn = [1, 55], $Vo = [1, 50], $Vp = [1, 51], $Vq = [1, 52], $Vr = [1, 53], $Vs = [1, 54], $Vt = [1, 79], $Vu = [1, 80], $Vv = [1, 47], $Vw = [1, 48], $Vx = [1, 20], $Vy = [1, 21], $Vz = [1, 22], $VA = [1, 23], $VB = [1, 24], $VC = [1, 25], $VD = [1, 26], $VE = [1, 27], $VF = [1, 28], $VG = [1, 29], $VH = [1, 30], $VI = [1, 31], $VJ = [1, 32], $VK = [1, 33], $VL = [1, 34], $VM = [1, 35], $VN = [1, 36], $VO = [1, 37], $VP = [1, 38], $VQ = [1, 39], $VR = [1, 40], $VS = [1, 41], $VT = [1, 42], $VU = [1, 43], $VV = [1, 44], $VW = [1, 45], $VX = [1, 46], $VY = [1, 56], $VZ = [1, 57], $V_ = [1, 85], $V$ = [4, 5, 6, 7, 8, 11, 19, 22, 31, 36, 37, 38, 39, 40, 44, 46, 47, 62, 64, 65, 69, 84, 85, 86, 87, 88, 89, 90, 91, 92, 97, 99, 115, 117, 121, 122, 123, 124, 125, 126, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 152, 153, 155], $V01 = [4, 5, 6, 7, 8, 11, 19, 22, 31, 36, 37, 38, 39, 40, 44, 46, 47, 62, 64, 65, 69, 84, 85, 86, 87, 88, 89, 90, 91, 92, 97, 99, 100, 101, 103, 104, 115, 117, 121, 122, 123, 124, 125, 126, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 152, 153, 155], $V11 = [2, 71], $V21 = [1, 93], $V31 = [1, 94], $V41 = [1, 95], $V51 = [1, 96], $V61 = [1, 97], $V71 = [1, 98], $V81 = [1, 99], $V91 = [1, 100], $Va1 = [1, 101], $Vb1 = [1, 102], $Vc1 = [1, 103], $Vd1 = [1, 104], $Ve1 = [1, 105], $Vf1 = [1, 106], $Vg1 = [1, 107], $Vh1 = [1, 108], $Vi1 = [1, 109], $Vj1 = [1, 110], $Vk1 = [1, 111], $Vl1 = [1, 112], $Vm1 = [1, 113], $Vn1 = [1, 114], $Vo1 = [1, 115], $Vp1 = [1, 116], $Vq1 = [1, 117], $Vr1 = [1, 118], $Vs1 = [1, 119], $Vt1 = [1, 120], $Vu1 = [1, 121], $Vv1 = [1, 122], $Vw1 = [1, 123], $Vx1 = [1, 124], $Vy1 = [1, 125], $Vz1 = [1, 126], $VA1 = [1, 127], $VB1 = [1, 128], $VC1 = [1, 129], $VD1 = [1, 130], $VE1 = [1, 131], $VF1 = [1, 134], $VG1 = [1, 167], $VH1 = [1, 168], $VI1 = [1, 169], $VJ1 = [1, 170], $VK1 = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 42, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], $VL1 = [1, 188], $VM1 = [1, 189], $VN1 = [1, 190], $VO1 = [1, 191], $VP1 = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 42, 44, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], $VQ1 = [45, 65], $VR1 = [48, 65], $VS1 = [23, 45, 48, 65, 121, 122], $VT1 = [23, 65], $VU1 = [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], $VV1 = [23, 33, 34, 35, 45, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], $VW1 = [10, 11, 16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], $VX1 = [16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], $VY1 = [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 45, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], $VZ1 = [2, 29], $V_1 = [23, 45, 46, 48, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151];
 	var parser = {
 		trace: function trace() { },
 		yy: {},
-		symbols_: { "error": 2, "e": 3, "整数値": 4, "実数値": 5, "文字列値": 6, "True": 7, "False": 8, "**": 9, "+": 10, "-": 11, "*": 12, "/": 13, "//": 14, "%": 15, "&": 16, "|": 17, "^": 18, "~": 19, "<<": 20, ">>": 21, "(": 22, ")": 23, "==": 24, "!=": 25, ">": 26, "<": 27, ">=": 28, "<=": 29, "の中に": 30, "not": 31, "in": 32, "and": 33, "or": 34, "copy": 35, "と": 36, "整数": 37, "実数": 38, "文字列": 39, "真偽": 40, "識別子": 41, "args": 42, "variable": 43, "[": 44, "]": 45, "改行": 46, "{": 47, "}": 48, "個の": 49, "UNDEFINED": 50, "slice": 51, ":": 52, "COMMA": 53, "statementlist": 54, "statement": 55, "EmptyStatement": 56, "CallStatement": 57, "AssignStatement": 58, "PrintStatement": 59, "InputStatement": 60, "GraphicStatement": 61, "ForStatement": 62, "WhileStatement": 63, "IfStatement": 64, "SleepStatement": 65, "DefineFuncStatement": 66, "ReturnStatement": 67, "DumpStatement": 68, "BreakStatement": 69, "NopStatement": 70, "何もしない": 71, "一時停止する": 72, "変数を確認する": 73, "手続き": 74, "ブロック終端": 75, "関数": 76, "手続きを抜ける": 77, "を返す": 78, "If_If": 79, "もし": 80, "ならば": 81, "If_EndIf": 82, "If_Else": 83, "そうでなければ": 84, "If_ElseIf": 85, "そうでなくもし": 86, "If_ElseIfs": 87, "を": 88, "から": 89, "まで": 90, "ずつ": 91, "増やしながら": 92, "繰り返す": 93, "減らしながら": 94, "の要素": 95, "について": 96, "の間": 97, "=": 98, "+=": 99, "-=": 100, "*=": 101, "/=": 102, "//=": 103, "%=": 104, "&=": 105, "|=": 106, "^=": 107, "<<=": 108, ">>=": 109, "に": 110, "追加する": 111, "連結する": 112, "を改行無しで表示する": 113, "を表示する": 114, "改行無しで表示する": 115, "表示する": 116, "改行する": 117, "入力する": 118, "gOpenWindow": 119, "gCloseWindow": 120, "gClearWindow": 121, "gSetLineColor": 122, "gSetFillColor": 123, "gSetTextColor": 124, "gSetLineWidth": 125, "gSetFontSize": 126, "gDrawText": 127, "gDrawLine": 128, "gDrawPoint": 129, "gDrawBox": 130, "gFillBox": 131, "gDrawCircle": 132, "gFillCircle": 133, "gDrawOval": 134, "gFillOval": 135, "gDrawArc": 136, "gFillArc": 137, "gBarplot": 138, "gLineplot": 139, "gDrawGraph": 140, "gClearGraph": 141, "ミリ秒待つ": 142, "繰り返しを抜ける": 143, "Program": 144, "SourceElements": 145, "EOF": 146, "SourceElement": 147, "$accept": 0, "$end": 1 },
-		terminals_: { 2: "error", 4: "整数値", 5: "実数値", 6: "文字列値", 7: "True", 8: "False", 9: "**", 10: "+", 11: "-", 12: "*", 13: "/", 14: "//", 15: "%", 16: "&", 17: "|", 18: "^", 19: "~", 20: "<<", 21: ">>", 22: "(", 23: ")", 24: "==", 25: "!=", 26: ">", 27: "<", 28: ">=", 29: "<=", 30: "の中に", 31: "not", 32: "in", 33: "and", 34: "or", 35: "copy", 36: "と", 37: "整数", 38: "実数", 39: "文字列", 40: "真偽", 41: "識別子", 44: "[", 45: "]", 46: "改行", 47: "{", 48: "}", 49: "個の", 50: "UNDEFINED", 52: ":", 53: "COMMA", 71: "何もしない", 72: "一時停止する", 73: "変数を確認する", 74: "手続き", 75: "ブロック終端", 76: "関数", 77: "手続きを抜ける", 78: "を返す", 80: "もし", 81: "ならば", 84: "そうでなければ", 86: "そうでなくもし", 88: "を", 89: "から", 90: "まで", 91: "ずつ", 92: "増やしながら", 93: "繰り返す", 94: "減らしながら", 95: "の要素", 96: "について", 97: "の間", 98: "=", 99: "+=", 100: "-=", 101: "*=", 102: "/=", 103: "//=", 104: "%=", 105: "&=", 106: "|=", 107: "^=", 108: "<<=", 109: ">>=", 110: "に", 111: "追加する", 112: "連結する", 113: "を改行無しで表示する", 114: "を表示する", 115: "改行無しで表示する", 116: "表示する", 117: "改行する", 118: "入力する", 119: "gOpenWindow", 120: "gCloseWindow", 121: "gClearWindow", 122: "gSetLineColor", 123: "gSetFillColor", 124: "gSetTextColor", 125: "gSetLineWidth", 126: "gSetFontSize", 127: "gDrawText", 128: "gDrawLine", 129: "gDrawPoint", 130: "gDrawBox", 131: "gFillBox", 132: "gDrawCircle", 133: "gFillCircle", 134: "gDrawOval", 135: "gFillOval", 136: "gDrawArc", 137: "gFillArc", 138: "gBarplot", 139: "gLineplot", 140: "gDrawGraph", 141: "gClearGraph", 142: "ミリ秒待つ", 143: "繰り返しを抜ける", 146: "EOF" },
-		productions_: [0, [3, 1], [3, 1], [3, 1], [3, 1], [3, 1], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 2], [3, 3], [3, 3], [3, 3], [3, 2], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 4], [3, 3], [3, 3], [3, 3], [3, 2], [3, 4], [3, 3], [3, 4], [3, 4], [3, 4], [3, 4], [3, 4], [3, 1], [3, 3], [3, 4], [3, 3], [3, 4], [3, 3], [43, 4], [43, 1], [43, 1], [51, 1], [51, 2], [51, 2], [51, 3], [42, 3], [42, 3], [42, 4], [42, 4], [42, 3], [42, 2], [42, 1], [42, 1], [42, 0], [54, 2], [54, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [55, 1], [70, 2], [70, 2], [56, 1], [68, 2], [68, 4], [66, 10], [66, 10], [67, 2], [67, 3], [57, 5], [79, 6], [79, 5], [82, 2], [83, 4], [85, 6], [87, 2], [87, 1], [64, 4], [64, 3], [64, 3], [64, 2], [62, 15], [62, 15], [62, 13], [62, 13], [62, 14], [62, 14], [62, 12], [62, 12], [62, 10], [62, 9], [63, 8], [63, 7], [58, 4], [58, 4], [58, 4], [58, 4], [58, 4], [58, 4], [58, 4], [58, 4], [58, 4], [58, 4], [58, 4], [58, 4], [58, 6], [58, 6], [59, 3], [59, 3], [59, 5], [59, 5], [59, 2], [60, 6], [60, 6], [60, 6], [60, 6], [61, 7], [61, 4], [61, 4], [61, 9], [61, 9], [61, 9], [61, 5], [61, 5], [61, 9], [61, 11], [61, 7], [61, 11], [61, 11], [61, 9], [61, 9], [61, 11], [61, 11], [61, 17], [61, 17], [61, 9], [61, 9], [61, 7], [61, 4], [65, 3], [69, 2], [144, 2], [145, 2], [145, 0], [147, 1]],
+		symbols_: { "error": 2, "e": 3, "整数値": 4, "実数値": 5, "文字列値": 6, "True": 7, "False": 8, "**": 9, "+": 10, "-": 11, "*": 12, "/": 13, "//": 14, "%": 15, "&": 16, "|": 17, "^": 18, "~": 19, "<<": 20, ">>": 21, "(": 22, ")": 23, "==": 24, "!=": 25, ">": 26, "<": 27, ">=": 28, "<=": 29, "の中に": 30, "not": 31, "in": 32, "and": 33, "or": 34, "と": 35, "整数": 36, "実数": 37, "文字列": 38, "真偽": 39, "識別子": 40, "args": 41, "DOT": 42, "variable": 43, "[": 44, "]": 45, "改行": 46, "{": 47, "}": 48, "個の": 49, "=": 50, "+=": 51, "-=": 52, "*=": 53, "/=": 54, "//=": 55, "%=": 56, "&=": 57, "|=": 58, "^=": 59, "<<=": 60, ">>=": 61, "UNDEFINED": 62, "slice": 63, ":": 64, "COMMA": 65, "statements": 66, "statement": 67, "statementlist": 68, "ブロック終端": 69, "ExpressionStatement": 70, "AssignStatement": 71, "PrintStatement": 72, "InputStatement": 73, "GraphicStatement": 74, "ForStatement": 75, "WhileStatement": 76, "IfStatement": 77, "SleepStatement": 78, "DefineStatement": 79, "ReturnStatement": 80, "DumpStatement": 81, "BreakStatement": 82, "NopStatement": 83, "何もしない": 84, "pass": 85, "一時停止する": 86, "変数を確認する": 87, "関数": 88, "def": 89, "手続きを抜ける": 90, "関数を抜ける": 91, "return": 92, "を返す": 93, "If": 94, "ElseIfList": 95, "ElsePart": 96, "もし": 97, "ならば": 98, "if": 99, "そうでなければ": 100, "else": 101, "Elif": 102, "そうでなくもし": 103, "elif": 104, "を": 105, "区間": 106, "で": 107, "ずつ": 108, "増やしながら": 109, "減らしながら": 110, "から": 111, "まで": 112, "の要素": 113, "について": 114, "for": 115, "の間": 116, "while": 117, "に": 118, "追加する": 119, "連結する": 120, "を改行無しで表示する": 121, "を表示する": 122, "改行無しで表示する": 123, "表示する": 124, "改行する": 125, "print": 126, "入力する": 127, "gOpenWindow": 128, "gCloseWindow": 129, "gClearWindow": 130, "gSetLineColor": 131, "gSetFillColor": 132, "gSetTextColor": 133, "gSetLineWidth": 134, "gSetFontSize": 135, "gDrawText": 136, "gDrawLine": 137, "gDrawPoint": 138, "gDrawBox": 139, "gFillBox": 140, "gDrawCircle": 141, "gFillCircle": 142, "gDrawOval": 143, "gFillOval": 144, "gDrawArc": 145, "gFillArc": 146, "gBarplot": 147, "gLineplot": 148, "gDrawGraph": 149, "gClearGraph": 150, "ミリ秒待つ": 151, "繰り返しを抜ける": 152, "break": 153, "Program": 154, "EOF": 155, "$accept": 0, "$end": 1 },
+		terminals_: { 2: "error", 4: "整数値", 5: "実数値", 6: "文字列値", 7: "True", 8: "False", 9: "**", 10: "+", 11: "-", 12: "*", 13: "/", 14: "//", 15: "%", 16: "&", 17: "|", 18: "^", 19: "~", 20: "<<", 21: ">>", 22: "(", 23: ")", 24: "==", 25: "!=", 26: ">", 27: "<", 28: ">=", 29: "<=", 30: "の中に", 31: "not", 32: "in", 33: "and", 34: "or", 35: "と", 36: "整数", 37: "実数", 38: "文字列", 39: "真偽", 40: "識別子", 42: "DOT", 44: "[", 45: "]", 46: "改行", 47: "{", 48: "}", 49: "個の", 50: "=", 51: "+=", 52: "-=", 53: "*=", 54: "/=", 55: "//=", 56: "%=", 57: "&=", 58: "|=", 59: "^=", 60: "<<=", 61: ">>=", 62: "UNDEFINED", 64: ":", 65: "COMMA", 69: "ブロック終端", 84: "何もしない", 85: "pass", 86: "一時停止する", 87: "変数を確認する", 88: "関数", 89: "def", 90: "手続きを抜ける", 91: "関数を抜ける", 92: "return", 93: "を返す", 97: "もし", 98: "ならば", 99: "if", 100: "そうでなければ", 101: "else", 103: "そうでなくもし", 104: "elif", 105: "を", 106: "区間", 107: "で", 108: "ずつ", 109: "増やしながら", 110: "減らしながら", 111: "から", 112: "まで", 113: "の要素", 114: "について", 115: "for", 116: "の間", 117: "while", 118: "に", 119: "追加する", 120: "連結する", 121: "を改行無しで表示する", 122: "を表示する", 123: "改行無しで表示する", 124: "表示する", 125: "改行する", 126: "print", 127: "入力する", 128: "gOpenWindow", 129: "gCloseWindow", 130: "gClearWindow", 131: "gSetLineColor", 132: "gSetFillColor", 133: "gSetTextColor", 134: "gSetLineWidth", 135: "gSetFontSize", 136: "gDrawText", 137: "gDrawLine", 138: "gDrawPoint", 139: "gDrawBox", 140: "gFillBox", 141: "gDrawCircle", 142: "gFillCircle", 143: "gDrawOval", 144: "gFillOval", 145: "gDrawArc", 146: "gFillArc", 147: "gBarplot", 148: "gLineplot", 149: "gDrawGraph", 150: "gClearGraph", 151: "ミリ秒待つ", 152: "繰り返しを抜ける", 153: "break", 155: "EOF" },
+		productions_: [0, [3, 1], [3, 1], [3, 1], [3, 1], [3, 1], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 2], [3, 3], [3, 3], [3, 3], [3, 2], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 4], [3, 3], [3, 3], [3, 3], [3, 2], [3, 3], [3, 4], [3, 4], [3, 4], [3, 4], [3, 4], [3, 6], [3, 1], [3, 3], [3, 4], [3, 3], [3, 4], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [43, 4], [43, 1], [43, 1], [63, 1], [63, 2], [63, 2], [63, 3], [41, 3], [41, 3], [41, 4], [41, 4], [41, 3], [41, 2], [41, 1], [41, 1], [41, 0], [66, 2], [66, 2], [66, 1], [68, 3], [67, 1], [67, 1], [67, 1], [67, 1], [67, 1], [67, 1], [67, 1], [67, 1], [67, 1], [67, 1], [67, 1], [67, 1], [67, 1], [67, 1], [83, 2], [83, 2], [83, 2], [70, 2], [81, 2], [81, 4], [79, 8], [79, 8], [80, 2], [80, 2], [80, 2], [80, 3], [80, 3], [77, 3], [77, 2], [77, 2], [77, 1], [94, 6], [94, 5], [94, 5], [94, 4], [96, 4], [96, 4], [96, 3], [96, 3], [102, 6], [102, 5], [102, 5], [102, 4], [95, 2], [95, 1], [75, 15], [75, 13], [75, 12], [75, 15], [75, 13], [75, 12], [75, 15], [75, 13], [75, 12], [75, 15], [75, 13], [75, 12], [75, 15], [75, 13], [75, 15], [75, 13], [75, 15], [75, 13], [75, 15], [75, 13], [75, 12], [75, 12], [75, 10], [75, 10], [75, 7], [75, 7], [76, 5], [76, 5], [71, 6], [71, 6], [72, 3], [72, 3], [72, 5], [72, 5], [72, 2], [72, 5], [73, 6], [73, 6], [73, 6], [73, 6], [74, 7], [74, 4], [74, 4], [74, 9], [74, 9], [74, 9], [74, 5], [74, 5], [74, 9], [74, 11], [74, 7], [74, 11], [74, 11], [74, 9], [74, 9], [74, 11], [74, 11], [74, 17], [74, 17], [74, 9], [74, 9], [74, 7], [74, 4], [78, 3], [82, 2], [82, 2], [154, 2]],
 		performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 			/* this == yyval */
 
 			var $0 = $$.length - 1;
 			switch (yystate) {
 				case 1:
-					this.$ = new IntValue(Number(toHalf(yytext, _$[$0])), new Location(_$[$0], _$[$0]));
+					this.$ = new IntValue([toHalf(yytext, _$[$0])], new Location(_$[$0], _$[$0]));
 					break;
 				case 2:
-					this.$ = new FloatValue(Number(toHalf(yytext, _$[$0])), new Location(_$[$0], _$[$0]));
+					this.$ = new FloatValue([Number(toHalf(yytext, _$[$0]))], new Location(_$[$0], _$[$0]));
 					break;
 				case 3:
-					this.$ = new StringValue(escape_bracket(yytext), new Location(_$[$0], _$[$0]));
+					this.$ = new StringValue([escape_bracket(yytext)], new Location(_$[$0], _$[$0]));
 					break;
 				case 4:
-					this.$ = new BooleanValue(true, new Location(_$[$0], _$[$0]));
+					this.$ = new BooleanValue([true], new Location(_$[$0], _$[$0]));
 					break;
 				case 5:
-					this.$ = new BooleanValue(false, new Location(_$[$0], _$[$0]));
+					this.$ = new BooleanValue([false], new Location(_$[$0], _$[$0]));
 					break;
 				case 6:
-					this.$ = new Pow($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new Pow([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 7:
-					this.$ = new Add($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new Add([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 8:
-					this.$ = new Sub($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new Sub([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 9:
-					this.$ = new Mul($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new Mul([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 10:
-					this.$ = new Div($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new Div([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 11:
-					this.$ = new DivInt($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new DivInt([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 12:
-					this.$ = new Mod($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new Mod([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 13:
-					this.$ = new Minus($$[$0], new Location(_$[$0], _$[$0]));
+					this.$ = new Minus([$$[$0]], new Location(_$[$0], _$[$0]));
 					break;
 				case 14:
-					this.$ = new BitAnd($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new BitAnd([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 15:
-					this.$ = new BitOr($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new BitOr([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 16:
-					this.$ = new BitXor($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new BitXor([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 17:
-					this.$ = new BitNot($$[$0], new Location(_$[$0 - 1], _$[$0]));
+					this.$ = new BitNot([$$[$0]], new Location(_$[$0 - 1], _$[$0]));
 					break;
 				case 18:
-					this.$ = new BitLShift($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new BitLShift([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 19:
-					this.$ = new BitRShift($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new BitRShift([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
-				case 20: case 58:
-					this.$ = $$[$0 - 1];
+				case 20:
+					this.$ = ($$[$0 - 1] instanceof Compare) ? new ParenValue([$$[$0 - 1]], new Location(_$[$0 - 2], _$[$0])) : $$[$0 - 1];
 					break;
 				case 21: case 22: case 23: case 24: case 25: case 26: case 27: case 29:
-					this.$ = new Compare($$[$0 - 2], $$[$0 - 1], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new Compare([$$[$0 - 2], $$[$0 - 1], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 28:
-					this.$ = new Compare($$[$0 - 3], 'not in', $$[$0], new Location(_$[$0 - 3], _$[$0]));
+					this.$ = new Compare([$$[$0 - 3], 'not in', $$[$0]], new Location(_$[$0 - 3], _$[$0]));
 					break;
 				case 30:
-					this.$ = new And($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new And([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 31:
-					this.$ = new Or($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new Or([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 32:
-					this.$ = new Not($$[$0], new Location(_$[$0 - 1], _$[$0]));
+					this.$ = new Not([$$[$0]], new Location(_$[$0 - 1], _$[$0]));
 					break;
 				case 33:
-					this.$ = new Copy($$[$0 - 1], new Location(_$[$0 - 3], _$[$0]));
+					this.$ = new Connect([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 34:
-					this.$ = new Connect($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new ConvertInt([$$[$0 - 1]], new Location(_$[$0 - 3], _$[$0]));
 					break;
 				case 35:
-					this.$ = new ConvertInt($$[$0 - 1], new Location(_$[$0 - 3], _$[$0]));
+					this.$ = new ConvertFloat([$$[$0 - 1]], new Location(_$[$0 - 3], _$[$0]));
 					break;
 				case 36:
-					this.$ = new ConvertFloat($$[$0 - 1], new Location(_$[$0 - 3], _$[$0]));
+					this.$ = new ConvertString([$$[$0 - 1]], new Location(_$[$0 - 3], _$[$0]));
 					break;
 				case 37:
-					this.$ = new ConvertString($$[$0 - 1], new Location(_$[$0 - 3], _$[$0]));
+					this.$ = new ConvertBool([$$[$0 - 1]], new Location(_$[$0 - 3], _$[$0]));
 					break;
 				case 38:
-					this.$ = new ConvertBool($$[$0 - 1], new Location(_$[$0 - 3], _$[$0]));
+					this.$ = new CallFunction([$$[$0 - 3], $$[$0 - 1]], new Location(_$[$0 - 3], _$[$0]));
 					break;
 				case 39:
-					this.$ = new CallFunction($$[$0 - 3], $$[$0 - 1], new Location(_$[$0 - 3], _$[$0 - 3]));
+					this.$ = new CallFunction([$$[$0 - 3], [$$[$0 - 5]].concat($$[$0 - 1])], new Location(_$[$0 - 5], _$[$0]));
 					break;
 				case 40:
 					this.$ = $$[$0];
@@ -197,294 +196,362 @@ var dncl = (function () {
 					this.$ = new DictionaryValue($$[$0 - 1], new Location(_$[$0 - 3], _$[$0]));
 					break;
 				case 45:
-					this.$ = new NumberOf($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new NumberOf([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 46:
-					$$[$0 - 3].append($$[$0 - 1]); this.$ = $$[$0 - 3];
+					this.$ = new Assign($$[$0 - 2], $$[$0], null, new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 47:
-					this.$ = new Variable(toHalf($$[$0], _$[$0]), null, new Location(_$[$0], _$[$0]));
+					this.$ = new Assign($$[$0 - 2], $$[$0], '+', new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 48:
-					this.$ = new UNDEFINED(yytext, new Location(_$[$0], _$[$0]));
+					this.$ = new Assign($$[$0 - 2], $$[$0], '-', new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 49:
-					this.$ = new SliceValue(new NullValue(_$[$0]), new NullValue(_$[$0]), new Location(_$[$0], _$[$0]));
+					this.$ = new Assign($$[$0 - 2], $$[$0], '*', new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 50:
-					this.$ = new SliceValue(new NullValue(_$[$0 - 1]), $$[$0], new Location(_$[$0 - 1], _$[$0 - 1]));
+					this.$ = new Assign($$[$0 - 2], $$[$0], '/', new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 51:
-					this.$ = new SliceValue($$[$0 - 1], new NullValue(_$[$0 - 1]), new Location(_$[$0 - 1], _$[$0 - 1]));
+					this.$ = new Assign($$[$0 - 2], $$[$0], '//', new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 52:
-					this.$ = new SliceValue($$[$0 - 2], $$[$0], new Location(_$[$0 - 2], _$[$0]));
+					this.$ = new Assign($$[$0 - 2], $$[$0], '%', new Location(_$[$0 - 2], _$[$0]));
 					break;
-				case 53: case 54:
-					this.$ = $$[$0 - 2].concat($$[$0]);
+				case 53:
+					this.$ = new Assign($$[$0 - 2], $$[$0], '&', new Location(_$[$0 - 2], _$[$0]));
 					break;
-				case 55: case 56:
-					this.$ = $$[$0 - 3].concat($$[$0]);
+				case 54:
+					this.$ = new Assign($$[$0 - 2], $$[$0], '|', new Location(_$[$0 - 2], _$[$0]));
+					break;
+				case 55:
+					this.$ = new Assign($$[$0 - 2], $$[$0], '^', new Location(_$[$0 - 2], _$[$0]));
+					break;
+				case 56:
+					this.$ = new Assign($$[$0 - 2], $$[$0], '<<', new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 57:
-					this.$ = $$[$0 - 2];
+					this.$ = new Assign($$[$0 - 2], $$[$0], '>>', new Location(_$[$0 - 2], _$[$0]));
 					break;
-				case 59: case 60:
-					this.$ = [$$[$0]];
+				case 58:
+					$$[$0 - 3].extend($$[$0 - 1]); this.$ = $$[$0 - 3];
 					break;
-				case 61: case 162:
-					this.$ = [];
+				case 59:
+					this.$ = new Variable(toHalf($$[$0], _$[$0]), new Location(_$[$0], _$[$0]));
+					break;
+				case 60:
+					this.$ = new UNDEFINED([yytext], new Location(_$[$0], _$[$0]));
+					break;
+				case 61:
+					this.$ = new SliceValue([new NullValue(_$[$0]), new NullValue(_$[$0])], new Location(_$[$0], _$[$0]));
 					break;
 				case 62:
+					this.$ = new SliceValue([new NullValue(_$[$0 - 1]), $$[$0]], new Location(_$[$0 - 1], _$[$0 - 1]));
+					break;
+				case 63:
+					this.$ = new SliceValue([$$[$0 - 1], new NullValue(_$[$0 - 1])], new Location(_$[$0 - 1], _$[$0 - 1]));
+					break;
+				case 64:
+					this.$ = new SliceValue([$$[$0 - 2], $$[$0]], new Location(_$[$0 - 2], _$[$0]));
+					break;
+				case 65: case 66:
+					$$[$0 - 2].push($$[$0]); this.$ = $$[$0 - 2];
+					break;
+				case 67: case 68:
+					$$[$0 - 3].push($$[$0]); this.$ = $$[$0 - 3];
+					break;
+				case 69:
+					this.$ = $$[$0 - 2];
+					break;
+				case 70: case 95:
+					this.$ = $$[$0 - 1];
+					break;
+				case 71: case 72:
+					this.$ = [$$[$0]]
+					break;
+				case 73:
+					this.$ = []
+					break;
+				case 74:
 					if ($$[$0] != null) this.$ = $$[$0 - 1].concat($$[$0]);
 					break;
-				case 63: case 95:
+				case 75:
+					this.$ = $$[$0 - 1];
+					break;
+				case 76: case 122:
 					this.$ = [$$[$0]];
 					break;
-				case 79:
-					this.$ = new NopStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
-					break;
-				case 80:
-					this.$ = new PauseStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
-					break;
-				case 81: case 91:
-					this.$ = null;
-					break;
-				case 82:
-					this.$ = new DumpStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
-					break;
-				case 83:
-					this.$ = new DumpStatement(new Location(_$[$0 - 3], _$[$0 - 3]));
-					break;
-				case 84:
-					this.$ = new DefineStep($$[$0 - 8], $$[$0 - 6], $$[$0 - 2], new Location(_$[$0 - 9], _$[$0 - 1]));
-					break;
-				case 85:
-					this.$ = new DefineFunction($$[$0 - 8], $$[$0 - 6], $$[$0 - 2], new Location(_$[$0 - 9], _$[$0 - 1]));
-					break;
-				case 86:
-					this.$ = new ExitStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
-					break;
-				case 87:
-					this.$ = new ReturnStatement($$[$0 - 2], new Location(_$[$0 - 2], _$[$0 - 1]));
-					break;
-				case 88:
-					this.$ = new CallStep($$[$0 - 4], $$[$0 - 2], new Location(_$[$0 - 4], _$[$0 - 1]));
-					break;
-				case 89: case 93:
-					this.$ = [$$[$0 - 4], $$[$0]];
-					break;
-				case 90:
-					this.$ = [$$[$0 - 3], [$$[$0]]];
+				case 77:
+					this.$ = $$[$0 - 2];
 					break;
 				case 92:
-					this.$ = [null, $$[$0]];
+					this.$ = new NopStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
+					break;
+				case 93:
+					this.$ = new NopStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
 					break;
 				case 94:
-					$$[$0 - 1].push($$[$0]); this.$ = $$[$0 - 1];
+					this.$ = new PauseStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
 					break;
 				case 96:
-					tmp = [$$[$0 - 3]]; tmp = tmp.concat($$[$0 - 2]); tmp.push($$[$0 - 1]); this.$ = new If(tmp, new Location(_$[$0 - 3], _$[$0 - 1]))
+					this.$ = new DumpStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
 					break;
 				case 97:
-					tmp = [$$[$0 - 2]]; tmp = tmp.concat($$[$0 - 1]); this.$ = new If(tmp, new Location(_$[$0 - 2], _$[$0]))
+					this.$ = new DumpStatement(new Location(_$[$0 - 3], _$[$0 - 3]));
 					break;
-				case 98:
-					tmp = [$$[$0 - 2]]; tmp.push($$[$0 - 1]); this.$ = new If(tmp, new Location(_$[$0 - 2], _$[$0]))
+				case 98: case 99:
+					this.$ = new DefineStatement($$[$0 - 6], $$[$0 - 4], $$[$0], new Location(_$[$0 - 7], _$[$0]));
 					break;
-				case 99:
-					tmp = [$$[$0 - 1]]; this.$ = new If(tmp, new Location(_$[$0 - 1], _$[$0 - 1]))
-					break;
-				case 100:
-					this.$ = new ForInc($$[$0 - 14], $$[$0 - 12], $$[$0 - 10], $$[$0 - 8], $$[$0 - 2], new Location(_$[$0 - 14], _$[$0 - 1]));
-					break;
-				case 101:
-					this.$ = new ForDec($$[$0 - 14], $$[$0 - 12], $$[$0 - 10], $$[$0 - 8], $$[$0 - 2], new Location(_$[$0 - 14], _$[$0 - 1]));
-					break;
-				case 102:
-					this.$ = new ForInc($$[$0 - 12], $$[$0 - 10], $$[$0 - 8], new IntValue(1, new Location(_$[$0 - 12], _$[$0 - 12])), $$[$0 - 2], new Location(_$[$0 - 12], _$[$0 - 1]));
+				case 100: case 101: case 102:
+					this.$ = new ExitStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
 					break;
 				case 103:
-					this.$ = new ForDec($$[$0 - 12], $$[$0 - 10], $$[$0 - 8], new IntValue(1, new Location(_$[$0 - 12], _$[$0 - 12])), $$[$0 - 2], new Location(_$[$0 - 12], _$[$0 - 1]));
+					this.$ = new ReturnStatement($$[$0 - 2], new Location(_$[$0 - 2], _$[$0 - 1]));
 					break;
 				case 104:
-					this.$ = new ForInc($$[$0 - 13], $$[$0 - 11], $$[$0 - 9], $$[$0 - 7], $$[$0 - 2], new Location(_$[$0 - 13], _$[$0 - 1]));
+					this.$ = new ReturnStatement($$[$0 - 1], new Location(_$[$0 - 2], _$[$0 - 1]));
 					break;
 				case 105:
-					this.$ = new ForDec($$[$0 - 13], $$[$0 - 11], $$[$0 - 9], $$[$0 - 7], $$[$0 - 2], new Location(_$[$0 - 13], _$[$0 - 1]));
+					var tmp = [$$[$0 - 2]];
+					tmp = tmp.concat($$[$0 - 1]);
+					tmp.push($$[$0]);
+					this.$ = new If(tmp, new Location(_$[$0 - 2], _$[$0]));
 					break;
 				case 106:
-					this.$ = new ForInc($$[$0 - 11], $$[$0 - 9], $$[$0 - 7], new IntValue(1, new Location(_$[$0 - 11], _$[$0 - 11])), $$[$0 - 2], new Location(_$[$0 - 11], _$[$0 - 1]));
+					var tmp = [$$[$0 - 1]];
+					tmp = tmp.concat($$[$0]);
+					this.$ = new If(tmp, new Location(_$[$0 - 1], _$[$0]));
 					break;
 				case 107:
-					this.$ = new ForDec($$[$0 - 11], $$[$0 - 9], $$[$0 - 7], new IntValue(1, new Location(_$[$0 - 11], _$[$0 - 11])), $$[$0 - 2], new Location(_$[$0 - 11], _$[$0 - 1]));
+					var tmp = [$$[$0 - 1]];
+					tmp.push($$[$0]);
+					this.$ = new If(tmp, new Location(_$[$0 - 1], _$[$0]));
 					break;
 				case 108:
-					this.$ = new ForIn($$[$0 - 9], $$[$0 - 7], $$[$0 - 2], new Location(_$[$0 - 9], _$[$0]));
+					var tmp = [$$[$0]];
+					this.$ = new If(tmp, new Location(_$[$0], _$[$0]));
 					break;
-				case 109:
-					this.$ = new ForIn($$[$0 - 8], $$[$0 - 6], $$[$0 - 2], new Location(_$[$0 - 8], _$[$0]));
+				case 109: case 117:
+					this.$ = [$$[$0 - 4], $$[$0]];
 					break;
-				case 110:
-					this.$ = new While($$[$0 - 7], $$[$0 - 2], new Location(_$[$0 - 7], _$[$0 - 1]));
+				case 110: case 118:
+					this.$ = [$$[$0 - 3], $$[$0]];
 					break;
-				case 111:
-					this.$ = new While($$[$0 - 6], $$[$0 - 2], new Location(_$[$0 - 6], _$[$0 - 1]));
+				case 111: case 119:
+					this.$ = [$$[$0 - 3], [$$[$0]]];
 					break;
-				case 112:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], null, new Location(_$[$0 - 3], _$[$0 - 1]));
+				case 112: case 120:
+					this.$ = [$$[$0 - 2], [$$[$0]]];
 					break;
-				case 113:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '+', new Location(_$[$0 - 3], _$[$0 - 1]));
+				case 113: case 114:
+					this.$ = [null, $$[$0]];
 					break;
-				case 114:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '-', new Location(_$[$0 - 3], _$[$0 - 1]));
-					break;
-				case 115:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '*', new Location(_$[$0 - 3], _$[$0 - 1]));
-					break;
-				case 116:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '/', new Location(_$[$0 - 3], _$[$0 - 1]));
-					break;
-				case 117:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '//', new Location(_$[$0 - 3], _$[$0 - 1]));
-					break;
-				case 118:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '%', new Location(_$[$0 - 3], _$[$0 - 1]));
-					break;
-				case 119:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '&', new Location(_$[$0 - 3], _$[$0 - 1]));
-					break;
-				case 120:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '|', new Location(_$[$0 - 3], _$[$0 - 1]));
+				case 115: case 116:
+					this.$ = [null, [$$[$0]]];
 					break;
 				case 121:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '^', new Location(_$[$0 - 3], _$[$0 - 1]));
-					break;
-				case 122:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '<<', new Location(_$[$0 - 3], _$[$0 - 1]));
+					$$[$0 - 1].push($$[$0]); this.$ = $$[$0 - 1];
 					break;
 				case 123:
-					this.$ = new Assign($$[$0 - 3], $$[$0 - 1], '>>', new Location(_$[$0 - 3], _$[$0 - 1]));
+					this.$ = new ForIntervalInc($$[$0 - 14], new IntervalValue([$$[$0 - 10], $$[$0 - 8], 'cc'], new Location(_$[$0 - 10], _$[$0 - 7])), $$[$0 - 5], $$[$0], new Location(_$[$0 - 14], _$[$0]));
 					break;
 				case 124:
-					this.$ = new Append($$[$0 - 5], $$[$0 - 3], new Location(_$[$0 - 5], _$[$0 - 1]));
+					this.$ = new ForIntervalInc($$[$0 - 12], new IntervalValue([$$[$0 - 8], $$[$0 - 6], 'cc'], new Location(_$[$0 - 8], _$[$0 - 5])), new IntValue([1], new Location(_$[$0 - 12], _$[$0 - 12]), 1), $$[$0], new Location(_$[$0 - 12], _$[$0]));
 					break;
 				case 125:
-					this.$ = new Extend($$[$0 - 5], $$[$0 - 3], new Location(_$[$0 - 5], _$[$0 - 1]));
+					this.$ = new ForIntervalInc($$[$0 - 11], new IntervalValue([$$[$0 - 7], $$[$0 - 5], 'cc'], new Location(_$[$0 - 7], _$[$0 - 4])), new IntValue([1], new Location(_$[$0 - 11], _$[$0 - 11]), 1), $$[$0], new Location(_$[$0 - 11], _$[$0]));
 					break;
 				case 126:
-					this.$ = new Output($$[$0 - 2], false, new Location(_$[$0 - 2], _$[$0 - 1]));
+					this.$ = new ForIntervalInc($$[$0 - 14], new IntervalValue([$$[$0 - 10], $$[$0 - 8], 'co'], new Location(_$[$0 - 10], _$[$0 - 7])), $$[$0 - 5], $$[$0], new Location(_$[$0 - 14], _$[$0]));
 					break;
 				case 127:
-					this.$ = new Output($$[$0 - 2], true, new Location(_$[$0 - 2], _$[$0 - 1]));
+					this.$ = new ForIntervalInc($$[$0 - 12], new IntervalValue([$$[$0 - 8], $$[$0 - 6], 'co'], new Location(_$[$0 - 8], _$[$0 - 5])), new IntValue([1], new Location(_$[$0 - 12], _$[$0 - 12]), 1), $$[$0], new Location(_$[$0 - 12], _$[$0]));
 					break;
 				case 128:
-					this.$ = new Output($$[$0 - 2], false, new Location(_$[$0 - 4], _$[$0 - 3]));
+					this.$ = new ForIntervalInc($$[$0 - 11], new IntervalValue([$$[$0 - 7], $$[$0 - 5], 'co'], new Location(_$[$0 - 7], _$[$0 - 4])), new IntValue([1], new Location(_$[$0 - 11], _$[$0 - 11]), 1), $$[$0], new Location(_$[$0 - 11], _$[$0]));
 					break;
 				case 129:
-					this.$ = new Output($$[$0 - 2], true, new Location(_$[$0 - 4], _$[$0 - 3]));
+					this.$ = new ForIntervalInc($$[$0 - 14], new IntervalValue([$$[$0 - 10], $$[$0 - 8], 'oc'], new Location(_$[$0 - 10], _$[$0 - 7])), $$[$0 - 5], $$[$0], new Location(_$[$0 - 14], _$[$0]));
 					break;
 				case 130:
-					this.$ = new Newline(new Location(_$[$0 - 1], _$[$0 - 1]));
+					this.$ = new ForIntervalInc($$[$0 - 12], new IntervalValue([$$[$0 - 8], $$[$0 - 6], 'oc'], new Location(_$[$0 - 8], _$[$0 - 5])), new IntValue([1], new Location(_$[$0 - 12], _$[$0 - 12]), 1), $$[$0], new Location(_$[$0 - 12], _$[$0]));
 					break;
 				case 131:
-					this.$ = new Input($$[$0 - 5], typeOfValue.typeInt, new Location(_$[$0 - 5], _$[$0 - 2]));
+					this.$ = new ForIntervalInc($$[$0 - 11], new IntervalValue([$$[$0 - 7], $$[$0 - 5], 'oc'], new Location(_$[$0 - 7], _$[$0 - 4])), new IntValue([1], new Location(_$[$0 - 11], _$[$0 - 11]), 1), $$[$0], new Location(_$[$0 - 11], _$[$0]));
 					break;
 				case 132:
-					this.$ = new Input($$[$0 - 5], typeOfValue.typeFloat, new Location(_$[$0 - 5], _$[$0 - 2]));
+					this.$ = new ForIntervalInc($$[$0 - 14], new IntervalValue([$$[$0 - 10], $$[$0 - 8], 'oo'], new Location(_$[$0 - 10], _$[$0 - 7])), $$[$0 - 5], $$[$0], new Location(_$[$0 - 14], _$[$0]));
 					break;
 				case 133:
-					this.$ = new Input($$[$0 - 5], typeOfValue.typeString, new Location(_$[$0 - 5], _$[$0 - 2]));
+					this.$ = new ForIntervalInc($$[$0 - 12], new IntervalValue([$$[$0 - 8], $$[$0 - 6], 'oo'], new Location(_$[$0 - 8], _$[$0 - 5])), new IntValue([1], new Location(_$[$0 - 12], _$[$0 - 12]), 1), $$[$0], new Location(_$[$0 - 12], _$[$0]));
 					break;
 				case 134:
-					this.$ = new Input($$[$0 - 5], typeOfValue.typeBoolean, new Location(_$[$0 - 5], _$[$0 - 2]));
+					this.$ = new ForIntervalInc($$[$0 - 11], new IntervalValue([$$[$0 - 7], $$[$0 - 5], 'oo'], new Location(_$[$0 - 7], _$[$0 - 4])), new IntValue([1], new Location(_$[$0 - 11], _$[$0 - 11]), 1), $$[$0], new Location(_$[$0 - 11], _$[$0]));
 					break;
 				case 135:
-					this.$ = new GraphicStatement('gOpenWindow', [$$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 6], _$[$0 - 6]));
+					this.$ = new ForIntervalDec($$[$0 - 14], new IntervalValue([$$[$0 - 10], $$[$0 - 8], 'cc'], new Location(_$[$0 - 10], _$[$0 - 7])), $$[$0 - 5], $$[$0], new Location(_$[$0 - 14], _$[$0]));
 					break;
 				case 136:
-					this.$ = new GraphicStatement('gCloseWindow', [], new Location(_$[$0 - 3], _$[$0 - 3]));
+					this.$ = new ForIntervalDec($$[$0 - 12], new IntervalValue([$$[$0 - 8], $$[$0 - 6], 'cc'], new Location(_$[$0 - 8], _$[$0 - 5])), new IntValue([1], new Location(_$[$0 - 12], _$[$0 - 12]), 1), $$[$0], new Location(_$[$0 - 12], _$[$0]));
 					break;
 				case 137:
-					this.$ = new GraphicStatement('gClearWindow', [], new Location(_$[$0 - 3], _$[$0 - 3]));
+					this.$ = new ForIntervalDec($$[$0 - 14], new IntervalValue([$$[$0 - 10], $$[$0 - 8], 'co'], new Location(_$[$0 - 10], _$[$0 - 7])), $$[$0 - 5], $$[$0], new Location(_$[$0 - 14], _$[$0]));
 					break;
 				case 138:
-					this.$ = new GraphicStatement('gSetLineColor', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					this.$ = new ForIntervalDec($$[$0 - 12], new IntervalValue([$$[$0 - 8], $$[$0 - 6], 'co'], new Location(_$[$0 - 8], _$[$0 - 5])), new IntValue([1], new Location(_$[$0 - 12], _$[$0 - 12]), 1), $$[$0], new Location(_$[$0 - 12], _$[$0]));
 					break;
 				case 139:
-					this.$ = new GraphicStatement('gSetFillColor', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					this.$ = new ForIntervalDec($$[$0 - 14], new IntervalValue([$$[$0 - 10], $$[$0 - 8], 'oc'], new Location(_$[$0 - 10], _$[$0 - 7])), $$[$0 - 5], $$[$0], new Location(_$[$0 - 14], _$[$0]));
 					break;
 				case 140:
-					this.$ = new GraphicStatement('gSetTextColor', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					this.$ = new ForIntervalDec($$[$0 - 12], new IntervalValue([$$[$0 - 8], $$[$0 - 6], 'oc'], new Location(_$[$0 - 8], _$[$0 - 5])), new IntValue([1], new Location(_$[$0 - 12], _$[$0 - 12]), 1), $$[$0], new Location(_$[$0 - 12], _$[$0]));
 					break;
 				case 141:
-					this.$ = new GraphicStatement('gSetLineWidth', [$$[$0 - 2]], new Location(_$[$0 - 4], _$[$0 - 4]));
+					this.$ = new ForIntervalDec($$[$0 - 14], new IntervalValue([$$[$0 - 10], $$[$0 - 8], 'oo'], new Location(_$[$0 - 10], _$[$0 - 7])), $$[$0 - 5], $$[$0], new Location(_$[$0 - 14], _$[$0]));
 					break;
 				case 142:
-					this.$ = new GraphicStatement('gSetFontSize', [$$[$0 - 2]], new Location(_$[$0 - 4], _$[$0 - 4]));
+					this.$ = new ForIntervalDec($$[$0 - 12], new IntervalValue([$$[$0 - 8], $$[$0 - 6], 'oo'], new Location(_$[$0 - 8], _$[$0 - 5])), new IntValue([1], new Location(_$[$0 - 12], _$[$0 - 12]), 1), $$[$0], new Location(_$[$0 - 12], _$[$0]));
 					break;
 				case 143:
-					this.$ = new GraphicStatement('gDrawText', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					this.$ = new ForInc($$[$0 - 11], $$[$0 - 9], $$[$0 - 7], $$[$0 - 5], $$[$0], new Location(_$[$0 - 11], _$[$0]));
 					break;
 				case 144:
-					this.$ = new GraphicStatement('gDrawLine', [$$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 10], _$[$0 - 10]));
+					this.$ = new ForDec($$[$0 - 11], $$[$0 - 9], $$[$0 - 7], $$[$0 - 5], $$[$0], new Location(_$[$0 - 11], _$[$0]));
 					break;
 				case 145:
-					this.$ = new GraphicStatement('gDrawPoint', [$$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 6], _$[$0 - 6]));
+					this.$ = new ForInc($$[$0 - 9], $$[$0 - 7], $$[$0 - 5], new IntValue([1], new Location(_$[$0 - 9], _$[$0 - 9]), 1), $$[$0], new Location(_$[$0 - 9], _$[$0]));
 					break;
 				case 146:
-					this.$ = new GraphicStatement('gDrawBox', [$$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 10], _$[$0 - 10]));
+					this.$ = new ForDec($$[$0 - 9], $$[$0 - 7], $$[$0 - 5], new IntValue([1], new Location(_$[$0 - 9], _$[$0 - 9]), 1), $$[$0], new Location(_$[$0 - 9], _$[$0]));
 					break;
 				case 147:
-					this.$ = new GraphicStatement('gFillBox', [$$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 10], _$[$0 - 10]));
+					this.$ = new ForIn($$[$0 - 6], $$[$0 - 4], $$[$0], new Location(_$[$0 - 6], _$[$0]));
 					break;
 				case 148:
-					this.$ = new GraphicStatement('gDrawCircle', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					this.$ = new ForIn($$[$0 - 3], $$[$0 - 5], $$[$0], new Location(_$[$0 - 6], _$[$0]));
 					break;
 				case 149:
-					this.$ = new GraphicStatement('gFillCircle', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					this.$ = new While($$[$0 - 4], $$[$0], new Location(_$[$0 - 4], _$[$0]));
 					break;
 				case 150:
-					this.$ = new GraphicStatement('gDrawOval', [$$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 10], _$[$0 - 10]));
+					this.$ = new While($$[$0 - 3], $$[$0], new Location(_$[$0 - 4], _$[$0]));
 					break;
 				case 151:
-					this.$ = new GraphicStatement('gFillOval', [$$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 10], _$[$0 - 10]));
+					this.$ = new Append($$[$0 - 5], $$[$0 - 3], new Location(_$[$0 - 5], _$[$0 - 1]));
 					break;
 				case 152:
-					this.$ = new GraphicStatement('gDrawArc', [$$[$0 - 14], $$[$0 - 12], $$[$0 - 10], $$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 16], _$[$0 - 16]));
+					this.$ = new Extend($$[$0 - 5], $$[$0 - 3], new Location(_$[$0 - 5], _$[$0 - 1]));
 					break;
 				case 153:
-					this.$ = new GraphicStatement('gFillArc', [$$[$0 - 14], $$[$0 - 12], $$[$0 - 10], $$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 16], _$[$0 - 16]));
+					this.$ = new Output($$[$0 - 2], false, new Location(_$[$0 - 2], _$[$0 - 1]));
 					break;
 				case 154:
-					this.$ = new GraphicStatement('gBarplot', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					this.$ = new Output($$[$0 - 2], true, new Location(_$[$0 - 2], _$[$0 - 1]));
 					break;
 				case 155:
-					this.$ = new GraphicStatement('gLineplot', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					this.$ = new Output($$[$0 - 2], false, new Location(_$[$0 - 4], _$[$0 - 1]));
 					break;
-				case 156:
-					this.$ = new GraphicStatement('gDrawGraph', [$$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 6], _$[$0 - 6]));
+				case 156: case 158:
+					this.$ = new Output($$[$0 - 2], true, new Location(_$[$0 - 4], _$[$0 - 1]));
 					break;
 				case 157:
-					this.$ = new GraphicStatement('gClearGraph', [], new Location(_$[$0 - 3], _$[$0 - 3]));
-					break;
-				case 158:
-					this.$ = new SleepStatement($$[$0 - 2], new Location(_$[$0 - 2], _$[$0 - 2]));
+					this.$ = new Newline(new Location(_$[$0 - 1], _$[$0 - 1]));
 					break;
 				case 159:
-					this.$ = new BreakStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
+					this.$ = new Input($$[$0 - 5], typeOfValue.typeInt, new Location(_$[$0 - 5], _$[$0 - 2]));
 					break;
 				case 160:
-					return $$[$0 - 1];
+					this.$ = new Input($$[$0 - 5], typeOfValue.typeFloat, new Location(_$[$0 - 5], _$[$0 - 2]));
 					break;
 				case 161:
-					this.$ = $$[$0 - 1].concat($$[$0]);
+					this.$ = new Input($$[$0 - 5], typeOfValue.typeString, new Location(_$[$0 - 5], _$[$0 - 2]));
+					break;
+				case 162:
+					this.$ = new Input($$[$0 - 5], typeOfValue.typeBoolean, new Location(_$[$0 - 5], _$[$0 - 2]));
+					break;
+				case 163:
+					this.$ = new GraphicStatement('gOpenWindow', [$$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 6], _$[$0 - 6]));
+					break;
+				case 164:
+					this.$ = new GraphicStatement('gCloseWindow', [], new Location(_$[$0 - 3], _$[$0 - 3]));
+					break;
+				case 165:
+					this.$ = new GraphicStatement('gClearWindow', [], new Location(_$[$0 - 3], _$[$0 - 3]));
+					break;
+				case 166:
+					this.$ = new GraphicStatement('gSetLineColor', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					break;
+				case 167:
+					this.$ = new GraphicStatement('gSetFillColor', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					break;
+				case 168:
+					this.$ = new GraphicStatement('gSetTextColor', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					break;
+				case 169:
+					this.$ = new GraphicStatement('gSetLineWidth', [$$[$0 - 2]], new Location(_$[$0 - 4], _$[$0 - 4]));
+					break;
+				case 170:
+					this.$ = new GraphicStatement('gSetFontSize', [$$[$0 - 2]], new Location(_$[$0 - 4], _$[$0 - 4]));
+					break;
+				case 171:
+					this.$ = new GraphicStatement('gDrawText', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					break;
+				case 172:
+					this.$ = new GraphicStatement('gDrawLine', [$$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 10], _$[$0 - 10]));
+					break;
+				case 173:
+					this.$ = new GraphicStatement('gDrawPoint', [$$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 6], _$[$0 - 6]));
+					break;
+				case 174:
+					this.$ = new GraphicStatement('gDrawBox', [$$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 10], _$[$0 - 10]));
+					break;
+				case 175:
+					this.$ = new GraphicStatement('gFillBox', [$$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 10], _$[$0 - 10]));
+					break;
+				case 176:
+					this.$ = new GraphicStatement('gDrawCircle', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					break;
+				case 177:
+					this.$ = new GraphicStatement('gFillCircle', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					break;
+				case 178:
+					this.$ = new GraphicStatement('gDrawOval', [$$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 10], _$[$0 - 10]));
+					break;
+				case 179:
+					this.$ = new GraphicStatement('gFillOval', [$$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 10], _$[$0 - 10]));
+					break;
+				case 180:
+					this.$ = new GraphicStatement('gDrawArc', [$$[$0 - 14], $$[$0 - 12], $$[$0 - 10], $$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 16], _$[$0 - 16]));
+					break;
+				case 181:
+					this.$ = new GraphicStatement('gFillArc', [$$[$0 - 14], $$[$0 - 12], $$[$0 - 10], $$[$0 - 8], $$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 16], _$[$0 - 16]));
+					break;
+				case 182:
+					this.$ = new GraphicStatement('gBarplot', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					break;
+				case 183:
+					this.$ = new GraphicStatement('gLineplot', [$$[$0 - 6], $$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 8], _$[$0 - 8]));
+					break;
+				case 184:
+					this.$ = new GraphicStatement('gDrawGraph', [$$[$0 - 4], $$[$0 - 2]], new Location(_$[$0 - 6], _$[$0 - 6]));
+					break;
+				case 185:
+					this.$ = new GraphicStatement('gClearGraph', [], new Location(_$[$0 - 3], _$[$0 - 3]));
+					break;
+				case 186:
+					this.$ = new SleepStatement($$[$0 - 2], new Location(_$[$0 - 2], _$[$0 - 2]));
+					break;
+				case 187: case 188:
+					this.$ = new BreakStatement(new Location(_$[$0 - 1], _$[$0 - 1]));
+					break;
+				case 189:
+					return $$[$0 - 1];
 					break;
 			}
 		},
-		table: [o($V0, [2, 162], { 144: 1, 145: 2 }), { 1: [3] }, o($V1, $V2, { 147: 4, 55: 5, 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU, 146: [1, 3] }), { 1: [2, 160] }, o($V0, [2, 161]), o($V0, [2, 163]), o($VV, [2, 64]), o($VV, [2, 65]), o($VV, [2, 66]), o($VV, [2, 67]), o($VV, [2, 68]), o($VV, [2, 69]), o($VV, [2, 70]), o($VV, [2, 71]), o($VV, [2, 72]), o($VV, [2, 73]), o($VV, [2, 74]), o($VV, [2, 75]), o($VV, [2, 76]), o($VV, [2, 77]), o($VV, [2, 78]), o($VV, $VW), o([9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 44, 49, 52, 53, 78, 88, 95, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], $VX, { 22: [1, 80] }), o($V1, $VY, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 52: $Vm1, 78: [1, 98], 88: [1, 94], 95: [1, 95], 97: [1, 96], 98: [1, 81], 99: [1, 82], 100: [1, 83], 101: [1, 84], 102: [1, 85], 103: [1, 86], 104: [1, 87], 105: [1, 88], 106: [1, 89], 107: [1, 90], 108: [1, 91], 109: [1, 92], 110: [1, 93], 142: [1, 97] }), { 53: $Vn1, 113: [1, 125], 114: [1, 126] }, { 22: [1, 128] }, { 22: [1, 129] }, { 46: [1, 130] }, { 22: [1, 131] }, { 22: [1, 132] }, { 22: [1, 133] }, { 22: [1, 134] }, { 22: [1, 135] }, { 22: [1, 136] }, { 22: [1, 137] }, { 22: [1, 138] }, { 22: [1, 139] }, { 22: [1, 140] }, { 22: [1, 141] }, { 22: [1, 142] }, { 22: [1, 143] }, { 22: [1, 144] }, { 22: [1, 145] }, { 22: [1, 146] }, { 22: [1, 147] }, { 22: [1, 148] }, { 22: [1, 149] }, { 22: [1, 150] }, { 22: [1, 151] }, { 22: [1, 152] }, { 22: [1, 153] }, { 75: $Vo1, 82: 156, 83: 155, 84: $Vp1, 85: 157, 86: $Vq1, 87: 154 }, { 41: [1, 161] }, { 41: [1, 162] }, { 46: [1, 163] }, { 22: [1, 165], 46: [1, 164] }, { 46: [1, 166] }, { 46: [1, 167] }, { 46: [1, 168] }, o($Vr1, [2, 1]), o($Vr1, [2, 2]), o($Vr1, [2, 3]), o($Vr1, [2, 4]), o($Vr1, [2, 5]), { 3: 169, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 171, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 172, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 173, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 22: [1, 174] }, { 22: $Vt1 }, { 22: $Vu1 }, { 22: $Vv1 }, { 22: $Vw1 }, o($Vr1, [2, 40], { 44: [1, 179] }), o($Vx1, $V2, { 43: 73, 51: 76, 42: 180, 3: 182, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 46: [1, 181], 47: $Vk, 50: $Vl, 52: $Vm }), o($Vy1, $V2, { 43: 73, 51: 76, 3: 182, 42: 183, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 46: [1, 184], 47: $Vk, 50: $Vl, 52: $Vm }), o($Vz1, [2, 60]), { 3: 185, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, o($VA1, [2, 48]), o($Vz1, [2, 49], { 43: 73, 3: 186, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl }), o($VB1, $V2, { 43: 73, 51: 76, 3: 182, 42: 187, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl, 52: $Vm }), { 3: 188, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 189, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 190, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 191, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 192, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 193, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 194, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 195, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 196, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 197, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 198, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 199, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 200, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: [1, 201], 38: [1, 202], 39: [1, 203], 40: [1, 204], 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 205, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 206, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 52: [1, 208], 93: [1, 207] }, { 46: [1, 209] }, { 46: [1, 210] }, { 3: 211, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 212, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 213, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 214, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 215, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 216, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 217, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 218, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 219, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 220, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 221, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 222, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 223, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 224, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 225, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 226, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 227, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 228, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 229, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 32: [1, 230] }, { 3: 231, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 232, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 233, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 234, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 235, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, o($Vz1, [2, 51], { 43: 73, 3: 236, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl }), { 46: [1, 237] }, { 46: [1, 238] }, o($Vz1, [2, 58], { 43: 73, 3: 239, 51: 240, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 46: [1, 241], 47: $Vk, 50: $Vl, 52: $Vm }), o($VB1, $V2, { 43: 73, 51: 76, 3: 182, 42: 242, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl, 52: $Vm }), o($VB1, $V2, { 43: 73, 51: 76, 3: 182, 42: 243, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl, 52: $Vm }), o($VV, [2, 130]), { 3: 244, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 23: [1, 245] }, { 23: [1, 246] }, { 3: 247, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 248, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 249, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 250, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 251, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 252, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 253, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 254, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 255, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 256, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 257, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 258, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 259, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 260, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 261, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 262, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 263, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 264, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 265, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 23: [1, 266] }, { 75: $Vo1, 82: 268, 83: 267, 84: $Vp1, 85: 269, 86: $Vq1 }, { 75: $Vo1, 82: 270 }, o($VV, [2, 99]), o($VC1, [2, 95]), { 52: [1, 271] }, { 46: [1, 272] }, { 3: 273, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 22: [1, 274] }, { 22: [1, 275] }, o($VV, [2, 86]), o($VV, [2, 82]), { 23: [1, 276] }, o($VV, [2, 159]), o($VV, [2, 79]), o($VV, [2, 80]), o($VD1, [2, 13], { 9: $VZ }), o($VA1, $VX, { 22: [1, 277] }), o($VD1, [2, 17], { 9: $VZ }), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 278], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, o($VE1, [2, 32], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 49: $Vl1 }), { 3: 279, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 280, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 281, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 282, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 283, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, o($Vx1, $V2, { 43: 73, 51: 76, 3: 182, 42: 284, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl, 52: $Vm }), { 45: [1, 285], 53: $Vn1 }, o($Vx1, $V2, { 43: 73, 51: 76, 3: 182, 42: 286, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl, 52: $Vm }), o([23, 45, 48, 53], $VY, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 52: $Vm1 }), { 48: [1, 287], 53: $Vn1 }, o($Vy1, $V2, { 43: 73, 51: 76, 3: 182, 42: 288, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl, 52: $Vm }), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 81: [1, 289] }, o($Vz1, [2, 50], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }), { 23: [1, 290], 53: $Vn1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 291], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 292], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 293], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 294], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 295], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 296], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 297], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 298], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 299], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 300], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 301], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 46: [1, 302], 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 88: [1, 303] }, { 22: $Vt1, 88: [1, 304] }, { 22: $Vu1, 88: [1, 305] }, { 22: $Vv1, 88: [1, 306] }, { 22: $Vw1, 88: [1, 307] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 89: [1, 308] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 96: [1, 309] }, { 52: [1, 310] }, { 46: [1, 311] }, o($VV, [2, 158]), o($VV, [2, 87]), o($VD1, [2, 6], { 9: $VZ }), o($VF1, [2, 7], { 9: $VZ, 12: $V01, 13: $V11, 14: $V21, 15: $V31 }), o($VF1, [2, 8], { 9: $VZ, 12: $V01, 13: $V11, 14: $V21, 15: $V31 }), o($VD1, [2, 9], { 9: $VZ }), o($VD1, [2, 10], { 9: $VZ }), o($VD1, [2, 11], { 9: $VZ }), o($VD1, [2, 12], { 9: $VZ }), o([16, 17, 18, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 45, 46, 48, 49, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], [2, 14], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 20: $V71, 21: $V81 }), o([17, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 45, 46, 48, 49, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], [2, 15], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 18: $V61, 20: $V71, 21: $V81 }), o([17, 18, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 45, 46, 48, 49, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], [2, 16], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 20: $V71, 21: $V81 }), o($VG1, [2, 18], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31 }), o($VG1, [2, 19], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31 }), o($VH1, [2, 21], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 49: $Vl1 }), o($VH1, [2, 22], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 49: $Vl1 }), o($VH1, [2, 23], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 49: $Vl1 }), o($VH1, [2, 24], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 49: $Vl1 }), o($VH1, [2, 25], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 49: $Vl1 }), o($VH1, [2, 26], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 49: $Vl1 }), o([23, 31, 33, 34, 36, 45, 46, 48, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], [2, 27], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 32: $Vh1, 49: $Vl1 }), { 3: 312, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, o($VH1, [2, 29], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 49: $Vl1 }), o($VE1, [2, 30], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 49: $Vl1 }), o([23, 34, 36, 45, 46, 48, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], [2, 31], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 49: $Vl1 }), o([23, 36, 45, 46, 48, 52, 53, 78, 81, 88, 89, 90, 91, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], [2, 34], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 49: $Vl1 }), o($VH1, [2, 45], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 49: $Vl1 }), o($Vz1, [2, 52], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }), o($VV, [2, 126]), o($VV, [2, 127]), o($Vz1, [2, 53], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 52: $Vm1 }), o($Vz1, [2, 54]), o($Vz1, [2, 57], { 43: 73, 3: 313, 51: 314, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl, 52: $Vm }), { 23: [1, 315], 53: $Vn1 }, { 23: [1, 316], 53: $Vn1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 317] }, { 46: [1, 318] }, { 46: [1, 319] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 320] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 321] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 322] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 323], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 324], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 325] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 326] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 327] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 328] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 329] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 330] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 331] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 332] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 333] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 334] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 335] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 336] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 337] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 338] }, { 46: [1, 339] }, { 75: $Vo1, 82: 340 }, o($VV, [2, 97]), o($VC1, [2, 94]), o($VV, [2, 98]), { 46: [1, 341] }, o($VV, [2, 91]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 81: [1, 342] }, o($VB1, $V2, { 43: 73, 51: 76, 3: 182, 42: 343, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl, 52: $Vm }), o($VB1, $V2, { 43: 73, 51: 76, 3: 182, 42: 344, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl, 52: $Vm }), { 46: [1, 345] }, o($VB1, $V2, { 43: 73, 51: 76, 3: 182, 42: 346, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 44: $Vi, 47: $Vk, 50: $Vl, 52: $Vm }), o($Vr1, [2, 20]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 347], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 348], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 349], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 350], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 351], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 45: [1, 352], 53: $Vn1 }, o($Vr1, [2, 41]), { 45: [1, 353], 53: $Vn1 }, o($Vr1, [2, 43]), { 48: [1, 354], 53: $Vn1 }, { 52: [1, 355] }, o([9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 49, 52, 53, 78, 88, 95, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 113, 114, 142], $VI1, { 46: [1, 356] }), o($VV, [2, 112]), o($VV, [2, 113]), o($VV, [2, 114]), o($VV, [2, 115]), o($VV, [2, 116]), o($VV, [2, 117]), o($VV, [2, 118]), o($VV, [2, 119]), o($VV, [2, 120]), o($VV, [2, 121]), o($VV, [2, 122]), o($VV, [2, 123]), { 111: [1, 357], 112: [1, 358] }, { 118: [1, 359] }, { 118: [1, 360] }, { 118: [1, 361] }, { 118: [1, 362] }, { 3: 363, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 52: [1, 365], 93: [1, 364] }, { 46: [1, 366] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 54: 367, 55: 368, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($VE1, [2, 28], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 49: $Vl1 }), o($Vz1, [2, 55], { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 52: $Vm1 }), o($Vz1, [2, 56]), { 46: [1, 369] }, { 46: [1, 370] }, { 3: 371, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, o($VV, [2, 136]), o($VV, [2, 137]), { 3: 372, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 373, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 374, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 46: [1, 375] }, { 46: [1, 376] }, { 3: 377, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 378, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 379, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 380, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 381, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 382, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 383, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 384, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 385, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 386, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 387, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 388, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 389, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 390, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, o($VV, [2, 157]), o($VV, [2, 96]), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 391, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 52: [1, 392] }, { 23: [1, 393], 53: $Vn1 }, { 23: [1, 394], 53: $Vn1 }, o($VV, [2, 83]), { 23: [1, 395], 53: $Vn1 }, o($Vr1, [2, 33]), o($Vr1, [2, 35]), o($Vr1, [2, 36]), o($Vr1, [2, 37]), o($Vr1, [2, 38]), o($VA1, [2, 46]), o($Vr1, [2, 42]), o($Vr1, [2, 44]), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 397, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: [1, 396], 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($VV, [2, 88]), { 46: [1, 398] }, { 46: [1, 399] }, { 46: [1, 400] }, { 46: [1, 401] }, { 46: [1, 402] }, { 46: [1, 403] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 90: [1, 404] }, { 52: [1, 405] }, { 46: [1, 406] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 407, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 408], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($VJ1, [2, 63]), o($VV, [2, 128]), o($VV, [2, 129]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 410], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 411] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 412] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 413] }, o($VV, [2, 141]), o($VV, [2, 142]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 414] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 415] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 416], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 417] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 418] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 419] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 420] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 421] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 422] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 423] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 424] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 425] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 426] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 427], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [2, 92], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 428] }, { 52: [1, 429] }, { 52: [1, 430] }, o($Vr1, $VI1), o($VC1, $VW, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 431, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 53: $V2, 113: $V2, 114: $V2, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($VC1, [2, 90]), o($VV, [2, 124]), o($VV, [2, 125]), o($VV, [2, 131]), o($VV, [2, 132]), o($VV, [2, 133]), o($VV, [2, 134]), { 3: 432, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl, 92: [1, 433], 94: [1, 434] }, { 46: [1, 435] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 436, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 437], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 438] }, o($VJ1, [2, 62]), { 46: [1, 439] }, { 3: 440, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 441, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 442, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 443, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 444, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 46: [1, 445] }, { 3: 446, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 447, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 448, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 449, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 450, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 451, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 452, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 453, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 454, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 455, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 46: [1, 456] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 457, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 458] }, { 46: [1, 459] }, o($VC1, [2, 89], { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 53: $V2, 113: $V2, 114: $V2, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 91: [1, 460] }, { 52: [1, 462], 93: [1, 461] }, { 52: [1, 464], 93: [1, 463] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 465, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 466], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 467] }, o($VV, [2, 111]), o($VV, [2, 135]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 468], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 469], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 470], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 471], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 472] }, o($VV, [2, 145]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 473] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 474] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 475], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 476], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 477] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 478] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 479] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 480] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 481], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 482], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, o($VV, [2, 156]), o($VC1, [2, 93], { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 53: $V2, 113: $V2, 114: $V2, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 483, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 484, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 92: [1, 485], 94: [1, 486] }, { 52: [1, 487] }, { 46: [1, 488] }, { 52: [1, 489] }, { 46: [1, 490] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 491], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 492] }, o($VV, [2, 110]), { 46: [1, 493] }, { 46: [1, 494] }, { 46: [1, 495] }, { 46: [1, 496] }, { 3: 497, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 498, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 499, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 46: [1, 500] }, { 46: [1, 501] }, { 3: 502, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 503, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 504, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 505, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 46: [1, 506] }, { 46: [1, 507] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 508], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 509], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 52: [1, 511], 93: [1, 510] }, { 52: [1, 513], 93: [1, 512] }, { 46: [1, 514] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 515, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 516] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 517, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 518] }, o($VV, [2, 109]), o($VV, [2, 138]), o($VV, [2, 139]), o($VV, [2, 140]), o($VV, [2, 143]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 519], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 520], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 521], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, o($VV, [2, 148]), o($VV, [2, 149]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 522], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 523], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 524] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 525] }, o($VV, [2, 154]), o($VV, [2, 155]), { 46: [1, 526] }, { 46: [1, 527] }, { 52: [1, 528] }, { 46: [1, 529] }, { 52: [1, 530] }, { 46: [1, 531] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 532, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 533], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 534, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 535], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($VV, [2, 108]), { 46: [1, 536] }, { 46: [1, 537] }, { 46: [1, 538] }, { 46: [1, 539] }, { 46: [1, 540] }, { 3: 541, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 542, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, o($VV, [2, 84]), o($VV, [2, 85]), { 46: [1, 543] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 544, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 545] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 546, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 547], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 548] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 549], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 550] }, o($VV, [2, 144]), o($VV, [2, 146]), o($VV, [2, 147]), o($VV, [2, 150]), o($VV, [2, 151]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 551] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 552] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 553, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 554], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 368, 54: 555, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 556], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 557] }, o($VV, [2, 106]), { 46: [1, 558] }, o($VV, [2, 107]), { 3: 559, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 560, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 561], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 562] }, o($V1, $V2, { 56: 6, 57: 7, 58: 8, 59: 9, 60: 10, 61: 11, 62: 12, 63: 13, 64: 14, 65: 15, 66: 16, 67: 17, 68: 18, 69: 19, 70: 20, 3: 23, 42: 24, 79: 51, 43: 73, 51: 76, 55: 409, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vh, 44: $Vi, 46: $Vj, 47: $Vk, 50: $Vl, 52: $Vm, 71: $Vn, 72: $Vo, 73: $Vp, 74: $Vq, 75: [1, 563], 76: $Vr, 77: $Vs, 80: $Vt, 115: $Vu, 116: $Vv, 117: $Vw, 119: $Vx, 120: $Vy, 121: $Vz, 122: $VA, 123: $VB, 124: $VC, 125: $VD, 126: $VE, 127: $VF, 128: $VG, 129: $VH, 130: $VI, 131: $VJ, 132: $VK, 133: $VL, 134: $VM, 135: $VN, 136: $VO, 137: $VP, 138: $VQ, 139: $VR, 140: $VS, 141: $VT, 143: $VU }), { 46: [1, 564] }, o($VV, [2, 102]), o($VV, [2, 103]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 565] }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1, 53: [1, 566] }, { 46: [1, 567] }, o($VV, [2, 104]), { 46: [1, 568] }, o($VV, [2, 105]), { 3: 569, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, { 3: 570, 4: $V3, 5: $V4, 6: $V5, 7: $V6, 8: $V7, 11: $V8, 19: $V9, 22: $Va, 31: $Vb, 35: $Vc, 37: $Vd, 38: $Ve, 39: $Vf, 40: $Vg, 41: $Vs1, 43: 73, 44: $Vi, 47: $Vk, 50: $Vl }, o($VV, [2, 100]), o($VV, [2, 101]), { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 571], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 9: $VZ, 10: $V_, 11: $V$, 12: $V01, 13: $V11, 14: $V21, 15: $V31, 16: $V41, 17: $V51, 18: $V61, 20: $V71, 21: $V81, 23: [1, 572], 24: $V91, 25: $Va1, 26: $Vb1, 27: $Vc1, 28: $Vd1, 29: $Ve1, 30: $Vf1, 31: $Vg1, 32: $Vh1, 33: $Vi1, 34: $Vj1, 36: $Vk1, 49: $Vl1 }, { 46: [1, 573] }, { 46: [1, 574] }, o($VV, [2, 152]), o($VV, [2, 153])],
-		defaultActions: { 3: [2, 160] },
+		table: [o($V0, $V1, { 154: 1, 66: 2, 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 1: [3] }, o($V0, $V1, { 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 67: 84, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: $V_, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ, 155: [1, 83] }), o($V$, [2, 76]), o($V01, [2, 78]), o($V01, [2, 79]), o($V01, [2, 80]), o($V01, [2, 81]), o($V01, [2, 82]), o($V01, [2, 83]), o($V01, [2, 84]), o($V01, [2, 85]), o($V01, [2, 86]), o($V01, [2, 87]), o($V01, [2, 88]), o($V01, [2, 89]), o($V01, [2, 90]), o($V01, [2, 91]), o($V0, $V11, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 46: [1, 86], 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 64: $VE1, 93: [1, 92], 105: [1, 88], 113: [1, 89], 116: [1, 90], 118: [1, 87], 151: [1, 91] }), { 65: $VF1, 121: [1, 132], 122: [1, 133] }, { 22: [1, 135] }, { 22: [1, 136] }, { 46: [1, 137] }, { 22: [1, 138] }, { 22: [1, 139] }, { 22: [1, 140] }, { 22: [1, 141] }, { 22: [1, 142] }, { 22: [1, 143] }, { 22: [1, 144] }, { 22: [1, 145] }, { 22: [1, 146] }, { 22: [1, 147] }, { 22: [1, 148] }, { 22: [1, 149] }, { 22: [1, 150] }, { 22: [1, 151] }, { 22: [1, 152] }, { 22: [1, 153] }, { 22: [1, 154] }, { 22: [1, 155] }, { 22: [1, 156] }, { 22: [1, 157] }, { 22: [1, 158] }, { 22: [1, 159] }, { 22: [1, 160] }, { 22: [1, 161] }, { 3: 162, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 163, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, o($V$, [2, 108], { 95: 164, 96: 165, 102: 166, 100: $VG1, 101: $VH1, 103: $VI1, 104: $VJ1 }), { 40: [1, 171] }, { 40: [1, 172] }, { 46: [1, 173] }, { 46: [1, 174] }, { 3: 176, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 46: [1, 175], 47: $Vh, 62: $Vi }, { 22: [1, 178], 46: [1, 177] }, { 46: [1, 179] }, { 46: [1, 180] }, { 46: [1, 181] }, { 46: [1, 182] }, { 46: [1, 183] }, o($VK1, [2, 1]), o($VK1, [2, 2]), o($VK1, [2, 3]), o($VK1, [2, 4]), o($VK1, [2, 5]), { 3: 184, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 185, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 186, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 187, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 22: $VL1 }, { 22: $VM1 }, { 22: $VN1 }, { 22: $VO1 }, o($VP1, [2, 59], { 22: [1, 192] }), o($VK1, [2, 40], { 44: [1, 193] }), o($VQ1, $V1, { 43: 75, 63: 78, 41: 194, 3: 196, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: [1, 195], 47: $Vh, 62: $Vi, 64: $Vj }), o($VR1, $V1, { 43: 75, 63: 78, 3: 196, 41: 197, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: [1, 198], 47: $Vh, 62: $Vi, 64: $Vj }), o($VS1, [2, 72]), { 3: 199, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 200, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, o($VP1, [2, 60]), o($VS1, [2, 61], { 43: 75, 3: 201, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi }), { 1: [2, 189] }, o($V$, [2, 74]), o($V$, [2, 75]), o($V01, [2, 95]), { 3: 202, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: [1, 203], 37: [1, 204], 38: [1, 205], 39: [1, 206], 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 208, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi, 106: [1, 207] }, { 3: 209, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 64: [1, 210] }, { 46: [1, 211] }, { 46: [1, 212] }, { 3: 213, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 214, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 215, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 216, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 217, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 218, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 219, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 220, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 221, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 222, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 223, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 224, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 225, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 226, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 227, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 228, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 229, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 230, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 231, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 32: [1, 232] }, { 3: 233, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 234, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 235, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 236, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 40: [1, 237] }, { 3: 238, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 239, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 240, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 241, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 242, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 243, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 244, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 245, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 246, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 247, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 248, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 249, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 250, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, o($VS1, [2, 63], { 43: 75, 3: 251, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi }), { 46: [1, 252] }, { 46: [1, 253] }, o($VS1, [2, 70], { 43: 75, 3: 254, 63: 255, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: [1, 256], 47: $Vh, 62: $Vi, 64: $Vj }), o($VT1, $V1, { 43: 75, 63: 78, 3: 196, 41: 257, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), o($VT1, $V1, { 43: 75, 63: 78, 3: 196, 41: 258, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), o($V01, [2, 157]), o($VT1, $V1, { 43: 75, 63: 78, 3: 196, 41: 259, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), { 3: 260, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 23: [1, 261] }, { 23: [1, 262] }, { 3: 263, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 264, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 265, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 266, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 267, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 268, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 269, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 270, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 271, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 272, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 273, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 274, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 275, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 276, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 277, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 278, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 279, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 280, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 281, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 23: [1, 282] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: [1, 283], 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 64: [1, 284] }, o($V$, [2, 106], { 96: 285, 102: 286, 100: $VG1, 101: $VH1, 103: $VI1, 104: $VJ1 }), o($V01, [2, 107]), o($V01, [2, 122]), { 64: [1, 287] }, { 64: [1, 288] }, { 3: 289, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 290, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 22: [1, 291] }, { 22: [1, 292] }, o($V01, [2, 100]), o($V01, [2, 101]), o($V01, [2, 102]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 46: [1, 293], 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, o($V01, [2, 96]), { 23: [1, 294] }, o($V01, [2, 187]), o($V01, [2, 188]), o($V01, [2, 92]), o($V01, [2, 93]), o($V01, [2, 94]), o($VU1, [2, 13], { 9: $V21, 42: $Vq1 }), o($VU1, [2, 17], { 9: $V21, 42: $Vq1 }), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 295], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, o($VV1, [2, 32], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 42: $Vq1, 49: $Vr1 }), { 3: 296, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 297, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 298, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 299, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, o($VT1, $V1, { 43: 75, 63: 78, 3: 196, 41: 300, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), o($VQ1, $V1, { 43: 75, 63: 78, 3: 196, 41: 301, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), { 45: [1, 302], 65: $VF1 }, o($VQ1, $V1, { 43: 75, 63: 78, 3: 196, 41: 303, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), o([23, 45, 48, 65], $V11, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 64: $VE1 }), { 48: [1, 304], 65: $VF1 }, o($VR1, $V1, { 43: 75, 63: 78, 3: 196, 41: 305, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 98: [1, 306] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 64: [1, 307] }, o($VS1, [2, 62], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 105: [1, 308] }, { 22: $VL1, 105: [1, 309] }, { 22: $VM1, 105: [1, 310] }, { 22: $VN1, 105: [1, 311] }, { 22: $VO1, 105: [1, 312] }, { 22: [1, 314], 44: [1, 313] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 111: [1, 315] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 114: [1, 316] }, { 46: [1, 317] }, o($V01, [2, 186]), o($V01, [2, 103]), o($VU1, [2, 6], { 9: $V21, 42: $Vq1 }), o($VW1, [2, 7], { 9: $V21, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 42: $Vq1 }), o($VW1, [2, 8], { 9: $V21, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 42: $Vq1 }), o($VU1, [2, 9], { 9: $V21, 42: $Vq1 }), o($VU1, [2, 10], { 9: $V21, 42: $Vq1 }), o($VU1, [2, 11], { 9: $V21, 42: $Vq1 }), o($VU1, [2, 12], { 9: $V21, 42: $Vq1 }), o([16, 17, 18, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], [2, 14], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 20: $Vc1, 21: $Vd1, 42: $Vq1 }), o([17, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], [2, 15], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 18: $Vb1, 20: $Vc1, 21: $Vd1, 42: $Vq1 }), o([17, 18, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], [2, 16], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 20: $Vc1, 21: $Vd1, 42: $Vq1 }), o($VX1, [2, 18], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 42: $Vq1 }), o($VX1, [2, 19], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 42: $Vq1 }), o($VY1, [2, 21], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 42: $Vq1, 49: $Vr1 }), o($VY1, [2, 22], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 42: $Vq1, 49: $Vr1 }), o($VY1, [2, 23], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 42: $Vq1, 49: $Vr1 }), o($VY1, [2, 24], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 42: $Vq1, 49: $Vr1 }), o($VY1, [2, 25], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 42: $Vq1, 49: $Vr1 }), o($VY1, [2, 26], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 42: $Vq1, 49: $Vr1 }), o([23, 31, 33, 34, 35, 45, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], [2, 27], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 32: $Vm1, 42: $Vq1, 49: $Vr1 }), { 3: 318, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, o($VY1, $VZ1, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 42: $Vq1, 49: $Vr1 }), o($VV1, [2, 30], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 42: $Vq1, 49: $Vr1 }), o([23, 34, 35, 45, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], [2, 31], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 42: $Vq1, 49: $Vr1 }), o([23, 35, 45, 46, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 65, 93, 98, 105, 108, 111, 112, 113, 114, 116, 118, 121, 122, 151], [2, 33], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 42: $Vq1, 49: $Vr1 }), { 22: [1, 319] }, o($VY1, [2, 45], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 42: $Vq1, 49: $Vr1 }), o($V_1, [2, 46], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 47], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 48], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 49], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 50], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 51], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 52], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 53], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 54], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 55], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 56], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V_1, [2, 57], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($VS1, [2, 64], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }), o($V01, [2, 153]), o($V01, [2, 154]), o($VS1, [2, 65], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 64: $VE1 }), o($VS1, [2, 66]), o($VS1, [2, 69], { 43: 75, 3: 320, 63: 321, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), { 23: [1, 322], 65: $VF1 }, { 23: [1, 323], 65: $VF1 }, { 23: [1, 324], 65: $VF1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 325] }, { 46: [1, 326] }, { 46: [1, 327] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 328] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 329] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 330] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 331], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 332], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 333] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 334] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 335] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 336] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 337] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 338] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 339] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 340] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 341] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 342] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 343] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 344] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 345] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 346] }, { 46: [1, 347] }, { 3: 348, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 46: [1, 349] }, o($V01, [2, 105]), o($V01, [2, 121]), o($V0, $V1, { 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 67: 351, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: [1, 350], 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 67: 353, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: [1, 352], 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 98: [1, 354] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 64: [1, 355] }, o($VT1, $V1, { 43: 75, 63: 78, 3: 196, 41: 356, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), o($VT1, $V1, { 43: 75, 63: 78, 3: 196, 41: 357, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), o($V01, [2, 104]), { 46: [1, 358] }, o($VK1, [2, 20]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 359], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 360], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 361], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 362], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 23: [1, 363], 65: $VF1 }, { 45: [1, 364], 65: $VF1 }, o($VK1, [2, 41]), { 45: [1, 365], 65: $VF1 }, o($VK1, [2, 43]), { 48: [1, 366], 65: $VF1 }, { 64: [1, 367] }, o($V0, $V1, { 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 67: 369, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: [1, 368], 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 119: [1, 370], 120: [1, 371] }, { 127: [1, 372] }, { 127: [1, 373] }, { 127: [1, 374] }, { 127: [1, 375] }, { 3: 376, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 377, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 378, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 64: [1, 379] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 68: 380, 66: 381, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($VV1, [2, 28], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 42: $Vq1, 49: $Vr1 }), o($VT1, $V1, { 43: 75, 63: 78, 3: 196, 41: 382, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj }), o($VS1, [2, 67], { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 64: $VE1 }), o($VS1, [2, 68]), { 46: [1, 383] }, { 46: [1, 384] }, { 46: [1, 385] }, { 3: 386, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, o($V01, [2, 164]), o($V01, [2, 165]), { 3: 387, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 388, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 389, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 46: [1, 390] }, { 46: [1, 391] }, { 3: 392, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 393, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 394, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 395, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 396, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 397, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 398, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 399, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 400, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 401, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 402, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 403, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 404, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 405, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, o($V01, [2, 185]), o([24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61], $VZ1, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 42: $Vq1, 49: $Vr1, 64: [1, 406] }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 407, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 408, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 115]), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 409, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 116]), { 64: [1, 410] }, o($V0, $V1, { 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 67: 412, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: [1, 411], 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 23: [1, 413], 65: $VF1 }, { 23: [1, 414], 65: $VF1 }, o($V01, [2, 97]), o($VK1, [2, 34]), o($VK1, [2, 35]), o($VK1, [2, 36]), o($VK1, [2, 37]), o($VK1, [2, 38]), o($VP1, [2, 58]), o($VK1, [2, 42]), o($VK1, [2, 44]), o($V0, $V1, { 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 67: 416, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: [1, 415], 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 417, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 112]), { 46: [1, 418] }, { 46: [1, 419] }, { 46: [1, 420] }, { 46: [1, 421] }, { 46: [1, 422] }, { 46: [1, 423] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 424] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 425] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 112: [1, 426] }, { 46: [1, 427] }, o($V01, [2, 149]), o($V0, $V1, { 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 67: 84, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: $V_, 47: $Vh, 62: $Vi, 64: $Vj, 69: [1, 428], 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 23: [1, 429], 65: $VF1 }, o($V01, [2, 155]), o($V01, [2, 156]), o($V01, [2, 158]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 430], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 431] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 432] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 433] }, o($V01, [2, 169]), o($V01, [2, 170]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 434] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 435] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 436], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 437] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 438] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 439] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 440] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 441] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 442] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 443] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 444] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 445] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 446] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 447], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 46: [1, 448] }, o($V01, [2, 150]), o($V01, [2, 113]), o($V01, [2, 114]), o($V0, $V1, { 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 67: 450, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 46: [1, 449], 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 451, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 120]), { 64: [1, 452] }, { 64: [1, 453] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 454, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 111]), o($V01, [2, 110]), o($V01, [2, 151]), o($V01, [2, 152]), o($V01, [2, 159]), o($V01, [2, 160]), o($V01, [2, 161]), o($V01, [2, 162]), { 3: 455, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 456, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 457, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi, 109: [1, 458], 110: [1, 459] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 460, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 46: [1, 461] }, o($VK1, [2, 39]), { 46: [1, 462] }, { 3: 463, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 464, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 465, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 466, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 467, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 46: [1, 468] }, { 3: 469, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 470, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 471, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 472, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 473, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 474, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 475, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 476, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 477, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 478, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 46: [1, 479] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 480, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 481, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 119]), o($V01, [2, 118]), { 46: [1, 482] }, { 46: [1, 483] }, o($V01, [2, 109]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 485], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 45: [1, 484], 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 487], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 45: [1, 486], 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 108: [1, 488] }, { 64: [1, 489] }, { 64: [1, 490] }, o($V01, [2, 147]), o($V01, [2, 77]), o($V01, [2, 163]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 491], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 492], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 493], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 494], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 495] }, o($V01, [2, 173]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 496] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 497] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 498], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 499], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 500] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 501] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 502] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 503] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 504], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 505], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, o($V01, [2, 184]), o($V01, [2, 148]), o($V01, [2, 117]), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 506, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 507, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 107: [1, 508] }, { 107: [1, 509] }, { 107: [1, 510] }, { 107: [1, 511] }, { 109: [1, 512], 110: [1, 513] }, { 46: [1, 514] }, { 46: [1, 515] }, { 46: [1, 516] }, { 46: [1, 517] }, { 46: [1, 518] }, { 46: [1, 519] }, { 3: 520, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 521, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 522, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 46: [1, 523] }, { 46: [1, 524] }, { 3: 525, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 526, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 527, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 528, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 46: [1, 529] }, { 46: [1, 530] }, o($V01, [2, 98]), o($V01, [2, 99]), { 3: 531, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi, 64: [1, 533], 109: [1, 532], 110: [1, 534] }, { 3: 535, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi, 64: [1, 537], 109: [1, 536], 110: [1, 538] }, { 3: 539, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi, 64: [1, 541], 109: [1, 540], 110: [1, 542] }, { 3: 543, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi, 64: [1, 545], 109: [1, 544], 110: [1, 546] }, { 64: [1, 547] }, { 64: [1, 548] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 549, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 550, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 166]), o($V01, [2, 167]), o($V01, [2, 168]), o($V01, [2, 171]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 551], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 552], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 553], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, o($V01, [2, 176]), o($V01, [2, 177]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 554], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 555], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 556] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 557] }, o($V01, [2, 182]), o($V01, [2, 183]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 108: [1, 558] }, { 64: [1, 559] }, { 46: [1, 560] }, { 64: [1, 561] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 108: [1, 562] }, { 64: [1, 563] }, { 46: [1, 564] }, { 64: [1, 565] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 108: [1, 566] }, { 64: [1, 567] }, { 46: [1, 568] }, { 64: [1, 569] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 108: [1, 570] }, { 64: [1, 571] }, { 46: [1, 572] }, { 64: [1, 573] }, { 46: [1, 574] }, { 46: [1, 575] }, o($V01, [2, 145]), o($V01, [2, 146]), { 46: [1, 576] }, { 46: [1, 577] }, { 46: [1, 578] }, { 46: [1, 579] }, { 46: [1, 580] }, { 3: 581, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 582, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 109: [1, 583], 110: [1, 584] }, { 46: [1, 585] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 586, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 46: [1, 587] }, { 109: [1, 588], 110: [1, 589] }, { 46: [1, 590] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 591, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 46: [1, 592] }, { 109: [1, 593], 110: [1, 594] }, { 46: [1, 595] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 596, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 46: [1, 597] }, { 109: [1, 598], 110: [1, 599] }, { 46: [1, 600] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 601, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 46: [1, 602] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 603, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 604, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 172]), o($V01, [2, 174]), o($V01, [2, 175]), o($V01, [2, 178]), o($V01, [2, 179]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 605] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 606] }, { 64: [1, 607] }, { 64: [1, 608] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 609, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 125]), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 610, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 64: [1, 611] }, { 64: [1, 612] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 613, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 128]), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 614, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 64: [1, 615] }, { 64: [1, 616] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 617, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 131]), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 618, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 64: [1, 619] }, { 64: [1, 620] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 621, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 134]), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 622, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V01, [2, 143]), o($V01, [2, 144]), { 3: 623, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 624, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 46: [1, 625] }, { 46: [1, 626] }, o($V01, [2, 124]), o($V01, [2, 136]), { 46: [1, 627] }, { 46: [1, 628] }, o($V01, [2, 127]), o($V01, [2, 138]), { 46: [1, 629] }, { 46: [1, 630] }, o($V01, [2, 130]), o($V01, [2, 140]), { 46: [1, 631] }, { 46: [1, 632] }, o($V01, [2, 133]), o($V01, [2, 142]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 633] }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1, 65: [1, 634] }, o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 635, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 636, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 637, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 638, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 639, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 640, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 641, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), o($V0, $V1, { 67: 3, 70: 4, 71: 5, 72: 6, 73: 7, 74: 8, 75: 9, 76: 10, 77: 11, 78: 12, 79: 13, 80: 14, 81: 15, 82: 16, 83: 17, 3: 18, 41: 19, 94: 49, 43: 75, 63: 78, 66: 381, 68: 642, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 44: $Vg, 47: $Vh, 62: $Vi, 64: $Vj, 84: $Vk, 85: $Vl, 86: $Vm, 87: $Vn, 88: $Vo, 89: $Vp, 90: $Vq, 91: $Vr, 92: $Vs, 97: $Vt, 99: $Vu, 115: $Vv, 117: $Vw, 123: $Vx, 124: $Vy, 125: $Vz, 126: $VA, 128: $VB, 129: $VC, 130: $VD, 131: $VE, 132: $VF, 133: $VG, 134: $VH, 135: $VI, 136: $VJ, 137: $VK, 138: $VL, 139: $VM, 140: $VN, 141: $VO, 142: $VP, 143: $VQ, 144: $VR, 145: $VS, 146: $VT, 147: $VU, 148: $VV, 149: $VW, 150: $VX, 152: $VY, 153: $VZ }), { 3: 643, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, { 3: 644, 4: $V2, 5: $V3, 6: $V4, 7: $V5, 8: $V6, 11: $V7, 19: $V8, 22: $V9, 31: $Va, 36: $Vb, 37: $Vc, 38: $Vd, 39: $Ve, 40: $Vf, 43: 75, 44: $Vg, 47: $Vh, 62: $Vi }, o($V01, [2, 123]), o($V01, [2, 135]), o($V01, [2, 126]), o($V01, [2, 137]), o($V01, [2, 129]), o($V01, [2, 139]), o($V01, [2, 132]), o($V01, [2, 141]), { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 645], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 9: $V21, 10: $V31, 11: $V41, 12: $V51, 13: $V61, 14: $V71, 15: $V81, 16: $V91, 17: $Va1, 18: $Vb1, 20: $Vc1, 21: $Vd1, 23: [1, 646], 24: $Ve1, 25: $Vf1, 26: $Vg1, 27: $Vh1, 28: $Vi1, 29: $Vj1, 30: $Vk1, 31: $Vl1, 32: $Vm1, 33: $Vn1, 34: $Vo1, 35: $Vp1, 42: $Vq1, 49: $Vr1, 50: $Vs1, 51: $Vt1, 52: $Vu1, 53: $Vv1, 54: $Vw1, 55: $Vx1, 56: $Vy1, 57: $Vz1, 58: $VA1, 59: $VB1, 60: $VC1, 61: $VD1 }, { 46: [1, 647] }, { 46: [1, 648] }, o($V01, [2, 180]), o($V01, [2, 181])],
+		defaultActions: { 83: [2, 189] },
 		parseError: function parseError(str, hash) {
 			if (hash.recoverable) {
 				this.trace(str);
@@ -523,6 +590,7 @@ var dncl = (function () {
 				vstack.length = vstack.length - n;
 				lstack.length = lstack.length - n;
 			}
+			_token_stack:
 			var lex = function () {
 				var token;
 				token = lexer.lex() || EOF;
@@ -641,14 +709,18 @@ var dncl = (function () {
 		typeArray: 5
 	};
 	function toHalf(s, token) {
-		if (setting.zenkaku_mode == 1) {
-			if (/[Ａ-Ｚａ-ｚ０-９．−]/.exec(s))
-				throw { message: token.first_line + "行目に全角文字が間違って使われています" };
+		switch (setting.zenkaku_mode) {
+			case 0:
+				return s.replace(/[Ａ-Ｚａ-ｚ０-９．−]/g, function (s) {
+					return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+				});
+			case 1:
+				if (/[Ａ-Ｚａ-ｚ０-９．−]/.exec(s))
+					throw { message: token.first_line + "行目に全角文字が間違って使われています" };
+				return s;
+			case 2:
+				return s;
 		}
-		return s.replace(/[Ａ-Ｚａ-ｚ０-９．−]/g, function (s) {
-			return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
-		}
-		);
 	}
 	function escape_bracket(s) {
 		if (/^".*"$/.exec(s)) return s.substr(1, s.length - 2).replace(/\\\"/g, "\"");
@@ -987,330 +1059,349 @@ var dncl = (function () {
 			performAction: function anonymous(yy, yy_, $avoiding_name_collisions, YY_START) {
 				var YYSTATE = YY_START;
 				switch ($avoiding_name_collisions) {
-					case 0: return 40;
+					case 0: return 24
 						break;
-					case 1: return 7;
+					case 1: return 50;
 						break;
-					case 2: return 8;
+					case 2: return 51;
 						break;
-					case 3: return 6;
+					case 3: return 52;
 						break;
-					case 4: return 5;
+					case 4: return 53;
 						break;
-					case 5: return 4;
+					case 5: return 54;
 						break;
-					case 6: return 50;
+					case 6: return 55;
 						break;
-					case 7: return 24
+					case 7: return 56;
 						break;
-					case 8: return 98;
+					case 8: return 57;
 						break;
-					case 9: return 99;
+					case 9: return 58;
 						break;
-					case 10: return 100;
+					case 10: return 59;
 						break;
-					case 11: return 101;
+					case 11: return 60;
 						break;
-					case 12: return 102;
+					case 12: return 61;
 						break;
-					case 13: return 103;
+					case 13: return 10;
 						break;
-					case 14: return 104;
+					case 14: return 11;
 						break;
-					case 15: return 105;
+					case 15: return 9;
 						break;
-					case 16: return 106;
+					case 16: return 12;
 						break;
-					case 17: return 107;
+					case 17: return 14;
 						break;
-					case 18: return 108;
+					case 18: return 13;
 						break;
-					case 19: return 109;
+					case 19: return 15;
 						break;
-					case 20: return 10;
+					case 20: return 42;
 						break;
-					case 21: return 11;
+					case 21: return 22;
 						break;
-					case 22: return 9;
+					case 22: return 23;
 						break;
-					case 23: return 12;
+					case 23: return 44;
 						break;
-					case 24: return 14
+					case 24: return 45;
 						break;
-					case 25: return 13
+					case 25: return 47;
 						break;
-					case 26: return 15;
+					case 26: return 48;
 						break;
-					case 27: return 22;
+					case 27: return 28;
 						break;
-					case 28: return 23;
+					case 28: return 29;
 						break;
-					case 29: return 22;
+					case 29: return 21;
 						break;
-					case 30: return 23;
+					case 30: return 20;
 						break;
-					case 31: return 44;
+					case 31: return 26;
 						break;
-					case 32: return 45;
+					case 32: return 27;
 						break;
-					case 33: return 44;
+					case 33: return 25;
 						break;
-					case 34: return 45;
+					case 34: return 16;
 						break;
-					case 35: return 47;
+					case 35: return 17;
 						break;
-					case 36: return 48;
+					case 36: return 18;
 						break;
-					case 37: return 47;
+					case 37: return 19;
 						break;
-					case 38: return 48;
+					case 38: return 65;
 						break;
-					case 39: return 28;
+					case 39: return 64;
 						break;
-					case 40: return 29;
+					case 40: return 33;
 						break;
-					case 41: return 21;
+					case 41: return 34;
 						break;
-					case 42: return 20;
+					case 42: return 'not_in';
 						break;
-					case 43: return 26;
+					case 43: return 31;
 						break;
-					case 44: return 27;
+					case 44: return 32;
 						break;
-					case 45: return 25;
+					case 45: return 99;
 						break;
-					case 46: return 16;
+					case 46: return 104;
 						break;
-					case 47: return 17;
+					case 47: return 101;
 						break;
-					case 48: return 18;
+					case 48: return 117;
 						break;
-					case 49: return 19;
+					case 49: return 115;
 						break;
-					case 50: return 53;
+					case 50: return 126;
 						break;
-					case 51: return 52
+					case 51: return 92;
 						break;
-					case 52: return 33;
+					case 52: return 85;
 						break;
-					case 53: return 34;
+					case 53: return 153;
 						break;
-					case 54: return 31;
+					case 54: return 89;
 						break;
-					case 55: return 32;
+					case 55: return 36;
 						break;
-					case 56: return 75
+					case 56: return 37;
 						break;
-					case 57: return 114;
+					case 57: return 38;
 						break;
-					case 58: return 113;
+					case 58: return 39;
 						break;
-					case 59: return 113;
+					case 59: return 69
 						break;
-					case 60: return 116;
+					case 60: return 121;
 						break;
-					case 61: return 115;
+					case 61: return 122;
 						break;
-					case 62: return 115;
+					case 62: return 123;
 						break;
-					case 63: return 118;
+					case 63: return 124;
 						break;
-					case 64: return 80;
+					case 64: return 127;
 						break;
-					case 65: return 81;
+					case 65: return 97;
 						break;
-					case 66: return 84;
+					case 66: return 98;
 						break;
-					case 67: return 86;
+					case 67: return 100;
 						break;
-					case 68: return 97;
+					case 68: return 103;
 						break;
-					case 69: return 143;
+					case 69: return 116;
 						break;
-					case 70: return 143;
+					case 70: return 152;
 						break;
-					case 71: return 143;
+					case 71: return 91;
 						break;
-					case 72: return 77;
+					case 72: return 91;
 						break;
-					case 73: return 74;
+					case 73: return 88;
 						break;
-					case 74: return 76;
+					case 74: return 88;
 						break;
-					case 75: return 78;
+					case 75: return 93;
 						break;
 					case 76: return 30;
 						break;
-					case 77: return 96;
+					case 77: return 114;
 						break;
-					case 78: return 110;
+					case 78: return 112;
 						break;
-					case 79: return 88;
+					case 79: return 109;
 						break;
-					case 80: return 49;
+					case 80: return 110;
 						break;
-					case 81: return 89;
+					case 81: return 113;
 						break;
-					case 82: return 90;
+					case 82: return 118;
 						break;
-					case 83: return 91;
+					case 83: return 105;
 						break;
-					case 84: return 92;
+					case 84: return 49;
 						break;
-					case 85: return 94;
+					case 85: return 35;
 						break;
-					case 86: return 92;
+					case 86: return 35;
 						break;
-					case 87: return 94;
+					case 87: return 107;
 						break;
-					case 88: return 93;
+					case 88: return 111;
 						break;
-					case 89: return 93;
+					case 89: return 108;
 						break;
-					case 90: return 93;
+					case 90: return '繰り返す';
 						break;
-					case 91: return 95;
+					case 91: return 106;
 						break;
-					case 92: return 37;
+					case 92: return 36;
 						break;
-					case 93: return 38;
+					case 93: return 37;
 						break;
-					case 94: return 39;
+					case 94: return 38;
 						break;
-					case 95: return 36;
+					case 95: return 119;
 						break;
-					case 96: return 36;
+					case 96: return 120;
 						break;
-					case 97: return 111;
+					case 97: return 119;
 						break;
-					case 98: return 112;
+					case 98: return 120;
 						break;
-					case 99: return 111;
+					case 99: return 128;
 						break;
-					case 100: return 112;
+					case 100: return 128;
 						break;
-					case 101: return 119;
+					case 101: return 129;
 						break;
-					case 102: return 119;
+					case 102: return 129;
 						break;
-					case 103: return 120;
+					case 103: return 130;
 						break;
-					case 104: return 120;
+					case 104: return 130;
 						break;
-					case 105: return 121;
+					case 105: return 131;
 						break;
-					case 106: return 121;
+					case 106: return 131;
 						break;
-					case 107: return 122;
+					case 107: return 132;
 						break;
-					case 108: return 122;
+					case 108: return 132;
 						break;
-					case 109: return 123;
+					case 109: return 133;
 						break;
-					case 110: return 123;
+					case 110: return 133;
 						break;
-					case 111: return 124;
+					case 111: return 134;
 						break;
-					case 112: return 124;
+					case 112: return 134;
 						break;
-					case 113: return 125;
+					case 113: return 135;
 						break;
-					case 114: return 125;
+					case 114: return 135;
 						break;
-					case 115: return 126;
+					case 115: return 136;
 						break;
-					case 116: return 126;
+					case 116: return 136;
 						break;
-					case 117: return 127;
+					case 117: return 137;
 						break;
-					case 118: return 127;
+					case 118: return 137;
 						break;
-					case 119: return 128;
+					case 119: return 138;
 						break;
-					case 120: return 128;
+					case 120: return 138;
 						break;
-					case 121: return 129;
+					case 121: return 139;
 						break;
-					case 122: return 129;
+					case 122: return 139;
 						break;
-					case 123: return 130;
+					case 123: return 140;
 						break;
-					case 124: return 130;
+					case 124: return 140;
 						break;
-					case 125: return 131;
+					case 125: return 141;
 						break;
-					case 126: return 131;
+					case 126: return 141;
 						break;
-					case 127: return 132;
+					case 127: return 142;
 						break;
-					case 128: return 132;
+					case 128: return 142;
 						break;
-					case 129: return 133;
+					case 129: return 143;
 						break;
-					case 130: return 133;
+					case 130: return 143;
 						break;
-					case 131: return 134;
+					case 131: return 144;
 						break;
-					case 132: return 134;
+					case 132: return 144;
 						break;
-					case 133: return 135;
+					case 133: return 145;
 						break;
-					case 134: return 135;
+					case 134: return 145;
 						break;
-					case 135: return 136;
+					case 135: return 146;
 						break;
-					case 136: return 136;
+					case 136: return 146;
 						break;
-					case 137: return 137;
+					case 137: return 147;
 						break;
-					case 138: return 137;
+					case 138: return 147;
 						break;
-					case 139: return 138;
+					case 139: return 148;
 						break;
-					case 140: return 138;
+					case 140: return 148;
 						break;
-					case 141: return 139;
+					case 141: return 149;
 						break;
-					case 142: return 139;
+					case 142: return 149;
 						break;
-					case 143: return 140;
+					case 143: return 150;
 						break;
-					case 144: return 140;
+					case 144: return 150;
 						break;
-					case 145: return 141;
+					case 145: return 151;
 						break;
-					case 146: return 141;
+					case 146: return 87;
 						break;
-					case 147: return 142;
+					case 147: return 125;
 						break;
-					case 148: return 73;
+					case 148: return 84;
 						break;
-					case 149: return 117;
+					case 149: return 86;
 						break;
-					case 150: return 71;
+					case 150: return 86;
 						break;
-					case 151: return 72;
+					case 151: return 39;
 						break;
-					case 152: return 72;
+					case 152: return 5;
 						break;
-					case 153: return 35;
+					case 153: return 4;
 						break;
-					case 154: return 35;
+					case 154: return 7;
 						break;
-					case 155: return 41;
+					case 155: return 8;
 						break;
-					case 156: return 46;
+					case 156: return 6;
 						break;
-					case 157: return 146;
+					case 157: return 62;
 						break;
-					case 158: return 46;
+					case 158:
+						const keywords = ["について", "の要素", "ならば", "から",
+							"まで", "ずつ", "を", "に", "と", "で", "の中に", "を返す",
+							"増やしながら", "減らしながら", "の間", "個の"];
+						for (const p of keywords) {
+							if (yy_.yytext.endsWith(p) && yy_.yytext.length > p.length) {
+								this.unput(p);
+								yy_.yytext = yy_.yytext.slice(0, -p.length);
+								yy_.yyleng = yy_.yytext.length;
+								break;
+							}
+						}
+						console.log("IDENT:", yy_.yytext);
+						return 40;
 						break;
-					case 159:/* skip whitespace */
+					case 159:
+						break;
+					case 160: return 155;
+						break;
+					case 161: return 46;
+						break;
+					case 162:/* skip whitespace */
 						break;
 				}
 			},
-			rules: [/^(?:真偽)/, /^(?:(\b(真|[Tt][Rr][Uu][Ee])\b))/, /^(?:(\b(偽|[Ff][Aa][Ll][Ss][Ee])\b))/, /^(?:(「[^」]*」|'(\\'|[^\'])*'|"(\\"|[^"])*"))/, /^(?:((([0０]|(([1-9１-９])([0-9０-９])*))([.．]([0-9０-９])+)?[eE][+-]?([0０]|(([1-9１-９])([0-9０-９])*)))|(([0０]|(([1-9１-９])([0-9０-９])*))[.．]([0-9０-９])+)))/, /^(?:([0０]|(([1-9１-９])([0-9０-９])*)))/, /^(?:(《[^》]*》))/, /^(?:([\=＝][\=＝]))/, /^(?:([\=＝]))/, /^(?:([\+＋][\=＝]))/, /^(?:([\-ー−‐][\=＝]))/, /^(?:([\*＊×][\=＝]))/, /^(?:([/／][\=＝]))/, /^(?:(([/／][/／]|÷)[\=＝]))/, /^(?:([%％][\=＝]))/, /^(?:([&＆][\=＝]))/, /^(?:([\|｜][\=＝]))/, /^(?:([\^＾][\=＝]))/, /^(?:([<＜][<＜][\=＝]))/, /^(?:([>＞][>＞][\=＝]))/, /^(?:([+＋]))/, /^(?:([-ー−‐]))/, /^(?:([\*＊×][\*＊×]))/, /^(?:([\*＊×]))/, /^(?:([/／][/／]|÷))/, /^(?:([/／]))/, /^(?:([%％]))/, /^(?:\()/, /^(?:\))/, /^(?:（)/, /^(?:）)/, /^(?:\[)/, /^(?:\])/, /^(?:［)/, /^(?:］)/, /^(?:\{)/, /^(?:\})/, /^(?:｛)/, /^(?:｝)/, /^(?:(([>＞][=＝])|≧))/, /^(?:(([<＜][=＝])|≦))/, /^(?:([>＞][>＞]))/, /^(?:([<＜][<＜]))/, /^(?:([>＞]))/, /^(?:([<＜]))/, /^(?:(([!！][=＝])|([<＜][>＞])|≠))/, /^(?:([&＆]))/, /^(?:([\|｜]))/, /^(?:([\^＾]))/, /^(?:([~〜]))/, /^(?:([，,、]))/, /^(?:([:：]))/, /^(?:(\b[Aa][Nn][Dd]\b))/, /^(?:(\b[Oo][Rr]\b))/, /^(?:(\b[Nn][Oo][Tt]\b))/, /^(?:(\b[Ii][Nn]\b))/, /^(?:■)/, /^(?:を(表示|印刷|出力)する)/, /^(?:を改行無しで(表示|印刷|出力)する)/, /^(?:を改行なしで(表示|印刷|出力)する)/, /^(?:(表示|印刷|出力)する)/, /^(?:改行無しで(表示|印刷|出力)する)/, /^(?:改行なしで(表示|印刷|出力)する)/, /^(?:入力する)/, /^(?:もし)/, /^(?:ならば)/, /^(?:そうでなければ)/, /^(?:そうでなくもし)/, /^(?:の間)/, /^(?:繰り返しを抜ける)/, /^(?:繰返しを抜ける)/, /^(?:くりかえしを抜ける)/, /^(?:手続きを抜ける)/, /^(?:手続き)/, /^(?:関数)/, /^(?:を返す)/, /^(?:の中に)/, /^(?:について)/, /^(?:に)/, /^(?:を)/, /^(?:個の)/, /^(?:から)/, /^(?:まで)/, /^(?:ずつ)/, /^(?:増やしながら)/, /^(?:減らしながら)/, /^(?:増やしつつ)/, /^(?:減らしつつ)/, /^(?:くりかえす)/, /^(?:繰り返す)/, /^(?:繰返す)/, /^(?:の要素)/, /^(?:整数)/, /^(?:実数)/, /^(?:文字列)/, /^(?:と([，,、]))/, /^(?:と)/, /^(?:追加する)/, /^(?:連結する)/, /^(?:追加)/, /^(?:連結)/, /^(?:描画領域開く)/, /^(?:gOpenWindow\b)/, /^(?:描画領域閉じる)/, /^(?:gCloseWindow\b)/, /^(?:描画領域全消去)/, /^(?:gClearWindow\b)/, /^(?:線色設定)/, /^(?:gSetLineColor\b)/, /^(?:塗色設定)/, /^(?:gSetFillColor\b)/, /^(?:文字色設定)/, /^(?:gSetTextColor\b)/, /^(?:線太さ設定)/, /^(?:gSetLineWidth\b)/, /^(?:文字サイズ設定)/, /^(?:gSetFontSize\b)/, /^(?:文字描画)/, /^(?:gDrawText\b)/, /^(?:線描画)/, /^(?:gDrawLine\b)/, /^(?:点描画)/, /^(?:gDrawPoint\b)/, /^(?:矩形描画)/, /^(?:gDrawBox\b)/, /^(?:矩形塗描画)/, /^(?:gFillBox\b)/, /^(?:円描画)/, /^(?:gDrawCircle\b)/, /^(?:円塗描画)/, /^(?:gFillCircle\b)/, /^(?:楕円描画)/, /^(?:gDrawOval\b)/, /^(?:楕円塗描画)/, /^(?:gFillOval\b)/, /^(?:弧描画)/, /^(?:gDrawArc\b)/, /^(?:弧塗描画)/, /^(?:gFillArc\b)/, /^(?:棒グラフ描画)/, /^(?:gBarplot\b)/, /^(?:線グラフ描画)/, /^(?:gLinePlot\b)/, /^(?:グラフ描画)/, /^(?:gDrawGraph\b)/, /^(?:グラフ消去)/, /^(?:gClearGraph\b)/, /^(?:ミリ秒待つ)/, /^(?:変数を確認する)/, /^(?:改行する)/, /^(?:何もしない)/, /^(?:一時停止する)/, /^(?:一時停止)/, /^(?:copy\b)/, /^(?:複製)/, /^(?:(([_a-zA-Zａ-ｚＡ-Ｚ])([_a-zA-Z0-9ａ-ｚＡ-Ｚ０-９])*))/, /^(?:([#＃♯].*(\r|\n|\r\n)))/, /^(?:$)/, /^(?:(\r\n|\r|\n))/, /^(?:([ 　]))/],
-			conditions: { "INITIAL": { "rules": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159], "inclusive": true } }
+			rules: [/^(?:([\=＝][\=＝]))/, /^(?:([\=＝]))/, /^(?:([\+＋][\=＝]))/, /^(?:([\-ー−‐][\=＝]))/, /^(?:([\*＊×][\=＝]))/, /^(?:([/／][\=＝]))/, /^(?:(([/／][/／]|÷)[\=＝]))/, /^(?:([%％][\=＝]))/, /^(?:([&＆][\=＝]))/, /^(?:([\|｜][\=＝]))/, /^(?:([\^＾][\=＝]))/, /^(?:([<＜][<＜][\=＝]))/, /^(?:([>＞][>＞][\=＝]))/, /^(?:([+＋]))/, /^(?:([-ー−‐]))/, /^(?:([\*＊×][\*＊×]))/, /^(?:([\*＊×]))/, /^(?:([/／][/／]|÷))/, /^(?:([/／]))/, /^(?:([%％]))/, /^(?:\.)/, /^(?:[\(（])/, /^(?:[\)）])/, /^(?:[\[［])/, /^(?:[\]］])/, /^(?:[{｛])/, /^(?:[}｝])/, /^(?:(([>＞][=＝])|≧))/, /^(?:(([<＜][=＝])|≦))/, /^(?:([>＞][>＞]))/, /^(?:([<＜][<＜]))/, /^(?:([>＞]))/, /^(?:([<＜]))/, /^(?:(([!！][=＝])|([<＜][>＞])|≠))/, /^(?:([&＆]))/, /^(?:([\|｜]))/, /^(?:([\^＾]))/, /^(?:([~〜]))/, /^(?:([，,、]))/, /^(?:([:：]))/, /^(?:([Aa][Nn][Dd](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Oo][Rr](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Nn][Oo][Tt]\s[Ii][Nn](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Nn][Oo][Tt](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Ii][Nn](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Ii][Ff](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Ee][Ll][Ii][Ff](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Ee][Ll][Ss][Ee](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Ww][Hh][Ii][Ll][Ee](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Ff][Oo][Rr](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Pp][Rr][Ii][Nn][Tt](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Rr][Ee][Tt][Uu][Rr][Nn](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Pp][Aa][Ss][Ss](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Bb][Rr][Ee][Aa][Kk](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Dd][Ee][Ff](?=[^a-zA-Z0-9_]))(?=([^_a-zA-Z0-9\u3040-\u30FF\u4E00-\u9FFF])))/, /^(?:([Ii][Nn][Tt](?=[^a-zA-Z0-9_])))/, /^(?:([Ff][Ll][Oo][Aa][Tt](?=[^a-zA-Z0-9_])))/, /^(?:([Ss][Tt][Rr](?=[^a-zA-Z0-9_])))/, /^(?:([Bb][Oo][Oo][Ll](?=[^a-zA-Z0-9_])))/, /^(?:■)/, /^(?:を(改行(無しで|なしで|せずに))で(表示|印刷|出力)する)/, /^(?:を(表示|印刷|出力)する)/, /^(?:(改行(無しで|なしで|せずに))(表示|印刷|出力)する)/, /^(?:(表示|印刷|出力)する)/, /^(?:入力する)/, /^(?:もし)/, /^(?:ならば)/, /^(?:そうでなければ)/, /^(?:そうでなくもし)/, /^(?:(の間(繰り返す|繰返す|くりかえす|)))/, /^(?:((繰り返し|繰返し|くりかえし))を((抜ける|ぬける|出る|でる)))/, /^(?:手続きを((抜ける|ぬける|出る|でる)))/, /^(?:関数を((抜ける|ぬける|出る|でる)))/, /^(?:手続き)/, /^(?:関数)/, /^(?:を返す)/, /^(?:の中に)/, /^(?:について(繰り返す|繰返す|くりかえす|))/, /^(?:まで)/, /^(?:((増やしながら|増やしつつ)(繰り返す|繰返す|くりかえす|)))/, /^(?:((減らしながら|減らしつつ)(繰り返す|繰返す|くりかえす|)))/, /^(?:の要素)/, /^(?:に)/, /^(?:を)/, /^(?:個の)/, /^(?:と([，,、]))/, /^(?:と)/, /^(?:で)/, /^(?:から)/, /^(?:ずつ)/, /^(?:((繰り返す|繰返す|くりかえす)))/, /^(?:(範囲|区間))/, /^(?:整数)/, /^(?:実数)/, /^(?:文字列)/, /^(?:追加する)/, /^(?:連結する)/, /^(?:追加)/, /^(?:連結)/, /^(?:描画領域開く)/, /^(?:gOpenWindow\b)/, /^(?:描画領域閉じる)/, /^(?:gCloseWindow\b)/, /^(?:描画領域全消去)/, /^(?:gClearWindow\b)/, /^(?:線色設定)/, /^(?:gSetLineColor\b)/, /^(?:塗色設定)/, /^(?:gSetFillColor\b)/, /^(?:文字色設定)/, /^(?:gSetTextColor\b)/, /^(?:線太さ設定)/, /^(?:gSetLineWidth\b)/, /^(?:文字サイズ設定)/, /^(?:gSetFontSize\b)/, /^(?:文字描画)/, /^(?:gDrawText\b)/, /^(?:線描画)/, /^(?:gDrawLine\b)/, /^(?:点描画)/, /^(?:gDrawPoint\b)/, /^(?:矩形描画)/, /^(?:gDrawBox\b)/, /^(?:矩形塗描画)/, /^(?:gFillBox\b)/, /^(?:円描画)/, /^(?:gDrawCircle\b)/, /^(?:円塗描画)/, /^(?:gFillCircle\b)/, /^(?:楕円描画)/, /^(?:gDrawOval\b)/, /^(?:楕円塗描画)/, /^(?:gFillOval\b)/, /^(?:弧描画)/, /^(?:gDrawArc\b)/, /^(?:弧塗描画)/, /^(?:gFillArc\b)/, /^(?:棒グラフ描画)/, /^(?:gBarplot\b)/, /^(?:線グラフ描画)/, /^(?:gLinePlot\b)/, /^(?:グラフ描画)/, /^(?:gDrawGraph\b)/, /^(?:グラフ消去)/, /^(?:gClearGraph\b)/, /^(?:ミリ秒待つ)/, /^(?:変数を確認する)/, /^(?:改行する)/, /^(?:何もしない)/, /^(?:一時停止する)/, /^(?:一時停止)/, /^(?:真偽)/, /^(?:((((([1-9１-９])([0-9０-９])*)|(0x([0-9A-Fa-f０-９Ａ-Ｆａ-ｆ])+)|(0b([01０１])+)|(0o([0-7０-７])+)|[0０])([.．]([0-9０-９])+)?[eE][+-]?((([1-9１-９])([0-9０-９])*)|(0x([0-9A-Fa-f０-９Ａ-Ｆａ-ｆ])+)|(0b([01０１])+)|(0o([0-7０-７])+)|[0０]))|(((([1-9１-９])([0-9０-９])*)|(0x([0-9A-Fa-f０-９Ａ-Ｆａ-ｆ])+)|(0b([01０１])+)|(0o([0-7０-７])+)|[0０])[.．]([0-9０-９])+)))/, /^(?:((([1-9１-９])([0-9０-９])*)|(0x([0-9A-Fa-f０-９Ａ-Ｆａ-ｆ])+)|(0b([01０１])+)|(0o([0-7０-７])+)|[0０]))/, /^(?:(真|[Tt][Rr][Uu][Ee]))/, /^(?:(偽|[Ff][Aa][Ll][Ss][Ee]))/, /^(?:(「[^」]*」|'(\\'|[^\'])*'|"(\\"|[^"])*"))/, /^(?:(《[^》]*》))/, /^(?:((([_a-zA-Z])([_a-zA-Z0-9])*)|(([\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF０-９Ａ-Ｚ])([\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF_a-zA-Z0-9０-９Ａ-Ｚ])*)))/, /^(?:([#＃♯].*(\r|\n|\r\n)))/, /^(?:$)/, /^(?:((\r\n|\r|\n)+))/, /^(?:([ 　\t]))/],
+			conditions: { "INITIAL": { "rules": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162], "inclusive": true } }
 		});
 		return lexer;
 	})();
@@ -1341,12 +1432,13 @@ var dncl = (function () {
 
 var setting =
 {
-	zenkaku_mode: 0,
+	zenkaku_mode: 2,
 	// 変数名や数値，数値の入力で全角が使われた場合の処理
 	// 0 内部的に強制的に半角に直してエラーを出さない
 	// 1 エラーを出して停止する
+	// 2 何もしない
 
-	quiz_mode: 0,
+	quiz_mode: 1,
 	// 問題を表示するかどうか
 	// 0 表示しない
 	// 1 表示する
@@ -1355,6 +1447,16 @@ var setting =
 	// グラフィックコマンドが英語か日本語か
 	// 0 日本語
 	// 1 英語
+
+	more_function: 1,
+	// 追加関数を有効にするかどうか
+	// 0 無効
+	// 1 有効
+
+	flowchart_mode: 0,
+	// 起動時にフローチャートを表示するかどうか
+	// 0 表示しない
+	// 1 表示する
 };
 
 /**
@@ -1364,7 +1466,7 @@ var setting =
 function python_to_dncl(code) {
 	var python_lines = code.split('\n');
 	while (python_lines.length > 1 &&
-		/^[ 　]*$/.exec(python_lines[python_lines.length - 1]) &&
+		/^[ 　\t]*$/.exec(python_lines[python_lines.length - 1]) &&
 		!(/[:：]$/.exec(python_lines[python_lines.length - 2])))
 		python_lines.pop();
 	python_lines.push('');
@@ -1373,15 +1475,15 @@ function python_to_dncl(code) {
 	var wait_for_indent = false;
 	var ignore_spaces = false;
 	for (var i = 0; i < python_lines.length; i++) {
-		var line = python_lines[i].trimRight();
-		var result = /^([ 　]*)(.*)$/.exec(line);
+		var line = python_lines[i].trimEnd();
+		var result = /^([ 　\t]*)(.*)$/.exec(line);
 		if (i < python_lines.length - 1 && result && !result[2]) {
 			dncl_lines.push(line);
 			continue;
 		}
 		if (result) {
 			var spaces = count_spaces(result[1]);
-			if (/^[ 　]*[#＃]/.exec(result[2])) {
+			if (/^[ 　\t]*[#＃]/.exec(result[2])) {
 				dncl_lines.push(line);
 				continue;
 			}
@@ -1392,9 +1494,10 @@ function python_to_dncl(code) {
 			var deindent = false;
 			while (!ignore_spaces && spaces < pre_spaces[0]) {
 				var indent = pre_spaces.shift();
-				if (indent == null) throw { "message": (i + 1) + "行目行頭の空白の数がおかしいです2" };
+				if (indent == null) throw { "message": (i + 1) + "行目行頭の空白の数がおかしいです" };
 				if (spaces <= indent) {
-					if (spaces < indent && (deindent || !/^(そうでなければ|そうでなくもし.*)[：:]$/.exec(result[2]))) {
+					// if(spaces < indent && (deindent || !/^(そうでなければ|そうでなくもし.*)[：:]$/.exec(result[2]))){
+					if (spaces < indent) {
 						dncl_lines.push('■');
 					}
 					deindent = true;
@@ -1413,11 +1516,13 @@ function python_to_dncl(code) {
 function count_spaces(s) {
 	var spaces = 0;
 	for (var i = 0; i < s.length; i++)
-		spaces += s[i] == ' ' ? 1 : 2;
+		spaces += s[i] == ' ' ? 1 : s[i] == '\t' ? 4 : 2;
 	return spaces;
 }
 
-"use strict"
+"use strict";
+
+var debug_mode = true; // デバッグモード
 
 const typeOfValue =
 {
@@ -1425,24 +1530,20 @@ const typeOfValue =
 	typeFloat: 2,
 	typeString: 3,
 	typeBoolean: 4,
-	typeArray: 5
+	typeArray: 5,
+	typeDictionary: 6
 };
 
-var graphColor = [
-	'#c00000', '#00c000', '#0000c0', '#007070', '#700070', '#707000'
-];
+const nameOfType = ['', '整数', '実数', '文字列', '真偽', '配列', '辞書'];
 
-const nameOfType = ['', '整数', '実数', '文字列', '真偽', '配列'];
-
-var code = null;		// コードを積む（関数・手続き単位で）
+var code = null;		// コードを積む（関数単位で）
 var varTables = [];		// 変数テーブルを積む
-var myFuncs = {};		// プログラム中で定義される関数・手続き
+var myFuncs = {};		// プログラム中で定義される関数
 var run_flag = false, step_flag = false, editable_flag = true;
 var flowchart = null;
 var textarea = null;
 var context = null;
 var current_line = -1;
-var wait_time = 0;
 var flowchart_display = false;
 var converting = false;
 var dirty = null;
@@ -1453,7 +1554,7 @@ var test_limit_time = 0;
 var fontsize = 16;
 var python_lib = {};
 var editor = null;
-let canvas = null;
+var sleeping = null;
 
 /**
  * parsed...すべての親クラス
@@ -1464,22 +1565,22 @@ class parsedCode {
 	 * @param {Array<Statement>} statementlist
 	 */
 	constructor(statementlist) { this.stack = [{ statementlist: statementlist, index: 0 }] }
-	makePython() {
+	argsPython() {
 		python_lib = {}	// クリアする
-		var code = ''
+		var code = []
 		var libs = '';
 		for (var i = 0; i < this.stack[0].statementlist.length; i++) // 関数・手続き宣言を先に
 		{
 			var state = this.stack[0].statementlist[i];
-			if (state && (state instanceof DefineFunction || state instanceof DefineStep)) code += state.makePython(0) + "\n\n";
+			if (state && state instanceof DefineStatement) code.push(state.argsPython(0) + "\n");
 		}
 		for (var i = 0; i < this.stack[0].statementlist.length; i++)	// メインルーチン
 		{
 			var state = this.stack[0].statementlist[i];
-			if (state && !(state instanceof DefineFunction || state instanceof DefineStep)) code += state.makePython(0);
+			if (state && !(state instanceof DefineStatement)) code.push(state.argsPython(0));
 		}
 		for (var lib in python_lib) libs += "import " + lib + "\n";
-		return libs + code;
+		return libs + code.join('\n');
 	}
 }
 
@@ -1505,17 +1606,6 @@ class parsedFunction extends parsedCode {
 	constructor(statementlist) {
 		super(statementlist);
 	}
-}
-
-/** parsedStepクラス
- * @extends parsedCode
- */
-class parsedStep extends parsedCode {
-	/**
-	 * @constructor
-	 * @param {Array<Statement>} statementlist
-	 */
-	constructor(statementlist) { super(statementlist); }
 }
 
 /**
@@ -1550,6 +1640,7 @@ function findVarTable(varname) {
 	return varname in varTables[0].vars ? varTables[0] : null;
 }
 
+
 /**
  * コードをフローチャートに反映させる
  */
@@ -1560,7 +1651,7 @@ function codeChange() {
 
 /**
  * 有限な値であるか
- * @param {number|string} v
+ * @param {number} v
  * @returns {boolean} vが有限な値であるか
  */
 function isFinite(v) {
@@ -1575,7 +1666,6 @@ function isFinite(v) {
  */
 function isSafeInteger(v) {
 	return Number.isSafeInteger(v);
-	// return !isNaN(v) && v == Math.floor(v) && v <= 9007199254740991 && v >= -9007199254740991;
 }
 
 /**
@@ -1585,7 +1675,6 @@ function isSafeInteger(v) {
  */
 function isInteger(v) {
 	return Number.isInteger(v);
-	// return isFinite(v) && v == Math.floor(v);
 }
 
 /**
@@ -1604,9 +1693,8 @@ function isPrimitive(v) {
  * @return {string} クラス名
  */
 function constructor_name(obj) {
-	// var result = /^(class|function)\s+([\w\d]+)/.exec(obj.constructor.toString());
-	// return result ? result[2] : null;
 	if (obj) return obj.constructor.name;
+	else return null;
 }
 
 /**
@@ -1632,7 +1720,6 @@ function toHalf(s, loc) {
 function makeDirty(b) {
 	if (b !== dirty) {
 		dirty = b;
-		document.getElementById("dirty").style.visibility = dirty ? "visible" : "hidden";
 	}
 }
 
@@ -1664,508 +1751,1258 @@ class RuntimeError {
 		if (selected_quiz < 0) dump('*** 実行時エラー ***');
 		this._line = line;
 		this._message = message;
-		run_flag = false
+		setRunflag(false);
 	}
 	get line() { return this._line; }
 	get message() { return this._message; }
 }
 
 /**
- * 値クラスの親クラス
+ * @abstract
  */
 class Value {
+	/** @type {Array<value of JS|Value>} */
+	// _args;
+
+	/** @type {bigint|number|string|boolean|Array|Map|Value} */
+	// _value;
+
+	/** @type {Location} */
+	// _loc;
+
+	/** @type {number} */
+	// _state;
+
+	/* this._args は初期化時の値を保持する。型はArray<value of JS|Value>
+		   argsPyPEN，argsPython，run，_makeValue だけで使う
+	   this._value は実行時に値を返すための値を保持する。getValue経由で読み出す
+	   ・PrimitiveValueならvalue of JS
+	   ・SimpleValueならValue
+	   ・CollectionValueならArrayやMap
+	   getArgs()  -> Array<value of JS|Value>
+		   this._argsを返す
+	   getValue() -> Value|Array<Value>|Map<value of JS,Value>
+		   PrimitiveValueならthis，SimpleValueやCollectionValueならthis._value
+	   getJSValue() -> value of JS(bigint|number|string|boolean|Array|Map)
+		   PrimitiveValueならthis._value，SimpleValueならthis._value.getJSValue()，CollectionValueならthis._value
+	*/
+
 	/**
 	 * @constructor
-	 * @param {number|string|boolean} v
+	 * @param {Array<value of JS|Value>} v
 	 * @param {Location} loc
 	 */
-	constructor(v, loc) {
-		this.value = v;	// value must be value(include array, hash), not Value
-		this.loc = loc;
+	constructor(v, loc, value = null) {
+		if (!Array.isArray(v)) throw new RuntimeError(loc.first_line, "Valueの引数は配列でなければなりません:" + constructor_name(this) + ":" + v._value + ":" + v._args + "\n");
+		this._args = v;			// 初期化用のArray
+		this._value = value;	// 実際の値
+		this._loc = loc;		// ソース中の位置情報
+		this._state = 0;		// 実行状態管理 run()で使う
+		// Object.seal(this);	実体を作るときにはコンストラクタの末尾で有効にする
 	}
-	clone() {
-		throw new RuntimeError(this.first_line, constructor_name(this) + "はcloneが作られていません");
-	}
+
 	/**
-	 * @returns 生のJavaScriptにおける値
+	 * Throw RuntimeError with message
+	 * @param {string} msg
+	 * @throws {RuntimeError}
 	 */
-	get first_line() { return this.loc.first_line; }
+	throwRuntimeError(msg)	// Value（およびサブクラス）の外から呼ばないこと
+	{
+		throw new RuntimeError(this._loc ? this._loc.first_line : 0, constructor_name(this) + ": " + msg);
+	}
+
+	copy() {
+		return this;
+	}
+
 	/**
-	 * @returns {Value} 値がほしいときはこれを使う（Variableなど）。そうでないときはValue本体を使う。
+	 * Locationを返す
+	 * @returns {Location}
+	 */
+	getLoc() {
+		return this._loc;
+	}
+
+	getState() {
+		return this._state;
+	}
+
+	setState(i) {
+		this._state = i;
+	}
+
+	/**
+	 * this._argsを返す
+	 */
+	getArgs(idx = null)	// return Array<value of JS|Value>
+	{
+		if (idx === null) return this._args;
+		else return this._args[idx];
+	}
+
+	/* サブクラスで実装するメソッド
+	   clone()		: Value		複製を作る。this._argsの要素をcloneしたArrayで初期化する（this._valueはnull）
+	   _makeValue() : void		this._valueを作る。runから呼ばれる
+	   getValue()	: Value		PrimitiveValueならthis，SimpleValueやCollectionValueならthis._value
+	   getJSValue() : value of JS(bigint|number|string|boolean|Array|Map)
+					  PrimitiveValueならthis._value，SimpleValueならthis._value.getJSValue()，CollectionValueならthis._value
+	   setValue()	: void		this._valueを設定する
+	   argsPyPEN()	: string	PyPENの文法で表した文字列
+	   argsPython() : string	Pythonの文法で表した文字列
+	   valueString(): string	this._valueを文字列で表したもの
+	   valueCode()	: string	this._valueをコードで表したもの
+	----------------------------*/
+
+	/**
+	 * @abstract
+	 * @returns {Value}
+	 * @throws {RuntimeError}
+	 */
+	clone()		// 実体のあるすべてのサブクラスで実体を実装する
+	{
+		this.throwRuntimeError("cloneが作られていません");
+	}
+
+	/**
+	 * this._valueを作る。実体のあるサブクラスでは必ずオーバーライドする
+	 * @abstract
+	 */
+	_makeValue() {
+		this.throwRuntimeError("_makeValueが作られていません");
+	}
+
+	/**
+	 * this._argsを実行する
+	 * this._valueは_makeValueで作る
+	 */
+	run() {
+		if (this.getState() == 0) {
+			if (this.getArgs().length > 0)
+				code[0].stack.unshift({ statementlist: this.getArgs(), index: 0 });
+			this.setState(1);
+		}
+		else {
+			code[0].stack[0].index++;
+			this._makeValue();
+			this.setState(0);
+		}
+	}
+
+
+	/**
+	 * @abstract
+	 * @returns {Value}
+	 */
+	getValue() //Valueを返す。
+	{
+		this.throwRuntimeError("getValueが作られていません");
+	}
+
+	/**
+	 * @returns {bigint|number|string|boolean|Array|Map}
+	 */
+	getJSValue()	// 実際のJSの値を返す
+	{
+		this.throwRuntimeError("getJSValueが作られていません");
+	}
+
+	/**
+	 * @abstract
+	 */
+	setValue() {
+		this.throwRuntimeError("setValueが作られていません");
+	}
+
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	argsPyPEN()	// PyPENの文法で表した文字列
+	{
+		this.throwRuntimeError("argsPyPENが作られていません");
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	argsPython()	// Pythonの文法で表した文字列
+	{
+		this.throwRuntimeError("argsPythonが作られていません");
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	valueString() {
+		this.throwRuntimeError("valueStringが作られていません");
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	valueCode() {
+		this.throwRuntimeError("valueCodeが作られていません");
+	}
+}
+
+/**
+ * @abstract
+ * IntValue, FloatValue, StringValue, BooleanValue, NullValue，UNDEFINED
+ * this._valueはvalue of JS
+ */
+class PrimitiveValue extends Value {
+	/**
+	 *
+	 * @param {Array<bigint|number|string|boolean>} v
+	 * @param {Location} loc
+	 */
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+	}
+	run() {
+		code[0].stack[0].index++;
+		this._makeValue();
+	}
+
+	/* サブクラスで実装するメソッド
+	   clone()		: Value		複製を作る。this._argsの要素をcloneしたArrayで初期化する（this._valueはnull）
+	----------------------------
+	   _makeValue() : void		IntValue, FloatValueではオーバーライド
+	   argsPyPEN(), argsPython(), valueString(), valueCode() : FloatValue, StringValueではオーバーライド
+	----------------------------*/
+
+	_makeValue() {
+		this._value = this.getArgs(0);
+	}
+	/**
+	 *
+	 * @returns {Value}
 	 */
 	getValue() {
 		return this;
 	}
 	/**
-	 * @returns {string} PyPENの文法で表した文字列
+	 *
+	 * @returns {value of JS}
 	 */
-	getCode() {
-		return '' + this.value;
+	getJSValue() {
+		return this._value;
 	}
 	/**
-	 * @returns {string} Pythonの文法で表した文字列
+	 * @param {Value} v
 	 */
-	makePython() {
-		return this.getCode();
+	setValue(v) {
+		this._args[0] = this._value = v.getJSValue();
 	}
-	run() {
-		code[0].stack[0].index++;
+	argsPyPEN() {
+		return this.getArgs(0).toString();
+	}
+	argsPython() {
+		return this.getArgs(0).toString();
+	}
+	valueString() {
+		return this._value.toString();
+	}
+	valueCode() {
+		return this._value.toString();
 	}
 }
 
 /**
- * 型の決まってない値
- * @extends Value
+ * @abstract
+ * CallFunction, Variable，Assignなど
+ * this._valueはValue
  */
-class NullValue extends Value {
+class SimpleValue extends Value {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+	}
+	/* サブクラスで実装するメソッド
+	   clone()		: Value		複製を作る。this._argsの要素をcloneしたArrayで初期化する（this._valueはnull）
+	   _makeValue() : void		this._valueを作る。runから呼ばれる
+	----------------------------*/
+	run() {
+		if (this.getState() == 0) {
+			if (this.getArgs().length > 0)
+				code[0].stack.unshift({ statementlist: this.getArgs(), index: 0 });
+			this.setState(1);
+		}
+		else {
+			code[0].stack[0].index++;
+			this._makeValue();
+			this.setState(0);
+		}
+	}
+	getValue() {
+		return this._value;
+	}
+	getJSValue() {
+		return this._value.getJSValue();
+	}
 	/**
-	 * @constructor
+	 *
+	 */
+	setValue(v) {
+		// this._value =
+		this._args[0] = v;
+		this._makeValue();
+	}
+	argsPyPEN() {
+		return this.getArgs(0).argsPyPEN();
+	}
+	argsPython() {
+		return this.getArgs(0).argsPython();
+	}
+	valueString() {
+		return valueString(this.getJSValue());
+	}
+	valueCode() {
+		return valueCode(this.getJSValue());
+	}
+}
+
+/**
+ * @abstract
+ * this._valueはArray<Value>またはMap<value of JS,Value>
+ */
+class CollectionValue extends Value {
+	/**
+	 *
+	 * @param {Array<Value>} v
+	 * @param {Location} loc
+	 * @param {value of JS} value
+	 */
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+	}
+
+	/* サブクラスで実装するメソッド
+	   clone()		: Value		複製を作る。this._argsの要素をcloneしたArrayで初期化する（this._valueはnull）
+	   _makeValue() : void		this._valueを作る。runから呼ばれる
+	   setValue()	: void		this._valueを設定する
+	   argsPyPEN()	: string	PyPENの文法で表した文字列
+	   argsPython() : string	Pythonの文法で表した文字列
+	   valueString(): string	this._valueを文字列で表したもの
+	   valueCode()	: string	this._valueをコードで表したもの
+	----------------------------*/
+
+	/**
+	 *
+	 * @returns {Value|Array<Value>|Map<value of JS,Value>}
+	 */
+	getValue(idx = null) {
+		if (idx === null) return this;
+		return this._value[idx];
+	}
+	getJSValue(idx = null) {
+		if (idx === null) return this._value;
+		return this._value[idx].getJSValue();
+	}
+
+	/**
+	 * @abstract
+	 */
+	_makeValue() {
+		this.throwRuntimeError("_makeValueが作られていません");
+	}
+	run() {
+		if (this.getState() == 0) {
+			if (this.getArgs().length > 0)
+				code[0].stack.unshift({ statementlist: this.getArgs(), index: 0 });
+			this.setState(1);
+		}
+		else {
+			code[0].stack[0].index++;
+			this._makeValue();
+			this.setState(0);
+		}
+	}
+}
+
+class IntValue extends PrimitiveValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value === null ? null : BigInt(value));
+		Object.seal(this);
+	}
+
+	clone() {
+		return new IntValue(this.getArgs(), this.getLoc(), this._value);
+	}
+
+	copy() {
+		return new IntValue([this._value], this.getLoc(), this._value);
+	}
+
+	_makeValue() {
+		try {
+			this._value = BigInt(this.getArgs()[0]);
+		}
+		catch (e) {
+			if (e instanceof RangeError)
+				this.throwRuntimeError("整数で表せない値が使われました");
+			else throw e;
+		}
+	}
+}
+
+class FloatValue extends PrimitiveValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
+	}
+
+	clone() {
+		return new FloatValue(this.getArgs(), this.getLoc(), this._value);
+	}
+	copy() {
+		return new FloatValue([this._value], this.getLoc(), this._value);
+	}
+	/**
+	 * @param {number} v
+	 * @returns {string}
+	 */
+	_toString(v) {
+		// textareaAppend("FloatValue#toString: " + constructor_name(v) + "\n");
+		if (isSafeInteger(v)) return (v).toFixed(1);
+		else return (v).toString();
+	}
+	argsPyPEN() {
+		return this._toString(this.getArgs(0));
+	}
+	argsPython() {
+		return this._toString(this.getArgs(0));
+	}
+	valueString() {
+		return this._toString(this.getJSValue());
+	}
+	valueCode() {
+		return this._toString(this.getJSValue());
+	}
+}
+
+class StringValue extends PrimitiveValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
+	}
+
+	clone() {
+		return new StringValue(this.getArgs(), this.getLoc(), this._value);
+	}
+	copy() {
+		return new StringValue([this._value], this.getLoc(), this._value);
+	}
+
+	argsPyPEN() {
+		return "'" + this.getArgs(0).replace(/'/g, "\\'") + "'";
+	}
+	argsPython() {
+		return "'" + this.getArgs(0).replace(/'/g, "\\'") + "'";
+	}
+	valueString() {
+		return this._value;
+	}
+	valueCode() {
+		return "'" + this._value.replace(/'/g, "\\'") + "'";
+	}
+	valueLength() {
+		return this._value.length;
+	}
+}
+
+class BooleanValue extends PrimitiveValue {
+	/**
+	 *
+	 * @param {boolean} v
 	 * @param {Location} loc
 	 */
-	constructor(loc) {
-		super(null, loc);
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new NullValue(this.loc);
+		return new BooleanValue(this.getArgs(), this.getLoc(), this._value);
 	}
-	makePython() {
+	copy() {
+		return new BooleanValue([this._value], this.getLoc(), this._value);
+	}
+	valueString() {
+		return (this._value ? 'true' : 'false');
+	}
+	valueCode() {
+		return (this._value ? 'true' : 'false');
+	}
+}
+
+class NullValue extends PrimitiveValue {
+	constructor(loc) {
+		super([], loc);
+		Object.seal(this);
+	}
+
+	clone() {
+		return new NullValue(this.getLoc());
+	}
+	copy() {
+		return new NullValue(this.getLoc());
+	}
+
+	argsPyPEN() {
+		return '';
+	}
+	argsPython() {
+		return '';
+	}
+	valueCode() {
+		return '';
+	}
+	valueString() {
 		return '';
 	}
 }
 
-/**
- * vtにあるvn[args]にnewvalをセットする
- * @param {VarTable} vt
- * @param {String} vn
- * @param {Array<Value>} args
- * @param {Value} newval
- * @param {Location} loc
- */
-function setVariableByArgs(vt, vn, args, newval, loc) {
-	if (args) {
-		var v = vt.vars[vn];
-		for (var i = 0; i < args.length - 1; i++) {
-			var arg = args[i].getValue();
-			if (arg instanceof IntValue) {
-				if (v instanceof ArrayValue || v instanceof StringValue) {
-					var idx = arg.getValue().value;
-					var l = v.getValue().length;
-					if (idx < 0) idx += l;
-					if (idx >= 0 && idx < l) v = v.getValue().value[idx];
-					else throw new RuntimeError(loc.first_line, "配列の範囲を超えて代入しようとしました");
-				}
-				else if (v instanceof StringValue)
-					throw new RuntimeError(loc.first_line, "部分文字列の部分文字列への代入はできません");
-				else throw new RuntimeError(loc.first_line, "整数の添字は配列か文字列でないと使えません");
-			}
-			else if (arg instanceof StringValue) {
-				var key0 = arg.getValue().value;
-				if (v instanceof DictionaryValue) {
-					for (var key in v.getValue().value) {
-						if (key == key0) {
-							v = v.getValue().value[key0];
-							key0 = null;
-							break;
-						}
-					}
-					if (key0) throw new RuntimeError(loc.first_line, "辞書にキー" + arg.getValue().value + "がありません");
-				}
-				else throw new RuntimeError(loc.first_line, "文字列の添字は辞書でないと使えません");
-			}
-			else if (arg instanceof SliceValue)
-				throw new RuntimeError(loc.first_line, "スライスの使い方が正しくありません");
-			else throw new RuntimeError(loc.first_line, "添字が正しくありません");
-		}
-		//代入
-		var arg = args[args.length - 1].getValue();
-		if (arg instanceof IntValue) {
-			var idx = arg.value;
-			var l = v.getValue().value.length;
-			if (idx < 0) idx += l;
-			if (idx < 0 || idx >= l) throw new RuntimeError(loc.first_line, "配列の範囲を超えて代入しようとしました");
-			if (v.getValue() instanceof ArrayValue) v.value[idx] = newval;
-			else if (v.getValue() instanceof StringValue) {
-				if (!(newval.getValue() instanceof StringValue)) throw new RuntimeError(loc.first_line, "文字列の途中に文字列でないものを挿入しようとしました");
-				var str = v.getValue().value;
-				v.getValue().value = str.substr(0, idx) + newval.value + str.substr(idx + 1);
-			}
-			else throw new RuntimeError(loc.first_line, "整数の添字は配列か文字列にしか使えません");
-		}
-		else if (arg instanceof StringValue) {
-			if (v.getValue() instanceof DictionaryValue) v.getValue().value[arg.value] = newval.clone();
-			else throw new RuntimeError(loc.first_line, "文字列の添字は辞書にしか使えません");
-		}
-		else if (arg instanceof SliceValue) {
-			var idx1 = arg.getValue1().getValue().value;
-			var idx2 = arg.getValue2().getValue().value;
-			if (v.getValue() instanceof ArrayValue) {
-				if (!(newval instanceof ArrayValue)) throw new RuntimeError(loc.first_line, "配列に配列でないものを挿入しようとしました");
-				var l = v.getValue().length;
-				if (!idx1) idx1 = 0;
-				if (!idx2) idx2 = l;
-				if (idx1 < 0) idx1 += l;
-				if (idx2 < 0) idx2 += l;
-				if (idx1 >= 0 && idx2 >= 0 && idx1 < l && idx2 < l) {
-					var a = [];
-					for (var i = 0; i < idx1; i++) a.push(v.getValue().value[i].clone());
-					for (var i = 0; i < newval.getValue().length; i++) a.push(newval.getValue().value[i].clone());
-					for (var i = idx2; i < l; i++) a.push(v.getValue().value[i].clone());
-					v.getValue().value = a;
-				}
-				else throw new RuntimeError(loc.first_line, "配列の範囲外に挿入しようとしました");
-			}
-			else if (v.getValue() instanceof StringValue) {
-				if (!(newval.getValue() instanceof StringValue)) throw new RuntimeError(loc.first_line, "文字列の途中に文字列でないものを挿入しようとしました");
-				var l = v.getValue().length;
-				if (!idx1) idx1 = 0;
-				if (!idx2) idx2 = l;
-				if (idx1 < 0) idx1 += l;
-				if (idx2 < 0) idx2 += l;
-				if (idx1 >= 0 && idx2 >= 0 && idx1 < l && idx2 < l) {
-					var str = v.getValue().value.substr(0, idx1) + newval.getValue().value + v.getValue().value.substr(idx2);
-					v.getValue().value = str;
-				}
-			}
-			else throw new RuntimeError("スライスの添字は配列か文字列でないと使えません");
-		}
-		else throw new RuntimeError(loc.first_line, "添字が正しくありません");
-	}
-	else {
-		vt.vars[vn] = newval;
-		return;
-	}
-}
-
-/**
- * v[args]の値を取得する
- * @param {Variable} v
- * @param {Array<Value>} args
- * @param {Location} loc
- * @returns Value
- */
-function getValueByArgs(v, args, loc) {
-	if (args) {
-		for (var i = 0; i < args.length; i++) {
-			var arg = args[i].getValue();
-			var val = v.getValue();
-			if (arg instanceof IntValue) {
-				if (val instanceof ArrayValue)	// 配列のidx番目
-				{
-					var idx = arg.value;
-					var l = val.length;
-					if (idx < 0) idx += l;
-					if (idx >= 0 && idx < l) v = val.value[idx];
-					else throw new RuntimeError(loc.first_line, "配列の範囲を超えてアクセスしました");
-				}
-				else if (v instanceof StringValue)	// 文字列のidx文字目
-				{
-					var idx = arg.value;
-					var l = val.length;
-					if (idx < 0) idx += l;
-					if (idx >= 0 && idx < l) v = new StringValue(val.value[idx], loc);
-					else throw new RuntimeError(loc.first_line, "文字列の範囲を超えてアクセスしました");
-				}
-				else throw new RuntimeError(loc.first_line, "整数の添字は配列か文字列でないと使えません");
-			}
-			else if (arg instanceof StringValue) {
-				if (val instanceof DictionaryValue) v = val.value[arg.getValue().value];
-				else throw new RuntimeError(loc.first_line, "文字列の添字は辞書でないと使えません");
-			}
-			else if (arg instanceof SliceValue) {
-				var idx1 = arg.getValue1().getValue().value;
-				var idx2 = arg.getValue2().getValue().value;
-				if (val instanceof ArrayValue)	// 配列のスライス
-				{
-					var l = val.length;
-					if (!idx1) idx1 = 0;
-					if (!idx2) idx2 = l;
-					if (idx1 < 0) idx1 += l;
-					if (idx2 < 0) idx2 += l;
-					if (idx1 >= 0 && idx2 >= 0 && idx1 <= l && idx2 <= l) {
-						var a = [];
-						for (var j = idx1; j < idx2; j++) a.push(val.value[j].clone());
-						v = new ArrayValue(a, loc);
-					}
-					else throw new RuntimeError(loc.first_line, "配列の範囲を超えて読み出そうとしました");
-				}
-				else if (val instanceof StringValue)	// 文字列のスライス
-				{
-					var l = val.length;
-					if (!idx1) idx1 = 0;
-					if (!idx2) idx2 = l;
-					if (idx1 < 0) idx1 += l;
-					if (idx2 < 0) idx2 += l;
-					if (idx1 >= 0 && idx2 >= 0 && idx1 <= l && idx2 <= l) v = new StringValue(val.value.substr(idx1, idx2 - idx1), loc);
-					else throw new RuntimeError(loc.first_line, "文字列の範囲を超えて読み出そうとしました");
-				}
-				else throw new RuntimeError(loc.first_line, "スライスの添字は配列か文字列でないと使えません");
-			}
-			else throw new RuntimeError(loc.first_line, "添字が正しくありません");
-		}
-	}
-	return v;
-}
-
-/**
- * 配列
- */
-class ArrayValue extends Value {
-	/**
-	 * @constructor
-	 * @param {Array<Value>} v
-	 * @param {Location} loc
-	 */
-	constructor(v, loc) {
-		super(v, loc);
-		this.rtnv = null;
-		this.state = 0;
+class UNDEFINED extends PrimitiveValue	// 未完成のプログラム用
+{
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		var a = [];
-		for (var i = 0; i < this.value.length; i++) a.push(this.value[i].getValue());
-		return new ArrayValue(a, this.loc);
+		return new UNDEFINED(this.getArgs(), this.getLoc(), this.getArgs(0));
 	}
 	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+		this.throwRuntimeError("未完成のプログラムです");
+	}
+	copy() {
+		return new UNDEFINED([this.getArgs(0)], this.getLoc(), this.getArgs(0));
+	}
+	argsPyPEN() {
+		return this.getArgs(0);
+	}
+	argsPython() {
+		return this.getArgs(0);
+	}
+	valueCode() {
+		return this.getArgs(0);
+	}
+	valueString() {
+		return this.getArgs(0);
+	}
+}
+
+/*********************************** Complex Value classes */
+
+class IntervalValue extends CollectionValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
+	}
+	clone() {
+		return new IntervalValue([this.getArgs(0).clone(), this.getArgs(1).clone(), this.getArgs(2)], this.getLoc());
+		// ,this._value ? this._value.slice() : null);
+	}
+	copy() {
+		return new IntervalValue([this.getArgs(0).copy(), this.getArgs(1).copy(), this.getArgs(2)], this.getLoc());
+	}
+	run() {
+		if (this.getState() == 0) {
+			code[0].stack.unshift({ statementlist: [this.getArgs(0), this.getArgs(1)], index: 0 });
+			this.setState(1);
 		}
 		else {
 			code[0].stack[0].index++;
-			var a = [];
-			for (var i = 0; i < this.value.length; i++) {
-				a.push(this.value[i].getValue());
-			}
-			this.rtnv = new ArrayValue(a, this.loc);
-			this.state = 0;
+			this._makeValue();
+			this.setState(0);
 		}
 	}
-	getCode() {
-		var ag = [];
-		for (var i = 0; i < this.value.length; i++) ag.push(this.value[i].getCode());
-		return '[' + ag.join(',') + ']';
+	_makeValue() {
+		this._value = [this.getArgs(0).getValue(), this.getArgs(1).getValue()];
 	}
-	makePython() {
-		var ag = [];
-		for (var i = 0; i < this.value.length; i++) ag.push(this.value[i].makePython());
-		return '[' + ag.join(', ') + ']';
+	argsPyPEN() {
+		var left = this.getArgs(2) === 'cc' || this.getArgs(2) === 'co' ? '[' : '(';
+		var right = this.getArgs(2) === 'cc' || this.getArgs(2) === 'oc' ? ']' : ')';
+		return left + this.getArgs(0).argsPyPEN() + ', ' + this.getArgs(1).argsPyPEN() + right;
 	}
-	get length() { return this.value.length; }
+	argsPython() {
+		this.throwRuntimeError("Pythonにはこの表現はありません");
+	}
+	valueString() {
+		var left = this.getArgs(2) === 'cc' || this.getArgs(2) === 'co' ? '[' : '(';
+		var right = this.getArgs(2) === 'cc' || this.getArgs(2) === 'oc' ? ']' : ')';
+		return left + this.getArgs(0).valueString() + ":" + this.getArgs(1).valueString() + right;
+	}
+	valueCode() {
+		var left = this.getArgs(2) === 'cc' || this.getArgs(2) === 'co' ? '[' : '(';
+		var right = this.getArgs(2) === 'cc' || this.getArgs(2) === 'oc' ? ']' : ')';
+		return left + this.getArgs(0).valueCode() + ":" + this.getArgs(1).valueCode() + right;
+	}
+	getArgs(idx = null) {
+		if (idx === null) return this._args;
+		else return this._args[idx];
+	}
+	getValue1() {
+		return this._value[0];
+	}
+	getValue2() {
+		return this._value[1];
+	}
+	getValueLeftClose() {
+		return this.getArgs(2)[0] == 'c';
+	}
+	getValueRightClose() {
+		return this.getArgs(2)[1] == 'c';
+	}
+	valueLength() {
+		return 2;
+	}
+}
+
+class SliceValue extends CollectionValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
+	}
+
+	clone() {
+		return new SliceValue([this.getArgs(0).clone(), this.getArgs(1).clone()], this.getLoc());
+	}
+	copy() {
+		return new SliceValue([this.getArgs(0).copy(), this.getArgs(1).copy()], this.getLoc());
+	}
+	_makeValue() {
+		this._value = [this.getArgs(0).getValue(), this.getArgs(1).getValue()];
+	}
+
+	argsPyPEN() {
+		return this.getArgs(0).argsPyPEN() + ":" + this.getArgs(1).argsPyPEN();
+	}
+	argsPython() {
+		var p1 = this.getArgs(0).argsPython();
+		var p2 = this.getArgs(1).argsPython();
+		return p1 + ":" + p2;
+	}
+	valueString() {
+		return this.getArgs(0).valueString() + ":" + this.getArgs(1).valueString();
+	}
+	valueCode() {
+		return this.getArgs(0).valueCode() + ":" + this.getArgs(1).valueCode();
+	}
+	setValue(v1, v2)	// must be Value
+	{
+		if (!(v1 instanceof Value) || !(v2 instanceof Value))
+			this.throwRuntimeError("SliceValue#setValueの引数はValueでなければなりません");
+		this._args[0] = v1;
+		this._args[1] = v2;
+		this._makeValue();
+	}
+	getArgs(idx = null) {
+		if (idx === null) return this._args;
+		else return this._args[idx];
+	}
+	getValue1() {
+		return this._value[0];
+	}
+	getValue2() {
+		return this._value[1];
+	}
+	valueLength() {
+		return 2;
+	}
+}
+
+/**
+ * リスト
+ */
+class ArrayValue extends CollectionValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
+	}
+	/* サブクラスで実装するメソッド
+	   _makeValue() : void		this._valueを作る。runから呼ばれる
+	   argsPyPEN()	: string	PyPENの文法で表した文字列
+	   argsPython() : string	Pythonの文法で表した文字列
+	   valueString(): string	this._valueを文字列で表したもの
+	   valueCode()	: string	this._valueをコードで表したもの
+	----------------------------*/
+
+	clone() {
+		var a = [], v = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		if (this._value) for (var i of this._value) v.push(i.clone());
+		return new ArrayValue(a, this.getLoc());//, this._value ? v : null);
+	}
+	copy() {
+		var a = [];
+		for (var i of this.getValue()._value) a.push(i.copy());
+		return new ArrayValue(a, this.getLoc(), a);
+	}
+
+	_makeValue() {
+		this._value = [];
+		for (var i = 0; i < this.getArgs().length; i++)
+			this._value.push(this.getArgs(i).getValue());
+	}
+	getValue(idx = null) {
+		if (idx === null) return this;
+		if (idx < 0) idx += this._value.length;
+		if (idx >= 0 && idx < this._value.length) return this._value[idx];
+		else this.throwRuntimeError("リストの範囲外の値を取得しようとしました");
+	}
+	getJSValue(idx = null) {
+		if (idx === null) return this._value;
+		if (idx < 0) idx += this._value.length;
+		if (idx >= 0 && idx < this._value.length) return this._value[idx].getJSValue();
+		else this.throwRuntimeError("リストの範囲外の値を取得しようとしました");
+	}
+	setValue(v, idx) {
+		if (idx < 0) idx += this._value.length;
+		if (idx >= 0 && idx < this._value.length) {
+			this._args[idx] = v; //this._value[idx] = v;
+			this._makeValue();
+		}
+		else this.throwRuntimeError("リストの範囲外に値を設定しようとしました");
+	}
+	argsPyPEN() {
+		var v = [];
+		for (var i = 0; i < this.getArgs().length; i++) v.push(this.getArgs(i).argsPyPEN());
+		return '[' + v.join(', ') + ']';
+	}
+	argsPython() {
+		var v = [];
+		for (var i = 0; i < this.getArgs().length; i++) v.push(this.getArgs(i).argsPython());
+		return '[' + v.join(', ') + ']';
+	}
+	valueString() {
+		var v = [];
+		for (var i = 0; i < this._value.length; i++) v.push(valueCode(this._value[i]));
+		return '[' + v.join(', ') + ']';
+	}
+	valueCode() {
+		var v = [];
+		for (var i = 0; i < this._value.length; i++) v.push(valueCode(this._value[i]));
+		return '[' + v.join(', ') + ']';
+	}
+
+	/**
+	 *
+	 * @param {Value} a
+	 */
 	append(a) {
-		for (var i of a) this.value.push(i);
+		this._args.push(a);
+		this._makeValue();
+		// this._value.push(a);
 	}
-	getValue() {
-		return this.rtnv ? this.rtnv : this;
+	/**
+	 *
+	 * @param {Array<Value>} a
+	 */
+	extend(a) {
+		for (var i of a) {
+			this._args.push(i);
+			// this._value.push(i);
+		}
+		this._makeValue();
+	}
+	valueLength() {
+		return this._value.length;
 	}
 }
 
 /**
  * 辞書
  */
-class DictionaryValue extends Value {
+class DictionaryValue extends CollectionValue {
 	/**
 	 * @constructor
 	 * @param {Array<SliceValue>} v
 	 * @param {Location} loc
 	 */
-	constructor(v, loc) {
-		super(new Map(), loc);
-		for (var i = 0; i < v.length; i++) {
-			if (v[i] instanceof SliceValue && v[i].getValue1().getValue() instanceof StringValue && !(v[i].getValue2().getValue() instanceof NullValue))
-				this.value.set(v[i].getValue1().getValue().value, v[i].getValue2());
-			else throw new RuntimeError(loc.first_line, "辞書の初期化が間違っています");
-		}
-		this.rtnv = this.value;
-		this.state = 0;
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
+	/* サブクラスで実装するメソッド
+	   clone()		: Value		複製を作る。this._argsの要素をcloneしたArrayで初期化する（this._valueはnull）
+	   _makeValue() : void		this._valueを作る。runから呼ばれる
+	   argsPyPEN()	: string	PyPENの文法で表した文字列
+	   argsPython() : string	Pythonの文法で表した文字列
+	   valueString(): string	this._valueを文字列で表したもの
+	   valueCode()	: string	this._valueをコードで表したもの
+	----------------------------*/
 	clone() {
-		var rtnv = new DictionaryValue([], this.loc);
-		for (var key of Object.keys(this.value)) {
-			if (this.value[key]) {
-				rtnv.value[key] = isPrimitive(this.value[key]) ? this.value[key].getValue().clone() : this.value[key].getValue();
-			}
-			else throw new RuntimeError(this.first_line, key + "が定義されていません");
+		var a = [], m = new Map();
+		for (var arg of this._args) {
+			a.push(arg.clone());
+			var key = arg.getArgs(0).clone();
+			var val = arg.getArgs(1).clone();
+			m.set(key.getJSValue(), val.clone());
 		}
-		return rtnv;
+		return new DictionaryValue(a, this.getLoc(), m);
 	}
-	getCode() {
-		var ag = [];
-		var keys = Object.keys(this.value);
-		keys.sort();
-		for (var i = 0; i < keys.length; i++)
-			ag.push(keys[i] + ':' + this.value[keys[i]].getCode());
-		return '{' + ag.join(',') + '}';
+	copy() {
+		var a = [], m = new Map();
+		for (var arg of this._args) {
+			var copied = arg.copy();
+			copied._makeValue();
+			a.push(copied);
+			var key = copied.getValue1();
+			var val = copied.getValue2();
+			m.set(key.getJSValue(), val.getValue());
+		}
+		return new DictionaryValue(a, this.getLoc(), m);
 	}
-	makePython() {
+
+	_makeValue() {
+		this._value = new Map();
+		for (var i = 0; i < this.getArgs().length; i++) {
+			if (this.getArgs(i) instanceof SliceValue) {
+				this.getArgs(i)._makeValue();
+				var key = this.getArgs(i).getValue1();
+				var val = this.getArgs(i).getValue2();
+				if (isPrimitive(key.getValue())) this._value.set(key.getJSValue(), val.getValue());
+				else this.throwRuntimeError("辞書のキーには単純型しか使えません");
+			}
+			else this.throwRuntimeError("辞書の初期化が間違っています");
+		}
+	}
+	has(key) {
+		this._value.has(key);
+	}
+	/**
+	 * @returns Array of value of JS
+	 */
+	getKeys() {
+		return this._value.keys();
+	}
+	getValue(key = null) {
+		if (key === null) return this;
+		if (this._value.has(key)) return this._value.get(key);
+		else this.throwRuntimeError("辞書のキーには単純型しか使えません");
+	}
+	getJSValue(key = null) {
+		if (key === null) return this._value;
+		if (this._value.has(key)) return this._value.get(key).getJSValue();
+		else this.throwRuntimeError("辞書のキーには単純型しか使えません");
+	}
+	setValue(v, key) {
+		for (var i in this._args) {
+			this._args[i]._makeValue();
+			if (this._args[i].getValue1().getJSValue() === key) {
+				this._args[i] = new SliceValue([key, v], this.getLoc(), [key, v]);
+				this._makeValue();
+				return;
+			}
+		}
+		// キーがなかったときは追加
+		this._args.push(new SliceValue([key, v], this.getLoc(), [key, v]));
+		// this._value.set(key.getJSValue(), v);
+		this._makeValue();
+		// else this.throwRuntimeError("辞書のキーには単純型しか使えません");
+	}
+
+	argsPyPEN() {
 		var ag = [];
-		var keys = Object.keys(this.value);
-		keys.sort();
-		for (var i = 0; i < keys.length; i++)
-			ag.push("'" + keys[i] + "':" + this.value[keys[i]].makePython());
+		for (var arg of this.getArgs()) ag.push(arg.argsPyPEN());
 		return '{' + ag.join(', ') + '}';
 	}
+	argsPython() {
+		var ag = [];
+		for (var arg of this._args) ag.push(arg.argsPython());
+		return '{' + ag.join(', ') + '}';
+	}
+	valueString() {
+		var ag = [];
+		for (var [k, v] of this._value.entries()) {
+			if (typeof (k) === "string") k = "'" + k + "'";
+			if (typeof (k) === "number" && isSafeInteger(k)) k = k.toString() + ".0";
+			ag.push(k + ':' + v.valueCode());
+		}
+		return '{' + ag.join(', ') + '}';
+	}
+	valueCode() {
+		var ag = [];
+		for (var [k, v] of this._value.entries()) {
+			if (typeof (k) === "string") k = "'" + k.replace(/'/g, "\\'") + "'";
+			if (typeof (k) === "number" && isSafeInteger(k)) k = k.toString() + ".0";
+			ag.push(k + ':' + v.valueCode());
+		}
+		return '{' + ag.join(', ') + '}';
+	}
+}
+
+class FunctionValue extends Value {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+	}
+
+	copy() {
+		this.throwRuntimeError("抽象クラスです");
+	}
+
+	/* サブクラスで実装するメソッド
+	   clone()		: Value		複製を作る。this._argsの要素をcloneしたArrayで初期化する（this._valueはnull）
+	   _makeValue() : void		this._valueを作る。runから呼ばれる
+	   getValue()	: Value		PrimitiveValueならthis，SimpleValueやCollectionValueならthis._value
+	   getJSValue() : value of JS(bigint|number|string|boolean|Array|Map)
+					  PrimitiveValueならthis._value，SimpleValueならthis._value.getJSValue()，CollectionValueならthis._value
+	   setValue()	: void		this._valueを設定する
+	   argsPyPEN()	: string	PyPENの文法で表した文字列
+	   argsPython() : string	Pythonの文法で表した文字列
+	   valueString(): string	this._valueを文字列で表したもの
+	   valueCode()	: string	this._valueをコードで表したもの
+	----------------------------*/
+
+	/**
+	 * @returns {Value}
+	 * @throws {RuntimeError}
+	 */
+	clone()		// 実体のあるすべてのサブクラスで実体を実装する
+	{
+		this.throwRuntimeError("抽象クラスです");
+	}
+
+	/**
+	 * this._valueを作る。実体のあるサブクラスでは必ずオーバーライドする
+	 */
+	_makeValue() {
+		this.throwRuntimeError("抽象クラスです");
+	}
+
+	/**
+	 * this._argsを実行する
+	 * this._valueは_makeValueで作る
+	 */
 	run() {
-		if (this.state == 0) {
-			var a = [];
-			for (let key of Object.keys(this.value)) {
-				a.push(this.value[key]);
-			}
-			code[0].stack.unshift({ statementlist: a, index: 0 });
-			this.state = 1;
-		}
-		else {
+		this.throwRuntimeError("抽象クラスです");
+	}
+
+	/**
+	 * @returns {Value}
+	 */
+	getValue() //Valueを返す。
+	{
+		return this;
+	}
+
+	/**
+	 * @returns {bigint|number|string|boolean|Array|Map}
+	 */
+	getJSValue()	// 実際のJSの値を返す
+	{
+		return this._value.getJSValue();
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	argsPyPEN()	// PyPENの文法で表した文字列
+	{
+		this.throwRuntimeError("argsPyPENが作られていません");
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	argsPython()	// Pythonの文法で表した文字列
+	{
+		this.throwRuntimeError("argsPythonが作られていません");
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	valueString() {
+		this.throwRuntimeError("valueStringが作られていません");
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	valueCode() {
+		this.throwRuntimeError("valueCodeが作られていません");
+	}
+}
+
+class BuiltinFunction extends FunctionValue {
+	// funcはJavaScriptの関数
+	constructor(argc, func, module, convert, loc, value = null) {
+		super([], loc, value);
+		this.argc = argc; this.func = func; this.module = module; this.convert = convert;
+		this.caller = null;
+		this.parameters = null;
+		Object.seal(this);
+	}
+	clone()		// 実体のあるすべてのサブクラスで実体を実装する
+	{
+		var rtnv = new BuiltinFunction(this.argc, this.func, this.module, this.convert, this.getLoc(), this._value);
+		rtnv.setParameter(this.parameters);
+		return rtnv;
+	}
+	copy() {
+		var rtnv = new BuiltinFunction(this.argc, this.func, this.module, this.convert, this.getLoc(), this._value);
+		rtnv.setParameter(this.parameters);
+		return rtnv;
+	}
+	setCaller(caller) {
+		this.caller = caller;
+	}
+
+	setParameter(params) {
+		this.parameters = params;
+	}
+	setLocation(loc) {
+		this._loc = loc;
+	}
+	run() {
+		if ((this.argc instanceof Array && this.argc[0] <= this.parameters.length && this.argc[1] >= this.parameters.length)
+			|| this.parameters.length == this.argc
+			|| this.argc < 0) {
 			code[0].stack[0].index++;
-			var a = [];
-			for (let key of Object.keys(this.value)) {
-				a.push(new SliceValue(new StringValue(key, this.loc), this.value[key], this.loc));
-			}
-			this.rtnv = new DictionaryValue(a, this.loc);
-			this.state = 0;
+			this.caller.setValue(this.func(this.parameters, this._loc));
+			code.shift();
 		}
+		else throw new RuntimeError(this._loc.first_line, "引数の個数が違います");
 	}
-	getValue() {
-		return this.rtnv;
+
+
+	/**
+	 * @returns {bigint|number|string|boolean|Array|Map}
+	 */
+	getJSValue()	// 実際のJSの値を返す
+	{
+		return this._value.getJSValue();
+	}
+
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	argsPyPEN()	// PyPENの文法で表した文字列
+	{
+		this.throwRuntimeError("argsPyPENが作られていません");
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	argsPython()	// Pythonの文法で表した文字列
+	{
+		this.throwRuntimeError("argsPythonが作られていません");
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	valueString() {
+		return "組み込み関数";
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	valueCode() {
+		this.throwRuntimeError("valueCodeが作られていません");
 	}
 }
 
-class IntValue extends Value {
-	constructor(v, loc) {
-		super(v, loc);
-		if (!isSafeInteger(v)) throw new RuntimeError(this.first_line, "整数で表せない値です");
-	}
-	clone() {
-		return new IntValue(this.value, this.loc);
-	}
-}
-class FloatValue extends Value {
-	constructor(v, loc) {
-		super(v, loc);
-		if (!isFinite(v)) throw new RuntimeError(this.first_line, "オーバーフローしました");
-	}
-	clone() {
-		return new FloatValue(this.value, this.loc);
-	}
-	getCode() {
-		let str = this.value.toString();
-		if (str.match(/[Ee]/) != undefined) return str;
-		else if (isSafeInteger(this.value)) return this.value + '.0';
-		else return this.value;
-	}
-}
-
-class StringValue extends Value {
-	constructor(v, loc) {
-		super(v, loc);
-	}
-	clone() {
-		return new StringValue(this.value, this.loc);
-	}
-	getCode() {
-		return '"' + this.value.replace(/"/g, '\\"') + '"';
-	}
-	get length() { return this.value.length; }
-	makePython() {
-		return '\'' + this.value.replace('\'', '\\\'') + '\'';
-	}
-}
-class BooleanValue extends Value {
-	constructor(v, loc) {
-		super(v ? true : false, loc);
-	}
-	clone() {
-		return new BooleanValue(this.value, this.loc);
-	}
-	getCode() {
-		return this.value ? 'True' : 'False';
-	}
-	makePython() {
-		return this.value ? "True" : "False";
-	}
-}
-
-class UNDEFINED extends Value {
-	constructor(v, loc) {
-		super(v, loc);
-	}
-	clone() {
-		return new UNDEFINED(this.value, this.loc);
-	}
-	get varname() {
-		return this.value;
-	}
-	getValue() {
-		throw new RuntimeError(this.first_line, "未完成のプログラムです");
-	}
-}
-
-/**
- * 値渡しをする
- */
-class Copy extends Value {
-	constructor(v, loc) {
-		super(v, loc);
+class UserDefinedFunction extends FunctionValue {
+	// funcはstatementlist
+	constructor(params, statementlist, loc, value = null) {
+		super([], loc, value);
+		this.params = params;
+		this.statementlist = statementlist;
+		this.caller = null;
 		this.state = 0;
+		Object.seal(this);
 	}
 	clone() {
-		return new Copy(this.value, this.loc);
+		return new UserDefinedFunction(this.params, this.statementlist, this.getLoc(), this._value);
 	}
-	getCode() {
-		return "copy(" + this.value.getCode() + ")";
+	copy() {
+		return new UserDefinedFunction(this.params, this.statementlist, this.getLoc(), this._value);
 	}
-	makePython() {
-		return this.value.makePython() + ".copy()";
+
+	/**
+	 * @returns {bigint|number|string|boolean|Array|Map}
+	 */
+	getJSValue()	// 実際のJSの値を返す
+	{
+		return this._value.getJSValue();
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: [this.value], index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			this.rtnv = this.value.getValue().clone();
-			this.state = 0;
-		}
+
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	argsPyPEN()	// PyPENの文法で表した文字列
+	{
+		this.throwRuntimeError("argsPyPENが作られていません");
 	}
-	getValue() {
-		return this.rtnv;
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	argsPython()	// Pythonの文法で表した文字列
+	{
+		this.throwRuntimeError("argsPythonが作られていません");
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	valueString() {
+		return "ユーザ定義関数";
+	}
+	/**
+	 * @abstract
+	 * @returns {string}
+	 */
+	valueCode() {
+		this.throwRuntimeError("valueCodeが作られていません");
 	}
 }
-class Pow extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+
+class Variable extends SimpleValue {
+	/**
+	 *
+	 * @param {string} x
+	 * @param {Array<Value>} y
+	 * @param {Location} loc
+	 */
+	constructor(x, loc, value = null) {
+		super([], loc, value);
+		this.varname = x;
+		this._value = null;
+		Object.seal(this);
+		// if(debug_mode && !(loc instanceof Location))
+		// 	textareaAppend("Error Variable#constructor: " +x +": "+ constructor_name(loc) + "\n");
 	}
 	clone() {
-		return new Pow(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		var rtnv = new Variable(this.varname, this.getLoc());
+		// var rtnv = new Variable(this.varname, this.getLoc(), this._value ? this._value.clone() : null);
+		rtnv._args = a;
+		return rtnv;
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+	_makeValue() {
+
+	}
+
+	getValue() {
+		var vt = findVarTable(this.varname);
+		if (vt) {
+			var v = vt.vars[this.varname];
+			return this._value = getValueByArgs(v, this.getArgs(), this.getLoc());
 		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof IntValue && v2 instanceof IntValue && v2.value >= 0) // 整数の自然数乗
-			{
-				if (v1.value == 0 && v2.value <= 0) throw new RuntimeError(this.first_line, "0は正の数乗しかできません");
-				let v = Math.pow(v1.value, v2.value);
-				if (isSafeInteger(v)) this.rtnv = new IntValue(v, this.loc);
-				else throw new RuntimeError(this.first_line, "整数で表せる範囲を越えました");
+		// else if(this.varname in myFuncs) return this._value = myFuncs[this.varname];
+		// else if(this.varname in definedFunction) return this._value = definedFunction[this.varname];
+		else this.throwRuntimeError(this.varname + "が定義されていません");
+	}
+
+	getJSValue() {
+		return this.getValue().getJSValue();
+	}
+
+	setValue(v) {
+		setVariableByArgs(this.varname, v, this.getArgs(), this.getLoc());
+		this._makeValue();
+		// this._value = v;
+	}
+	argsPyPEN() {
+		if (this.getArgs().length > 0) {
+			let ag = [];
+			for (var i of this.getArgs()) ag.push(i.argsPyPEN());
+			return this.varname + '[' + ag.join(', ') + ']';
+		}
+		return this.varname;
+	}
+	argsPython() {
+		if (this.getArgs().length > 0) {
+			let ag = [];
+			for (var i of this.getArgs()) ag.push(i.argsPython());
+			return this.varname + '[' + ag.join(', ') + ']';
+		}
+		return this.varname;
+	}
+	valueString() {
+		return valueString(this.getValue());
+	}
+	valueCode() {
+		return valueCode(this.getValue());
+	}
+
+	/**
+	 * @param {Value} a
+	 */
+	append(a) {
+		this._args.push(a);
+		// if(!this._args[1]) this._args[1] = new ArrayValue([a], this.getLoc(),[a]);
+		// else this._args[1]._args.push(a);
+	}
+	/**
+	 *
+	 * @param {Array<Value>} a
+	 */
+	extend(a) {
+		for (var i of a) this._args.push(i);
+	}
+}
+
+/*********************************** Valueの演算 */
+
+class Pow extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
+	}
+	clone() {
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new Pow(a, this._loc);
+	}
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof IntValue && v2 instanceof IntValue) // 整数の自然数乗
+		{
+			v1 = v1.getJSValue()
+			v2 = v2.getJSValue()
+			if (v1 == 0 && v2 <= 0) this.throwRuntimeError("0は正の数乗しかできません");
+			try {
+				if (v2 >= 0) {
+					var v = v1 ** v2;
+					this._value = new IntValue([v], this.getLoc(), v);
+				}
+				else {
+					var v = Number(v1) ** Number(v2);
+					this._value = new FloatValue([v], this.getLoc(), v);
+				}
 			}
-			else if ((v1 instanceof IntValue || v1 instanceof FloatValue) && (v2 instanceof IntValue || v2 instanceof FloatValue)) {
-				if (v1.value < 0 && !Number.isSafeInteger(v2.value)) throw new RuntimeError(this.first_line, "負の数の非整数乗はできません");
-				if (v1.value == 0 && v2.value <= 0) throw new RuntimeError(this.first_line, "0は正の数乗しかできません");
-				let v = Math.pow(v1.value, v2.value);
-				if (isFinite(v)) this.rtnv = new FloatValue(v, this.loc);
-				else throw new RuntimeError(this.first_line, "オーバーフローしました");
-			} else throw new RuntimeError('数値でないもののべき乗はできません');
-			this.state = 0;
+			catch (e) {
+				if (e instanceof RangeError) this.throwRuntimeError("計算できない値です");
+				else throw e;
+			}
 		}
+		else if ((v1 instanceof IntValue || v1 instanceof FloatValue) && (v2 instanceof IntValue || v2 instanceof FloatValue)) {
+			v1 = Number(v1.getJSValue());
+			v2 = Number(v2.getJSValue());
+			if (v1 < 0 && !Number.isSafeInteger(v2))
+				this.throwRuntimeError("負の数の非整数乗はできません");
+			if (v1 == 0 && v2 <= 0) this.throwRuntimeError("0は正の数乗しかできません");
+			try {
+				let v = v1 ** v2;
+				if (isFinite(v)) this._value = new FloatValue([v], this.getLoc(), v);
+				else this.throwRuntimeError("オーバーフローしました");
+			}
+			catch (e) {
+				if (e instanceof RangeError) this.throwRuntimeError("計算できない値です");
+				else throw e;
+			}
+		} else this.throwRuntimeError('数値でないもののべき乗はできません');
 	}
 	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub" || c1 == "Mul" || c1 == "Div" || c1 == "DivInt" || c1 == "Mod") brace1 = true;
@@ -2174,891 +3011,912 @@ class Pow extends Value {
 			+ '**'
 			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub" || c1 == "Mul" || c1 == "Div" || c1 == "DivInt" || c1 == "Mod") brace1 = true;
 		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub" || c2 == "Mul" || c2 == "Div" || c2 == "DivInt" || c2 == "Mod") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' ** '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class Add extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+class Add extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		// Object.seal(this);
 	}
 	clone() {
-		return new Add(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new Add(a, this.getLoc());
 	}
 	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+		if (this.getState() == 0) {
+
+			code[0].stack.unshift({ statementlist: this.getArgs(), index: 0 });
+			this.setState(1);
 		}
-		else {
+		else if (this.getState() == 1) {
 			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue && v2 instanceof ArrayValue) {
-				let v = []
-				for (let i = 0; i < v1.length; i++) v.push(v1.value[i])
-				for (let i = 0; i < v2.length; i++) v.push(v2.value[i])
-				this.rtnv = new ArrayValue(v, this.loc);
-			}
-			else if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列の足し算はできません");
-			else if (v1 instanceof BooleanValue || v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽型の足し算はできません");
-			else if (v1 instanceof StringValue || v2 instanceof StringValue) // 一方でも文字列なら文字列結合
-			{
-				this.rtnv = new StringValue(v1.value + v2.value, this.loc);
-			}
-			else	// 数値どうし
-			{
-				let v = v1.value + v2.value;
-				if (v1 instanceof FloatValue || v2 instanceof FloatValue)	// 一方が実数型なら結果は実数型
-				{
-					if (!isFinite(v)) throw new RuntimeError(this.first_line, "オーバーフローしました");
-					this.rtnv = new FloatValue(v, this.loc);
-				}
-				else	// 整数型
-				{
-					if (!isSafeInteger(v)) throw new RuntimeError(this.first_line, "整数で表される範囲を越えました");
-					this.rtnv = new IntValue(v, this.loc);
-				}
-			}
-			this.state = 0;
+			this._makeValue();
+			this.setState(0);
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof ArrayValue && v2 instanceof ArrayValue) {
+			let v = [];
+			for (let i = 0; i < v1.valueLength(); i++) v.push(v1.getValue(i));
+			for (let i = 0; i < v2.valueLength(); i++) v.push(v2.getValue(i));
+			this._value = new ArrayValue([v], this.getLoc(), v);
+		}
+		else if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.throwRuntimeError("リストと足し算ができるのはリストどうしだけです");
+		else if (v1 instanceof BooleanValue || v2 instanceof BooleanValue) this.throwRuntimeError("真偽型の足し算はできません");
+		else if (v1 instanceof StringValue || v2 instanceof StringValue) // 一方でも文字列なら文字列結合
+		{
+			var s = v1.getJSValue() + v2.getJSValue();
+			this._value = new StringValue([s], this.getLoc(), s);
+		}
+		else	// 数値どうし
+		{
+			if (v1 instanceof FloatValue || v2 instanceof FloatValue)	// 一方が実数型なら結果は実数型
+			{
+				let v = Number(v1.getJSValue()) + Number(v2.getJSValue());
+				if (!isFinite(v)) this.throwRuntimeError("オーバーフローしました");
+				this._value = new FloatValue([v], this.getLoc(), v);
+			}
+			else	// 整数型
+			{
+				try {
+					var v = v1.getJSValue() + v2.getJSValue();
+					this._value = new IntValue([v], this.getLoc(), v);
+				}
+				catch (e) {
+					if (e instanceof RangeError) this.throwRuntimeError("計算できない値です");
+					else throw e;
+				}
+			}
+		}
+	}
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus") brace1 = true;
 		if (c2 == "Minus") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '+'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus") brace1 = true;
 		if (c2 == "Minus") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' + '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class Sub extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+class Sub extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new Sub(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new Sub(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.throwRuntimeError("リストの引き算はできません");
+		if (v1 instanceof BooleanValue || v2 instanceof BooleanValue) this.throwRuntimeError("真偽型の引き算はできません");
+		if (v1 instanceof StringValue || v2 instanceof StringValue) this.throwRuntimeError("文字列の引き算はできません");
+		if (v1 instanceof FloatValue || v2 instanceof FloatValue) {
+			v1 = v1.getJSValue();
+			v2 = v2.getJSValue();
+			let v = Number(v1) - Number(v2);
+			if (!isFinite(v)) this.throwRuntimeError("オーバーフローしました");
+			this._value = new FloatValue([v], this.getLoc(), v);
 		}
 		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列の引き算はできません");
-			if (v1 instanceof BooleanValue || v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽型の引き算はできません");
-			if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列の引き算はできません");
-			let v = v1.value - v2.value;
-			if (v1 instanceof FloatValue || v2 instanceof FloatValue) {
-				if (!isFinite(v)) throw new RuntimeError(this.first_line, "オーバーフローしました");
-				this.rtnv = new FloatValue(v, this.loc);
+			try {
+				// textareaAppend("Sub#makeValue: v1=" + constructor_name(v1) + ", v2=" + constructor_name(v2) + "\n");
+				v1 = v1.getJSValue();
+				v2 = v2.getJSValue();
+				// textareaAppend("Sub#makeValue: v1=" + constructor_name(v1) + v1 + ", v2=" + constructor_name(v2) + v2+"\n");
+				let v = v1 - v2;
+				this._value = new IntValue([v], this.getLoc(), v);
 			}
-			else {
-				if (!isSafeInteger(v)) throw new RuntimeError(this.first_line, "整数で表される範囲を越えました");
-				this.rtnv = new IntValue(v, this.loc);
+			catch (e) {
+				if (e instanceof RangeError)
+					this.throwRuntimeError("計算できない値です");
+				else throw e;
 			}
-			this.state = 0;
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus") brace1 = true;
 		if (c2 == "Minus") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '-'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus") brace1 = true;
 		if (c2 == "Minus") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' - '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class Mul extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.state = 0;
+class Mul extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new Mul(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new Mul(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof BooleanValue || v2 instanceof BooleanValue)
+			this.throwRuntimeError("真偽型のかけ算はできません");
+		else if (v1 instanceof StringValue || v2 instanceof StringValue) {
+			let va = null, vn = null;
+			if (v1 instanceof IntValue) { va = v2.getJSValue(); vn = Number(v1.getJSValue()); }
+			else if (v2 instanceof IntValue) { va = v1.getJSValue(); vn = Number(v2.getJSValue()); }
+			else this.throwRuntimeError("文字列には整数しか掛けられません");
+			let v = '';
+			for (let i = 0; i < vn; i++) v += va;
+			this._value = new StringValue([v], this.getLoc(), v);
+		}
+		else if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) {
+			let va = null, vn = null;
+			if (v1 instanceof IntValue) { va = v2; vn = v1.getJSValue(); }
+			else if (v2 instanceof IntValue) { va = v1; vn = v2.getJSValue(); }
+			else this.throwRuntimeError("リストには整数しか掛けられません");
+			let v = []
+			for (let i = 0; i < vn; i++)
+				for (let j = 0; j < va.valueLength(); j++) v.push(va.getValue(j));
+			this._value = new ArrayValue(v, this.getLoc(), v);
 		}
 		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof BooleanValue || v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽型のかけ算はできません");
-			else if (v1 instanceof StringValue || v2 instanceof StringValue) {
-				let va = null, vn = null;
-				if (v1 instanceof IntValue) { va = v2; vn = v1; }
-				else if (v2 instanceof IntValue) { va = v1; vn = v2; }
-				else throw new RuntimeError(this.first_line, "文字列には整数しか掛けられません");
-				let v = '';
-				for (let i = 0; i < vn.value; i++)
-					v += va.value;
-				this.rtnv = new StringValue(v, this.loc);
-			}
-			else if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) {
-				let va = null, vn = null;
-				if (v1 instanceof IntValue) { va = v2; vn = v1; }
-				else if (v2 instanceof IntValue) { va = v1; vn = v2; }
-				else throw new RuntimeError(this.first_line, "配列には整数しか掛けられません");
-				let v = []
-				for (let i = 0; i < vn.value; i++)
-					for (let j = 0; j < va.length; j++) v.push(va.value[j]);
-				this.rtnv = new ArrayValue(v, this.loc);
+			if (v1 instanceof FloatValue || v2 instanceof FloatValue) {
+				let v = Number(v1.getJSValue()) * Number(v2.getJSValue());
+				if (!isFinite(v)) this.throwRuntimeError("オーバーフローしました");
+				this._value = new FloatValue([v], this.getLoc(), v);
 			}
 			else {
-				let v = v1.value * v2.value;
-				if (v1 instanceof FloatValue || v2 instanceof FloatValue) {
-					if (!isFinite(v)) throw new RuntimeError(this.first_line, "オーバーフローしました");
-					this.rtnv = new FloatValue(v, this.loc);
+				try {
+					var v = v1.getJSValue() * v2.getJSValue();
+					this._value = new IntValue([v], this.getLoc(), v);
 				}
-				else {
-					if (!isSafeInteger(v)) throw new RuntimeError(this.first_line, "整数で表される範囲を越えました");
-					this.rtnv = new IntValue(v, this.loc);
+				catch (e) {
+					if (e instanceof RangeError) this.throwRuntimeError("計算できない値です");
+					else throw e;
 				}
 			}
-			this.state = 0;
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
 		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '*'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
 		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' * '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class Div extends Value	// /
+class Div extends SimpleValue	// /
 {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		// Object.seal(this);
 	}
 	clone() {
-		return new Div(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new Div(a, this.getLoc());
 	}
 	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+		if (this.getState() == 0) {
+
+			code[0].stack.unshift({ statementlist: this.getArgs(), index: 0 });
+			this.setState(1);
 		}
-		else {
+		else if (this.getState() == 1) {
 			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のわり算はできません");
-			if (v1 instanceof BooleanValue || v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽型のわり算はできません");
-			if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のわり算はできません");
-			if (v2.value == 0) throw new RuntimeError(this.first_line, "0でわり算をしました");
-			let v = v1.value / v2.value;
-			if (!isFinite(v)) throw new RuntimeError(this.first_line, "オーバーフローしました");
-			this.rtnv = new FloatValue(v, this.loc);
-			this.state = 0;
+			this._makeValue();
+			this.setState(0);
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof ArrayValue || v2 instanceof ArrayValue)
+			this.throwRuntimeError("リストのわり算はできません");
+		if (v1 instanceof BooleanValue || v2 instanceof BooleanValue)
+			this.throwRuntimeError("真偽型のわり算はできません");
+		if (v1 instanceof StringValue || v2 instanceof StringValue)
+			this.throwRuntimeError("文字列のわり算はできません");
+		if (v2.getJSValue() == 0) this.throwRuntimeError("0でわり算をしました");
+		try {
+			let v = Number(v1.getJSValue()) / Number(v2.getJSValue());
+			if (!isFinite(v)) this.throwRuntimeError("オーバーフローしました");
+			this._value = new FloatValue([v], this.getLoc(), v);
+		}
+		catch (e) {
+			if (e instanceof RangeError) this.throwRuntimeError("計算できない値です");
+			else throw e;
+		}
+	}
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
 		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '/'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
 		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' / '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class DivInt extends Value // //
+class DivInt extends SimpleValue // //
 {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new DivInt(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new DivInt(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のわり算はできません");
-			if (v1 instanceof BooleanValue || v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽型のわり算はできません");
-			if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のわり算はできません");
-			if (v2.value == 0) throw new RuntimeError(this.first_line, "0でわり算をしました");
-			let v = Math.floor(v1.value / v2.value);
-			if (!isSafeInteger(v)) throw new RuntimeError(this.first_line, "整数で表される範囲を越えました");
-			this.rtnv = new IntValue(v, this.loc);
-			this.state = 0;
-		}
-	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let c1 = constructor_name(v1), c2 = constructor_name(v2);
-		let brace1 = false, brace2 = false;
-		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
-		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
-			+ '//'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
-	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let c1 = constructor_name(v1), c2 = constructor_name(v2);
-		let brace1 = false, brace2 = false;
-		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
-		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
-			+ ' // '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
-	}
-}
-
-
-class Mod extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
-	}
-	clone() {
-		return new Mod(this.value[0].clone(), this.value[1].clone(), this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof ArrayValue || v2 instanceof ArrayValue)
+			this.throwRuntimeError("リストのわり算はできません");
+		if (v1 instanceof BooleanValue || v2 instanceof BooleanValue)
+			this.throwRuntimeError("真偽型のわり算はできません");
+		if (v1 instanceof StringValue || v2 instanceof StringValue)
+			this.throwRuntimeError("文字列のわり算はできません");
+		if (v2.getJSValue() == 0) this.throwRuntimeError("0でわり算をしました");
+		try {
 			if (v1 instanceof IntValue && v2 instanceof IntValue) {
-				if (v2.value == 0) throw new RuntimeError(this.first_line, "0でわり算をしました");
-				let v = v1.value - Math.floor(v1.value / v2.value) * v2.value;
-				if (!isSafeInteger(v)) throw new RuntimeError(this.first_line, "整数で表される範囲を越えました");
-				this.rtnv = new IntValue(v, this.loc);
+				let r = v1.getJSValue() % v2.getJSValue();
+				let q = v1.getJSValue() / v2.getJSValue();
+				if (!SameSignBigInt(v1.getJSValue(), v2.getJSValue()) && r != 0) q--;
+				this._value = new IntValue([q], this.getLoc(), q);
 			}
-			else
-				throw new RuntimeError(this.first_line, "余りを出す計算は整数でしかできません");
-			this.state = 0;
+			else {
+				v1 = Number(v1.getJSValue());
+				v2 = Number(v2.getJSValue());
+				let v = Math.floor(v1 / v2);
+				this._value = new FloatValue([v], this.getLoc(), v);
+			}
+		}
+		catch (e) {
+			if (e instanceof RangeError) this.throwRuntimeError("計算できない値です");
+			else throw e;
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
 		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
+			+ '//'
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
+	}
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
+		let c1 = constructor_name(v1), c2 = constructor_name(v2);
+		let brace1 = false, brace2 = false;
+		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
+		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub") brace2 = true;
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
+			+ ' // '
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
+	}
+}
+
+
+class Mod extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
+	}
+	clone() {
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new Mod(a, this.getLoc());
+	}
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof IntValue && v2 instanceof IntValue) {
+			let r = v1.getJSValue() % v2.getJSValue();
+			let q = (v1.getJSValue() - r) / v2.getJSValue();
+			if (!SameSignBigInt(v1.getJSValue(), v2.getJSValue()) && r != 0) q--;
+			var v = v1.getJSValue() - q * v2.getJSValue();
+			// textareaAppend("Mod: " + v + " " + (typeof v) + "\n");
+			this._value = new IntValue([v], this.getLoc(), v);
+		}
+		else {
+			v1 = Number(v1.getJSValue());
+			v2 = Number(v2.getJSValue());
+			var v = v1 - Math.floor(v1 / v2) * v2;
+			this._value = new FloatValue([v], this.getLoc(), v);
+		}
+	}
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
+		let c1 = constructor_name(v1), c2 = constructor_name(v2);
+		let brace1 = false, brace2 = false;
+		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
+		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub") brace2 = true;
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '%'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
 		if (c2 == "Minus" || c2 == "Add" || c2 == "Sub") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' % '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class Minus extends Value {
-	constructor(x, loc) {
-		super([x], loc);
-		this.rtnv = null;
-		this.state = 0;
+class Minus extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new Minus(this.value[0], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new Minus(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue();
-			if (v1 instanceof IntValue || v1 instanceof FloatValue) {
-				let v = -v1.value;
-				if (v1 instanceof IntValue && !isSafeInteger(v)) throw new RuntimeError(this.first_line, "整数で表される範囲を越えました");
-				if (v1 instanceof FloatValue && !isFinite(v)) throw new RuntimeError(this.first_line, "オーバーフローしました");
-				this.rtnv = v1 instanceof IntValue ? new IntValue(v, this.loc) : new FloatValue(v, this.loc);
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue();
+		if (v1 instanceof IntValue) {
+			try {
+				var v = -v1.getJSValue();
+				this._value = new IntValue([v], this.getLoc(), v);
 			}
-			else
-				throw new RuntimeError(this.first_line, "マイナスは数値にしかつけられません");
-			this.state = 0;
+			catch (e) {
+				if (e instanceof RangeError)
+					this.throwRuntimeError("計算できない値です");
+				else throw e;
+			}
 		}
+		else if (v1 instanceof FloatValue) {
+			let v = -v1.getJSValue();
+			if (!isFinite(v)) this.throwRuntimeError("オーバーフローしました");
+			this._value = new FloatValue([v], this.getLoc(), v);
+		}
+		else
+			this.throwRuntimeError("マイナスは数値にしかつけられません");
 	}
-	getCode() {
-		let v1 = this.value[0];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0];
 		let c1 = constructor_name(v1);
 		let brace1 = false;
 		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
-		return '-' + (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '');
+		return '-' + (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '');
 	}
-	makePython() {
-		let v1 = this.value[0];
+	argsPython() {
+		let v1 = this.getArgs()[0];
 		let c1 = constructor_name(v1);
 		let brace1 = false;
 		if (c1 == "Minus" || c1 == "Add" || c1 == "Sub") brace1 = true;
-		return '-' + (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '');
-	}
-	getValue() {
-		return this.rtnv;
+		return '-' + (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '');
 	}
 }
 
-class And extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+class And extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new And(this.value[0].clone(), this.value[1].clone(), this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new And(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue();
-			if (v1 instanceof BooleanValue) {
-				if (!v1.value) this.rtnv = new BooleanValue(false, this.loc);
-				else {
-					let v2 = this.value[1].getValue();
-					if (v2 instanceof BooleanValue) this.rtnv = new BooleanValue(v2.value, this.loc);
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue();
+		if (v1 instanceof BooleanValue) {
+			if (!v1.getJSValue()) {
+				this._value = new BooleanValue([false], this.getLoc(), false);
+			}
+			else {
+				let v2 = this.getArgs()[1].getValue();
+				if (v2 instanceof BooleanValue) {
+					var v = v2.getJSValue();
+					this._value = new BooleanValue([v], this.getLoc(), v);
 				}
 			}
-			else
-				throw new RuntimeError(this.first_line, "「かつ」は真偽値にしか使えません");
-			this.state = 0;
 		}
+		else
+			this.throwRuntimeError("and は真偽値にしか使えません");
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c2 == "And" || c2 == "Or" || c2 == "Not") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ ' and '
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c2 == "And" || c2 == "Or" || c2 == "Not") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' and '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class Or extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+class Or extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new Or(this.value[0].clone(), this.value[1].clone(), this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new Or(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue();
-			if (v1 instanceof BooleanValue) {
-				if (v1.value) this.rtnv = new BooleanValue(true, this.loc);
-				else {
-					let v2 = this.value[1].getValue();
-					if (v2 instanceof BooleanValue) this.rtnv = new BooleanValue(v2.value, this.loc);
+	_makeValue() {
+		let v1 = this.getArgs(0).getValue();
+		if (v1 instanceof BooleanValue) {
+			if (v1.getJSValue()) {
+				this._value = new BooleanValue([true], this.getLoc(), true);
+			}
+			else {
+				let v2 = this.getArgs(1).getValue();
+				if (v2 instanceof BooleanValue) {
+					var v = v2.getJSValue();
+					this._value = new BooleanValue([v], this.getLoc(), v);
 				}
 			}
-			else
-				throw new RuntimeError(this.first_line, "「または」は真偽値にしか使えません");
-			this.state = 0;
 		}
+		else
+			this.throwRuntimeError("or は真偽値にしか使えません");
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c2 == "And" || c2 == "Or" || c2 == "Not") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ ' or '
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c2 == "And" || c2 == "Or" || c2 == "Not") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' or '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class Not extends Value {
-	constructor(x, loc) {
-		super([x], loc);
-		this.rtnv = null;
-		this.state = 0;
+class Not extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new Not(this.value[0], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new Not(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+	_makeValue() {
+		let v1 = this.getArgs(0).getValue();
+		if (v1 instanceof Value) {
+			var v = !toBool(v1);
+			this._value = new BooleanValue([v], this.getLoc(), v);
 		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue();
-			if (v1 instanceof BooleanValue) this.rtnv = new BooleanValue(!v1.value, this.loc);
-			else throw new RuntimeError(this.first_line, "「でない」は真偽値にしか使えません");
-			this.state = 0;
-		}
+		else this.throwRuntimeError("not は真偽値にしか使えません"
+			+ debug_mode ? ("(" + constructor_name(v1) + ")") : ''
+		);
 	}
-	getCode() {
-		let v1 = this.value[0];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0];
 		let c1 = constructor_name(v1);
 		let brace1 = false;
 		//	if(c2 == "And" || c2 == "Or" || c2 == "Not") brace2 = true;
-		return 'not ' + (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '');
+		return 'not ' + (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '');
 	}
-	makePython() {
-		let v1 = this.value[0];
+	argsPython() {
+		let v1 = this.getArgs()[0];
 		let c1 = constructor_name(v1);
 		let brace1 = false;
 		if (c1 == "And" || c1 == "Or" || c1 == "Not") brace2 = true;
-		return 'not ' + (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '');
-	}
-	getValue() {
-		return this.rtnv;
+		return 'not ' + (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '');
 	}
 }
 
-class BitAnd extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+class BitAnd extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new BitAnd(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new BitAnd(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof ArrayValue || v2 instanceof ArrayValue)
+			this.throwRuntimeError("リストのビット積はできません");
+		else if (v1 instanceof StringValue || v2 instanceof StringValue)
+			this.throwRuntimeError("文字列のビット積はできません");
+		else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) {
+			var v = v1.getJSValue() & v2.getJSValue();
+			this._value = new BooleanValue([v], this.getLoc(), v);
 		}
+		else if (v1 instanceof FloatValue || v2 instanceof FloatValue)
+			this.throwRuntimeError("実数のビット積はできません");
 		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のビット積はできません");
-			else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のビット積はできません");
-			else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) this.rtnv = new BooleanValue(v1.value & v2.value, this.loc);
-			else if (v1 instanceof FloatValue || v2 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数のビット積はできません");
-			else {
-				if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-				if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-				this.rtnv = new IntValue(v1.value & v2.value, this.loc);
+			try {
+				v1 = v1 instanceof BooleanValue ? (v1.getJSValue() ? 1 : 0) : v1.getJSValue();
+				v2 = v2 instanceof BooleanValue ? (v2.getJSValue() ? 1 : 0) : v2.getJSValue();
+				this._value = new IntValue([v1 & v2], this.getLoc(), v1 & v2);
 			}
-			this.state = 0;
+			catch (e) {
+				if (e instanceof RangeError) this.throwRuntimeError("計算できない値です");
+				else throw e;
+			}
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "BitRShift" || c1 == "BitLShift") brace1 = true;
 		if (c2 == "Minus" || c2 == "BitRShift" || c2 == "BitLShift") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '&'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "BitRShift" || c1 == "BitLShift" || c1 == "BitNot") brace1 = true;
 		if (c2 == "Minus" || c2 == "BitRShift" || c2 == "BitLShift" || c2 == "BitNot") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' & '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class BitOr extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+class BitOr extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new BitOr(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new BitOr(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof ArrayValue || v2 instanceof ArrayValue)
+			this.throwRuntimeError("リストのビット和はできません");
+		else if (v1 instanceof StringValue || v2 instanceof StringValue)
+			this.throwRuntimeError("文字列のビット和はできません");
+		else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) {
+			var v = v1.getJSValue() | v2.getJSValue();
+			this._value = new BooleanValue([v], this.getLoc(), v);
 		}
+		else if (v1 instanceof FloatValue || v2 instanceof FloatValue)
+			this.throwRuntimeError("実数のビット和はできません");
 		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のビット和はできません");
-			else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のビット和はできません");
-			else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) this.rtnv = new BooleanValue(v1.value & v2.value, this.loc);
-			else if (v1 instanceof FloatValue || v2 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数のビット和はできません");
-			else {
-				if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-				if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-				this.rtnv = new IntValue(v1.value | v2.value, this.loc);
+			try {
+				v1 = v1 instanceof BooleanValue ? (v1.getJSValue() ? 1 : 0) : v1.getJSValue();
+				v2 = v2 instanceof BooleanValue ? (v2.getJSValue() ? 1 : 0) : v2.getJSValue();
+				var v = v1 | v2;
+				this._value = new IntValue([v], this.getLoc(), v);
 			}
-			this.state = 0;
+			catch (e) {
+				if (e instanceof RangeError)
+					this.throwRuntimeError("計算できない値です");
+				else throw e;
+			}
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "BitRShift" || c1 == "BitLShift" || c1 == "BitNot") brace1 = true;
 		if (c2 == "Minus" || c2 == "BitRShift" || c2 == "BitLShift" || c2 == "BitNot") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '|'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "BitRShift" || c1 == "BitLShift" || c1 == "BitNot") brace1 = true;
 		if (c2 == "Minus" || c2 == "BitRShift" || c2 == "BitLShift" || c2 == "BitNot") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' | '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class BitXor extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+class BitXor extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new BitXor(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new BitXor(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+	_makeValue() {
+		let v1 = this.getArgs(0).getValue(), v2 = this.getArgs(1).getValue();
+		if (v1 instanceof ArrayValue || v2 instanceof ArrayValue)
+			this.throwRuntimeError("リストの排他的ビット和はできません");
+		else if (v1 instanceof StringValue || v2 instanceof StringValue)
+			this.throwRuntimeError("文字列の排他的ビット和はできません");
+		else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) {
+			var v = v1.getJSValue() ^ v2.getJSValue();
+			this._value = new BooleanValue([v], this.getLoc(), v);
 		}
+		else if (v1 instanceof FloatValue || v2 instanceof FloatValue)
+			this.throwRuntimeError("実数の排他的ビット和はできません");
 		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列の排他的ビット和はできません");
-			else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列の排他的ビット和はできません");
-			else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) this.rtnv = new BooleanValue(v1.value & v2.value, this.loc);
-			else if (v1 instanceof FloatValue || v2 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数の排他的ビット和はできません");
-			else {
-				if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-				if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-				this.rtnv = new IntValue(v1.value ^ v2.value, this.loc);
+			try {
+				v1 = v1 instanceof BooleanValue ? (v1.getJSValue() ? 1 : 0) : v1.getJSValue();
+				v2 = v2 instanceof BooleanValue ? (v2.getJSValue() ? 1 : 0) : v2.getJSValue();
+				var v = v1 ^ v2;
+				this._value = new IntValue([v], this.getLoc(), v);
 			}
-			this.state = 0;
+			catch (e) {
+				if (e instanceof RangeError)
+					this.throwRuntimeError("計算できない値です");
+				else throw e;
+			}
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "BitRShift" || c1 == "BitLShift" || c1 == "BitNot") brace1 = true;
 		if (c2 == "Minus" || c2 == "BitRShift" || c2 == "BitLShift" || c2 == "BitNot") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '^'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "BitRShift" || c1 == "BitLShift" || c1 == "BitNot") brace1 = true;
 		if (c2 == "Minus" || c2 == "BitRShift" || c2 == "BitLShift" || c2 == "BitNot") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' ^ '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class BitNot extends Value {
-	constructor(x, loc) {
-		super([x], loc);
-		this.rtnv = null;
-		this.state = 0;
+class BitNot extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new BitNot(this.value[0], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new BitNot(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+	_makeValue() {
+		let v1 = this.getArgs(0).getValue()
+		if (v1 instanceof ArrayValue)
+			this.throwRuntimeError("リストのビット反転はできません");
+		else if (v1 instanceof StringValue)
+			this.throwRuntimeError("文字列のビット反転はできません");
+		else if (v1 instanceof BooleanValue) {
+			var v = !v1.getJSValue();
+			this._value = new BooleanValue([v], this.getLoc(), v);
 		}
+		else if (v1 instanceof FloatValue)
+			this.throwRuntimeError("実数のビット反転はできません");
 		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue()
-			if (v1 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のビット反転はできません");
-			else if (v1 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のビット反転はできません");
-			else if (v1 instanceof BooleanValue) this.rtnv = new BooleanValue(!v1.value, this.loc);
-			else if (v1 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数のビット反転はできません");
-			else {
-				this.rtnv = new IntValue(~v1.value, this.loc);
+			try {
+				var v = v1 instanceof BooleanValue ? (v1.getJSValue() ? 0 : 1) : ~v1.getJSValue();
+				this._value = new IntValue([v], this.getLoc(), v);
 			}
-			this.state = 0;
+			catch (e) {
+				if (e instanceof RangeError)
+					this.throwRuntimeError("計算できない値です");
+				else throw e;
+			}
 		}
 	}
-	getCode() {
-		let v1 = this.value[0];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0];
 		let c1 = constructor_name(v1);
 		let brace1 = false;
 		if (c1 == "Minus" || c1 == "BitRShift" || c1 == "BitLShift") brace1 = true;
-		return '~' + (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '');
+		return '~' + (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '');
 	}
-	makePython() {
-		let v1 = this.value[0];
+	argsPython() {
+		let v1 = this.getArgs()[0];
 		let c1 = constructor_name(v1);
 		let brace1 = false;
 		if (c1 == "Minus" || c1 == "BitRShift" || c1 == "BitLShift") brace1 = true;
-		return '~' + (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '');
-	}
-	getValue() {
-		return this.rtnv;
+		return '~' + (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '');
 	}
 }
 
-class BitLShift extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+class BitLShift extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new BitLShift(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new BitLShift(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof ArrayValue || v2 instanceof ArrayValue)
+			this.throwRuntimeError("リストのビットシフトはできません");
+		else if (v1 instanceof StringValue || v2 instanceof StringValue)
+			this.throwRuntimeError("文字列のビットシフトはできません");
+		else if (v1 instanceof FloatValue || v2 instanceof FloatValue)
+			this.throwRuntimeError("実数のビットシフトはできません");
 		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のビットシフトはできません");
-			else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のビットシフトはできません");
-			else if (v1 instanceof FloatValue || v2 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数のビットシフトはできません");
-			else {
-				if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-				if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-				this.rtnv = new IntValue(v1.value << v2.value, this.loc);
+			try {
+				v1 = v1 instanceof BooleanValue ? (v1.getJSValue() ? 1 : 0) : v1.getJSValue();
+				v2 = v2 instanceof BooleanValue ? (v2.getJSValue() ? 1 : 0) : v2.getJSValue();
+				var v = v1 << v2;
+				this._value = new IntValue([v], this.getLoc(), v);
 			}
-			this.state = 0;
+			catch (e) {
+				if (e instanceof RangeError)
+					this.throwRuntimeError("計算できない値です");
+				else throw e;
+			}
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "BitNot") brace1 = true;
 		if (c2 == "Minus" || c2 == "BitNot") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '<<'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "BitNot") brace1 = true;
 		if (c2 == "Minus" || c2 == "BitNot") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' << '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class BitRShift extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+class BitRShift extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new BitRShift(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new BitRShift(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
+	_makeValue() {
+		let v1 = this.getArgs()[0].getValue(), v2 = this.getArgs()[1].getValue();
+		if (v1 instanceof ArrayValue || v2 instanceof ArrayValue)
+			this.throwRuntimeError("リストのビットシフトはできません");
+		else if (v1 instanceof StringValue || v2 instanceof StringValue)
+			this.throwRuntimeError("文字列のビットシフトはできません");
+		else if (v1 instanceof FloatValue || v2 instanceof FloatValue)
+			this.throwRuntimeError("実数のビットシフトはできません");
 		else {
-			code[0].state[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のビットシフトはできません");
-			else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のビットシフトはできません");
-			else if (v1 instanceof FloatValue || v2 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数のビットシフトはできません");
-			else {
-				if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-				if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-				this.rtnv = new IntValue(v1.value >> v2.value, this.loc);
+			try {
+				v1 = v1 instanceof BooleanValue ? (v1.getJSValue() ? 1 : 0) : v1.getJSValue();
+				v2 = v2 instanceof BooleanValue ? (v2.getJSValue() ? 1 : 0) : v2.getJSValue();
+				var v = v1 >> v2;
+				this._value = new IntValue([v], this.getLoc(), v);
 			}
-			this.state = 0;
+			catch (e) {
+				if (e instanceof RangeError)
+					this.throwRuntimeError("計算できない値です");
+				else throw e;
+			}
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "BitNot") brace1 = true;
 		if (c2 == "Minus" || c2 == "BitNot") brace2 = true;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '>>'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let c1 = constructor_name(v1), c2 = constructor_name(v2);
 		let brace1 = false, brace2 = false;
 		if (c1 == "Minus" || c1 == "BitNot") brace1 = true;
 		if (c2 == "Minus" || c2 == "BitNot") brace2 = true;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ ' >> '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
-
 
 /**
  * @returns boolean
@@ -3068,117 +3926,174 @@ class BitRShift extends Value {
 function ArrayCompare(v1, v2) {
 	var rtnv = true;
 	if (v1 instanceof ArrayValue && v2 instanceof ArrayValue) {
-		if (v1.length != v2.length) return false;
-		for (let i = 0; i < v1.length; i++) rtnv = rtnv && ArrayCompare(v1.getValue().value[i], v2.getValue().value[i]);
+		if (v1.valueLength() != v2.valueLength()) return false;
+		for (let i = 0; i < v1.valueLength(); i++)
+			rtnv = rtnv && ArrayCompare(v1.getValue().getArgs()[i], v2.getValue().getArgs()[i]);
 	}
-	else rtnv = rtnv && typeof v1 == typeof v2 && v1.value == v2.value;
+	else rtnv = rtnv && typeof v1 == typeof v2 && v1.getJSValue() == v2.getJSValue();
 	return rtnv;
 }
 
-class Compare extends Value {
-	constructor(x, y, z, loc) {
-		super([x, y, z], loc);
-		this.rtnv = null;
-		this.state = 0;
+class ParenValue extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new Compare(this.value[0], this.value[1], this.value[2], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i instanceof Value ? i.clone() : i);
+		return new ParenValue(a, this.getLoc());
+	}
+	argsPyPEN() {
+		return '(' + this.getArgs()[0].argsPyPEN() + ')';
+	}
+	argsPython() {
+		return '(' + this.getArgs()[0].argsPython() + ')';
 	}
 	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: [this.value[0]], index: 0 });
-			this.state = 1;
+		this.getArgs()[0].run();
+	}
+	getValue() {
+		return this.getArgs()[0].getValue();
+	}
+	getJSValue() {
+		return this.getArgs()[0].getJSValue();
+	}
+}
+
+class Compare extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
+	}
+	clone() {
+		var a = [];
+		for (var i of this.getArgs()) a.push(i instanceof Value ? i.clone() : i);
+		return new Compare(a, this.getLoc());
+	}
+	run() {
+		if (this.getState() == 0) {
+			if (this.getArgs().length > 0)
+				code[0].stack.unshift({ statementlist: [this.getArgs()[0]], index: 0 });
+			this.setState(1);
 		}
-		else if (this.state == 1) {
-			if (this.value[0] instanceof Compare && !this.value[0].getValue().value) {
+		else if (this.getState() == 1) {
+			if (this.getArgs()[0] instanceof Compare && !this.getArgs()[0].getJSValue()) {
 				code[0].stack[0].index++;
-				this.state = 0;
-				this.rtnv = new BooleanValue(false, this.loc);
+				this.setState(0);
+				this._value = new BooleanValue([false], this.getLoc(), false);
 			}
 			else {
-				code[0].stack.unshift({ statementlist: [this.value[2]], index: 0 });
-				this.state = 2;
+				code[0].stack.unshift({ statementlist: [this.getArgs()[2]], index: 0 });
+				this.setState(2);
 			}
 		}
 		else {
 			code[0].stack[0].index++;
-			this.state = 0;
-			var v1, v2 = this.value[2].getValue();
-			if (this.value[0] instanceof Compare) v1 = this.value[0].value[2].getValue();
-			else v1 = this.value[0].getValue();
-			switch (this.value[1]) {
-				case '==':
-				case '=':
-					if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.rtnv = new BooleanValue(ArrayCompare(v1, v2), this.loc);
-					else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-					else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-					else this.rtnv = new BooleanValue(v1.value == v2.value, this.loc);
-					break;
-				case '!=':
-					if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.rtnv = new BooleanValue(!ArrayCompare(v1, v2), this.loc);
-					else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-					else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-					else this.rtnv = new BooleanValue(v1.value != v2.value, this.loc);
-					break;
-				case '>':
-					if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列を比べることはできません")
-					else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-					else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-					this.rtnv = new BooleanValue(v1.value > v2.value, this.loc);
-					break;
-				case '<':
-					if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列を比べることはできません")
-					else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-					else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-					this.rtnv = new BooleanValue(v1.value < v2.value, this.loc);
-					break;
-				case '>=':
-					if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列を比べることはできません")
-					else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-					else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-					this.rtnv = new BooleanValue(v1.value >= v2.value, this.loc);
-					break;
-				case '<=':
-					if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列を比べることはできません")
-					else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-					else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-					this.rtnv = new BooleanValue(v1.value <= v2.value, this.loc);
-					break;
-				case 'の中に':
-					var flag = false;
-					if (v1 instanceof ArrayValue)
-						for (let i = 0; i < v1.value.length; i++) flag |= ArrayCompare(v1.value[i], v2);
-					else throw new RuntimeError(this.first_line, "\"の中に\"の前には配列が必要です");
-					this.rtnv = new BooleanValue(flag, this.loc);
-					break;
-				case 'in':
-					var flag = false;
-					if (v2 instanceof ArrayValue)
-						for (let i = 0; i < v2.value.length; i++) flag |= ArrayCompare(v2.value[i], v1);
-					else throw new RuntimeError(this.first_line, "\"in\"の後には配列が必要です");
-					this.rtnv = new BooleanValue(flag, this.loc);
-					break;
-				case 'not in':
-					var flag = false;
-					if (v2 instanceof ArrayValue)
-						for (let i = 0; i < v2.value.length; i++) flag |= ArrayCompare(v2.value[i], v1);
-					else throw new RuntimeError(this.first_line, "\"not in\"の後には配列が必要です");
-					this.rtnv = new BooleanValue(!flag, this.loc);
-			}
+			this.setState(0);
+			this._makeValue();
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[2];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
-			+ this.value[1]
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+	_makeValue() {
+		var v1, v2 = this.getArgs()[2].getValue();
+		if (this.getArgs()[0] instanceof Compare)
+			v1 = this.getArgs()[0].getArgs()[2].getValue();
+		else v1 = this.getArgs()[0].getValue();
+		switch (this.getArgs()[1]) {
+			case '==':
+				if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) {
+					var v = ArrayCompare(v1, v2);
+					this._value = new BooleanValue([v], this.getLoc(), v);
+				}
+				else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue)
+					this.throwRuntimeError("辞書は比較できません");
+				else if (v1 instanceof StringValue != v2 instanceof StringValue)
+					this.throwRuntimeError("文字列とそれ以外の値は比べられません");
+				else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue)
+					this.throwRuntimeError("真偽値とそれ以外の値は比べられません");
+				else {
+					var v = (v1.getJSValue() == v2.getJSValue());
+					this._value = new BooleanValue([v], this.getLoc(), v);
+				}
+				break;
+			case '!=':
+				if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) {
+					var v = !ArrayCompare(v1, v2);
+					this._value = new BooleanValue([v], this.getLoc(), v);
+				}
+				else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue)
+					this.throwRuntimeError("辞書は比較できません");
+				else if (v1 instanceof StringValue != v2 instanceof StringValue)
+					this.throwRuntimeError("文字列とそれ以外の値は比べられません");
+				else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue)
+					this.throwRuntimeError("真偽値とそれ以外の値は比べられません");
+				else {
+					var v = (v1.getJSValue() != v2.getJSValue());
+					this._value = new BooleanValue([v], this.getLoc(), v);
+				}
+				break;
+			case '>':
+			case '<':
+			case '>=':
+			case '<=':
+				if (v1 instanceof ArrayValue || v2 instanceof ArrayValue)
+					this.throwRuntimeError("リストを比べることはできません")
+				else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue)
+					this.throwRuntimeError("辞書は比較できません");
+				else if (v1 instanceof StringValue != v2 instanceof StringValue)
+					this.throwRuntimeError("文字列とそれ以外の値は比べられません");
+				else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue)
+					this.throwRuntimeError("真偽値とそれ以外の値は比べられません");
+				else {
+					switch (this.getArgs()[1]) {
+						case '>': var v = (v1.getJSValue() > v2.getJSValue()); break;
+						case '<': var v = (v1.getJSValue() < v2.getJSValue()); break;
+						case '>=': var v = (v1.getJSValue() >= v2.getJSValue()); break;
+						case '<=': var v = (v1.getJSValue() <= v2.getJSValue()); break;
+					}
+					this._value = new BooleanValue([v], this.getLoc(), v);
+				}
+				break;
+			case 'の中に':
+				if (v1 instanceof ArrayValue) {
+					var flag = false;
+					for (let i = 0; i < v1.getJSValue().length; i++)
+						flag |= ArrayCompare(v1.getJSValue()[i], v2);
+					this._value = new BooleanValue([flag], this.getLoc(), flag);
+				}
+				else this.throwRuntimeError("\"の中に\"の前にはリストが必要です");
+				break;
+			case 'in':
+				if (v2 instanceof ArrayValue) {
+					var flag = false;
+					for (let i = 0; i < v2.getJSValue().length; i++)
+						flag |= ArrayCompare(v2.getJSValue()[i], v1);
+					this._value = new BooleanValue([flag], this.getLoc(), flag);
+				}
+				else this.throwRuntimeError("\"in\"の後にはリストが必要です");
+				break;
+			case 'not in':
+				if (v2 instanceof ArrayValue) {
+					var flag = false;
+					for (let i = 0; i < v2.getJSValue().length; i++)
+						flag |= ArrayCompare(v2.getJSValue()[i], v1);
+					this._value = new BooleanValue([!flag], this.getLoc(), !flag);
+				}
+				else this.throwRuntimeError("\"not in\"の後にはリストが必要です");
+		}
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[2];
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[2];
 		let brace1 = false, brace2 = false;
-		var op = this.value[1];
-		switch (this.value[1]) {
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
+			+ this.getArgs()[1]
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
+	}
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[2];
+		let brace1 = false, brace2 = false;
+		var op = this.getArgs()[1];
+		switch (op) {
 			case 'not in':
 				op = ' not in ';
 				break;
@@ -3195,592 +4110,990 @@ class Compare extends Value {
 			default:
 				op = ' ' + op + ' ';
 		}
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPython() + (brace1 ? ')' : '')
 			+ op
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
+			+ (brace2 ? '(' : '') + v2.argsPython() + (brace2 ? ')' : '')
 	}
 }
 
-class EQ extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+
+class NumberOf extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		this.statementlist = null;
+		Object.seal(this);
 	}
 	clone() {
-		return new EQ(this.value[0], this.value[1], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new NumberOf(a, this.getLoc());
 	}
 	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
+		if (this.getState() == 0) {
+			if (this.getArgs().length > 0)
+				code[0].stack.unshift({ statementlist: [this.getArgs()[0]], index: 0 });
+			this.setState(1);
+		}
+		else if (this.getState() == 1) {
+			this.statementlist = [];
+			for (var i = 0; i < this.getArgs(0).getJSValue(); i++)
+				this.statementlist.push(this.getArgs(1).clone());
+			code[0].stack.unshift({ statementlist: this.statementlist, index: 0 });
+			this.setState(2);
 		}
 		else {
 			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.rtnv = new BooleanValue(ArrayCompare(v1, v2), this.loc);
-			else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-			else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-			else this.rtnv = new BooleanValue(v1.value == v2.value, this.loc);
-			this.state = 0;
+			this.setState(0);
+			this._makeValue();
 		}
 	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
+	_makeValue() {
+		var a = [];
+		for (var i of this.statementlist) a.push(i.getValue());
+		this._value = new ArrayValue(a, this.getLoc(), a);
+	}
+	argsPyPEN() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
-			+ '=='
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
-	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
-			+ ' == '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
-	}
-}
-
-class NE extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
-	}
-	clone() {
-		return new NE(this.value[0].clone(), this.value[1].clone(), this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.rtnv = new BooleanValue(!ArrayCompare(v1, v2), this.loc);
-			else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-			else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-			else this.rtnv = new BooleanValue(v1.value != v2.value, this.loc);
-			this.state = 0;
-		}
-	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
-			+ '!='
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
-	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
-			+ ' != '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
-	}
-}
-
-class GT extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
-	}
-	clone() {
-		return new GT(this.value[0], this.value[1], this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列を比べることはできません")
-			else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-			else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-			this.rtnv = new BooleanValue(v1.value > v2.value, this.loc);
-			this.state = 0;
-		}
-	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
-			+ '>'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
-	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
-			+ ' > '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
-	}
-}
-
-class GE extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
-	}
-	clone() {
-		return new GE(this.value[0], this.value[1], this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列を比べることはできません")
-			else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-			else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-			this.rtnv = new BooleanValue(v1.value >= v2.value, this.loc);
-			this.state = 0;
-		}
-	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
-			+ '>='
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
-	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
-			+ ' >= '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
-	}
-}
-
-class LT extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
-	}
-	clone() {
-		return new LT(this.value[0], this.value[1], this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列を比べることはできません")
-			else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-			else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-			this.rtnv = new BooleanValue(v1.value < v2.value, this.loc);
-			this.state = 0;
-		}
-	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
-			+ '<'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
-	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
-			+ ' < '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
-	}
-}
-
-class LE extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
-	}
-	clone() {
-		return new LE(this.value[0], this.value[1], this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列を比べることはできません")
-			else if (v1 instanceof StringValue != v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列とそれ以外の値は比べられません");
-			else if (v1 instanceof BooleanValue != v2 instanceof BooleanValue) throw new RuntimeError(this.first_line, "真偽値とそれ以外の値は比べられません");
-			this.rtnv = new BooleanValue(v1.value <= v2.value, this.loc);
-			this.state = 0;
-		}
-	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
-			+ '<='
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
-	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.makePython() + (brace1 ? ')' : '')
-			+ ' <= '
-			+ (brace2 ? '(' : '') + v2.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
-	}
-}
-
-class IN extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
-	}
-	clone() {
-		return new IN(this.value[0], this.value[1], this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = this.value[0].getValue(), v2 = this.value[1].getValue();
-			var flag = false;
-			if (v1 instanceof ArrayValue)
-				for (let i = 0; i < v1.value.length; i++) flag |= ArrayCompare(v1.value[i], v2);
-			else throw new RuntimeError(this.first_line, "\"の中に\"の前には配列が必要です");
-			this.rtnv = new BooleanValue(flag, this.loc);
-			this.state = 0;
-		}
-	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
-			+ 'の中に'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
-	}
-	makePython()	// 逆順になることに注意
-	{
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v2.makePython() + (brace1 ? ')' : '')
-			+ ' in '
-			+ (brace2 ? '(' : '') + v1.makePython() + (brace2 ? ')' : '')
-	}
-	getValue() {
-		return this.rtnv;
-	}
-}
-
-class NumberOf extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
-	}
-	clone() {
-		return new NumberOf(this.value[0], this.value[1], this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let vt = new varTable();
-			let statementlist = [];
-			let globalvarTable = varTables[varTables.length - 1];
-			for (let v of Object.keys(globalvarTable.vars)) vt.vars[v] = globalvarTable.vars[v].getValue().clone();
-			for (let v of Object.keys(varTables[0].vars)) vt.vars[v] = varTables[0].vars[v].getValue().clone();
-			// 空リストを'!'という変数に代入する。カウンタは'!!'
-			let var1 = new Variable('!', null, this.loc);
-			let var2 = new Variable('!!', null, this.loc);
-			statementlist.push(new Assign(var1, new ArrayValue([], this.loc), null, this.loc));
-			statementlist.push(new ForInc(var2, new IntValue(1, this.loc), this.value[0].getValue(), new IntValue(1, this.loc),
-				[this.value[1], new Append(var1, this.value[1], this.loc)], this.loc));
-			// statementlist.push(new runBeforeGetValue([var1], this.loc));
-			statementlist.push(var1);
-			statementlist.push(new ReturnStatement(var1, this.loc));
-
-			setCaller(statementlist, this);
-			code.unshift(new parsedFunction(statementlist));
-			varTables.unshift(vt);
-			this.state = 0;
-		}
-	}
-	getCode() {
-		let v1 = this.value[0], v2 = this.value[1];
-		let brace1 = false, brace2 = false;
-		return (brace1 ? '(' : '') + v1.getCode() + (brace1 ? ')' : '')
+		return (brace1 ? '(' : '') + v1.argsPyPEN() + (brace1 ? ')' : '')
 			+ '個の'
-			+ (brace2 ? '(' : '') + v2.getCode() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v2.argsPyPEN() + (brace2 ? ')' : '')
 	}
-	makePython() {
-		let v1 = this.value[0], v2 = this.value[1];
+	argsPython() {
+		let v1 = this.getArgs()[0], v2 = this.getArgs()[1];
 		let brace1 = false, brace2 = false;
-		return '[' + (brace1 ? '(' : '') + v2.makePython() + (brace1 ? ')' : '')
+		return '[' + (brace1 ? '(' : '') + v2.argsPython() + (brace1 ? ')' : '')
 			+ ' for _ in range('
-			+ (brace2 ? '(' : '') + v1.makePython() + (brace2 ? ')' : '')
+			+ (brace2 ? '(' : '') + v1.argsPython() + (brace2 ? ')' : '')
 			+ ')]';
 	}
-	getValue() {
-		return this.rtnv;
-	}
-	setValue(v) {
-		this.rtnv = v.clone();
-	}
 }
 
-
-class ConvertInt extends Value {
-	constructor(x, loc) {
-		super([x], loc);
-		this.rtnv = null;
-		this.state = 0;
+class ConvertInt extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new ConvertInt(this.value[0], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new ConvertInt(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v = this.value[0].getValue();
-			let r = Number.NaN;
-			if (v instanceof IntValue) r = v.value;
-			else if (v instanceof FloatValue) r = Math.floor(v.value);
-			else if (v instanceof StringValue) r = Math.floor(Number(v.value));
-			else if (v instanceof BooleanValue) r = v.value ? 1 : 0;
-			if (isSafeInteger(r)) this.rtnv = new IntValue(r, this.loc);
-			else throw new RuntimeError(this.loc.first_line, '整数に直せません');
-			this.state = 0;
-		}
+	_makeValue() {
+		let v = this.getArgs(0).getValue();
+		let r = Number.NaN;
+		if (v instanceof IntValue) r = v.getJSValue();
+		else if (v instanceof FloatValue) r = Math.floor(v.getJSValue());
+		else if (v instanceof StringValue) r = Math.floor(Number(v.getJSValue()));
+		else if (v instanceof BooleanValue) r = v.getJSValue() ? 1 : 0;
+		else this.throwRuntimeError('整数に直せません');
+		this._value = new IntValue([r], this.getLoc(), r);
 	}
-	getCode() {
-		return '整数(' + this.value[0].getCode() + ')';
+	argsPyPEN() {
+		return '整数(' + this.getArgs()[0].argsPyPEN() + ')';
 	}
-	makePython() {
-		return 'int(' + this.value[0].makePython() + ')';
-	}
-	getValue() {
-		return this.rtnv;
+	argsPython() {
+		return 'int(' + this.getArgs()[0].argsPython() + ')';
 	}
 }
 
-class ConvertFloat extends Value {
-	constructor(x, loc) {
-		super([x], loc);
-		this.rtnv = null;
-		this.state = 0;
+class ConvertFloat extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new ConvertFloat(this.value[0], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new ConvertFloat(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v = this.value[0].getValue();
-			let r = Number.NaN;
-			if (v instanceof IntValue || v instanceof FloatValue) r = v.value;
-			else if (v instanceof StringValue) r = Number(v.value);
-			else if (v instanceof BooleanValue) r = v.value ? 1 : 0;
-			if (isFinite(r)) this.rtnv = new FloatValue(r, this.loc);
-			else throw new RuntimeError(this.loc.first_line, '実数に直せません');
-			this.state = 0;
-		}
+	_makeValue() {
+		let v = this.getArgs()[0].getValue();
+		let r = Number.NaN;
+		if (v instanceof IntValue || v instanceof FloatValue) r = v.getJSValue();
+		else if (v instanceof StringValue) r = Number(v.getJSValue());
+		else if (v instanceof BooleanValue) r = v.getJSValue() ? 1 : 0;
+		else this.throwRuntimeError('実数に直せません');
+		if (isFinite(r))
+			this._value = new FloatValue([r], this.getLoc(), r);
+		else this.throwRuntimeError('実数に直せません');
 	}
-	getCode() {
-		return '実数(' + this.value[0].getCode() + ')';
+	argsPyPEN() {
+		return '実数(' + this.getArgs()[0].argsPyPEN() + ')';
 	}
-	makePython() {
-		return 'float(' + this.value[0].makePython() + ')';
-	}
-	getValue() {
-		return this.rtnv;
+	argsPython() {
+		return 'float(' + this.getArgs()[0].argsPython() + ')';
 	}
 }
 
-class ConvertString extends Value {
-	constructor(x, loc) {
-		super([x], loc);
-		this.rtnv = null;
-		this.state = 0;
+class ConvertString extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return ConvertString(this.value[0], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new ConvertString(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v = this.value[0].getValue();
-			let r = '';
-			if (v instanceof IntValue || v instanceof FloatValue) r = String(v.value);
-			else if (v instanceof StringValue) r = v.value
-			else if (v instanceof BooleanValue) r = v.value ? 'True' : 'False';
-			this.rtnv = new StringValue(r, this.loc);
-			this.state = 0;
-		}
+	_makeValue() {
+		let v = this.getArgs()[0].getValue();
+		let r = '';
+		if (v instanceof IntValue || v instanceof FloatValue) r = String(v.getJSValue());
+		else if (v instanceof StringValue) r = v.getJSValue();
+		else if (v instanceof BooleanValue) r = v.getJSValue() ? 'true' : 'false';
+		this._value = new StringValue([r], this.getLoc(), r);
 	}
-	getCode() {
-		return '文字列(' + this.value[0].getCode() + ')';
+	argsPyPEN() {
+		return '文字列(' + this.getArgs()[0].argsPyPEN() + ')';
 	}
-	makePython() {
-		return 'str(' + this.value[0].makePython() + ')';
-	}
-	getValue() {
-		return this.rtnv;
+	argsPython() {
+		return 'str(' + this.getArgs()[0].argsPython() + ')';
 	}
 }
 
-class ConvertBool extends Value {
-	constructor(x, loc) {
-		super([x], loc);
-		this.rtnv = null;
-		this.state = 0;
+/**
+ *
+ * @param {Value} v
+ * @returns boolean
+ */
+function toBool(v) {
+	let re = /^(0+|false|偽|)$/i;
+	if (typeof v === "boolean") return v;
+	else if (v instanceof IntValue || v instanceof FloatValue) return v.getJSValue() != 0;
+	else if (v instanceof StringValue) return re.exec(v.getJSValue()) ? false : true;
+	else if (v instanceof BooleanValue) return v.getJSValue();
+	else if (v instanceof ArrayValue) return v.valueLength() != 0;
+	else if (v instanceof DictionaryValue) return v.getValue().size() != 0;
+	else throw new RuntimeError(null, '真偽値に直せません'
+		+ debug_mode ? ("\n値の型: " + constructor_name(v)) : ''
+	);
+}
+
+class ConvertBool extends SimpleValue {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+		Object.seal(this);
 	}
 	clone() {
-		return new ConvertBool(this.value[0], this.loc);
+		var a = [];
+		for (var i of this.getArgs()) a.push(i.clone());
+		return new ConvertBool(a, this.getLoc());
 	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v = this.value[0].getValue();
-			let r = '';
-			let re = /^(0+|false|偽|)$/i;
-			if (v instanceof IntValue || v instanceof FloatValue) r = v.value != 0;
-			else if (v instanceof StringValue) r = re.exec(v.value) ? false : true;
-			else if (v instanceof BooleanValue) r = v.value;
-			this.rtnv = new BooleanValue(r, this.loc);
-			this.state = 0;
-		}
+	_makeValue() {
+		let v = toBool(this.getArgs()[0].getValue());
+		this._value = new BooleanValue([v], this.getLoc(), v);
 	}
-	getCode() {
-		return '真偽(' + this.value[0].getCode() + ')';
+	argsPyPEN() {
+		return '真偽(' + this.getArgs()[0].argsPyPEN() + ')';
 	}
-	makePython() {
-		return 'bool(' + this.value[0].makePython() + ')';
-	}
-	getValue() {
-		return this.rtnv;
+	argsPython() {
+		return 'bool(' + this.getArgs()[0].argsPython() + ')';
 	}
 }
 
-class Variable extends Value {
+
+/**
+ * 関数呼び出し
+ */
+class CallFunction extends SimpleValue {
 	/**
-	 *
-	 * @param {string} x
-	 * @param {ArrayValue} y
+	 * @constructor
 	 * @param {Location} loc
 	 */
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.rtnv = null;
-		this.state = 0;
+	constructor(v, loc, value = null) {
+		super(v[1], loc, value);	// v = [funcname, args] args is Array of Value
+		if (v[1] instanceof Array == false)
+			this.throwRuntimeError('DEBUG: 関数の引数がArrayではありません' + "\n"
+				+ constructor_name(v[1]));
+		// textareaAppend("CallFunction name: " + v[0] + "\n");
+		// for(var i of v[1])
+		// 	textareaAppend("CallFunction arg: " + constructor_name(i) + "\n");
+		this.funcname = v[0];
+		// Object.seal(this);
 	}
 	clone() {
-		return new Variable(this.value[0], this.value[1] ? this.value[1] : null, this.loc);
+		var parm = [];
+		for (var i = 0; i < this.getArgs().length; i++) parm.push(this.getArgs()[i].clone());
+		return new CallFunction([this.funcname, parm], this.getLoc());
+		//			this._value ? this._value.clone() : null);
 	}
-	get varname() { return this.value[0]; }
-	get args() { return this.value[1]; }
+	setValue(v, idx = null) {
+		if (idx !== null) this.throwRuntimeError("これはおかしい");
+		this._value = v;
+		// this._args[idx] = v;
+	}
 	run() {
-		if (this.state == 0) {
-			if (this.args) code[0].stack.unshift({ statementlist: this.args.value, index: 0 });
-			this.state = 1;
+		if (this.getState() == 0) {
+			code[0].stack.unshift({ statementlist: this.getArgs(), index: 0 });
+			this.setState(1);
+		}
+		else if (this.getState() == 1) {
+			this._makeValue();
+			this.setState(2);
 		}
 		else {
+			if (sleeping && sleeping()) return;
 			code[0].stack[0].index++;
-			let vn = this.varname;		// 変数名
-			let vt = findVarTable(vn);	// 変数は定義されてるか
-			if (vt) {
-				let v = vt.vars[vn];
-				this.rtnv = getValueByArgs(v, this.args ? this.args.value : null, this.loc);
-			}
-			else throw new RuntimeError(this.first_line, "変数" + this.varname + "が定義されていません");
-			this.state = 0;
+			this.setState(0);
 		}
 	}
-	getCode() {
-		let vn = this.value[0];
-		let pm = this.value[1];
-		if (pm != null) {
-			let ag = new Array(pm.length);
-			for (let i = 0; i < pm.length; i++) {
-				ag[i] = pm.value[i].getCode();
+	_makeValue() {
+		var vt = findVarTable(this.funcname);
+		if (vt) {
+			if (vt.vars[this.funcname] instanceof BuiltinFunction) {
+				let fn = vt.vars[this.funcname].clone();
+				fn.setCaller(this, false);
+				var a = [];
+				for (var i of this.getArgs()) {
+					a.push(i);
+				}
+				fn.setParameter(a);
+				fn.setLocation(this.getLoc());
+				let statementlist = [fn];
+				code.unshift(new parsedFunction(statementlist));
 			}
-			vn += '[' + ag.join(',') + ']';
+			else if (vt.vars[this.funcname] instanceof UserDefinedFunction) {
+				let fn = vt.vars[this.funcname];
+				let vtlocal = new varTable();
+				let globalVarTable = varTables[varTables.length - 1];
+				for (let i of Object.keys(globalVarTable.vars))
+					vtlocal.vars[i] = globalVarTable.vars[i].copy();
+				for (let i = 0; i < this.getArgs().length; i++)
+					vtlocal.vars[fn.params[i].varname] = this.getArgs()[i].getValue();
+				let statementlist = cloneStatementlist(fn.statementlist);
+				statementlist.push(new ReturnStatement(new NullValue(this.getLoc()), this.getLoc()));
+				setCaller(statementlist, this);
+				let pf = new parsedFunction(statementlist);
+				code.unshift(pf);
+				varTables.unshift(vtlocal);
+			}
+			else this.throwRuntimeError('関数 ' + this.funcname + ' は定義されていません');
 		}
-		return vn;
+		else
+			this.throwRuntimeError('関数 ' + this.funcname + ' は定義されていません');
 	}
-	makePython() {
-		let vn = this.value[0];
-		let pm = this.value[1];
-		if (pm != null) {
-			let ag = new Array(pm.length);
-			for (let i = 0; i < pm.length; i++) {
-				ag[i] = '[' + pm.value[i].makePython() + ']';
+	argsPyPEN(indent = 0) {
+		let ag = [];
+		for (let i = 0; i < this.getArgs().length; i++)
+			ag.push(this.getArgs()[i].argsPyPEN());
+		return makeIndent(indent) + this.funcname + '(' + ag.join(', ') + ')';
+	}
+	argsPython(indent = 0) {
+		let deffunc = null;
+		if (this.funcname in BuiltinFunction) deffunc = BuiltinFunction[this.funcname];
+		else if (myFuncs[this.funcname]) deffunc = myFuncs[this.funcname];
+		let ag = [];
+		for (let i = 0; i < this.getArgs().length; i++)
+			ag.push(this.getArgs()[i].argsPython(indent));
+		if (deffunc) {
+			var prefix = '';
+			if (deffunc.module) {
+				prefix = deffunc.module + ".";
+				python_lib[deffunc.module] = 1;
 			}
-			vn += ag.join('');
+			if (deffunc.convert) return makeIndent(indent) + deffunc.convert(ag);
+			else return makeIndent(indent) + prefix + this.funcname + '(' + ag.join(', ') + ')';
 		}
-		return vn;
+		else
+			return makeIndent(indent) + this.funcname + '(' + ag.join(', ') + ')';
+	}
+}
+
+class Connect extends Value {
+	constructor(v, loc, value = null) {
+		super(v, loc, value);
+	}
+	clone() {
+		return new Connect(this.getArgs(), this.getLoc());
+		// , this._value ? this._value.clone() : null);
+	}
+	_makeValue() {
+		let v1 = valueString(this.getArgs()[0]);
+		let v2 = valueString(this.getArgs()[1]);
+		let v = v1 + v2;
+		this._value = new StringValue([v], this.getLoc(), v);
 	}
 	getValue() {
-		return this.rtnv;
+		if (this._value == null) this._makeValue();
+		return this._value;
 	}
-	append(a) {
-		if (this.args) this.args.append(a);
-		else this.value[1] = new ArrayValue(a, this.loc);
+	argsPyPEN() {
+		return argsPyPEN(this.getArgs(0)) + "と" + argsPyPEN(this.getArgs(1));
 	}
+	argsPython() {
+		var re = /^str\(/;
+		var p1 = this.getArgs()[0].argsPython();
+		var p2 = this.getArgs()[1].argsPython();
+		if (!re.exec(p1) && !(this.getArgs()[0] instanceof StringValue)) p1 = "str(" + p1 + ")";
+		if (!re.exec(p2) && !(this.getArgs()[1] instanceof StringValue)) p2 = "str(" + p2 + ")";
+		return p1 + " + " + p2;
+	}
+	valueString() {
+		return this.getArgs()[0].valueString() + this.getArgs()[1].valueString();
+	}
+	valuePython() {
+		var re = /^str\(/;
+		var p1 = this.getArgs()[0].valuePython();
+		var p2 = this.getArgs()[1].valuePython();
+		if (!re.exec(p1) && !(this.getArgs(0) instanceof StringValue)) p1 = "str(" + p1 + ")";
+		if (!re.exec(p2) && !(this.getArgs(1) instanceof StringValue)) p2 = "str(" + p2 + ")";
+		return p1 + " + " + p2;
+	}
+}
+
+class Assign extends SimpleValue {
+	/**
+	 * @constructor
+	 * @param {Variable} variable
+	 * @param {Value} value
+	 * @param {String} operator
+	 * @param {Location} loc
+	 */
+	constructor(variable, value, operator, loc) {
+		super([value], loc);
+		this.variable = variable;
+		this.operator = operator;
+		if (!(variable instanceof Variable || variable instanceof UNDEFINED))
+			this.throwRuntimeError("変数でないものに代入はできません");
+		Object.seal(this);
+	}
+	clone() {
+		return new Assign(this.variable, this.getArgs()[0].clone(), this.operator, this.getLoc());
+		// , this._value ? this._value.copy() : null);
+	}
+	run() {
+		if (this.variable instanceof UNDEFINED)
+			this.throwRuntimeError("未完成のプログラムです");
+		if (this.getState() == 0) {
+			let a = [];
+			if (this.operator) a.push(this.variable);
+			a.push(this.getArgs()[0]);
+			code[0].stack.unshift({ statementlist: a, index: 0 });
+			this.setState(1);
+		}
+		else if (this.getState() == 1) {
+			if (!this.operator && this.variable.getArgs().length > 0)
+				code[0].stack.unshift({ statementlist: this.variable.getArgs(), index: 0 });
+			this.setState(2);
+		}
+		else if (this.getState() == 2) {
+			var vt1 = findVarTable(this.variable.varname);
+			var v2 = this.getArgs()[0].getValue();
+			if (this.operator) {
+				if (!vt1) this.throwRuntimeError('変数 ' + this.variable.varname + ' は定義されていません');
+				var v1 = getValueByArgs(vt1.vars[this.variable.varname],
+					this.variable.getArgs() ? this.variable.getArgs() : null,
+					this.getLoc());
+				var v3 = null;
+				switch (this.operator)	// 複合代入演算
+				{
+					case '+':
+						if (v1 instanceof BooleanValue) {
+							var v = v1.getJSValue() ? 1 : 0;
+							v1 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v2 instanceof BooleanValue) {
+							var v = v2.getJSValue() ? 1 : 0;
+							v2 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v1 instanceof ArrayValue && v2 instanceof ArrayValue) {
+							var v = [];
+							for (var i of v1.getJSValue()) v.push(i);
+							for (var i of v2.getJSValue()) v.push(i);
+							v3 = new ArrayValue(v, this.getLoc(), v);
+						}
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue)
+							this.throwRuntimeError("辞書の足し算はまだサポートしていません");
+						else if (v1 instanceof StringValue || v2 instanceof StringValue) {
+							var v = String(v1.getJSValue()) + String(v2.getJSValue());
+							v3 = new StringValue([v], this.getLoc(), v);
+						}
+						else if (v1 instanceof IntValue && v2 instanceof IntValue) {
+							var v = v1.getJSValue() + v2.getJSValue();
+							v3 = new IntValue([v], this.getLoc(), v);
+						}
+						else if (v1 instanceof FloatValue || v2 instanceof FloatValue) {
+							var v = Number(v1.getJSValue()) + Number(v2.getJSValue());
+							v3 = new FloatValue([v], this.getLoc(), v);
+						}
+						break;
+					case '-':
+						if (v1 instanceof BooleanValue) {
+							var v = v1.getJSValue() ? 1 : 0;
+							v1 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v2 instanceof BooleanValue) {
+							var v = v2.getJSValue() ? 1 : 0;
+							v2 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v1 instanceof ArrayValue || v2 instanceof ArrayValue)
+							this.throwRuntimeError("リストの引き算はできません");
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue)
+							this.throwRuntimeError("辞書の引き算はできません");
+						else if (v1 instanceof StringValue || v2 instanceof StringValue)
+							this.throwRuntimeError("文字列の引き算はできません");
+						else if (v1 instanceof IntValue && v2 instanceof IntValue) {
+							var v = v1.getJSValue() - v2.getJSValue();
+							v3 = new IntValue([v], this.getLoc(), v);
+						}
+						else if (v1 instanceof FloatValue || v2 instanceof FloatValue) {
+							var v = Number(v1.getJSValue()) - Number(v2.getJSValue());
+							v3 = new FloatValue([v], this.getLoc(), v);
+						}
+						break;
+					case '*':
+						if (v1 instanceof BooleanValue) {
+							var v = v1.getJSValue() ? 1 : 0;
+							v1 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v2 instanceof BooleanValue) {
+							var v = v2.getJSValue() ? 1 : 0;
+							v2 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) {
+							let va = null, vn = null;
+							if (v1 instanceof IntValue) { va = v2; vn = v1.getJSValue(); }
+							else if (v2 instanceof IntValue) { va = v1; vn = v2.getJSValue(); }
+							else this.throwRuntimeError("リストには整数しか掛けられません");
+							let v = []
+							for (let i = 0; i < vn; i++)
+								for (let j = 0; j < va.valueLength(); j++) v.push(va.getValue(j));
+							v3 = new ArrayValue([v], this.getLoc(), v);
+
+						}
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) this.throwRuntimeError("辞書の掛け算はできません");
+						else if (v1 instanceof StringValue) {
+							if (v2 instanceof IntValue) {
+								v = '';
+								for (var i = 0; i < v2.getJSValue(); i++) v += v1.getJSValue();
+								v3 = new StringValue([v], this.getLoc(), v);
+							}
+							else this.throwRuntimeError("文字列に掛けられるのは整数だけです");
+						}
+						else if (v1 instanceof IntValue && v2 instanceof IntValue) {
+							var v = v1.getJSValue() * v2.getJSValue();
+							v3 = new IntValue([v], this.getLoc(), v);
+						}
+						else if (v1 instanceof FloatValue || v2 instanceof FloatValue) {
+							var v = Number(v1.getJSValue()) * Number(v2.getJSValue());
+							v3 = new FloatValue([v], this.getLoc(), v);
+						}
+						break;
+					case '/':
+						if (v1 instanceof BooleanValue) {
+							var v = v1.getJSValue() ? 1 : 0;
+							v1 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v2 instanceof BooleanValue) {
+							var v = v2.getJSValue() ? 1 : 0;
+							v2 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.throwRuntimeError("リストの割り算はできません");
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) this.throwRuntimeError("辞書の割り算はできません");
+						else if (v1 instanceof StringValue || v2 instanceof StringValue) this.throwRuntimeError("文字列の割り算はできません");
+						else {
+							if (v2.args == 0) this.throwRuntimeError('0で割り算をしました');
+							var v = Number(v1.getJSValue()) / Number(v2.getJSValue());
+							v3 = new FloatValue([v], this.getLoc(), v);
+						}
+						break;
+					case '//':
+						if (v1 instanceof BooleanValue) {
+							var v = v1.getJSValue() ? 1 : 0;
+							v1 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v2 instanceof BooleanValue) {
+							var v = v2.getJSValue() ? 1 : 0;
+							v2 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.throwRuntimeError("リストの割り算はできません");
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) this.throwRuntimeError("辞書の割り算はできません");
+						else if (v1 instanceof StringValue || v2 instanceof StringValue) this.throwRuntimeError("文字列の割り算はできません");
+						else if (v1 instanceof IntValue && v2 instanceof IntValue) {
+							let q = v1.getJSValue() / v2.getJSValue(), r = v1.getJSValue() % v2.getJSValue();
+							if (!SameSignBigInt(q, r) && r != 0) q--;
+							v3 = new IntValue([q], this.getLoc(), q);
+						}
+						else {
+							if (Number(v2.args) == 0) this.throwRuntimeError('0で割り算をしました');
+							let v = Math.floor(Number(v1.args) / Number(v2.args));
+							v3 = new FloatValue([v], this.getLoc(), v);
+						}
+						break;
+					case '%':
+						if (v1 instanceof BooleanValue) {
+							var v = v1.getJSValue() ? 1 : 0;
+							v1 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v2 instanceof BooleanValue) {
+							var v = v2.getJSValue() ? 1 : 0;
+							v2 = new IntValue([v], this.getLoc(), v);
+						}
+						if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.throwRuntimeError("リストの割り算はできません");
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) this.throwRuntimeError("辞書の割り算はできません");
+						else if (v1 instanceof StringValue || v2 instanceof StringValue) this.throwRuntimeError("文字列の割り算はできません");
+						else if (v1 instanceof IntValue && v2 instanceof IntValue) {
+							let q = v1.getJSValue() / v2.getJSValue(), r = v1.getJSValue() % v2.getJSValue();
+							if (!SameSignBigInt(v1.getJSValue(), v2.getJSValue()) && r != 0) q--;
+							var v = r - q * v2.getJSValue();
+							v3 = new IntValue([v], this.getLoc(), v);
+						}
+						else {
+							if (Number(v2.getJSValue()) == 0) this.throwRuntimeError('0で割り算をしました');
+							let v = Math.floor(Number(v1.getJSValue()) / Number(v2.getJSValue()));
+							v = Number(v1.getJSValue()) - v * Number(v2.getJSValue());
+							v3 = new FloatValue([v], this.getLoc(), v);
+						}
+						break;
+					case '&':
+						if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.throwRuntimeError("リストのビット積はできません");
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) this.throwRuntimeError("辞書のビット積はできません");
+						else if (v1 instanceof StringValue || v2 instanceof StringValue) this.throwRuntimeError("文字列のビット積はできません");
+						else if (v1 instanceof FloatValue || v2 instanceof FloatValue) this.throwRuntimeError("実数のビット積はできません");
+						else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) {
+							var v = v1.getJSValue() && v2.getJSValue();
+							v3 = new BooleanValue([v], this.getLoc(), v);
+						}
+						else {
+							if (v1 instanceof BooleanValue) {
+								var v = v1.getJSValue() ? 1 : 0;
+								v1 = new IntValue([v], this.getLoc(), v);
+							}
+							if (v2 instanceof BooleanValue) {
+								var v = v2.getJSValue() ? 1 : 0;
+								v2 = new IntValue([v], this.getLoc(), v);
+							}
+							if (v1 instanceof IntValue && v2 instanceof IntValue) {
+								var v = v1.getJSValue() & v2.getJSValue();
+								v3 = new IntValue([v], this.getLoc(), v);
+							}
+						}
+						break;
+					case '|':
+						if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) this.throwRuntimeError("リストのビット和はできません");
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) this.throwRuntimeError("辞書のビット和はできません");
+						else if (v1 instanceof StringValue || v2 instanceof StringValue) this.throwRuntimeError("文字列のビット和はできません");
+						else if (v1 instanceof FloatValue || v2 instanceof FloatValue) this.throwRuntimeError("実数のビット和はできません");
+						else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) {
+							var v = v1.getJSValue() || v2.getJSValue();
+							v3 = new BooleanValue([v], this.getLoc(), v);
+						}
+						else {
+							if (v1 instanceof BooleanValue) {
+								var v = v1.getJSValue() ? 1 : 0;
+								v1 = new IntValue([v], this.getLoc(), v);
+							}
+							if (v2 instanceof BooleanValue) {
+								var v = v2.getJSValue() ? 1 : 0;
+								v2 = new IntValue([v], this.getLoc(), v);
+							}
+
+							if (v1 instanceof IntValue && v2 instanceof IntValue) {
+								var v = v1.getJSValue() | v2.getJSValue();
+								v3 = new IntValue([v], this.getLoc(), v);
+							}
+						}
+						break;
+					case '^':
+						if (v1 instanceof ArrayValue && v2 instanceof ArrayValue) this.throwRuntimeError("リストの排他的論理和はできません");
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) this.throwRuntimeError("辞書の排他的論理和はできません");
+						else if (v1 instanceof StringValue || v2 instanceof StringValue) this.throwRuntimeError("文字列の排他的論理和はできません");
+						else if (v1 instanceof FloatValue || v2 instanceof FloatValue) this.throwRuntimeError("実数の排他的論理和はできません");
+						else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) {
+							var v = v1.getJSValue() ^ v2.getJSValue();
+							v3 = new BooleanValue([v], this.getLoc(), v);
+						}
+						else {
+							if (v1 instanceof BooleanValue) {
+								var v = v1.getJSValue() ? 1 : 0;
+								v1 = new IntValue([v], this.getLoc(), v);
+							}
+							if (v2 instanceof BooleanValue) {
+								var v = v2.getJSValue() ? 1 : 0;
+								v2 = new IntValue([v], this.getLoc(), v);
+							}
+
+							if (v1 instanceof IntValue && v2 instanceof IntValue) {
+								var v = v1.getJSValue() ^ v2.getJSValue();
+								v3 = new IntValue([v], this.getLoc(), v);
+							}
+						}
+						break;
+					case '<<':
+						if (v1 instanceof ArrayValue && v2 instanceof ArrayValue) this.throwRuntimeError("リストのビットシフトはできません");
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) this.throwRuntimeError("辞書のビットシフトはできません");
+						else if (v1 instanceof StringValue || v2 instanceof StringValue) this.throwRuntimeError("文字列のビットシフトはできません");
+						else if (v1 instanceof FloatValue || v2 instanceof FloatValue) this.throwRuntimeError("実数のビットシフトはできません");
+						else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue)
+							this.throwRuntimeError("真偽値のビットシフトはできません");
+						else {
+							if (v1 instanceof BooleanValue) {
+								var v = v1.getJSValue() ? 1 : 0;
+								v1 = new IntValue([v], this.getLoc(), v);
+							}
+							if (v2 instanceof BooleanValue) {
+								var v = v2.getJSValue() ? 1 : 0;
+								v2 = new IntValue([v], this.getLoc(), v);
+							}
+
+							if (v1 instanceof IntValue && v2 instanceof IntValue) {
+								var v = v1.getJSValue() << v2.getJSValue();
+								v3 = new IntValue([v], this.getLoc(), v);
+							}
+						}
+						break;
+					case '>>':
+						if (v1 instanceof ArrayValue && v2 instanceof ArrayValue) this.throwRuntimeError("リストのビットシフトはできません");
+						else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) this.throwRuntimeError("辞書のビットシフトはできません");
+						else if (v1 instanceof StringValue || v2 instanceof StringValue) this.throwRuntimeError("文字列のビットシフトはできません");
+						else if (v1 instanceof FloatValue || v2 instanceof FloatValue) this.throwRuntimeError("実数のビットシフトはできません");
+						else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue)
+							this.throwRuntimeError("真偽値のビットシフトはできません");
+						else {
+							if (v1 instanceof BooleanValue) {
+								var v = v1.getJSValue() ? 1 : 0;
+								v1 = new IntValue([v], this.getLoc(), v);
+							}
+							if (v2 instanceof BooleanValue) {
+								var v = v2.getJSValue() ? 1 : 0;
+								v2 = new IntValue([v], this.getLoc(), v);
+							}
+
+							if (v1 instanceof IntValue && v2 instanceof IntValue) {
+								var v = v1.getJSValue() >> v2.getJSValue();
+								v3 = new IntValue([v], this.getLoc(), v);
+							}
+						}
+						break;
+				}
+				if (!v3) this.throwRuntimeError('複合代入演算子の使い方が間違っています');
+				setVariableByArgs(vt1, this.variable.varname, this.variable.getArgs(), v3.getValue(), this.getLoc());
+				this._value = v3.getValue();
+			}
+			else {
+				if (!vt1)	// 変数が定義されていないので，ダミーを代入
+				{
+					vt1 = varTables[0];
+					vt1.vars[this.variable.varname] = new NullValue(this.getLoc());
+				}
+				setVariableByArgs(vt1, this.variable.varname, this.variable.getArgs(), v2, this.getLoc());
+				this._value = v2;
+			}
+			this.setState(0);
+			code[0].stack[0].index++;
+			this._makeValue();
+		}
+	}
+	_makeValue() {
+		if (!(this._value instanceof Value)) this.throwRuntimeError("代入する値が不明です");
+		// this._value = this.getArgs()[0]._value;
+	}
+	argsPython(indent = 0) {
+		var code = makeIndent(indent);
+		code += argsPython(this.variable) + " ";
+		if (this.operator) code += this.operator;
+		code += "= " + argsPython(this.getArgs(0));
+		return code;
+	}
+}
+
+/**
+ * vtにあるvn[args]にnewvalをセットする(vt.vars[vn]は既に存在するものとする)
+ * @param {VarTable} vt
+ * @param {String} vn
+ * @param {Array<Value>} args
+ * @param {Value} newval
+ * @param {Location} loc
+ */
+function setVariableByArgs(vt, vn, args, newval, loc) {
+	// textareaAppend("DEBUG: setVariableByArgs: vn=" + vn + ", args=" + (args ? args.length : 0) + constructor_name(newval) + "\n");
+	if (!(newval instanceof Value))
+		throw new RuntimeError(loc.first_line, "代入する値が不明です!" +
+			"\n" + constructor_name(newval));
+	if (args && args.length > 0) {
+		var v = vt.vars[vn];
+		for (var i = 0; i < args.length - 1; i++)	// 最後の手前までの添字をたどる
+		{
+			var arg = args[i];
+			if (v.getValue() instanceof ArrayValue) {
+				if (arg.getValue() instanceof IntValue) {
+					var idx = Number(arg.getJSValue());
+					var l = v.valueLength();
+					if (idx < 0) idx += l;
+					if (idx >= 0 && idx < l) v = v.getValue(idx);
+					else throw new RuntimeError(loc.first_line, "リストの範囲を超えています");
+				}
+				else throw new RuntimeError(loc.first_line, "リストの添字は整数でなければなりません");
+			}
+			else if (v.getValue() instanceof DictionaryValue) {
+				if (isPrimitive(arg.getValue())) {
+					var key = arg.getJSValue();
+					if (v.getJSValue().has(key)) v = v.getJSValue().get(key);
+					else throw new RuntimeError(loc.first_line, "辞書にキー" + key + "がありません!");
+				}
+				else throw new RuntimeError(loc.first_line, "辞書の添字は単純型でなければなりません!");
+			}
+			else if (v.getValue() instanceof StringValue) {
+				if (arg.getValue() instanceof IntValue) {
+					var idx = Number(arg.getJSValue());
+					var l = arg.getJSValue().length;
+					if (idx < 0) idx += l;
+					if (idx >= 0 && idx < l) v = new StringValue(v.getJSValue().charAt(idx), loc);
+					else throw new RuntimeError(loc.first_line, "文字列の範囲を超えています");
+				}
+				else if (arg.getValue() instanceof SliceValue) {
+					var idx1 = Number(arg.getValue1().getJSValue());
+					var idx2 = Number(arg.getValue2().getJSValue());
+					var l = arg.getJSValue().length;
+					if (!idx1) idx1 = 0;
+					if (!idx2) idx2 = l;
+					if (idx1 < 0) idx1 += l;
+					if (idx2 < 0) idx2 += l;
+					if (idx1 >= 0 && idx2 >= 0 && idx1 < l && idx2 <= l)
+						v = new StringValue(v.getJSValue().substring(idx1, idx2), loc);
+					else throw new RuntimeError(loc.first_line, "文字列の範囲を超えています");
+				}
+			}
+			else throw new RuntimeError(loc.first_line, "添字が使える型ではありません");
+		}
+		// 最後の添字を使って代入
+		var arg = args[args.length - 1];
+		if (v.getValue() instanceof ArrayValue) {
+			if (arg.getValue() instanceof IntValue) {
+				var idx = Number(arg.getJSValue());
+				var l = v.getValue().valueLength();
+				// textareaAppend("DEBUG: setVariableByArgs: idx=" + idx + ", length=" + l + "\n");
+				if (idx < 0) idx += l;
+				// textareaAppend("DEBUG: setVariableByArgs: newval" + constructor_name(newval) + "\n");
+				if (idx >= 0 && idx < l) {
+					v.getValue().setValue(newval, idx);
+				}
+				else throw new RuntimeError(loc.first_line, "リストの範囲を超えています!");
+			}
+			else throw new RuntimeError(loc.first_line, "リストの添字は整数でなければなりません");
+		}
+		else if (v.getValue() instanceof DictionaryValue) {
+			if (isPrimitive(arg.getValue())) {
+				v.getValue().setValue(newval, arg);
+			}
+			else throw new RuntimeError(loc.first_line, "辞書の添字は単純型でなければなりません");
+		}
+		else if (v.getValue() instanceof StringValue) {
+			if (newval instanceof StringValue) {
+				if (arg.getValue() instanceof IntValue) {
+					var s = v.getJSValue();
+					var idx = Number(arg.getJSValue());
+					var l = s.length;
+					if (idx < 0) idx += l;
+					if (idx >= 0 && idx < l) {
+						s = s.substring(0, idx) + newval.getJSValue() + s.substring(idx + 1);
+						v = new StringValue([s], loc, s);
+					}
+					else throw new RuntimeError(loc.first_line, "文字列の範囲を超えています");
+				}
+				else if (arg.getValue() instanceof SliceValue) {
+					var s = v.getJSValue();
+					var idx1 = Number(arg.getValue1().getJSValue());
+					var idx2 = Number(arg.getValue2().getJSValue());
+					var l = s.length;
+					if (!idx1) idx1 = 0;
+					if (!idx2) idx2 = l;
+					if (idx1 < 0) idx1 += l;
+					if (idx2 < 0) idx2 += l;
+					if (idx1 >= 0 && idx2 >= 0 && idx1 < l && idx2 <= l) {
+						s = s.substring(0, idx1) + newval.getJSValue() + s.substring(idx2);
+						v = new StringValue([s], loc, s);
+					}
+					else throw new RuntimeError(loc.first_line, "文字列の範囲を超えています");
+				}
+			}
+			else throw new RuntimeError(loc.first_line, "文字列に代入できるのは文字列だけです");
+		}
+		else throw new RuntimeError(loc.first_line, "添字が使える型ではありません");
+	}
+	else {
+		// textareaAppend("DEBUG: setVariableByArgs: newval" + constructor_name(newval) + "\n");
+		vt.vars[vn] = newval;
+	}
+}
+
+/**
+ * v[args]の値を取得する
+ * @param {Value} v
+ * @param {Array<Value>} args
+ * @param {Location} loc
+ * @returns Value
+ */
+function getValueByArgs(v, args, loc) {
+	v = v.getValue();
+	if (args && args.length > 0) {
+		for (var i = 0; i < args.length; i++) {
+			var arg = args[i];
+			if (v instanceof ArrayValue) {
+				if (arg.getValue() instanceof IntValue) {
+					var idx = Number(arg.getJSValue());
+					var l = v._value.length;
+					if (idx < 0) idx += l;
+					if (idx >= 0 && idx < l) v = v._value[idx].getValue();
+					else throw new RuntimeError(loc.first_line, "リストの範囲を超えてアクセスしました");
+				}
+				else if (arg.getValue() instanceof SliceValue) {
+					var idx1 = Number(arg.getValue1().getJSValue());
+					var idx2 = Number(arg.getValue2().getJSValue());
+					var l = v._value.length;
+					if (!idx1) idx1 = 0;
+					if (!idx2) idx2 = l;
+					if (idx1 < 0) idx1 += l;
+					if (idx2 < 0) idx2 += l;
+					if (idx1 >= 0 && idx2 >= 0 && idx1 <= l && idx2 <= l) {
+						var a = [], b = [];
+						for (var j = idx1; j < idx2; j++) {
+							a.push(v.getValue(j).clone());
+							b.push(v.getValue(j).getValue());
+						}
+						v = new ArrayValue(a, loc, a);
+					}
+					else throw new RuntimeError(loc.first_line, "リストの範囲を超えました");
+				}
+				else throw new RuntimeError(loc.first_line, "リストの添字は整数かスライスです"
+					+ (debug_mode ? (" (arg type: " + arg.constructor.name + ")") : '')
+				);
+			}
+			else if (v instanceof DictionaryValue) {
+				if (isPrimitive(arg.getValue())) {
+					var key = arg.getJSValue();
+					if (v.getJSValue().has(key)) v = v.getJSValue().get(key).getValue();
+					else throw new RuntimeError(loc.first_line, "辞書にキー" + key + "がありません!!");
+				}
+				else throw new RuntimeError(loc.first_line, "辞書の添字は基本型です");
+			}
+			else if (v instanceof StringValue) {
+				if (arg.getValue() instanceof IntValue) {
+					var idx = Number(arg.getJSValue());
+					var l = v.getJSValue().length;
+					if (idx < 0) idx += l;
+					if (idx >= 0 && idx < l) {
+						var s = v.getJSValue().charAt(idx);
+						v = new StringValue([s], loc, s);
+					}
+					else throw new RuntimeError(loc.first_line, "リストの範囲を超えてアクセスしました");
+				}
+				else if (arg.getValue() instanceof SliceValue) {
+					var idx1 = Number(arg.getValue1().getJSValue());
+					var idx2 = Number(arg.getValue2().getJSValue());
+					var l = v.getJSValue().length;
+					if (!idx1) idx1 = 0;
+					if (!idx2) idx2 = l;
+					if (idx1 < 0) idx1 += l;
+					if (idx2 < 0) idx2 += l;
+					// textareaAppend("DEBUG: String slice idx1=" + idx1 + ", idx2=" + idx2 + ", length=" + l + "\n");
+					if (idx1 >= 0 && idx2 >= 0 && idx1 <= l && idx2 <= l) {
+						var s = v.getJSValue().substring(idx1, idx2);
+						v = new StringValue([s], loc, s);
+					}
+					else throw new RuntimeError(loc.first_line, "リストの範囲を超えました");
+				}
+				else throw new RuntimeError(loc.first_line, "文字列の添字は整数かスライスです");
+			}
+		}
+	}
+	return v;
+}
+
+function setCaller(statementlist, caller) {
+	for (let i = 0; i < statementlist.length; i++) {
+		if (statementlist[i] instanceof ReturnStatement) {
+			statementlist[i].setCaller(caller, true);
+		}
+		else if (statementlist[i].statementlist) setCaller(statementlist[i].statementlist, caller);
+		else if (statementlist[i].state) setCaller(statementlist[i].state, caller);
+		else if (statementlist[i].blocks) {
+			for (var j = 0; j < statementlist[i].blocks.length; j++)
+				setCaller(statementlist[i].blocks[j][1], caller);
+		}
+	}
+}
+
+function cloneStatementlist(statementlist) {
+	var rtnv = [];
+	for (let i = 0; i < statementlist.length; i++)
+		if (statementlist[i]) rtnv.push(statementlist[i].clone());
+	return rtnv;
+}
+
+/**
+ *
+ * @param {Value|Array|Map} v
+ */
+function argsPyPEN(v) {
+	if (v instanceof Value) return v.argsPyPEN();
+	else if (v instanceof Array) {
+		let ag = [];
+		for (let i = 0; i < v.length; i++)
+			ag.push(argsPyPEN(v[i]));
+		return '[' + ag.join(', ') + ']';
+	}
+	else if (v instanceof Map) {
+		let ag = [];
+		for (let [key, value] of v)
+			ag.push(key + ': ' + argsPyPEN(value));
+		return '{' + ag.join(', ') + '}';
+	}
+	else return v + '';
+}
+
+function argsPython(v) {
+	if (v instanceof Value) return v.argsPython();
+	else if (v instanceof Array) {
+		let ag = [];
+		for (let i = 0; i < v.length; i++)
+			ag.push(argsPython(v[i]));
+		return '[' + ag.join(', ') + ']';
+	}
+	else if (v instanceof Map) {
+		let ag = [];
+		for (let [key, value] of v)
+			ag.push(key + ': ' + argsPython(value));
+		return '{' + ag.join(', ') + '}';
+	}
+	else return v + '';
+}
+
+function valueString(v) {
+	if (v instanceof Value) return v.valueString();
+	else if (v instanceof Array) {
+		let ag = [];
+		for (let i = 0; i < v.length; i++)
+			ag.push(valueString(v[i]));
+		return '[' + ag.join(', ') + ']';
+	}
+	else if (v instanceof Map) {
+		let ag = [];
+		for (let [key, value] of v) {
+			if (typeof key === 'string') key = "'" + key + "'";
+			ag.push(key + ':' + valueString(value));
+		}
+		return '{' + ag.join(', ') + '}';
+	}
+	else return v + '';
+}
+
+function valueCode(v) {
+	if (v instanceof Value) return v.valueCode();
+	else if (v instanceof Array) {
+		let ag = [];
+		for (let i = 0; i < v.length; i++)
+			ag.push(valueCode(v[i]));
+		return '[' + ag.join(', ') + ']';
+	}
+	else if (v instanceof Map) {
+		let ag = [];
+		for (let [key, value] of v)
+			ag.push(key + ': ' + valueCode(value));
+		return '{' + ag.join(', ') + '}';
+	}
+	else return v + '';
 }
 
 
@@ -3832,163 +5145,249 @@ class DefinedFunction {
 /**
  * 定義済み関数一覧
  */
-var definedFunction = {
-	"keys": new DefinedFunction(1, function (param, loc) {
+var defined_functions = {
+	// オブジェクト関係
+	// copy: コピー
+	// typeis: 型判定
+	// typeof: 型名取得
+	// range: 整数の範囲を生成
+	// keys: 辞書のキーを取得
+	"copy": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		return par1.copy();
+	}, null, null),
+
+	"typeis": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		var result = false;
+		if (!(par2 instanceof StringValue))
+			this.throwRuntimeError("typeis", "typeisの第2引数は文字列にしてください");
+		var s = par2.getJSValue();
+		if (par1 instanceof IntValue) result = s.match(/^整数|int|integer$/i);
+		else if (par1 instanceof FloatValue) result = s.match(/^実数|float|double$/i);
+		else if (par1 instanceof StringValue) result = s.match(/^文字列|string$/i);
+		else if (par1 instanceof BooleanValue) result = s.match(/^真偽|bool|boolean$/i);
+		else if (par1 instanceof ArrayValue) result = s.match(/^(リスト|list|array)$/i);
+		else if (par1 instanceof DictionaryValue) result = s.match(/^辞書|dictionary|dict$/i);
+		else if (par1 instanceof FunctionValue) result = s.match(/^関数|function$/i);
+		else if (par1 instanceof NullValue) result = false;
+		else this.throwRuntimeError("typeis", "不明な型です" + constructor_name(par1));
+		return new BooleanValue([result], loc, result);
+	}, null, function (argc) { return "isinstance(" + argc[0] + ", " + argc[1] + ")"; }),
+
+	"typeof": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue) return new StringValue(["整数"], loc, "整数");
+		else if (par1 instanceof FloatValue) return new StringValue(["実数"], loc, "実数");
+		else if (par1 instanceof StringValue) return new StringValue(["文字列"], loc, "文字列");
+		else if (par1 instanceof BooleanValue) return new StringValue(["真偽"], loc, "真偽");
+		else if (par1 instanceof FunctionValue) return new StringValue(["関数"], loc, "関数");
+		else if (par1 instanceof ArrayValue) return new StringValue(["リスト"], loc, "リスト");
+		else if (par1 instanceof DictionaryValue) return new StringValue(["辞書"], loc, "辞書");
+		else if (par1 instanceof NullValue) return new StringValue([""], loc, "");
+		else this.throwRuntimeError("typeof", "不明な型です");
+	}, null, function (argc) { return "type(" + argc[0] + ")"; }),
+
+	"range": new BuiltinFunction([1, 2, 3], function (param, loc) {
+		var par1 = BigInt(0), par2, par3 = BigInt(1);
+		if (param.length == 1) {
+			par2 = param[0].getJSValue();
+		}
+		else if (param.length == 2) {
+			par1 = param[0].getJSValue();
+			par2 = param[1].getJSValue();
+		}
+		else {
+			par1 = param[0].getJSValue();
+			par2 = param[1].getJSValue();
+			par3 = param[2].getJSValue();
+		}
+		var args = [];
+		if (par3 == 0) this.throwRuntimeError("range", "rangeのステップに0は指定できません");
+		if (typeof par1 == 'bigint' && typeof par2 == 'bigint' && typeof par3 == 'bigint') {
+			if (par3 > 0) {
+				for (let i = par1; i < par2; i += par3) args.push(new IntValue([i], loc, i));
+			}
+			else {
+				for (let i = par1; i > par2; i += par3) args.push(new IntValue([i], loc, i));
+			}
+			return new ArrayValue(args, loc, args);
+		}
+		else this.throwRuntimeError("range", "rangeの引数は整数にしてください");
+	}, null, null),
+
+	"keys": new BuiltinFunction(1, function (param, loc) {
 		var par1 = param[0].getValue();
 		if (par1 instanceof DictionaryValue) {
 			var args = [];
-			var keys = Object.keys(par1.value);
-			keys.sort();
-			for (let i = 0; i < keys.length; i++) args.push(new StringValue(keys[i], loc));
-			return new ArrayValue(args, this.loc);
+			for (let key of par1._value.keys()) {
+				switch (typeof key) {
+					case 'number':
+						args.push(new FloatValue([key], loc, key)); break;
+					case 'bigint':
+						args.push(new IntValue([key], loc, key)); break;
+					case 'boolean':
+						args.push(new BooleanValue([key], loc, key)); break;
+					case 'string':
+						args.push(new StringValue([key], loc, key)); break;
+					default:
+						this.throwRuntimeError("keys", "辞書のキーの型が不正です");
+				}
+			}
+			return new ArrayValue(args, loc, args);
 		}
-		else throw new RuntimeError(loc.first_line, 'keysは辞書にしか使えません');
+		else this.throwRuntimeError("keys", "keysは辞書にしか使えません");
 	}, null, null),
-	"abs": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue) return new IntValue(Math.abs(par1.value), loc);
-		else if (par1 instanceof FloatValue) return new FloatValue(Math.abs(par1.value), loc);
-		else throw new RuntimeError(loc.first_line, "absは数値にしか使えません");
-	}, null, null),
-	"random": new DefinedFunction([0, 1], function (param, loc) {
-		if (param.length == 0) return new FloatValue(Math.random(), this.loc);
-		else {
-			var par1 = param[0].getValue();
-			if (par1 instanceof IntValue) return new IntValue(Math.floor(Math.random() * Math.floor(par1.value + 1)), this.loc);
-			else throw new RuntimeError(loc.first_line, "randomは整数にしか使えません");
-		}
-	}, "random", function (argc) {
-		if (argc[0]) return "random.randint(0," + argc[0] + ")";
-		else return "random.random()";
-	}),
-	"ceil": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue) return par1;
-		else if (par1 instanceof FloatValue) return new IntValue(Math.ceil(par1.value), this.loc);
-		else throw new RuntimeError(loc.first_line, "ceilは数値にしか使えません");
-	}, "math", null),
-	"floor": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue) return par1;
-		else if (par1 instanceof FloatValue) return new IntValue(Math.floor(par1.value), this.loc);
-		else throw new RuntimeError(loc.first_line, "floorは数値にしか使えません");
-	}, "math", null),
-	"round": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue) return par1;
-		else if (par1 instanceof FloatValue) return new IntValue(Math.round(par1.value), this.loc);
-		else throw new RuntimeError(loc.first_line, "roundは数値にしか使えません");
-	}, null, null),
-	"sin": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue || par1 instanceof FloatValue)
-			return new FloatValue(Math.sin(par1.value), this.loc);
-		else throw new RuntimeError(loc.first_line, "sinは数値にしか使えません");
-	}, "math", null),
-	"cos": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue || par1 instanceof FloatValue)
-			return new FloatValue(Math.cos(par1.value), this.loc);
-		else throw new RuntimeError(loc.first_line, "cosは数値にしか使えません");
-	}, "math", null),
-	"tan": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
-			let v = Math.tan(par1.value);
-			if (isFinite(v)) return new FloatValue(v, this.loc);
-			else throw new RuntimeError(loc.first_line, "オーバーフローしました");
-		}
-		else throw new RuntimeError(loc.first_line, "tanは数値にしか使えません");
-	}, "math", null),
-	"asin": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
-			if (par1.value > 1.0 || par1.value < -1.0)
-				throw new RuntimeError(loc.first_line, "asinの定義域外の値が使われました");
-			else
-				return new FloatValue(Math.asin(par1.value), this.loc);
-		}
-		else throw new RuntimeError(loc.first_line, "asinは数値にしか使えません");
-	}, "math", null),
-	"acos": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
-			if (par1.value > 1.0 || par1.value < -1.0)
-				throw new RuntimeError(loc.first_line, "acosの定義域外の値が使われました");
-			else
-				return new FloatValue(Math.acos(par1.value), this.loc);
-		}
-		else throw new RuntimeError(loc.first_line, "acosは数値にしか使えません");
-	}, "math", null),
-	"atan": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue || par1 instanceof FloatValue)
-			return new FloatValue(Math.atan(par1.value), this.loc);
-		else throw new RuntimeError(loc.first_line, "atanは数値にしか使えません");
-	}, "math", null),
-	"atan2": new DefinedFunction(2, function (param, loc) {
+
+	// リスト（一部は文字列）関係
+	// join: 結合
+	// length: 長さ
+	// append: 末尾に追加
+	// extend: 末尾に結合
+	// pop, shift, push, unshift: 末尾・先頭の削除・追加
+	"join": new BuiltinFunction(2, function (param, loc) {
 		var par1 = param[0].getValue();
 		var par2 = param[1].getValue();
-		if ((par1 instanceof IntValue || par1 instanceof FloatValue) &&
-			(par2 instanceof IntValue || par2 instanceof FloatValue))
-			return new FloatValue(Math.atan2(par1.value, par2.value), this.loc);
-		else throw new RuntimeError(loc.first_line, "atan2は数値にしか使えません");
-	}, "math", null),
-	"sqrt": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
-			if (par1.value < 0) throw new RuntimeError(loc.first_line, "負の数のルートを求めようとしました");
-			return new FloatValue(Math.sqrt(par1.value), this.loc);
+		if (par1 instanceof StringValue && par2 instanceof ArrayValue) {
+			var sep = par1.getJSValue();
+			var rtnv = [];
+			for (var i = 0; i < par2._value.length; i++)
+				rtnv.push(par2.getValue(i).valueString());
+			var v = rtnv.join(sep);
+			return new StringValue([v], loc, v);
 		}
-		else throw new RuntimeError(this.first_line, "sqrtは数値にしか使えません");
-	}, "math", null),
-	"log": new DefinedFunction(1, function (param, loc) {
+	}, null, function (argc) { return argc[0] + '.join(' + argc[1] + ')'; }),
+
+	"length": new BuiltinFunction(1, function (param, loc) {
 		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
-			if (par1.value <= 0) throw new RuntimeError(loc.first_line, "正でない数の対数を求めようとしました");
-			let v = Math.log(par1.value);
-			if (isFinite(v)) return new FloatValue(v, this.loc);
-			throw new RuntimeError(this.first_line, "オーバーフローしました");
+		if (par1 instanceof StringValue) {
+			var v = par1.getJSValue().length;
+			return new IntValue([v], loc, v);
 		}
-		else throw new RuntimeError(loc.first_line, "logは数値にしか使えません");
-	}, "math", null),
-	"exp": new DefinedFunction(1, function (param, loc) {
-		var par1 = param[0].getValue();
-		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
-			let v = Math.exp(par1.value);
-			if (isFinite(v)) return new FloatValue(v, this.loc);
-			throw new RuntimeError(loc.first_line, "オーバーフローしました");
+		else if (par1 instanceof ArrayValue) {
+			var v = par1._value.length;
+			return new IntValue([v], loc, v);
 		}
-		else throw new RuntimeError(loc.first_line, "expは数値にしか使えません");
-	}, "math", null),
-	"pow": new DefinedFunction(2, function (param, loc) {
+		else this.throwRuntimeError("length", "lengthは文字列と配列にしか使えません"
+			+ (debug_mode ? (":" + constructor_name(par1)) : "")
+		);
+	}, null, function (argc) { return "len(" + argc[0] + ")"; }),
+
+	"append": new BuiltinFunction(2, function (param, loc) {
 		var par1 = param[0].getValue();
 		var par2 = param[1].getValue();
-		if (par1 instanceof IntValue && par2 instanceof IntValue && par2.value >= 0) {
-			if (par1.value == 0 && par2.value <= 0) throw new RuntimeError(loc.first_line, "0は正の数乗しかできません");
-			let v = Math.pow(par1.value, par2.value);
-			if (isSafeInteger(v)) return new IntValue(v, this.loc);
-			else throw new RuntimeError(loc.first_line, "整数で表せる範囲を越えました");
+		if (par1 instanceof StringValue && par2 instanceof StringValue) {
+			var v = par1.getJSValue() + par2.getJSValue();
+			return new StringValue([v], loc, v);
 		}
-		else if ((par1 instanceof IntValue || par1 instanceof FloatValue) &&
-			(par2 instanceof IntValue || par2 instanceof FloatValue)) {
-			if (par1.value < 0 && !Number.isInteger(par2.value)) throw new RuntimeError(loc.first_line, "負の数の非整数乗はできません");
-			if (par1.value == 0 && par2.value <= 0) throw new RuntimeError(loc.first_line, "0は正の数乗しかできません");
-			let v = Math.pow(par1.value, par2.value);
-			if (isFinite(v)) return new FloatValue(v, this.loc);
-			else throw new RuntimeError(loc.first_line, "オーバーフローしました");
+		else if (par1 instanceof ArrayValue && par2 instanceof Value) {
+			par1._value.push(par2);
+			return par1;
 		}
-		else throw new RuntimeError(loc.first_line, "powerは数値にしか使えません");
-	}, null, null),
-	"length": new DefinedFunction(1, function (param, loc) {
+		else this.throwRuntimeError("append", "appendの引数の型が違います");
+	}, null, function (argc) { return argc[0] + '+' + argc[1]; }),
+
+	"extend": new BuiltinFunction(2, function (param, loc) {
 		var par1 = param[0].getValue();
-		if (par1 instanceof StringValue) return new IntValue(par1.value.length, this.loc);
-		else if (par1 instanceof ArrayValue) return new IntValue(par1.length, this.loc);
-		else throw new RuntimeError(loc.first_line, "lengthは文字列と配列にしか使えません");
+		var par2 = param[1].getValue();
+		if (par1 instanceof StringValue && par2 instanceof StringValue) {
+			var v = par1.getJSValue() + par2.getJSValue();
+			return new StringValue([v], loc, v);
+		}
+		else if (par1 instanceof ArrayValue && par2 instanceof ArrayValue) {
+			for (var i of par2._value) par1._value.push(i);
+			return par1;
+		}
+		else this.throwRuntimeError("extend", "extendの引数の型が違います");
+	}, null, function (argc) { return argc[0] + '.extend(' + argc[1] + ')'; }),
+
+	"pop": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof ArrayValue) {
+			if (par1._value.length > 0)
+				return par1._value.pop();
+			else this.throwRuntimeError("pop", "空の配列にpopを適用しようとしました");
+		}
+		else this.throwRuntimeError("pop", "popは配列にしか使えません");
+	}, null, function (argc) { return argc[0] + '.pop()'; }),
+
+	"shift": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof ArrayValue) {
+			if (par1._value.length > 0)
+				return par1._value.shift();
+			else this.throwRuntimeError("shift", "空の配列にshiftを適用しようとしました");
+		}
+		else this.throwRuntimeError("shift", "shiftは配列にしか使えません");
 	}, null, function (argc) {
-		return "len(" + argc[0] + ")";
+		return argc[0] + '.shift()';
 	}),
-	"substring": new DefinedFunction([2, 3], function (param, loc) {
+	"push": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof ArrayValue && par2 instanceof Value) {
+			par1._args.push(par2);
+			par1._value.push(par2);
+			return new ArrayValue(par1._value, loc, par1._value);
+		}
+		else this.throwRuntimeError("push", "pushは配列にしか使えません");
+	}, null, function (argc) {
+		return argsPython(argc[0]) + '.append(' + argsPython(argc[1]) + ')\n';
+	}),
+	"unshift": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof ArrayValue && par2 instanceof Value) {
+			par1._value.unshift(par2);
+			return new NullValue(loc);
+		}
+		else this.throwRuntimeError("unshift", "unshiftは配列にしか使えません");
+	}, null, function (argc) {
+		return argsPython(argc[0]) + '.insert(0, ' + argsPython(argc[1]) + ')\n';
+	}),
+
+	// 文字列関係
+	// match: 正規表現にマッチする部分を抽出
+	// search: 正規表現にマッチする部分を抽出
+	// substring: 文字列の一部を抽出
+	// split: 文字列を分割
+	// extract: 文字列を分割して指定した番号の部分を抽出
+	// insert: 文字列の指定した位置に文字列を挿入
+	// replace: 文字列の指定した位置の指定した長さの部分を置換
+
+	"match": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (!(par1 instanceof StringValue) || !(par2 instanceof StringValue))
+			this.throwRuntimeError("match", "matchの引数は文字列です");
+		var re = RegExp(par1.getJSValue());
+		var result = re.exec(par2.getJSValue());
+		if (result) {
+			var a = [];
+			for (let i = 0; i < result.length; i++) a.push(new StringValue([result[i]], loc, result[i]));
+			return new ArrayValue(a, loc, a);
+		}
+		return new ArrayValue([], loc, []);
+	}, "re", function (argc) { return "re.match(" + argc[0] + ", " + argc[1] + ").groups()"; }),
+
+	"search": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (!(par1 instanceof StringValue) || !(par2 instanceof StringValue))
+			this.throwRuntimeError("search", "searchの引数は文字列です");
+		var re = RegExp(par1.getJSValue(), "g");
+		var result = par2.getJSValue().match(re);
+		if (result) {
+			var a = [];
+			for (let i = 0; i < result.length; i++)
+				a.push(new StringValue([result[i]], loc, result[i]));
+			return new ArrayValue(a, loc, a);
+		}
+		return new ArrayValue([], loc, []);
+	}, "re", function (argc) { return "re.search(" + argc[0] + ", " + argc[1] + ").groups()"; }),
+
+	"substring": new BuiltinFunction([2, 3], function (param, loc) {
 		var par1 = param[0].getValue();
 		var par2 = param[1].getValue();
 		var par3 = param.length == 3 ? param[2].getValue() : null;
@@ -3996,166 +5395,1058 @@ var definedFunction = {
 			par2 instanceof IntValue &&
 			(par3 == null || par3 instanceof IntValue)) {
 			var v;
-			if (par3 == null) v = par1.value.substr(par2.value);
-			else v = par1.value.substr(par2.value, par3.value);
-			return new StringValue(v, this.loc);
+			if (par3 == null) v = par1.getJSValue().substr(Number(par2.getJSValue()));
+			else v = par1.getJSValue().substr(Number(par2.getJSValue()), Number(par3.getJSValue()));
+			return new StringValue([v], loc, v);
 		}
-		else throw new RuntimeError(loc.first_line, "substringの引数の型が違います");
+		else this.throwRuntimeError("substring", "substringの引数の型が違います");
 	}, null, function (argc) {
 		var code = argc[0] + '[' + argc[1] + ':';
 		if (argc[2]) code += argc[1] + '+' + argc[2];
 		return code + ']';
 	}),
-	"append": new DefinedFunction(2, function (param, loc) {
-		var par1 = param[0].getValue();
-		var par2 = param[1].getValue();
-		if (par2 instanceof StringValue && par2 instanceof StringValue) {
-			return new StringValue(par1.value + par2.value, this.loc);
-		}
-		else throw new RuntimeError(loc.first_line, "appendの引数の型が違います");
-	}, null, function (argc) {
-		return argc[0] + '+' + argc[1];
-	}),
-	"split": new DefinedFunction([1, 2], function (param, loc) {
+	"split": new BuiltinFunction([1, 2], function (param, loc) {
 		var par1 = param[0].getValue();
 		var par2 = param.length == 2 ? param[1].getValue() : null;
 		if (par1 instanceof StringValue && (par2 instanceof StringValue || par2 == null)) {
-			var v1 = par1.value;
-			var v = par2 ? v1.split(par2.value) : v1.split("");
+			var v1 = par1.getJSValue();
+			var v = par2 ? v1.split(par2.getJSValue()) : v1.split("");
 			var vr = [];
-			for (var i = 0; i < v.length; i++) vr.push(new StringValue(v[i], this.loc));
-			return new ArrayValue(vr, this.loc);
+			for (var i = 0; i < v.length; i++)
+				vr.push(new StringValue([v[i]], loc, v[i]));
+			return new ArrayValue(vr, loc, vr);
 		}
-		else throw new RuntimeError(loc.first_line, "splitの引数の型が違います");
+		else this.throwRuntimeError("split", "splitの引数の型が違います");
 	}, null, function (argc) {
 		if (argc.length == 2) return argc[0] + '.split(' + argc[1] + ')';
 		else return 'list(' + argc[0] + ')';
 	}),
-	"extract": new DefinedFunction(3, function (param, loc) {
+	"extract": new BuiltinFunction(3, function (param, loc) {
 		var par1 = param[0].getValue();
 		var par2 = param[1].getValue();
 		var par3 = param[2].getValue();
 		if (par1 instanceof StringValue && par2 instanceof StringValue && par3 instanceof IntValue) {
-			var v1 = par1.value;
-			var v2 = par2.value;
-			var v3 = par3.value;
+			var v1 = par1.getJSValue();
+			var v2 = par2.getJSValue();
+			var v3 = par3.getJSValue();
 			var v = v1.split(v2);
-			if (v3 >= 0 && v3 < v.length) return new StringValue(v[v3], this.loc);
-			else throw new RuntimeError(loc.first_line, "番号の値が不正です");
+			if (v3 >= 0 && v3 < v.length) return new StringValue([v[v3]], loc, v[v3]);
+			else this.throwRuntimeError("extract", "番号の値が不正です");
 		}
-		else throw new RuntimeError(loc.first_line, "extractの引数の型が違います");
+		else this.throwRuntimeError("extract", "extractの引数の型が違います");
 	}, null, function (argc) {
 		return argc[0] + '.split(' + argc[1] + ')[' + argc[2] + ']';
 	}),
-	"insert": new DefinedFunction(3, function (param, loc) {
+	"insert": new BuiltinFunction(3, function (param, loc) {
 		var par1 = param[0].getValue();
 		var par2 = param[1].getValue();
 		var par3 = param[2].getValue();
 		if (par1 instanceof StringValue && par2 instanceof IntValue && par3 instanceof StringValue) {
-			var v1 = par1.value;
-			var v2 = par2.value;
-			var v3 = par3.value;
-			if (v2 < 0 || v2 > v1.length) throw new RuntimeError(loc.first_line, "位置の値が不正です");
+			var v1 = par1.getJSValue();
+			var v2 = Number(par2.getJSValue());
+			var v3 = par3.getJSValue();
+			if (v2 < 0 || v2 > v1.length) this.throwRuntimeError("insert", "位置の値が不正です");
 			var s1 = v1.substr(0, v2);
 			var s2 = v1.substr(v2);
-			return new StringValue(s1 + v3 + s2, this.loc);
+			var s = s1 + v3 + s2;
+			return new StringValue([s], loc, s);
 		}
-		else throw new RuntimeError(loc.first_line, "insertの引数の型が違います");
+		else this.throwRuntimeError("insert", "insertの引数の型が違います");
 	}, null, function (argc) {
 		return argc[0] + '[:' + argc[1] + ']+' + argc[2] + '+' + argc[0] + '[' + argc[1] + ':]';
 	}),
-	"replace": new DefinedFunction(4, function (param, loc) {
+	"replace": new BuiltinFunction(4, function (param, loc) {
 		var par1 = param[0].getValue();
 		var par2 = param[1].getValue();
 		var par3 = param[2].getValue();
 		var par4 = param[3].getValue();
 		if (par1 instanceof StringValue && par2 instanceof IntValue && par3 instanceof IntValue && par4 instanceof StringValue) {
-			var v1 = par1.value;
-			var v2 = par2.value;
-			var v3 = par3.value;
-			var v4 = par4.value;
+			var v1 = par1.getJSValue();
+			var v2 = Number(par2.getJSValue());
+			var v3 = Number(par3.getJSValue());
+			var v4 = par4.getJSValue();
 
-			if (v2 < 0 || v2 > v1.length) throw new RuntimeError(loc.first_line, "位置の値が不正です");
-			if (v3 < 0 || v2 + v3 > v1.length) throw new RuntimeError(loc.first_line, "長さの値が不正です");
+			if (v2 < 0 || v2 > v1.length) this.throwRuntimeError("replace", "位置の値が不正です");
+			if (v3 < 0 || v2 + v3 > v1.length) this.throwRuntimeError("replace", "長さの値が不正です");
 			var s1 = v1.substr(0, v2);
 			var s2 = v1.substr(v2 + v3);
-			return new StringValue(s1 + v4 + s2, this.loc);
+			var s = s1 + v4 + s2;
+			return new StringValue([s], loc, s);
 		}
-		else throw new RuntimeError(loc.first_line, "replaceの引数の型が違います");
+		else this.throwRuntimeError("replace", "replaceの引数の型が違います");
 	}, null, function (argc) {
 		return argc[0] + '[:' + argc[1] + ']+' + argc[3] + '+' + argc[0] + '[' + argc[1] + '+' + argc[2] + ':]';
 	}),
-	"isfile": new DefinedFunction(1, function (param, loc) {
-		var par = param[0].getValue();
-		if (par instanceof StringValue) return new BooleanValue(storage.getItem(par.value) != null, loc);
-		else throw new RuntimeError(loc.first_line, "ファイル名は文字列でなくてはいけません");
+
+	// 数学関係
+	// abs: 絶対値
+	// random: 乱数
+	// ceil: 切り上げ
+	// floor: 切り捨て
+	// round: 四捨五入
+	// sin, cos, tan, asin, acos, atan, atan2, sqrt, log, exp, pow
+	"abs": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue) {
+			var v = par1.getJSValue();
+			if (v < 0) v = -v;
+			return new IntValue([v], loc, v);
+		}
+		else if (par1 instanceof FloatValue) {
+			var v = par1.getJSValue();
+			if (v < 0) v = -v;
+			return new FloatValue([v], loc, v);
+		}
+		else this.throwRuntimeError("abs", "absは数値にしか使えません");
 	}, null, null),
-	"openr": new DefinedFunction(1, function (param, loc) {
+
+	"random": new BuiltinFunction([0, 1], function (param, loc) {
+		if (param.length == 0) {
+			var v = Math.random();
+			return new FloatValue([v], loc, v);
+		}
+		else {
+			var par1 = param[0].getValue();
+			if (par1 instanceof IntValue) {
+				var v = Math.floor(Math.random() * (Number(par1.getJSValue()) + 1));
+				return new IntValue([v], loc, v);
+			}
+			else this.throwRuntimeError("random", "randomは引数なしか，整数の引数をとります");
+		}
+	}, "random", function (argc) {
+		if (argc[0]) return "random.randint(0," + argc[0] + ")";
+		else return "random.random()";
+	}),
+
+	"ceil": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue) return par1;
+		else if (par1 instanceof FloatValue) {
+			var v = Math.ceil(par1.getJSValue());
+			if (isSafeInteger(v)) return new IntValue([v], loc, v);
+		}
+		else this.throwRuntimeError("ceil", "ceilは数値にしか使えません");
+	}, "math", null),
+
+	"floor": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue) return par1;
+		else if (par1 instanceof FloatValue) {
+			var v = Math.floor(par1.getJSValue());
+			if (isSafeInteger(v)) return new IntValue([v], loc, v);
+		}
+		else this.throwRuntimeError("floor", "floorは数値にしか使えません");
+	}, "math", null),
+
+	"round": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue) return par1;
+		else if (par1 instanceof FloatValue) {
+			var v = Math.round(par1.getJSValue());
+			if (isSafeInteger(v)) return new IntValue([v], loc, v);
+		}
+		else this.throwRuntimeError("round", "roundは数値にしか使えません");
+	}, null, null),
+
+	"sin": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			var v = Math.sin(Number(par1.getJSValue()));
+			return new FloatValue([v], loc, v);
+		}
+		else this.throwRuntimeError("sin", "sinは数値にしか使えません");
+	}, "math", null),
+	"cos": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			var v = Math.cos(Number(par1.getJSValue()));
+			return new FloatValue([v], loc, v);
+		}
+		else this.throwRuntimeError("cos", "cosは数値にしか使えません");
+	}, "math", null),
+	"tan": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			let v = Math.tan(Number(par1.getJSValue()));
+			if (isFinite(v)) return new FloatValue([v], loc, v);
+			else this.throwRuntimeError("tan", "オーバーフローしました");
+		}
+		else this.throwRuntimeError("tan", "tanは数値にしか使えません");
+	}, "math", null),
+	"asin": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			if (Number(par1.getJSValue()) > 1.0 || Number(par1.getJSValue()) < -1.0)
+				this.throwRuntimeError("asin", "asinの定義域外の値が使われました");
+			else {
+				var v = Math.asin(Number(par1.getJSValue()));
+				return new FloatValue([v], loc, v);
+			}
+		}
+		else this.throwRuntimeError("asin", "asinは数値にしか使えません");
+	}, "math", null),
+	"acos": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			if (Number(par1.getJSValue()) > 1.0 || Number(par1.getJSValue()) < -1.0)
+				this.throwRuntimeError("acos", "acosの定義域外の値が使われました");
+			else {
+				var v = Math.acos(Number(par1.getJSValue()));
+				return new FloatValue([v], loc, v);
+			}
+		}
+		else this.throwRuntimeError("acos", "acosは数値にしか使えません");
+	}, "math", null),
+	"atan": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			var v = Math.atan(Number(par1.getJSValue()));
+			return new FloatValue([v], loc, v);
+		}
+		else this.throwRuntimeError("atan", "atanは数値にしか使えません");
+	}, "math", null),
+	"atan2": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if ((par1 instanceof IntValue || par1 instanceof FloatValue) &&
+			(par2 instanceof IntValue || par2 instanceof FloatValue)) {
+			var v = Math.atan2(Number(par1.getJSValue()), Number(par2.getJSValue()));
+			return new FloatValue([v], loc, v);
+		}
+		else this.throwRuntimeError("atan2", "atan2は数値にしか使えません");
+	}, "math", null),
+	"sqrt": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			if (Number(par1.getJSValue()) < 0)
+				this.throwRuntimeError("sqrt", "負の数のルートを求めようとしました");
+			var v = Math.sqrt(Number(par1.getJSValue()));
+			return new FloatValue([v], loc, v);
+		}
+		else this.throwRuntimeError("sqrt", "sqrtは数値にしか使えません");
+	}, "math", null),
+	"log": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			if (Number(par1.getJSValue()) <= 0) this.throwRuntimeError("log", "正でない数の対数を求めようとしました");
+			let v = Math.log(Number(par1.getJSValue()));
+			if (isFinite(v)) return new FloatValue([v], loc, v);
+			this.throwRuntimeError("log", "オーバーフローしました");
+		}
+		else this.throwRuntimeError("log", "logは数値にしか使えません");
+	}, "math", null),
+	"exp": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			let v = Math.exp(Number(par1.getJSValue()));
+			if (isFinite(v)) return new FloatValue([v], loc, v);
+			this.throwRuntimeError("exp", "オーバーフローしました");
+		}
+		else this.throwRuntimeError("exp", "expは数値にしか使えません");
+	}, "math", null),
+	"pow": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof IntValue && par2 instanceof IntValue) {
+			if (par1.getJSValue() == 0 && par2.getJSValue() <= 0)
+				this.throwRuntimeError("pow", "0は正の数乗しかできません");
+			var v = par1.getJSValue() ** par2.getJSValue();
+			return par2.getJSValue() >= 0 ?
+				new IntValue([v], loc, v) :
+				new FloatValue([v], loc, v);
+		}
+		else if ((par1 instanceof IntValue || par1 instanceof FloatValue) &&
+			(par2 instanceof IntValue || par2 instanceof FloatValue)) {
+			par1 = Number(par1.getJSValue());
+			par2 = Number(par2.getJSValue());
+			if (par1 < 0 && !Number.isInteger(par2))
+				this.throwRuntimeError("pow", "負の数の非整数乗はできません");
+			if (par1 == 0 && par2 <= 0)
+				this.throwRuntimeError("pow", "0は正の数乗しかできません");
+			let v = par1 ** par2;
+			if (isFinite(v)) return new FloatValue([v], loc, v);
+			else this.throwRuntimeError("pow", "オーバーフローしました");
+		}
+		else this.throwRuntimeError("pow", "powは数値にしか使えません");
+	}, null, null),
+
+
+	// File I/O関係
+	// isfile: ファイルが存在するかどうか
+	// openr, openw, opena: ファイルを開く
+	// getline, getchar: ファイルから1行・1文字読み込む
+	// putline, putstr: ファイルに1行・1文字書き込む
+	// close: ファイルを閉じる
+	"isfile": new BuiltinFunction(1, function (param, loc) {
 		var par = param[0].getValue();
-		if (par instanceof StringValue) return new IntValue(filesystem.openr(par.value), loc);
-		else throw new RuntimeError(loc.first_line, "ファイル名は文字列でなくてはいけません");
+		if (par instanceof StringValue) {
+			var v = storage.getItem(par.getJSValue()) != null;
+			return new BooleanValue([v], loc, v);
+		}
+		else this.throwRuntimeError("isfile", "ファイル名は文字列でなくてはいけません");
+	}, null, null),
+	"openr": new BuiltinFunction(1, function (param, loc) {
+		var par = param[0].getValue();
+		if (par instanceof StringValue) {
+			var v = filesystem.openr(par.getJSValue());
+			return new IntValue([v], loc, v);
+		}
+		else this.throwRuntimeError("openr", "ファイル名は文字列でなくてはいけません");
 	}, null, function (argc) {
 		return "open(" + argc[0] + ",'r')";
 	}),
-	"openw": new DefinedFunction(1, function (param, loc) {
+	"openw": new BuiltinFunction(1, function (param, loc) {
 		var par = param[0].getValue();
-		if (par instanceof StringValue) return new IntValue(filesystem.openw(par.value), loc);
-		else throw new RuntimeError(loc.first_line, "ファイル名は文字列でなくてはいけません");
+		if (par instanceof StringValue) {
+			var v = filesystem.openw(par.getJSValue());
+			return new IntValue([v], loc, v);
+		}
+		else this.throwRuntimeError("openw", "ファイル名は文字列でなくてはいけません");
 	}, null, function (argc) {
 		return "open(" + argc[0] + ",'w')";
 	}),
-	"opena": new DefinedFunction(1, function (param, loc) {
+	"opena": new BuiltinFunction(1, function (param, loc) {
 		var par = param[0].getValue();
-		if (par instanceof StringValue) return new IntValue(filesystem.opena(par.value), loc);
-		else throw new RuntimeError(loc.first_line, "ファイル名は文字列でなくてはいけません");
+		if (par instanceof StringValue) {
+			var v = filesystem.opena(par.getJSValue());
+			return new IntValue([v], loc, v);
+		}
+		else this.throwRuntimeError("opena", "ファイル名は文字列でなくてはいけません");
 	}, null, function (argc) {
 		return "open(" + argc[0] + ",'a')";
 	}),
-	"getline": new DefinedFunction(1, function (param, loc) {
+	"getline": new BuiltinFunction(1, function (param, loc) {
 		var par1 = param[0].getValue();
 		if (par1 instanceof IntValue) {
-			var rtnv = filesystem.read_line(par1.value);
-			if (rtnv == null) throw new RuntimeError(loc.first_line, "ファイル番号が不正です");
-			return new StringValue(rtnv, loc);
+			var rtnv = filesystem.read_line(par1.getJSValue());
+			if (rtnv == null) this.throwRuntimeError("getline", "ファイル番号が不正です");
+			return new StringValue([rtnv], loc, rtnv);
 		}
-		else throw new RuntimeError(loc.first_line, "ファイル番号が必要です");
+		else this.throwRuntimeError("getline", "ファイル番号が必要です");
 	}, null, function (argc) {
 		return argc[0] + ".readline()";
 	}),
-	"getchar": new DefinedFunction(1, function (param, loc) {
+	"getchar": new BuiltinFunction(1, function (param, loc) {
 		var par1 = param[0].getValue();
 		if (par1 instanceof IntValue) {
-			var rtnv = filesystem.read_ch(par1.value);
-			if (rtnv == null) throw new RuntimeError(loc.first_line, "ファイル番号が不正です");
-			return new StringValue(rtnv, loc);
+			var rtnv = filesystem.read_ch(par1.getJSValue());
+			if (rtnv == null) this.throwRuntimeError("getchar", "ファイル番号が不正です");
+			return new StringValue([rtnv], loc, rtnv);
 		}
-		else throw new RuntimeError(loc.first_line, "ファイル番号が必要です");
+		else this.throwRuntimeError("getchar", "ファイル番号が必要です");
 	}, null, function (argc) {
 		return argc[0] + ".read(1)";
 	}),
-	"pop": new DefinedFunction(1, function (param, loc) {
+	"putline": new BuiltinFunction(2, function (param, loc) {
 		var par1 = param[0].getValue();
-		if (par1 instanceof ArrayValue) {
-			if (par1.value.length > 0)
-				return par1.value.pop();
-			else throw new RuntimeError(loc.first_line, "空の配列にpopを適用しようとしました");
+		var par2 = param[1].getValue();
+		if (par1 instanceof IntValue && par2 instanceof StringValue) {
+			var str = par2.getJSValue() + '\n';
+			var rtnv = filesystem.write_str(par1.getJSValue(), str, true);
+			if (!rtnv) throw new RuntimeError(this.first_line, "呼び出しが不正です");
+			return new NullValue(loc);
 		}
-		else throw new RuntimeError(loc.first_line, "popは配列にしか使えません");
+		else this.throwRuntimeError("putline", "呼び出しが不正です");
 	}, null, function (argc) {
-		return argc[0] + '.pop()';
+		var str = argsPython(argc[1]);
+		if (!(argc[1] instanceof StringValue))
+			str = 'str(' + str + ')';
+		return argsPython(argc[0]) + '.write(' + str + " + '\n')";
 	}),
-	"shift": new DefinedFunction(1, function (param, loc) {
+	"putstr": new BuiltinFunction(2, function (param, loc) {
 		var par1 = param[0].getValue();
-		if (par1 instanceof ArrayValue) {
-			if (par1.value.length > 0)
-				return par1.value.shift();
-			else throw new RuntimeError(loc.first_line, "空の配列にshiftを適用しようとしました");
+		var par2 = param[1].getValue();
+		if (par1 instanceof IntValue && par2 instanceof StringValue) {
+			var str = par2.getJSValue();
+			var rtnv = filesystem.write_str(par1.getJSValue(), str, false);
+			if (!rtnv) this.throwRuntimeError("putstr", "呼び出しが不正です");
+			return new NullValue(loc);
 		}
-		else throw new RuntimeError(loc.first_line, "shiftは配列にしか使えません");
+		else this.throwRuntimeError("putstr", "呼び出しが不正です");
 	}, null, function (argc) {
-		return argc[0] + '.pop(0)';
+		var str = argsPython(argc[1]);
+		if (!(argc[1] instanceof StringValue))
+			str = 'str(' + str + ')';
+		return argsPython(argc[0]) + '.write(' + str + ")";
 	}),
+	"close": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue) {
+			var rtnv = filesystem.close(par1.getJSValue(), true);
+			if (!rtnv) this.throwRuntimeError("close", "呼び出しが不正です");
+			return new NullValue(loc);
+		}
+		else this.throwRuntimeError("close", "呼び出しが不正です");
+	}, null, function (argc) {
+		return argsPython(argc[0]) + '.close()\n';
+	}),
+	"sleep": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			var wakeup_time = Date.now() + Number(par1.getJSValue());
+			sleeping = function () { return Date.now() < wakeup_time; };
+		}
+	}, null, null),
+	// サウンド関係
+	// samplingRate: サンプリングレートを取得
+	// playWave: 波形を再生
+	"samplingRate": new BuiltinFunction(0, function (param, loc) {
+		var audioCtx = new (globalThis.AudioContext || globalThis.webkitAudioContext)();
+		return new IntValue([audioCtx.sampleRate], loc, audioCtx.sampleRate);
+	}, null, null),
+	"playWave": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof ArrayValue && (par2 instanceof IntValue || par2 instanceof FloatValue)) {
+			var audioCtx = new (globalThis.AudioContext || globalThis.webkitAudioContext)();
+			var duration = Number(par2.getJSValue());
+			var myArrayBuffer = audioCtx.createBuffer(1, audioCtx.sampleRate * duration, audioCtx.sampleRate);
+			for (var i = 0; i < audioCtx.sampleRate * duration; i++)
+				myArrayBuffer.getChannelData(0)[i] = Number(par1.getValue(i % par1._value.length).getJSValue());
+			var source = audioCtx.createBufferSource();
+			source.buffer = myArrayBuffer;
+			source.connect(audioCtx.destination);
+			source.start();
+			sleeping = function () { return true; };
+			source.onended = function () { sleeping = null; };
+			return new NullValue(loc);
+		}
+	}, null, null),
+	"recordWave": new BuiltinFunction(1, async function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			var audioCtx = new (globalThis.AudioContext || globalThis.webkitAudioContext)();
+			var duration = Number(par1.getJSValue());
+			navigator.mediaDevices
+				.getUserMedia({ audio: true })
+				.then(stream => {
+					const source = audioCtx.createMediaStreamSource(stream);
+					textareaAppend(stream);
+					var analyser = audioCtx.createAnalyser();
+					var bufferLength = 2048;
+					analyser.fftSize = bufferLength;
+					var dataArray = new Float32Array(bufferLength);
+					source.connect(analyser);
+					analyser.getFloatTimeDomainData(dataArray);
+					return new ArrayValue(Array.from(dataArray), loc, dataArray);
+				});
+		}
+		else return new NullValue(loc);
+	}, null, null)
 };
+
+var more_functions = {
+	"all": new BuiltinFunction(-1, function (param, loc) {
+		var par = param;
+		if (param.length == 1 && param[0].getValue() instanceof ArrayValue)
+			par = param[0].getValue().getJSValue();
+		for (let i = 0; i < par.length; i++)
+			if (!toBool(par[i].getValue())) return new BooleanValue([false], loc, false);
+		return new BooleanValue([true], loc, true);
+	}, null, null),
+	"any": new BuiltinFunction(-1, function (param, loc) {
+		var par = param;
+		if (param.length == 1 && param[0].getValue() instanceof ArrayValue)
+			par = param[0].getValue().getJSValue();
+		for (let i = 0; i < par.length; i++)
+			if (toBool(par[i].getValue())) return new BooleanValue([true], loc, true);
+		return new BooleanValue([false], loc, false);
+	}, null, null),
+	"sum": new BuiltinFunction(-1, function (param, loc) {
+		var par = param;    // 引数のArray
+		if (par.length == 1 && par[0].getValue() instanceof ArrayValue)
+			par = par[0].getValue().getJSValue();
+		var sum = BigInt(0);
+		var int_flag = true;
+		for (let i = 0; i < par.length; i++) {
+			if (par[i] instanceof IntValue) {
+				if (int_flag) sum += par[i].getJSValue();
+				else sum += Number(par[i].getJSValue());
+			}
+			else if (par[i] instanceof FloatValue) {
+				if (int_flag) {
+					sum = Number(sum);
+					int_flag = false;
+				}
+				sum += par[i].getJSValue();
+			}
+			else this.throwRuntimeError("sum", "引数は数値のリストです");
+		}
+		if (int_flag) return new IntValue([sum], this.loc, sum);
+		else return new FloatValue([sum], this.loc, sum);
+	}, null, null),
+	"prod": new BuiltinFunction(-1, function (param, loc) {
+		var par = param;    // 引数のArrayValue
+		if (par.length == 1 && par[0].getValue() instanceof ArrayValue)
+			par = param[0].getValue().getJSValue();
+		var prod = BigInt(1);
+		var int_flag = true;
+		for (let i = 0; i < par.length; i++) {
+			if (par[i] instanceof IntValue) {
+				if (int_flag) prod *= par[i].getJSValue();
+				else prod *= Number(par[i].getJSValue());
+			}
+			else if (par[i] instanceof FloatValue) {
+				if (int_flag) {
+					prod = Number(prod);
+					int_flag = false;
+				}
+				prod *= par[i].getJSValue();
+			}
+			else this.throwRuntimeError("prod", "引数は数値のリストです");
+		}
+		if (int_flag) return new IntValue([prod], loc, prod);
+		else return new FloatValue([prod], loc, prod);
+	}, null, null),
+	"sumprod": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (!(par1 instanceof ArrayValue) || !(par2 instanceof ArrayValue))
+			throw new RuntimeError(loc.first_line, '引数は2つの数値の配列です');
+		if (par1.valueLength() != par2.valueLength())
+			throw new RuntimeError(loc.first_line, '引数の配列の長さが違います');
+		var sumprod = BigInt(0);
+		var int_flag = true;
+		for (let i = 0; i < par1.valueLength(); i++) {
+			var v1 = par1.getValue(i);
+			var v2 = par2.getValue(i);
+			if (v1 instanceof IntValue && v2 instanceof IntValue) {
+				if (int_flag) sumprod += v1.getJSValue() * v2.getJSValue();
+				else sumprod += Number(v1.getJSValue()) * Number(v2.getJSValue());
+			}
+			else if ((v1 instanceof IntValue || v1 instanceof FloatValue) &&
+				(v2 instanceof IntValue || v2 instanceof FloatValue)) {
+				int_flag = false;
+				sumprod += Number(v1.getJSValue()) * Number(v2.getJSValue());
+			}
+			else this.throwRuntimeError("sumprod", "引数は2つの数値の配列です");
+		}
+		if (int_flag) return new IntValue([sumprod], loc, sumprod);
+		else return new FloatValue([sumprod], loc, sumprod);
+	}, null, null),
+	"average": new BuiltinFunction(-1, function (param, loc) {
+		var par = param;    // 引数のArray
+		if (param.length == 1 && param[0].getValue() instanceof ArrayValue) par = param[0].getValue().getJSValue();
+		var sum = functions["sum"].func(param, loc).getValue().getJSValue();
+		if (par.length == 0) this.throwRuntimeError("average", "引数の配列は空であってはいけません");
+		var v = Number(sum) / par.length;
+		return new FloatValue([v], this.loc, v);
+	}, null, null),
+	"factorial": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue && par1.getJSValue() >= BigInt(0)) {
+			var p = BigInt(1);
+			for (let i = BigInt(2); i <= par1.getJSValue(); i++) p *= i;
+			return new IntValue([p], this.loc, p);
+		}
+		else throw new RuntimeError(loc.first_line, '引数は非負整数です');
+	}, null, null),
+	"swap": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0], par2 = param[1];
+		if (par1 instanceof Variable && par2 instanceof Variable) {
+			var vt1 = findVarTable(par1.varname);
+			var vt2 = findVarTable(par2.varname);
+			var val1 = getValueByArgs(vt1.vars[par1.varname], par1._args ? par1._args : null, loc);
+			var val2 = getValueByArgs(vt2.vars[par2.varname], par2._args ? par2._args : null, loc);
+			setVariableByArgs(vt1, par1.varname, par1._args ? par1._args : null, val2.getValue(), loc);
+			setVariableByArgs(vt2, par2.varname, par2._args ? par2._args : null, val1.getValue(), loc);
+			return new NullValue(loc);
+		}
+		else throw new RuntimeError(loc.first_line, "swapの引数は変数にしてください");
+	}, null, function (argc) {
+		return argc[0] + ", " + argc[1] + " = " + argc[1] + ", " + argc[0];
+	}),
+	"max": new BuiltinFunction(-1, function (param, loc) {
+		var par = param;    // 引数のArray
+		if (par.length == 1 && par[0].getValue() instanceof ArrayValue)
+			par = par[0].getValue().getJSValue();
+		var max_val = new NullValue(loc), val_type = 0; // 0:未定義, 1:Int, 2:Float
+		for (let i = 0; i < par.length; i++) {
+			var val = par[i].getValue();
+			if (val instanceof IntValue) {
+				if (val_type == 0) {
+					max_val = val;
+					val_type = 1;
+				}
+				else if (val_type == 1) {
+					if (val.getValue().getJSValue() > max_val.getValue().getJSValue()) max_val = val;
+				}
+				else {
+					if (Number(val.getValue().getJSValue()) > max_val.getValue().getJSValue()) {
+						max_val = new FloatValue([Number(val.getValue().getJSValue())], loc, Number(val.getValue().getJSValue()));
+						val_type = 2;
+					}
+				}
+			}
+			else if (val instanceof FloatValue) {
+				if (val_type == 0) {
+					max_val = val;
+					val_type = 2;
+				}
+				else {
+					if (val.getValue().getJSValue() > max_val.getValue().getJSValue())
+						max_val = new FloatValue([Number(val.getValue().getJSValue())], loc, Number(val.getValue().getJSValue()));
+				}
+			}
+			else throw new RuntimeError(loc.first_line, '引数は数値のリストです');
+		}
+		return max_val;
+	}, null, null),
+	"min": new BuiltinFunction(-1, function (param, loc) {
+		var par = param;    // 引数のArray
+		if (par.length == 1 && par[0].getValue() instanceof ArrayValue)
+			par = par[0].getValue().getJSValue();
+		var min_val = new NullValue(loc), val_type = 0; // 0:未定義, 1:Int, 2:Float
+		for (let i = 0; i < par.length; i++) {
+			var val = par[i].getValue();
+			if (val instanceof IntValue) {
+				if (val_type == 0) {
+					min_val = val;
+					val_type = 1;
+				}
+				else if (val_type == 1) {
+					if (val.getValue().getJSValue() < min_val.getValue().getJSValue()) min_val = val;
+				}
+				else {
+					if (Number(val.getValue().getJSValue()) < min_val.getValue().getJSValue()) {
+						min_val = new FloatValue([Number(val.getValue().getJSValue())], loc, Number(val.getValue().getJSValue()));
+						val_type = 2;
+					}
+				}
+			}
+			else if (val instanceof FloatValue) {
+				if (val_type == 0) {
+					min_val = val;
+					val_type = 2;
+				}
+				else {
+					if (val.getValue().getJSValue() < min_val.getValue().getJSValue())
+						min_val = new FloatValue([Number(val.getValue().getJSValue())], loc, Number(val.getValue().getJSValue()));
+				}
+			}
+			else throw new RuntimeError(loc.first_line, '引数は数値のリストです');
+		}
+		return min_val;
+	}, null, null),
+	"median": new BuiltinFunction(-1, function (param, loc) {
+		var par = param;    // 引数のArray
+		if (par.length == 1 && par[0].getValue() instanceof ArrayValue)
+			par = param[0].getValue().getJSValue();
+		var nums = [];
+		for (let i = 0; i < par.length; i++) nums.push(Number(par[i].getValue().getJSValue()));
+		if (nums.length == 0) return new NullValue(loc);
+		nums.sort(function (a, b) { return a - b; });
+		if (nums.length % 2 == 1) {
+			var median = nums[(nums.length - 1) / 2];
+			return new FloatValue([median], loc, median);
+		}
+		else {
+			var median = (nums[nums.length / 2 - 1] + nums[nums.length / 2]) / 2;
+			return new FloatValue([median], loc, median);
+		}
+	}, null, null),
+	"comb": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof IntValue && par2 instanceof IntValue &&
+			par1.getJSValue() >= BigInt(0) && par2.getJSValue() >= BigInt(0) && par1.getJSValue() >= par2.getJSValue()) {
+			var n = par1.getJSValue();
+			var r = par2.getJSValue();
+			if (r > n - r) r = n - r;
+			var p = BigInt(1);
+			for (let i = BigInt(0); i < r; i++) p *= (n - i);
+			for (let i = BigInt(0); i < r; i++) p /= (i + BigInt(1));
+			return new IntValue([p], loc, p);
+		}
+		else throw new RuntimeError(loc.first_line, '引数は非負整数で、1つ目の引数は2つ目の引数以上でなければなりません');
+	}, null, null),
+	"perm": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof IntValue && par2 instanceof IntValue &&
+			par1.getJSValue() >= BigInt(0) && par2.getJSValue() >= BigInt(0) && par1.getJSValue() >= par2.getJSValue()) {
+			var n = par1.getJSValue();
+			var r = par2.getJSValue();
+			var p = BigInt(1);
+			for (let i = BigInt(0); i < r; i++) p *= (n - i);
+			return new IntValue([p], loc, p);
+		}
+		else throw new RuntimeError(loc.first_line, '引数は非負整数で、1つ目の引数は2つ目の引数以上でなければなりません');
+	}, null, null),
+	"pvariance": new BuiltinFunction(-1, function (param, loc) {
+		var par = param;    // 引数のArray
+		if (param.length == 1 && param[0].getValue() instanceof ArrayValue)
+			par = param[0].getValue().getJSValue();
+		var mean = functions["average"].func(par, loc).getJSValue();
+		var sum = 0.0;
+		if (par.length == 0) throw new RuntimeError(loc.first_line, "空のリストでは分散は計算できません");
+		for (let i = 0; i < par.length; i++)
+			if (par[i] instanceof IntValue || par[i] instanceof FloatValue)
+				sum += (Number(par[i].getJSValue()) - mean) ** 2;
+			else throw new RuntimeError(loc.first_line, "引数は数値のリストでなくてはいけません");
+		return new FloatValue([sum / par.length], loc, sum / par.length);
+	}, null, null),
+	"variance": new BuiltinFunction(-1, function (param, loc) {
+		var par = param;    // 引数のArray
+		if (param.length == 1 && param[0].getValue() instanceof ArrayValue)
+			par = param[0].getValue().getJSValue();
+		var mean = functions["average"].func(par, loc).getJSValue();
+		var sum = 0.0;
+		if (par.length < 2) throw new RuntimeError(loc.first_line, "長さ2未満のリストでは分散は計算できません");
+		for (let i = 0; i < par.length; i++)
+			if (par[i] instanceof IntValue || par[i] instanceof FloatValue)
+				sum += (Number(par[i].getJSValue()) - mean) ** 2;
+			else throw new RuntimeError(loc.first_line, "引数は数値のリストでなくてはいけません");
+		return new FloatValue([sum / (par.length - 1)], loc, sum / (par.length - 1));
+	}, null, null),
+	"pstdev": new BuiltinFunction(-1, function (param, loc) {
+		var s = functions["pvariance"].func(param, loc).getValue().getJSValue();
+		return new FloatValue([Math.sqrt(s)], loc, Math.sqrt(s));
+	}, null, null),
+	"stdev": new BuiltinFunction(-1, function (param, loc) {
+		var s = functions["variance"].func(param, loc).getValue().getJSValue();
+		return new FloatValue([Math.sqrt(s)], loc, Math.sqrt(s));
+	}, null, null),
+	"pcovariance": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof ArrayValue && par2 instanceof ArrayValue && par1.getJSValue().length == par2.getJSValue().length) {
+			var n = par1.getJSValue().length;
+			if (n == 0) throw new RuntimeError(loc.first_line, "空のリストでは共分散が計算できません");
+			var s = 0.0;
+			var m1 = functions["average"].func(par1.getJSValue(), loc).getValue().getJSValue(),
+				m2 = functions["average"].func(par2.getJSValue(), loc).getValue().getJSValue();
+			for (let i = 0; i < n; i++) {
+				var val1, val2;
+				if (par1.getJSValue()[i] instanceof IntValue || par1.getJSValue()[i] instanceof FloatValue)
+					val1 = Number(par1.getJSValue()[i].getValue().getJSValue());
+				else throw new RuntimeError(loc.first_line, "数値のリストである必要があります");
+				if (par2.getJSValue()[i] instanceof IntValue || par2.getJSValue()[i] instanceof FloatValue)
+					val2 = Number(par2.getJSValue()[i].getValue().getJSValue());
+				else throw new RuntimeError(loc.first_line, "数値のリストである必要があります");
+				s += (val1 - m1) * (val2 - m2);
+			}
+			return new FloatValue([s / n], loc, s / n);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は2つの長さが等しい数値のリストでなくてはいけません");
+	}, null, null),
+	"covariance": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof ArrayValue && par2 instanceof ArrayValue && par1.getJSValue().length == par2.getJSValue().length) {
+			var n = par1.getJSValue().length;
+			if (n < 2) throw new RuntimeError(loc.first_line, "長さ2未満のリストでは共分散が計算できません");
+			var s = 0.0;
+			var m1 = functions["average"].func(par1.getJSValue(), loc).getValue().getJSValue(),
+				m2 = functions["average"].func(par2.getJSValue(), loc).getValue().getJSValue();
+			for (let i = 0; i < n; i++) {
+				var val1, val2;
+				if (par1.getJSValue()[i] instanceof IntValue || par1.getJSValue()[i] instanceof FloatValue)
+					val1 = Number(par1.getJSValue()[i].getValue().getJSValue());
+				else throw new RuntimeError(loc.first_line, "数値のリストである必要があります");
+				if (par2.getJSValue()[i] instanceof IntValue || par2.getJSValue()[i] instanceof FloatValue)
+					val2 = Number(par2.getJSValue()[i].getValue().getJSValue());
+				else throw new RuntimeError(loc.first_line, "数値のリストである必要があります");
+				s += (val1 - m1) * (val2 - m2);
+			}
+			return new FloatValue([s / (n - 1)], loc, s / (n - 1));
+		}
+		else throw new RuntimeError(loc.first_line, "引数は2つの長さが等しい数値のリストでなくてはいけません");
+	}, null, null),
+	"correl": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof ArrayValue && par2 instanceof ArrayValue && par1.getJSValue().length == par2.getJSValue().length) {
+			var c = functions["pcovariance"].func([par1, par2], loc).getValue()._value;
+			var s1 = functions["pstdev"].func(par1.getJSValue(), loc).getValue()._value;
+			var s2 = functions["pstdev"].func(par2.getJSValue(), loc).getValue()._value;
+			if (s1 == 0.0 || s2 == 0.0) throw new RuntimeError(loc.first_line, "標準偏差が0なので相関係数が計算できません");
+			return new FloatValue([c / s1 / s2], loc, c / s1 / s2);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は2つの長さが等しい数値のリストでなくてはいけません");
+	}, null, null),
+	"gcd": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof IntValue && par2 instanceof IntValue) {
+			var a = par1.getJSValue();
+			var b = par2.getJSValue();
+			if (a < BigInt(0)) a = -a;
+			if (b < BigInt(0)) b = -b;
+			var g = gcd(a, b);
+			return new IntValue([g], loc, g);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は整数でなくてはいけません");
+	}, null, null),
+	"lcm": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof IntValue && par2 instanceof IntValue) {
+			var a = par1.getJSValue() >= BigInt(0) ? par1.getJSValue() : -par1.getJSValue();
+			var b = par2.getJSValue() >= BigInt(0) ? par2.getJSValue() : -par2.getJSValue();
+			if (a == BigInt(0) || b == BigInt(0)) return new IntValue(BigInt(0), loc);
+			var g = gcd(a, b);
+			var l = (a / g) * b;
+			return new IntValue([l], loc, l);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は整数でなくてはいけません");
+	}, null, null),
+	"chr": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue) {
+			var code = Number(par1.getJSValue());
+			if (code < 0 || code > 0x10FFFF)
+				throw new RuntimeError(loc.first_line, "引数の値が不正です");
+			var s = String.fromCodePoint(code);
+			return new StringValue([s], loc, s);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は整数でなくてはいけません");
+	}, null, null),
+	"ord": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof StringValue) {
+			var s = par1.getJSValue();
+			if (s.length == 0)
+				throw new RuntimeError(loc.first_line, "空文字列のordは定義されていません");
+			var code = s.codePointAt(0);
+			return new IntValue([BigInt(code)], loc, BigInt(code));
+		}
+		else throw new RuntimeError(loc.first_line, "引数は文字列でなくてはいけません");
+	}, null, null),
+	"linear_regression": new BuiltinFunction(2, function (param, loc) {
+		var par1 = param[0].getValue();
+		var par2 = param[1].getValue();
+		if (par1 instanceof ArrayValue && par2 instanceof ArrayValue && par1.valueLength() == par2.valueLength()) {
+			var n = par1.valueLength();
+			if (n < 2) throw new RuntimeError(loc.first_line, "長さ2未満のリストでは線形回帰は計算できません");
+			var sum_x = 0.0, sum_y = 0.0, sum_xy = 0.0, sum_x2 = 0.0;
+			for (let i = 0; i < n; i++) {
+				var x, y;
+				if (par1.getValue(i) instanceof IntValue || par1.getValue(i) instanceof FloatValue)
+					x = Number(par1.getValue(i).getValue().getJSValue());
+				else throw new RuntimeError(loc.first_line, "数値のリストである必要があります");
+				if (par2.getValue(i) instanceof IntValue || par2.getValue(i) instanceof FloatValue)
+					y = Number(par2.getValue(i).getValue().getJSValue());
+				else throw new RuntimeError(loc.first_line, "数値のリストである必要があります");
+				sum_x += x;
+				sum_y += y;
+				sum_xy += x * y;
+				sum_x2 += x * x;
+			}
+			if (n * sum_x2 - sum_x * sum_x == 0)
+				throw new RuntimeError(loc.first_line, "線形回帰が計算できません");
+			var slope = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x * sum_x);
+			var intercept = (sum_y - slope * sum_x) / n;
+			return new ArrayValue([new FloatValue(slope, loc), new FloatValue(intercept, loc)], loc
+				, [new FloatValue(slope, loc), new FloatValue(intercept, loc)]);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は2つの長さが等しい数値のリストでなくてはいけません");
+	}, null, null),
+	"reverse": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof ArrayValue) {
+			for (let i = 0, j = par1.valueLength() - 1; i < j; i++, j--) {
+				var temp = par1.getValue(i);
+				par1.setValue(par1.getValue(j), i);
+				par1.setValue(temp, j);
+			}
+			return par1;
+		}
+		else throw new RuntimeError(loc.first_line, "引数は配列でなくてはいけません");
+	}, null, null),
+	"reversed": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof ArrayValue) {
+			var arr = [];
+			for (let i = par1.valueLength() - 1; i >= 0; i--) arr.push(par1.getValue(i));
+			return new ArrayValue(arr, loc, arr);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は配列でなくてはいけません");
+	}, null, null),
+	"sorted": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof ArrayValue) {
+			// var arr = [].concat(par1.getValue());
+			// textareaAppend("DEBUG: " + constructor_name(par1.getJSValue()) + "\n");
+			var arr = par1.getJSValue().toSorted(function (a, b) {
+				if (a instanceof IntValue && b instanceof IntValue)
+					return (a.getJSValue() < b.getJSValue()) ? -1 : (a.getJSValue() > b.getJSValue()) ? 1 : 0;
+				else {
+					var va = (a instanceof IntValue || a instanceof FloatValue) ? Number(a.getJSValue()) : NaN;
+					var vb = (b instanceof IntValue || b instanceof FloatValue) ? Number(b.getJSValue()) : NaN;
+					if (!isNaN(va) && !isNaN(vb))
+						return (va < vb) ? -1 : (va > vb) ? 1 : 0;
+					else {
+						var sa = a.getJSValue().toString();
+						var sb = b.getJSValue().toString();
+						return (sa < sb) ? -1 : (sa > sb) ? 1 : 0;
+					}
+				}
+			});
+			return new ArrayValue(arr, loc, arr);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は配列でなくてはいけません");
+	}, null, null),
+	"sort": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof ArrayValue) {
+			par1.getJSValue().sort(function (a, b) {
+				if (a instanceof IntValue && b instanceof IntValue)
+					if (a instanceof IntValue && b instanceof IntValue)
+						return (a.getJSValue() < b.getJSValue()) ? -1 : (a.getJSValue() > b.getJSValue()) ? 1 : 0;
+					else {
+						var va = (a instanceof IntValue || a instanceof FloatValue) ? Number(a.getJSValue()) : NaN;
+						var vb = (b instanceof IntValue || b instanceof FloatValue) ? Number(b.getJSValue()) : NaN;
+						if (!isNaN(va) && !isNaN(vb))
+							return (va < vb) ? -1 : (va > vb) ? 1 : 0;
+						else {
+							var sa = a.getJSValue().toString();
+							var sb = b.getJSValue().toString();
+							return (sa < sb) ? -1 : (sa > sb) ? 1 : 0;
+						}
+					}
+			});
+			return par1;
+		}
+		else throw new RuntimeError(loc.first_line, "引数は配列でなくてはいけません");
+	}, null, null),
+	"shuffled": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof ArrayValue) {
+			var arr = [].concat(par1.getJSValue());
+			for (let i = arr.length - 1; i > 0; i--) {
+				var j = Math.floor(Math.random() * (i + 1));
+				var temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+			return new ArrayValue(arr, loc, arr);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は配列でなくてはいけません");
+	}, null, null),
+	"shuffle": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof ArrayValue) {
+			for (let i = par1.valueLength() - 1; i > 0; i--) {
+				var j = Math.floor(Math.random() * (i + 1));
+				var temp = par1.getValue(i);
+				par1.setValue(par1.getValue(j), i);
+				par1.setValue(temp, j);
+			}
+			return par1;
+		}
+		else throw new RuntimeError(loc.first_line, "引数は配列でなくてはいけません");
+	}, null, null),
+	"next_permutation": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof ArrayValue) {
+			var arr = [].concat(par1.getJSValue());
+			var i = arr.length - 2;
+			while (i >= 0 && arr[i].getJSValue() >= arr[i + 1].getJSValue()) i--;
+			if (i < 0) {
+				return new ArrayValue([], loc, []);
+			}
+			var j = arr.length - 1;
+			while (i < j && arr[i].getJSValue() >= arr[j].getJSValue()) j--;
+			// arr[i]とarr[j]を交換
+			var temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+			// arr[i+1]以降を反転
+			var left = i + 1, right = arr.length - 1;
+			while (left < right) {
+				var temp2 = arr[left];
+				arr[left] = arr[right];
+				arr[right] = temp2;
+				left++;
+				right--;
+			}
+			return new ArrayValue(arr, loc, arr);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は配列でなくてはいけません");
+	}, null, null),
+	"dnorm": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			var x = Number(par1.getJSValue());
+			var res = dnorm(x);
+			return new FloatValue([res], loc, res);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は数値でなくてはいけません");
+	}, null, null),
+	"pnorm": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			var x = Number(par1.getJSValue());
+			var res = pnorm(x);
+			return new FloatValue([res], loc, res);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は数値でなくてはいけません");
+	}, null, null),
+	"qnorm": new BuiltinFunction(1, function (param, loc) {
+		var par1 = param[0].getValue();
+		if (par1 instanceof IntValue || par1 instanceof FloatValue) {
+			var p = Number(par1.getJSValue());
+			if (p < 0 || p > 1) throw new RuntimeError(loc.first_line, "確率は0から1の間でなくてはいけません");
+			var res = qnorm(p);
+			return new FloatValue([res], loc, res);
+		}
+		else throw new RuntimeError(loc.first_line, "引数は数値でなくてはいけません");
+	}, null, null),
+}
+
+function gcd(a, b) {
+	if (b == BigInt(0)) return a;
+	else return gcd(b, a % b);
+}
+
+function dnorm(x) {
+	return Math.exp(-0.5 * x * x) / (Math.sqrt(2 * Math.PI));
+}
+
+function pnorm(x) {
+	// Abramowitz and Stegun approximation
+	// 26.2.17 of ''Handbook of Mathematical Functions With Formulas, Graphs, and Mathematical Tables''
+	const b = [1.330274429, -1.821255978, 1.781477937, -0.356563782, 0.319381530];
+	const p = 0.2316419;
+	const t = 1 / (1 + p * Math.abs(x));
+	var v = 0;
+	for (let bi of b) v = (bi + v) * t;
+	const prob = dnorm(x) * v;
+	return x > 0 ? 1 - prob : prob;
+}
+
+function qnorm(p) {
+	if (p === 0) return -Infinity;
+	if (p === 1) return Infinity;
+	if (p === 0.5) return 0;
+	// Acklam's algorithm
+	// from ''An algorithm for computing the inverse normal cumulative distribution function''
+	if (p < 0.02425 || p > 0.97575) {
+		const c = [-7.784894002430293e-03, -3.223964580411365e-01, -2.400758277161838e+00, -2.549732539343734e+00, 4.374664141464968e+00, 2.938163982698783e+00];
+		const d = [7.784695709041462e-03, 3.224671290700398e-01, 2.445134137142996e+00, 3.754408661907416e+00, 1.0];
+		var p1 = p > 0.5 ? 1 - p : p;
+		const q = Math.sqrt(-2 * Math.log(p1));
+		var v1 = 0, v2 = 0;
+		for (let ci of c) v1 = v1 * q + ci;
+		for (let di of d) v2 = v2 * q + di;
+		return p > 0.5 ? -v1 / v2 : v1 / v2;
+	}
+	else {
+		const a = [-3.969683028665376e+01, 2.209460984245205e+02, -2.759285104469687e+02, 1.383577518672690e+02, -3.066479806614716e+01, 2.506628277459239e+00];
+		const b = [-5.447609879822406e+01, 1.615858368580409e+02, -1.556989798598866e+02, 6.680131188771972e+01, -1.328068155288572e+01, 1.0];
+		const q = p - 0.5;
+		const r = q * q;
+		var v1 = 0, v2 = 0;
+		for (let ai of a) v1 = v1 * r + ai;
+		for (let bi of b) v2 = v2 * r + bi;
+		return v1 * q / v2;
+	}
+}
+
+more_functions["mean"] = more_functions["average"];
+
+// const audioCtx = new (globalThis.AudioContext || globalThis.webkitAudioContext)();
 
 function setCaller(statementlist, caller) {
 	for (let i = 0; i < statementlist.length; i++) {
@@ -4166,182 +6457,6 @@ function setCaller(statementlist, caller) {
 				setCaller(statementlist[i].blocks[j][1], caller);
 		}
 		if (statementlist[i] instanceof ReturnStatement) statementlist[i].setCaller(caller, true);
-	}
-}
-
-function cloneStatementlist(statementlist) {
-	var rtnv = [];
-	for (let i = 0; i < statementlist.length; i++) if (statementlist[i]) rtnv.push(statementlist[i].clone());
-	return rtnv;
-}
-
-/**
- * 関数呼び出し
- */
-class CallFunction extends Value {
-	/**
-	 * @constructor
-	 * @param {string} funcname
-	 * @param {Array<Value>} parameter
-	 * @param {Location} loc
-	 */
-	constructor(funcname, parameter, loc) {
-		super([funcname, parameter], loc);
-		this.rtnv = null;
-		this.state = 0;
-	}
-	clone() {
-		var parm = [];
-		for (var i = 0; i < this.value[1].length; i++) parm.push(this.value[1][i]);
-		var rtnv = new CallFunction(this.value[0], parm, this.loc);
-		rtnv.rtnv = this.rtnv;
-		return rtnv;
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value[1], index: 0 });
-			this.state = 1;
-		}
-		else if (this.state == 1) {
-			code[0].stack[0].index++;
-			const func = this.value[0], param = this.value[1];
-			if (definedFunction[func]) {
-				let fn = definedFunction[func].clone();
-				fn.setCaller(this);
-				fn.setParameter(param);
-				fn.setLocation(this.loc);
-				let statementlist = [fn];
-				code.unshift(new parsedFunction(statementlist));
-			}
-			else if (myFuncs[func]) {
-				let fn = myFuncs[func];
-				let vt = new varTable();
-				let globalVarTable = varTables[varTables.length - 1];
-				for (let i of Object.keys(globalVarTable.vars)) vt.vars[i] = globalVarTable.vars[i].getValue();
-				for (let i = 0; i < fn.params.length; i++) vt.vars[fn.params[i].varname] = param[i].getValue();
-				let statementlist = cloneStatementlist(fn.statementlist);
-				setCaller(statementlist, this);
-				statementlist.push(new notReturnedFunction(fn.loc));
-				let pf = new parsedFunction(statementlist);
-				code.unshift(pf);
-				varTables.unshift(vt);
-			}
-			else
-				throw new RuntimeError(this.first_line, '関数 ' + func + ' は定義されていません');
-			this.state = 0;
-		}
-	}
-	setValue(v) {
-		this.rtnv = v.clone();
-	}
-	getValue() {
-		return this.rtnv;
-	}
-	getCode() {
-		let func = this.value[0], param = this.value[1];
-		let ag = [];
-		for (let i = 0; i < param.length; i++)
-			ag.push(param[i].getCode());
-		return func + '(' + ag.join(',') + ')';
-	}
-	makePython() {
-		let func = this.value[0], param = this.value[1];
-		let deffunc = null;
-		if (definedFunction[func]) deffunc = definedFunction[func];
-		else if (myFuncs[func]) deffunc = myFuncs[func];
-		let ag = [];
-		for (let i = 0; i < param.length; i++)
-			ag.push(param[i].makePython());
-		if (deffunc) {
-			var prefix = '';
-			if (deffunc.module) {
-				prefix = deffunc.module + ".";
-				python_lib[deffunc.module] = 1;
-			}
-			if (deffunc.convert) return deffunc.convert(ag);
-			else return prefix + func + '(' + ag.join(', ') + ')';
-		}
-		else
-			return func + '(' + ag.join(', ') + ')';
-	}
-}
-
-class Connect extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.state = 0;
-	}
-	clone() {
-		var rtnv = new Connect(this.value[0].clone(), this.value[1].clone(), this.loc);
-		rtnv.rtnv = this.rtnv;
-		return rtnv;
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let v1 = array2text(this.value[0].getValue());
-			let v2 = array2text(this.value[1].getValue());
-			let v = v1 + v2;
-			this.rtnv = new StringValue(v, this.loc);
-			this.state = 0;
-		}
-	}
-	getCode() {
-		return this.value[0].getCode() + "と" + this.value[1].getCode();
-	}
-	makePython() {
-		var re = /^str\(/;
-		var p1 = this.value[0].makePython();
-		var p2 = this.value[1].makePython();
-		if (!re.exec(p1) && !(this.value[0] instanceof StringValue)) p1 = "str(" + p1 + ")";
-		if (!re.exec(p2) && !(this.value[1] instanceof StringValue)) p2 = "str(" + p2 + ")";
-		return p1 + " + " + p2;
-	}
-	getValue() {
-		return this.rtnv;
-	}
-}
-
-class SliceValue extends Value {
-	constructor(x, y, loc) {
-		super([x, y], loc);
-		this.state = 0;
-	}
-	clone() {
-		var rtnv = new SliceValue(this.value[0].clone(), this.value[1].clone(), this.loc);
-		rtnv.rtnv = this.rtnv;
-		return rtnv;
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.value, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			this.state = 0;
-		}
-	}
-	getCode() {
-		return this.value[0].getCode() + ":" + this.value[1].getCode();
-	}
-	makePython() {
-		var p1 = this.value[0].makePython();
-		var p2 = this.value[1].makePython();
-		return p1 + ":" + p2;
-	}
-	getValue() {
-		return this;
-	}
-	getValue1() {
-		return this.value[0];
-	}
-	getValue2() {
-		return this.value[1];
 	}
 }
 
@@ -4463,131 +6578,22 @@ class Statement {
 	constructor(loc) {
 		this._loc = loc;
 		this.state = 0;
+		if (!(this._loc instanceof Location)) throw new Error("StatementのlocがLocationではありません" + constructor_name(this));
 	}
 	get first_line() { return this._loc.first_line; }
 	get last_line() { return this._loc.last_line; }
 	get loc() { return this._loc; }
+	getLoc() { return this._loc; }
 	run() { throw new RuntimeError(this.first_line, "これを呼んではいけない"); }
 	/**
 	 *
 	 * @param {number} indent
 	 */
-	makePython(indent) {
-		return Parts.makeIndent(indent);
+	argsPython(indent) {
+		return makeIndent(indent);
 	}
 	clone() {
 		throw new RuntimeError(this.first_line, constructor_name(this) + "はcloneが作られていません");
-	}
-}
-
-/**
- * 手続き定義クラス
- */
-class DefineStep extends Statement {
-	/**
-	 * @constructor
-	 * @param {string} funcName
-	 * @param {Array<Value>} params
-	 * @param {Array<Statement>} statementlist
-	 * @param {Location} loc
-	 */
-	constructor(funcName, params, statementlist, loc) {
-		super(loc);
-		if (definedFunction[funcName]) throw new RuntimeError(this.first_line, '手続き ' + funcName + ' と同名の標準関数が存在します');
-		if (definedStep[funcName]) throw new RuntimeError(this.first_line, '手続き ' + funcName + ' と同名の標準手続きが存在します');
-		if (myFuncs[funcName]) throw new RuntimeError(this.first_line, '手続き ' + funcName + ' と同名の関数、または手続きが既に定義されています');
-		this.params = params;
-		this.statementlist = statementlist;
-		this.funcName = funcName;
-		myFuncs[funcName] = this;
-	}
-	run() {
-		code[0].stack[0].index++;
-	}
-	makePython(indent) {
-		var code = "def " + this.funcName + '(';
-		for (var i = 0; i < this.params.length; i++) {
-			if (i > 0) code += ', ';
-			code += this.params[i].varname;
-		}
-		code += '):\n';
-		var codes = 0;
-		for (var i = 0; i < this.statementlist.length; i++)
-			if (this.statementlist[i]) {
-				codes = 1;
-				code += this.statementlist[i].makePython(1);
-			}
-		if (codes == 0) code += Parts.makeIndent(1) + "pass\n";
-		return code;
-	}
-}
-
-/**
- * 手続き呼び出しが終わった後の処理
- */
-class afterCallStep {
-	run() {
-		varTables.shift();
-		code.shift();
-	}
-}
-
-/**
- * 手続き呼び出し
- */
-class CallStep extends Statement {
-	constructor(funcName, args, loc) {
-		super(loc);
-		this.funcName = funcName;
-		this.args = args;
-	}
-	clone() {
-		var params = [];
-		for (var param of this.args) params.push(param);
-		return new CallStep(this.funcName, params, this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: this.args, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			const fn = this.funcName
-			const args = this.args;
-			if (definedStep[fn]) {
-				let step = definedStep[fn].clone();
-				step.setParameter(args);
-				step.setLocation(this.loc);
-				let statementlist = [step];
-				code.unshift(new parsedStep(statementlist));
-			}
-			else if (myFuncs[fn]) {
-				let vt = new varTable();
-				let globalVarTable = varTables[varTables.length - 1];
-				for (let i of Object.keys(globalVarTable.vars))
-					vt.vars[i] = globalVarTable.vars[i].getValue();
-				for (let i = 0; i < myFuncs[fn].params.length; i++)
-					vt.vars[myFuncs[fn].params[i].varname] = args[i].getValue();
-				let statementlist = myFuncs[fn].statementlist.concat();
-				// TODO 呼ばれる保証がない
-				statementlist.push(new afterCallStep());
-				code.unshift(new parsedStep(statementlist));
-				varTables.unshift(vt);
-			}
-			else
-				throw new RuntimeError(this.first_line, '手続き ' + fn + ' は定義されていません');
-			this.state = 0;
-		}
-	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		code += this.funcName + '(';
-		for (var i = 0; i < this.args.length; i++) {
-			if (i > 0) code += ', ';
-			code += this.args[i].makePython(0);
-		}
-		return code + ')\n';
 	}
 }
 
@@ -4599,24 +6605,22 @@ class ExitStatement extends Statement {
 		return new ExitStatement(this.loc);
 	}
 	run() {
-		if (code[0] instanceof parsedStep) {
+		if (code[0] instanceof parsedFunction) {
 			code.shift();
 			varTables.shift();
 		}
 		else throw new RuntimeError(this.first_line, "手続きの中ではありません");
 	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		code += "break\n";
+	argsPython(indent) {
+		var code = makeIndent(indent);
+		code += "break";
 		return code;
 	}
 }
 
-class DefineFunction extends Statement {
+class DefineStatement extends Statement {
 	constructor(funcName, params, statementlist, loc) {
 		super(loc);
-		if (definedFunction[funcName]) throw new RuntimeError(this.first_line, '関数 ' + funcName + ' と同名の標準関数が存在します');
-		if (myFuncs[funcName]) throw new RuntimeError(this.first_line, '関数 ' + funcName + ' と同名の関数、または手続きが既に定義されています');
 		this.params = params;
 		this.funcName = funcName;
 		myFuncs[funcName] = this;
@@ -4626,24 +6630,27 @@ class DefineFunction extends Statement {
 		throw new RuntimeError(this.first_line, 'これはクローンされるべきでない');
 	}
 	run() {
+		varTables[0].vars[this.funcName] = new UserDefinedFunction(this.params, this.statementlist, this.loc);
+
 		code[0].stack[0].index++;
 	}
-	makePython(indent) {
+	argsPython(indent) {
 		var code = "def ";
 		code += this.funcName + '(';
 		for (var i = 0; i < this.params.length; i++) {
 			if (i > 0) code += ', ';
-			code += this.params[i].makePython();
+			code += this.params[i].argsPython(indent);
 		}
-		code += '):\n';
+		code += '):';
+		code = [code];
 		var codes = 0;
 		for (var i = 0; i < this.statementlist.length; i++)
 			if (this.statementlist[i]) {
 				codes = 1;
-				code += this.statementlist[i].makePython(1);
+				code.push(this.statementlist[i].argsPython(indent + 1));
 			}
-		if (codes == 0) code += Parts.makeIndent(1) + "pass\n";
-		return code;
+		if (codes == 0) code.push(makeIndent(1) + "pass");
+		return code.join("\n");
 	}
 }
 
@@ -4653,7 +6660,7 @@ class DefineFunction extends Statement {
 class ReturnStatement extends Statement {
 	constructor(value, loc) {
 		super(loc);
-		this.value = value.clone();
+		this.value = value;
 		this.caller = null;
 		this.flag = false;
 		this.state = 0;
@@ -4684,40 +6691,26 @@ class ReturnStatement extends Statement {
 			this.state = 0;
 		}
 	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
+	argsPython(indent) {
+		var code = makeIndent(indent);
 		code += "return";
-		if (this.value) code += ' ' + this.value.makePython();
-		return code + "\n";
+		if (this.value) code += ' ' + this.value.argsPython();
+		return code;
 	}
 }
 
-class notReturnedFunction extends Statement {
-	constructor(loc) { super(loc); }
-	clone() {
-		return new notReturnedFunction(this.loc);
-	}
-	run() {
-		throw new RuntimeError(this.last_line, "関数が値を返さずに終了しました");
-	}
-	makePython() {
-		return '';
-	}
-}
 
-/**
- *
- */
 function dump(message = null) {
 	if (!message) message = "*** 変数確認 ***";
-	output(message + "\n");
+	textareaAppend(message + "\n");
 	var vars = varTables[0].varnames([]);
 	if (varTables.length > 1) vars = varTables[varTables.length - 1].varnames(vars);
 	for (var i = 0; i < vars.length; i++) {
 		if (vars[i][0] == '!') continue;
 		let vartable = findVarTable(vars[i]);
 		let v = vartable.vars[vars[i]];
-		output(vars[i] + ":" + array2code(v) + "\n");
+		if (v instanceof FunctionValue) continue;
+		textareaAppend(vars[i] + ":" + valueString(v) + "\n");
 	}
 }
 
@@ -4730,7 +6723,7 @@ class DumpStatement extends Statement {
 		dump();
 		code[0].stack[0].index++;
 	}
-	makePython() {
+	argsPython() {
 		return '';
 	}
 }
@@ -4749,198 +6742,8 @@ function argsString(args) {
 	return '';
 }
 
-class Assign extends Statement {
-	/**
-	 * @constructor
-	 * @param {Variable} variable
-	 * @param {Value} value
-	 * @param {String} operator
-	 * @param {Location} loc
-	 */
-	constructor(variable, value, operator, loc) {
-		super(loc);
-		if (!(variable instanceof Variable || variable instanceof UNDEFINED)) throw new RuntimeError(loc.first_line, "変数でないものに代入はできません");
-		this.variable = variable;
-		this.value = value;
-		this.operator = operator;
-		this.state = 0;
-	}
-	clone() {
-		return new Assign(this.variable, this.value, this.operator, this.loc);
-	}
-	run() {
-		if (this.variable instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
-		if (this.state == 0) {
-			let a = [];
-			if (this.operator) a.push(this.variable);
-			else if (this.variable.args) a = a.concat(this.variable.args.value);
-			a.push(this.value);
-			code[0].stack.unshift({ statementlist: a, index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let vn = this.variable.varname;
-			let ag = this.variable.args;
-			let vl = this.value.getValue();
-			let vt = findVarTable(vn);
-			if (vt) // 変数が定義されている
-			{
-				let va = vt.vars[vn];
-				if (this.operator) {
-					va = getValueByArgs(va, ag ? ag.value : null, this.loc);
-					let v1 = va.getValue(), v2 = vl, v3 = null;
-					switch (this.operator) {
-						case '+':
-							if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-							if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-							if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列の足し算はまだサポートしていません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書の足し算はまだサポートしていません");
-							else if (v1 instanceof StringValue || v2 instanceof StringValue) v3 = new StringValue(String(v1.value) + String(v2.value), this.loc);
-							else if (v1 instanceof IntValue && v2 instanceof IntValue) v3 = new IntValue(v1.value + v2.value, this.loc);
-							else if (v1 instanceof FloatValue || v2 instanceof FloatValue) v3 = new FloatValue(v1.value + v2.value, this.loc);
-							break;
-						case '-':
-							if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-							if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-							if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列の引き算はできません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書の引き算はできません");
-							else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列の引き算はできません");
-							else if (v1 instanceof IntValue && v2 instanceof IntValue) v3 = new IntValue(v1.value - v2.value, this.loc);
-							else if (v1 instanceof FloatValue || v2 instanceof FloatValue) v3 = new FloatValue(v1.value - v2.value, this.loc);
-							break;
-						case '*':
-							if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-							if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-							if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列の掛け算は出来ません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書の掛け算はできません");
-							else if (v1 instanceof StringValue) {
-								if (v2 instanceof IntValue) v3 = new StringValue(v1.value.repeat(v2.value >= 0 ? v2.value : 0), this.loc);
-								else throw new RuntimeError(this.first_line, "文字列に掛けられるのは整数だけです")
-							}
-							else if (v1 instanceof IntValue && v2 instanceof IntValue) v3 = new IntValue(v1.value * v2.value, this.loc);
-							else if (v1 instanceof FloatValue || v2 instanceof FloatValue) v3 = new FloatValue(v1.value * v2.value, this.loc);
-							break;
-						case '/':
-							if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-							if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-							if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列の割り算はできません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書の割り算はできません");
-							else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列の割り算はできません");
-							else {
-								if (v2.value == 0) throw new RuntimeError(this.first_line, '0で割り算をしました');
-								else v3 = new FloatValue(v1.value / v2.value, this.loc);
-							}
-							break;
-						case '//':
-							if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-							if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-							if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列の割り算はできません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書の割り算はできません");
-							else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列の割り算はできません");
-							else {
-								if (v2.value == 0) throw new RuntimeError(this.first_line, '0で割り算をしました');
-								let v4 = Math.floor(v1.value / v2.value);
-								if (v1 instanceof IntValue && v2 instanceof IntValue) v3 = new IntValue(v4, this.loc);
-								else v3 = new FloatValue(v4, this.loc);
-							}
-							break;
-						case '%':
-							if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-							if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-							if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列の割り算はできません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書の割り算はできません");
-							else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列の割り算はできません");
-							else {
-								if (v2.value == 0) throw new RuntimeError(this.first_line, '0で割り算をしました');
-								let v4 = v1.value - Math.floor(v1.value / v2.value) * v2.value;
-								if (v1 instanceof IntValue && v2 instanceof IntValue) v3 = new IntValue(v4, this.loc);
-								else v3 = new FloatValue(v4, this.loc);
-							}
-							break;
-						case '&':
-							if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のビット積はできません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書のビット積はできません");
-							else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のビット積はできません");
-							else if (v1 instanceof FloatValue || v2 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数のビット積はできません");
-							else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) v3 = new BooleanValue(v1.value && v2.value, this.loc);
-							else {
-								if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-								if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-								v3 = new IntValue(v1.value & v2.value, this.loc);
-							}
-							break;
-						case '|':
-							if (v1 instanceof ArrayValue || v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のビット和はできません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書のビット和はできません");
-							else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のビット和はできません");
-							else if (v1 instanceof FloatValue || v2 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数のビット和はできません");
-							else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) v3 = new BooleanValue(v1.value && v2.value, this.loc);
-							else {
-								if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-								if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-								v3 = new IntValue(v1.value | v2.value, this.loc);
-							}
-							break;
-						case '^':
-							if (v1 instanceof ArrayValue && v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列の排他的論理和はできません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書の排他的論理和はできません");
-							else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列の排他的論理和はできません");
-							else if (v1 instanceof FloatValue || v2 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数の排他的論理和はできません");
-							else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) v3 = new BooleanValue(v1.value && v2.value, this.loc);
-							else {
-								if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-								if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-								v3 = new IntValue(v1.value ^ v2.value, this.loc);
-							}
-							break;
-						case '<<':
-							if (v1 instanceof ArrayValue && v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のビットシフトはできません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書のビットシフトはできません");
-							else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のビットシフトはできません");
-							else if (v1 instanceof FloatValue || v2 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数のビットシフトはできません");
-							else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) v3 = new BooleanValue(v1.value && v2.value, this.loc);
-							else {
-								if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-								if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-								v3 = new IntValue(v1.value << v2.value, this.loc);
-							}
-							break;
-						case '>>':
-							if (v1 instanceof ArrayValue && v2 instanceof ArrayValue) throw new RuntimeError(this.first_line, "配列のビットシフトはできません");
-							else if (v1 instanceof DictionaryValue || v2 instanceof DictionaryValue) throw new RuntimeError(this.first_line, "辞書のビットシフトはできません");
-							else if (v1 instanceof StringValue || v2 instanceof StringValue) throw new RuntimeError(this.first_line, "文字列のビットシフトはできません");
-							else if (v1 instanceof FloatValue || v2 instanceof FloatValue) throw new RuntimeError(this.first_line, "実数のビットシフトはできません");
-							else if (v1 instanceof BooleanValue && v2 instanceof BooleanValue) v3 = new BooleanValue(v1.value && v2.value, this.loc);
-							else {
-								if (v1 instanceof BooleanValue) v1 = new IntValue(v1.value ? 1 : 0, this.loc);
-								if (v2 instanceof BooleanValue) v2 = new IntValue(v2.value ? 1 : 0, this.loc);
-								v3 = new IntValue(v1.value >> v2.value, this.loc);
-							}
-							break;
-					}
-					if (!v3) throw new RuntimeError(this.first_line, '複合代入演算子の使い方が間違っています');
-					setVariableByArgs(vt, vn, ag ? ag.value : null, v3, this.loc);
-				}
-				else setVariableByArgs(vt, vn, ag ? ag.value : null, vl, this.loc);
-			}
-			else // 変数が定義されていない
-			{
-				if (this.operator) throw new RuntimeError(this.first_line, '宣言されていない変数に複合代入演算子が使われました');
-				vt = varTables[0];
-				vt.vars[vn] = new NullValue(this.loc);
-				setVariableByArgs(vt, vn, ag ? ag.value : null, vl, this.loc);
-			}
-			this.state = 0;
-		}
-	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		code += this.variable.makePython() + " ";
-		if (this.operator) code += this.operator;
-		code += "= " + this.value.makePython() + "\n";
-		return code;
-	}
+function SameSignBigInt(a, b) {
+	return (a >= 0 && b >= 0) || (a < 0 && b < 0);
 }
 
 class Append extends Statement {
@@ -4961,45 +6764,20 @@ class Append extends Statement {
 		return new Append(this.variable.clone(), this.value.clone(), this.loc);
 	}
 	run() {
-		if (this.variable instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
 		if (this.state == 0) {
 			code[0].stack.unshift({ statementlist: [this.variable, this.value], index: 0 });
 			this.state = 1;
 		}
 		else {
+			if (!(this.variable.getValue() instanceof ArrayValue && this.value.getValue() instanceof Value)) throw new RuntimeError(this.first_line, "追加される値はリストです");
 			code[0].stack[0].index++;
-			let vn = this.variable.varname;
-			let ag = this.variable.args;
-			let vl = this.value.getValue();
-			let vt = findVarTable(vn);
-			if (vt) // 変数が定義されている
-			{
-				let va = vt.vars[vn];
-				if (ag && ag.value.length > 0) // 配列の添字がある
-				{
-					for (let i = 0; i < ag.value.length; i++) {
-						if (ag.value[i].getValue() instanceof StringValue) {
-							va = va.value[ag.value[i].getValue().value];
-						}
-						else if (ag.value[i].getValue() instanceof IntValue) {
-							if (va.value[ag.value[i].getValue().value])
-								va = va.value[ag.value[i].getValue().value];
-							else throw new RuntimeError(this.first_line, '配列の範囲を超えたところに追加しようとしました')
-						}
-						else throw new RuntimeError(this.first_line, '添字に使えないデータ型です');
-					}
-				}
-				if (va instanceof ArrayValue) va.value.push(vl.clone());
-				else throw new RuntimeError(this.first_line, '配列でない変数に追加はできません');
-			}
-			else // 変数が定義されていない
-				throw new RuntimeError(this.first_line, '存在しない配列に追加はできません');
+			this.variable.getValue().append(this.value.getValue());
 			this.state = 0;
 		}
 	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		code += this.variable.makePython() + ".append(" + this.value.makePython() + ")\n";
+	argsPython(indent) {
+		var code = makeIndent(indent);
+		code += this.variable.argsPython() + ".push(" + this.value.argsPython() + ")";
 		return code;
 	}
 }
@@ -5022,52 +6800,22 @@ class Extend extends Statement {
 		return new Extend(this.variable.clone(), this.value.clone(), this.loc);
 	}
 	run() {
-		if (this.variable instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
 		if (this.state == 0) {
 			code[0].stack.unshift({ statementlist: [this.variable, this.value], index: 0 });
 			this.state = 1;
 		}
 		else {
+			if (!(this.variable.getValue() instanceof ArrayValue && this.value.getValue() instanceof ArrayValue)) throw new RuntimeError(this.first_line, "リストどうしでないと連結できません");
 			code[0].stack[0].index++;
-			let vn = this.variable.varname;
-			let ag = this.variable.args;
-			let vl = this.value.getValue();
-			let vt = findVarTable(vn);
-			if (vt) // 変数が定義されている
-			{
-				let va = vt.vars[vn];
-				if (ag && ag.value.length > 0) // 配列の添字がある
-				{
-					for (let i = 0; i < ag.value.length; i++) {
-						ag.value[i].run();
-						if (ag.value[i] instanceof StringValue) {
-							va = va.value[ag.value[i].getValue().value];
-						}
-						else if (ag.value[i] instanceof IntValue) {
-							if (va.value[ag.value[i].getValue().value])
-								va = va.value[ag.value[i].getValue().value];
-							else throw new RuntimeError(this.first_line, '配列の範囲を超えたところに連結しようとしました')
-						}
-						else throw new RuntimeError(this.first_line, "添字に使えないデータ型です");
-					}
-				}
-				if (va instanceof ArrayValue) {
-					if (vl instanceof ArrayValue) {
-						var l = vl.value.length;
-						for (var i = 0; i < l; i++) va.value.push(vl.value[i].clone());
-					}
-					else throw new RuntimeError(this.first_line, '配列でない値を連結することはできません');
-				}
-				else throw new RuntimeError(this.first_line, '配列でない変数に連結はできません');
-			}
-			else // 変数が定義されていない
-				throw new RuntimeError(this.first_line, '存在しない配列に連結はできません');
+			var a = [];	// 自分への連結対策
+			for (var i of this.value.getValue()._value) a.push(i.getValue());
+			this.variable.getValue().extend(a);
 			this.state = 0;
 		}
 	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		code += this.variable.makePython() + ".extend(" + this.value.makePython() + ")\n";
+	argsPython(indent) {
+		var code = makeIndent(indent);
+		code += this.variable.argsPython() + ".extend(" + this.value.argsPython() + ")";
 		return code;
 	}
 }
@@ -5076,57 +6824,104 @@ class Input extends Statement {
 	constructor(x, type, loc) {
 		super(loc);
 		if (!(x instanceof Variable || x instanceof UNDEFINED)) throw new RuntimeError(loc.first_line, "入力されるものは変数でなくてはいけません");
-		this.varname = x;
+		this.variable = x;
 		this.type = type;
 		this.state = 0;
 	}
 	clone() {
-		return new Input(this.varname.clone(), this.type, this.loc);
+		return new Input(this.variable.clone(), this.type, this.loc);
 	}
 	run() {
 		if (selected_quiz < 0)	// 通常時
 		{
 			code[0].stack[0].index++;
-			if (this.varname instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
-			var list = [new InputBegin(this.loc), new InputEnd(this.varname, this.type, this.loc)];
+			if (this.variable instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
+			var list = [new InputBegin(this.loc), new InputEnd(this.variable, this.type, this.loc)];
 			code[0].stack.unshift({ statementlist: list, index: 0 });
 		}
 		else	// 自動採点時
 		{
 			if (this.state == 0) {
-				if (this.varname.args) code[0].stack.unshift({ statementlist: this.varname.args, index: 0 });
+				if (this.variable.args) code[0].stack.unshift({ statementlist: this.variable.args, index: 0 });
 				this.state = 1;
 			}
 			else {
 				code[0].stack[0].index++;
 				if (selected_quiz_input < Quizzes[selected_quiz].inputs(selected_quiz_case).length) {
-					if (this.varname instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
-					let va = new Variable(this.varname.varname, this.varname.args, this.loc);
+					if (this.variable instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
+					let va = new Variable(this.variable.varname, this.loc);
 					let vl = Quizzes[selected_quiz].inputs(selected_quiz_case)[selected_quiz_input++];
 					// va.run();
-					let assign = null;
-					let re = /^(0+|false|偽|)$/i;
-					if (this.type == typeOfValue.typeInt) assign = new Assign(this.varname, new IntValue(Number(toHalf(vl, this.loc)), this.loc), null, this.loc);
-					else if (this.type == typeOfValue.typeFloat) assign = new Assign(this.varname, new FloatValue(Number(toHalf(vl, this.loc)), this.loc), null, this.loc);
-					else if (this.type == typeOfValue.typeString) assign = new Assign(this.varname, new StringValue(vl + '', this.loc), null, this.loc);
-					else if (this.type == typeOfValue.typeBoolean) assign = new Assign(this.varname, new BooleanValue(!re.exec(vl), this.loc), null, this.loc);
-					code[0].stack.unshift({ statementlist: [assign], index: 0 });
+					var v = null;
+					if (this.type == typeOfValue.typeInt) {
+						var v0 = BigInt(toHalf(vl, this.loc));
+						v = new IntValue([v0], this.loc, v0);
+					}
+					else if (this.type == typeOfValue.typeFloat) {
+						var v0 = Number(toHalf(vl, this.loc));
+						v = new FloatValue([v0], this.loc, v0);
+					}
+					else if (this.type == typeOfValue.typeString) {
+						var v0 = vl + '';
+						v = new StringValue([v0], this.loc, v0);
+					}
+					else if (this.type == typeOfValue.typeBoolean) {
+						var v0 = toBool(vl);
+						v = new BooleanValue([v0], this.loc, v0);
+					}
+					if (v !== null) {
+						var assign = new Assign(this.variable, v, null, this.loc);
+						code[0].stack.unshift({ statementlist: [assign], index: 0 });
+					}
+					else throw new RuntimeError(this.first_line, '不明な型です。');
 				}
 				else throw new RuntimeError(this.first_line, '必要以上の入力を求めています。');
 				this.state = 0;
 			}
 		}
 	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		code += this.varname.makePython() + " = ";
+	argsPython(indent) {
+		var code = makeIndent(indent);
+		code += this.variable.argsPython() + " = ";
 		switch (this.type) {
-			case typeOfValue.typeInt: code += "int(input())\n"; break;
-			case typeOfValue.typeFloat: code += "float(input())\n"; break;
-			case typeOfValue.typeString: code += "input()\n"; break;
-			case typeOfValue.typeBoolean: code += "bool(input())\n"; break;
+			case typeOfValue.typeInt: code += "int(input())"; break;
+			case typeOfValue.typeFloat: code += "float(input())"; break;
+			case typeOfValue.typeString: code += "input()"; break;
+			case typeOfValue.typeBoolean: code += "bool(input())"; break;
 		}
 		return code;
+	}
+}
+function openInputWindow() {
+	isInputOpen = true
+	run_flag = false
+	if (canvas) {
+		canvas.convertToBlob().then(b => {
+			self.postMessage({
+				type: 'image',
+				content: URL.createObjectURL(b)
+			})
+		})
+	}
+	self.postMessage({
+		type: 'inputRequest'
+	})
+}
+
+function closeInputWindow() {
+	isInputOpen = false
+	return inputValue
+}
+
+function keydownInput(e) {
+	var evt = e || window.event
+	if (evt.keyCode == 13) {
+		setRunflag(true);
+		step();
+	}
+	else if (evt.keyCode == 27) {
+		closeInputWindow();
+		code.shift();
 	}
 }
 
@@ -5176,10 +6971,10 @@ class InputEnd extends Statement {
 				// va.run();
 				let assign = null;
 				let re = /^(0+|false|偽|)$/i;
-				if (this.type == typeOfValue.typeInt) assign = new Assign(this.varname, new IntValue(Number(toHalf(vl, this.loc)), this.loc), null, this.loc);
-				else if (this.type == typeOfValue.typeFloat) assign = new Assign(this.varname, new FloatValue(Number(toHalf(vl, this.loc)), this.loc), null, this.loc);
-				else if (this.type == typeOfValue.typeString) assign = new Assign(this.varname, new StringValue(vl + '', this.loc), null, this.loc);
-				else if (this.type == typeOfValue.typeBoolean) assign = new Assign(this.varname, new BooleanValue(!re.exec(vl), this.loc), null, this.loc);
+				if (this.type == typeOfValue.typeInt) assign = new Assign(this.varname, new IntValue([toHalf(vl, this.loc)], this.loc, toHalf(vl, this.loc), null, this.loc));
+				else if (this.type == typeOfValue.typeFloat) assign = new Assign(this.varname, new FloatValue([Number(toHalf(vl, this.loc))], this.loc, Number(toHalf(vl, this.loc))), null, this.loc);
+				else if (this.type == typeOfValue.typeString) assign = new Assign(this.varname, new StringValue([vl + ''], this.loc, vl + ''), null, this.loc);
+				else if (this.type == typeOfValue.typeBoolean) assign = new Assign(this.varname, new BooleanValue([toBool(vl)], this.loc, toBool(vl)), null, this.loc);
 				code[0].stack.unshift({ statementlist: [assign], index: 0 });
 			}
 			catch (e) {
@@ -5199,21 +6994,137 @@ class Newline extends Statement {
 	run() {
 		code[0].stack[0].index++;
 		if (selected_quiz < 0) {
-			output("\n");
+			textareaAppend("\n");
 		}
 		else {
 			output_str += "\n";
 		}
 	}
-	makePython(indent) {
-		return Parts.makeIndent(indent) + "print()\n";
+	argsPython(indent) {
+		return makeIndent(indent) + "print()";
 	}
 }
+
+/**
+ *
+ * @param {*} v
+ * @param {*} flag
+ * @returns
+ */
+function array2text(v, flag = false)	// flag: 文字列に''をつける
+{
+	if (!v) return '';
+	if (v instanceof Value) {
+		if (v instanceof ArrayValue) {
+			let v1 = [];
+			for (let i = 0; i < v.length; i++) {
+				var tmp = v._value[i];
+				v1.push(array2text(tmp, flag));
+
+			}
+			return '[' + v1.join(',') + ']';
+		}
+		else if (v instanceof DictionaryValue) {
+			let v1 = [];
+			let keys = v.getValue().keys();
+			for (let key of keys) {
+				var val = v.getValue(key);
+				if (typeof key === "string") key = "'" + key + "'";
+				v1.push(key + ':' + array2text(val, flag));
+			}
+			return '{' + v1.join(',') + '}';
+		}
+		else if (v instanceof BooleanValue) return v.getValue() ? 'True' : 'False';
+		else if (v instanceof FloatValue && isInteger(v.getValue()) && !v.getValue().toString().match(/[Ee]/)) return v.getValue() + '.0';
+		else if (flag && v instanceof StringValue) return new String("'" + v.getValue() + "'");
+		else return v.getValue();
+	}
+	else return new String(v);
+}
+
+function array2code(v, flag = false)	// flag: 文字列に''をつける
+{
+	if (!v) return '';
+	if (v instanceof ArrayValue) {
+		let v1 = [];
+		for (let i = 0; i < v.length; i++)
+			v1.push(array2text(v.getValue(i).getCode(), flag));
+		return '[' + v1.join(',') + ']';
+	}
+	else if (v instanceof DictionaryValue) {
+		let v1 = [];
+		let keys = v.getValue().keys();
+		for (let key of keys) {
+			var val = v.getValue().get(key);
+			// key = key.rtnv;
+			// while(key instanceof Value) key = key.value;
+			if (typeof key === "string") key = "'" + key + "'";
+			v1.push(key + ':' + array2text(val.value, flag));
+		}
+		return '{' + v1.join(',') + '}';
+	}
+	else if (flag && v instanceof StringValue) return "'" + v.getValue() + "'";
+	else if (v instanceof FloatValue && isInteger(v.getValue()) && !v.getValue().toString().match(/[Ee]/)) return v.getValue() + '.0';
+	return v.getValue().toString();
+}
+
+function val2obj(val) {
+	if (val instanceof Array) {
+		var rtnv = [];
+		var l = val.length;
+		for (var i = 0; i < l; i++) rtnv.push(val2obj(val[i]));
+		return rtnv;
+	}
+	else if (val instanceof Map) {
+		var rtnv = {};
+		for (var key of val.keys())
+			rtnv[key] = val2obj(val.get(key));
+		return rtnv;
+	}
+	else if (val instanceof IntValue) return Number(val.getJSValue());
+	else if (val instanceof Value) return val.getJSValue();
+	else return val;
+}
+
+/**
+ *
+ * @param {ArrayValue} a
+ * @param {Location} loc
+ */
+function array2values(a, loc) {
+	var rtnv = [];
+	var array = null;
+	if (a instanceof ArrayValue) {
+		if (a.getJSValue()[0] instanceof ArrayValue) {
+			for (var i = 0; i < a.getJSValue().length; i++) {
+				var rtnv1 = [];
+				for (var j = 0; j < a.getJSValue()[i].getJSValue().length; j++) {
+					var val = a.getJSValue()[i].getJSValue()[j].getValue();
+					if (val instanceof IntValue) rtnv1.push(Number(val.getJSValue()));
+					else rtnv1.push(val.getJSValue());
+				}
+				rtnv.push(rtnv1);
+			}
+		}
+		else {
+			var rtnv1 = [];
+			for (var j = 0; j < a.getJSValue().length; j++) {
+				var val = a.getJSValue()[j].getValue();
+				if (val instanceof IntValue) rtnv1.push(Number(val.getJSValue()));
+				else rtnv1.push(val.getJSValue());
+			}
+			rtnv.push(rtnv1);
+		}
+		return rtnv;
+	}
+	else throw new RuntimeError(loc.first_line, "棒グラフ・線グラフには配列が必要です");
+}
+
 
 class Output extends Statement {
 	/**
 	 *
-	 * @param {Array<Value>} x
+	 * @param {ArrayValue<Value>} x
 	 * @param {boolean} ln
 	 * @param {Location} loc
 	 */
@@ -5231,77 +7142,647 @@ class Output extends Statement {
 	run() {
 		if (this.state == 0) {
 			code[0].stack.unshift({ statementlist: this.value, index: 0 });
+			// code[0].stack.unshift({statementlist: [this.value], index: 0});
 			this.state = 1;
 		}
 		else {
 			code[0].stack[0].index++;
 			let s = '';
 			for (var i = 0; i < this.value.length; i++) {
-				let v = this.value[i];
-				s += (i > 0 ? ' ' : '') + array2text(v);
+				s += (i > 0 ? ' ' : '') + valueString(this.value[i].getValue());
 			}
 			if (this.ln) s += '\n';
-			if (selected_quiz < 0) output(s);
+			if (selected_quiz < 0) textareaAppend(s);
 			else output_str += s;
 			this.state = 0;
 		}
 	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
+	argsPython(indent) {
+		var code = makeIndent(indent);
 		code += "print(";
 		for (var i = 0; i < this.value.length; i++)
-			code += (i > 0 ? ', ' : '') + this.value[i].makePython();
+			code += (i > 0 ? ', ' : '') + this.value[i].argsPython();
 		if (!this.ln) code += ",end=''";
-		return code + ")\n";
+		return code + ")";
 	}
 }
 
-function array2text(v) {
-	if (!v) return '';
-	if (v instanceof Value) {
-		let v0 = v.getValue();
-		if (v0 instanceof ArrayValue) {
-			let v1 = [];
-			for (let i = 0; i < v0.value.length; i++) {
-				v1.push(array2text(v0.value[i]));
-			}
-			return '[' + v1.join(',') + ']';
-		}
-		else if (v0 instanceof DictionaryValue) {
-			let v1 = [];
-			let keys = Object.keys(v0.value);
-			keys.sort();
-			for (let i = 0; i < keys.length; i++) {
-				v1.push(keys[i] + ':' + array2text(v0.value[keys[i]]));
-			}
-			return '{' + v1.join(',') + '}';
-		}
-		else if (v0 instanceof BooleanValue) return v0.value ? 'True' : 'False';
-		else if (v0 instanceof FloatValue && isInteger(v0.value) && !v0.value.toString().match(/[Ee]/)) return v0.value + '.0';
-		else return new String(v0.value);
+class If extends Statement {
+	/**
+	 *
+	 * @param {Array} blocks
+	 * @param {Location} loc
+	 */
+	constructor(blocks, loc) {
+		super(loc);
+		this.blocks = blocks;
+		this.running = -1;
 	}
-	else return new String(v);
+	clone() {
+		var newblock = [];
+		for (var i = 0; i < this.blocks.length; i++) {
+			var newblock1 = [];
+			for (var j = 0; j < this.blocks[i][1].length; j++)
+				if (this.blocks[i][1][j]) newblock1.push(this.blocks[i][1][j].clone());
+			newblock.push([this.blocks[i][0] ? this.blocks[i][0].clone() : null, newblock1]);
+		}
+		return new If(newblock, this.loc);
+	}
+	run() {
+		if (this.state == 0) {
+			this.running = 0;
+			this.state = 1;
+		}
+		else if (this.state == 1) {
+			if (this.running < this.blocks.length) {
+				if (this.blocks[this.running] && this.blocks[this.running][0])
+					code[0].stack.unshift({ statementlist: [this.blocks[this.running][0]], index: 0 });
+				this.state = 2;
+			}
+			else {
+				this.state = 0;
+				code[0].stack[0].index++;
+			}
+		}
+		else if (this.state == 2) {
+			var flag = this.blocks[this.running][0] ?
+				toBool(this.blocks[this.running][0].getValue()) :
+				true;
+			if (flag) {
+				code[0].stack[0].index++;
+				this.state = 0;
+				code[0].stack.unshift({ statementlist: this.blocks[this.running][1], index: 0 });
+				// if(debug_mode)
+				// {
+				// 		textareaAppend("DEBUG: If block " + this.running + " is executed\n");
+				// 	for(var i of this.blocks[this.running][1]) textareaAppend("DEBUG:   " + constructor_name(i) + "\n");
+				// }
+			}
+			else {
+				this.running++;
+				this.state = 1;
+			}
+		}
+	}
+	argsPython(indent) {
+		var code = [];
+		for (var i = 0; i < this.blocks.length; i++) {
+			if (i == 0) code.push(makeIndent(indent) + "if " + this.blocks[i][0].argsPython() + ":");
+			else if (this.blocks[i][0]) code.push(makeIndent(indent) + "elif " + this.blocks[i][0].argsPython(0) + ":");
+			else code.push(makeIndent(indent) + "else:");
+			if (this.blocks[i][1] && this.blocks[i][1].length > 0) {
+				for (var j = 0; j < this.blocks[i][1].length; j++)
+					code.push(this.blocks[i][1][j].argsPython(indent + 1));
+			}
+			else code.push(makeIndent(indent + 1) + "pass");
+		}
+		return code.join("\n");
+	}
 }
 
-function array2code(v) {
-	if (!v) return '';
-	let v0 = v;
-	if (v0 instanceof ArrayValue) {
-		let v1 = [];
-		for (let i = 0; i < v0.value.length; i++) v1.push(array2text(v0.value[i]));
-		return '[' + v1.join(',') + ']';
+class LoopBegin extends Statement {
+	/**
+	 * @constructor
+	 * @param {Value} condition nullなら判定しない
+	 * @param {boolean} continuous condition==continuousなら継続
+	 * @param {Location} loc
+	 */
+	constructor(condition, continuous, loc) {
+		super(loc);
+		this.condition = condition;
+		this.continuous = continuous;
+		this.state = 0;
 	}
-	else if (v0 instanceof DictionaryValue) {
-		let v1 = [];
-		let keys = Object.keys(v0.value);
-		keys.sort();
-		for (let i = 0; i < keys.length; i++) v1.push(keys[i] + ':' + array2text(v0.value[keys[i]]));
-		return '{' + v1.join(',') + '}';
+	clone() {
+		return new LoopBegin(this.condition ? this.condition.clone() : null, this.continuous, this.loc);
 	}
-	else if (v0 instanceof StringValue) return '"' + v0.value + '"';
-	else if (v0 instanceof FloatValue && isInteger(v0.value) && !v0.value.toString().match(/[Ee]/)) return v0.value + '.0';
-	return v0.value;
+	run() {
+		if (this.state == 0) {
+			if (this.condition) code[0].stack.unshift({ statementlist: [this.condition], index: 0 });
+			this.state = 1;
+		}
+		else {
+			if (!this.condition || toBool(this.condition.getValue()) == this.continuous)
+				code[0].stack[0].index++;
+			else code[0].stack[0].index = -1;
+			this.state = 0;
+		}
+	}
 }
+
+class LoopEnd extends Statement {
+	/**
+	 * @constructor
+	 * @param {Value} condition nullなら判定しない
+	 * @param {boolean} continuous condition==continuousなら継続
+	 * @param {Location} loc
+	 */
+	constructor(condition, continuous, loc) {
+		super(loc);
+		this.condition = condition;
+		this.continuous = continuous;
+		this.state = 0;
+	}
+	clone() {
+		return new LoopEnd(this.condition ? this.condition.clone() : null, this.continuous, this.loc);
+	}
+	run() {
+		if (this.state == 0) {
+			if (this.condition) code[0].stack.unshift({ statementlist: [this.condition], index: 0 });
+			this.state = 1;
+		}
+		else {
+			if (!this.condition || toBool(this.condition.getJSValue()) == this.continuous) code[0].stack[0].index = 0;
+			else code[0].stack[0].index = -1;
+			this.state = 0;
+		}
+	}
+}
+
+class LoopBody extends Statement {
+	constructor(statementlist, loc) {
+		super(loc);
+		this.statementlist = statementlist;
+	}
+	clone() {
+		return new LoopBody(cloneStatementlist(this.statementlist), this.loc);
+	}
+	run() {
+		code[0].stack[0].index++;
+		code[0].stack.unshift({ statementlist: cloneStatementlist(this.statementlist), index: 0 });
+	}
+}
+
+class ForIn extends Statement {
+	constructor(array, variable, statementlist, loc) {
+		super(loc);
+		if (!(variable instanceof Variable || variable instanceof UNDEFINED)) throw new RuntimeError(loc.first_line, "繰り返しのカウンタは変数でなくてはいけません");
+		this.array = array;
+		this.variable = variable;
+		this.statementlist = [];
+		for (var statement of statementlist) this.statementlist.push(statement.clone());
+	}
+	clone() {
+		var state = [];
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) state.push(this.statementlist[i].clone());
+		return new ForIn(this.array.clone(), this.variable.clone(), state, this.loc);
+	}
+	argsPython(indent) {
+		var code = [makeIndent(indent)];
+		var pa = this.array.argsPython(), pv = this.variable.argsPython();
+		code.push("for " + pv + " in " + pa + ":");
+		var codes = 0;
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) {
+				codes = 1;
+				code.push(this.statementlist[i].argsPython(indent + 1));
+			}
+		if (codes == 0) code.push(makeIndent(indent + 1) + "pass");
+		return code.join("\n");
+	}
+	run() {
+		if (this.variable instanceof UNDEFINED)
+			throw new RuntimeError(this.loc.first_line, "未完成のプログラムです");
+		if (this.state == 0) {
+			code[0].stack.unshift({ statementlist: [this.array], index: 0 });
+			this.state = 1;
+		}
+		else {
+			code[0].stack[0].index++;
+			let loop = [new ForIn_step(this, this.variable, this.array.getValue(), this.loc),
+			new LoopBegin(new BooleanValue([true], this.loc, true), true, this.loc),
+			new LoopBody(this.statementlist, this.loc),
+			new LoopEnd(null, true, this.loc)
+			];
+			code[0].stack.unshift({ statementlist: loop, index: 0 });
+			this.state = 0;
+		}
+	}
+}
+
+class ForIn_step extends Statement {
+	constructor(forin, variable, array, loc) {
+		super(loc);
+		this.forin = forin;
+		this.variable = variable;
+		this.array = array;
+		this.index = 0;
+	}
+	clone() {
+		return new ForIn_step(this.forin.clone(), this.variable.clone());
+		// , this.array.clone(), this.loc);
+	}
+	run() {
+		code[0].stack[0].index++;
+		if (this.index < this.array.valueLength()) {
+			let assign = new Assign(this.variable, this.array.getValue(this.index++), null, this.loc);
+			code[0].stack.unshift({ statementlist: [assign], index: 0 });
+		}
+		else {
+			code[0].stack[0].statementlist[1] =
+				new LoopBegin(new BooleanValue([false], this.loc, false), true, this.loc);
+		}
+	}
+}
+
+/**
+ * forループ（加算）
+ */
+class ForInc extends Statement {
+	/**
+	 * @constructor
+	 * @param {Variable} varname
+	 * @param {Value} begin
+	 * @param {Value} end
+	 * @param {Value} step
+	 * @param {Array<Statement>} statementlist
+	 * @param {Location} loc
+	 */
+	constructor(variable, begin, end, step, statementlist, loc) {
+		super(loc);
+		if (!(variable instanceof Variable || variable instanceof UNDEFINED)) throw new RuntimeError(loc.first_line, "繰り返しのカウンタは変数でなくてはいけません");
+		this.variable = variable;
+		this.begin = begin;
+		this.end = end;
+		this.step = step;
+		this.statementlist = statementlist;
+		this.state = 0;
+	}
+	clone() {
+		var state = [];
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) state.push(this.statementlist[i].clone());
+		return new ForInc(this.variable.clone(), this.begin.clone(), this.end.clone(), this.step.clone(), state, this.loc);
+	}
+	argsPython(indent) {
+		var code = [];
+		var pv = this.variable.argsPython(), pb = this.begin.argsPython(), pe = this.end.argsPython(), ps = this.step.argsPython();
+		code.push(makeIndent(indent) + "for " + pv + " in range(" + pb + ", " + pe + "+1, " + ps + ")");
+		var codes = 0;
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) {
+				codes = 1;
+				code.push(this.statementlist[i].argsPython(indent + 1));
+			}
+		if (codes == 0) code.push(makeIndent(indent + 1) + "pass");
+		return code.join("\n");
+	}
+	run() {
+		if (this.variable instanceof UNDEFINED)
+			throw new RuntimeError(this.first_line, "未完成のプログラムです");
+		if (this.state == 0) {
+			code[0].stack.unshift({ statementlist: [new Assign(this.variable, this.begin, null, this.loc)], index: 0 });
+			code[0].stack.unshift({ statementlist: [this.begin, this.end, this.step], index: 0 });
+			this.state = 1;
+		}
+		else {
+			code[0].stack[0].index++;
+			if (this.step.getJSValue() <= 0) throw new RuntimeError(this.first_line, '増分は0より大きい値である必要があります');
+			if (this.begin.getValue() instanceof IntValue || this.begin.getValue() instanceof FloatValue) {
+				// let variable = new Variable(this.variable.varname, this.variable.args,this.loc);
+				let condition = new Compare([this.variable, '<=', this.end], this.loc);	// IncとDecの違うところ
+				let loop = [this.variable, condition, new LoopBegin(condition, true, this.loc)];
+				loop.push(new LoopBody(this.statementlist, this.loc));
+				loop.push(this.step);
+				loop.push(new Assign(this.variable, this.step, '+', this.loc));	// IncとDecの違うところ
+				loop.push(new LoopEnd(null, true, this.loc));
+				code[0].stack.unshift({ statementlist: loop, index: 0 });
+			}
+			else throw new RuntimeError(this.first_line, '初期値は数値型である必要があります');
+			this.state = 0;
+		}
+	}
+}
+
+class ForDec extends Statement {
+	/**
+	 * @constructor
+	 * @param {Variable} varname
+	 * @param {Value} begin
+	 * @param {Value} end
+	 * @param {Value} step
+	 * @param {Array<Statement>} statementlist
+	 * @param {Location} loc
+	 */
+	constructor(variable, begin, end, step, statementlist, loc) {
+		super(loc);
+		if (!(variable instanceof Variable || variable instanceof UNDEFINED)) throw new RuntimeError(loc.first_line, "繰り返しのカウンタは変数でなくてはいけません");
+		this.variable = variable;
+		this.begin = begin;
+		this.end = end;
+		this.step = step;
+		this.statementlist = statementlist;
+		this.state = 0;
+	}
+	clone() {
+		var state = [];
+		for (var i = 0; i < this.statementlist.length; i++) if (this.statementlist[i]) state.push(this.statementlist[i].clone());
+		return new ForDec(this.variable.clone(), this.begin.clone(), this.end.clone(), this.step.clone(), state, this.loc);
+	}
+	argsPython(indent) {
+		var code = [];
+		var pv = this.variable.argsPython(), pb = this.begin.argsPython(), pe = this.end.argsPython(), ps = this.step.argsPython();
+		code.push(makeIndent(indent) + "for " + pv + " in range(" + pb + ", " + pe + "-1, " + ps + "):");
+		var codes = 0;
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) {
+				codes = 1;
+				code.push(this.statementlist[i].argsPython(indent + 1));
+			}
+		if (codes == 0) code.push(makeIndent(indent + 1) + "pass");
+		return code.join("\n");
+	}
+	run() {
+		if (this.variable instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
+		if (this.state == 0) {
+			code[0].stack.unshift({ statementlist: [new Assign(this.variable, this.begin, null, this.loc)], index: 0 });
+			code[0].stack.unshift({ statementlist: [this.begin, this.end, this.step], index: 0 });
+			this.state = 1;
+		}
+		else {
+			code[0].stack[0].index++;
+			if (this.step.getJSValue() <= 0) throw new RuntimeError(this.first_line, '減分は0より大きい値である必要があります');
+			if (this.begin.getValue() instanceof IntValue || this.begin.getValue() instanceof FloatValue) {
+				// let variable = new Variable(this.variable.varname, this.variable.args,this.loc);
+				let condition = new Compare([this.variable, '>=', this.end], this.loc);	// IncとDecの違うところ
+
+				let loop = [this.variable, condition, new LoopBegin(condition, true, this.loc)];
+				loop.push(new LoopBody(this.statementlist, this.loc));
+				loop.push(this.step);
+				loop.push(new Assign(this.variable, this.step, '-', this.loc));	// IncとDecの違うところ
+				loop.push(new LoopEnd(null, true, this.loc));
+				code[0].stack.unshift({ statementlist: loop, index: 0 });
+			}
+			else throw new RuntimeError(this.first_line, '初期値は数値型である必要があります');
+			this.state = 0;
+		}
+	}
+}
+
+/**
+ * forループ（加算）
+ */
+class ForIntervalInc extends Statement {
+	/**
+	 * @constructor
+	 * @param {Variable} varname
+	 * @param {Value} interval
+	 * @param {Value} step
+	 * @param {Array<Statement>} statementlist
+	 * @param {Location} loc
+	 */
+	constructor(variable, interval, step, statementlist, loc) {
+		super(loc);
+		if (!(variable instanceof Variable || variable instanceof UNDEFINED)) throw new RuntimeError(loc.first_line, "繰り返しのカウンタは変数でなくてはいけません");
+		this.variable = variable;
+		this.interval = interval;
+		this.step = step;
+		this.statementlist = statementlist;
+		this.state = 0;
+	}
+	clone() {
+		var state = [];
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) state.push(this.statementlist[i].clone());
+		return new ForIntervalInc(this.variable.clone(), this.interval.clone(), this.step.clone(), state, this.loc);
+	}
+	argsPython(indent) {
+		var code = [];
+		var pv = this.variable.argsPython(), pb = this.begin.argsPython(), pe = this.end.argsPython(), ps = this.step.argsPython();
+		code.push(makeIndent(indent) + "for " + pv + " in range(" + pb + ", " + pe + "+1, " + ps + ")");
+		var codes = 0;
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) {
+				codes = 1;
+				code.push(this.statementlist[i].argsPython(indent + 1));
+			}
+		if (codes == 0) code.push(makeIndent(indent + 1) + "pass");
+		return code.join("\n");
+	}
+	run() {
+		if (this.variable instanceof UNDEFINED)
+			throw new RuntimeError(this.first_line, "未完成のプログラムです");
+		if (this.state == 0) {
+			var statementlist = [this.interval, this.interval.getArgs(0), this.interval.getArgs(1), this.step];
+			code[0].stack.unshift({ statementlist: statementlist, index: 0 });
+			this.state = 1;
+		}
+		else if (this.state == 1) {
+			this.begin = this.interval.getValue1()
+			this.end = this.interval.getValue2();
+			if (this.begin instanceof IntValue && this.end instanceof IntValue && this.step.getValue() instanceof IntValue) {
+				var statementlist = [];
+				if (!this.interval.getValueLeftClose()) this.begin =
+					new IntValue([this.begin.getJSValue() + this.step.getJSValue()], this.loc);
+				if (!this.interval.getValueRightClose()) this.end =
+					new IntValue([this.end.getJSValue() - this.step.getJSValue()], this.loc);
+				statementlist.push(new Assign(this.variable, this.begin, null, this.loc));
+				code[0].stack.unshift({ statementlist: statementlist, index: 0 });
+				this.state = 2;
+			}
+			else throw new RuntimeError(this.first_line, '区間やステップは整数型である必要があります');
+		}
+		else {
+			code[0].stack[0].index++;
+			if (this.step.getJSValue() <= 0) throw new RuntimeError(this.first_line, '増分は0より大きい値である必要があります');
+			if (this.begin.getValue() instanceof IntValue || this.begin.getValue() instanceof FloatValue) {
+				// let variable = new Variable(this.variable.varname, this.variable.args,this.loc);
+				let condition = new Compare([this.variable, '<=', this.end], this.loc);	// IncとDecの違うところ
+				let loop = [this.variable, condition, new LoopBegin(condition, true, this.loc)];
+				loop.push(new LoopBody(this.statementlist, this.loc));
+				loop.push(this.step);
+				loop.push(new Assign(this.variable, this.step, '+', this.loc));	// IncとDecの違うところ
+				loop.push(new LoopEnd(null, true, this.loc));
+				code[0].stack.unshift({ statementlist: loop, index: 0 });
+			}
+			else throw new RuntimeError(this.first_line, '初期値は数値型である必要があります');
+			this.state = 0;
+		}
+	}
+}
+
+class ForIntervalDec extends Statement {
+	/**
+	 * @constructor
+	 * @param {Variable} varname
+	 * @param {Value} interval
+	 * @param {Value} step
+	 * @param {Array<Statement>} statementlist
+	 * @param {Location} loc
+	 */
+	constructor(variable, interval, step, statementlist, loc) {
+		super(loc);
+		if (!(variable instanceof Variable || variable instanceof UNDEFINED)) throw new RuntimeError(loc.first_line, "繰り返しのカウンタは変数でなくてはいけません");
+		this.variable = variable;
+		this.interval = interval;
+		this.step = step;
+		this.statementlist = statementlist;
+		this.state = 0;
+	}
+	clone() {
+		var state = [];
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) state.push(this.statementlist[i].clone());
+		return new ForIntervalDec(this.variable.clone(), this.interval.clone(), this.step.clone(), state, this.loc);
+	}
+	argsPython(indent) {
+		var code = [];
+		var pv = this.variable.argsPython(), pb = this.begin.argsPython(), pe = this.end.argsPython(), ps = this.step.argsPython();
+		code.push(makeIndent(indent) + "for " + pv + " in range(" + pb + ", " + pe + "+1, " + ps + ")");
+		var codes = 0;
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) {
+				codes = 1;
+				code.push(this.statementlist[i].argsPython(indent + 1));
+			}
+		if (codes == 0) code.push(makeIndent(indent + 1) + "pass");
+		return code.join("\n");
+	}
+	run() {
+		if (this.variable instanceof UNDEFINED)
+			throw new RuntimeError(this.first_line, "未完成のプログラムです");
+		if (this.state == 0) {
+			var statementlist = [this.interval, this.interval.getArgs(0), this.interval.getArgs(1), this.step];
+			code[0].stack.unshift({ statementlist: statementlist, index: 0 });
+			this.state = 1;
+		}
+		else if (this.state == 1) {
+			this.begin = this.interval.getValue2()
+			this.end = this.interval.getValue1();
+			if (this.begin instanceof IntValue && this.end instanceof IntValue && this.step.getValue() instanceof IntValue) {
+				var statementlist = [];
+				if (!this.interval.getValueRightClose()) this.begin =
+					new IntValue([this.begin.getJSValue() - this.step.getJSValue()], this.loc);
+				if (!this.interval.getValueLeftClose()) this.end =
+					new IntValue([this.end.getJSValue() + this.step.getJSValue()], this.loc);
+				statementlist.push(new Assign(this.variable, this.begin, null, this.loc));
+				code[0].stack.unshift({ statementlist: statementlist, index: 0 });
+				this.state = 2;
+			}
+			else throw new RuntimeError(this.first_line, '区間やステップは整数型である必要があります');
+		}
+		else {
+			code[0].stack[0].index++;
+			if (this.step.getJSValue() <= 0) throw new RuntimeError(this.first_line, '増分は0より大きい値である必要があります');
+			if (this.begin.getValue() instanceof IntValue || this.begin.getValue() instanceof FloatValue) {
+				// let variable = new Variable(this.variable.varname, this.variable.args,this.loc);
+				let condition = new Compare([this.variable, '>=', this.end], this.loc);	// IncとDecの違うところ
+				let loop = [this.variable, condition, new LoopBegin(condition, true, this.loc)];
+				loop.push(new LoopBody(this.statementlist, this.loc));
+				loop.push(this.step);
+				loop.push(new Assign(this.variable, this.step, '-', this.loc));	// IncとDecの違うところ
+				loop.push(new LoopEnd(null, true, this.loc));
+				code[0].stack.unshift({ statementlist: loop, index: 0 });
+			}
+			else throw new RuntimeError(this.first_line, '初期値は数値型である必要があります');
+			this.state = 0;
+		}
+	}
+}
+
+class While extends Statement {
+	constructor(condition, statementlist, loc) {
+		super(loc);
+		this.condition = condition;
+		this.statementlist = statementlist;
+		this.status = 0;
+	}
+	clone() {
+		var state = [];
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) state.push(this.statementlist[i].clone());
+		return new While(this.condition.clone(), state, this.loc);
+	}
+	argsPython(indent) {
+		var code = [];
+		code.push(makeIndent(indent) + "while " + this.condition.argsPython() + ":");
+		var codes = 0;
+		for (var i = 0; i < this.statementlist.length; i++)
+			if (this.statementlist[i]) {
+				codes = 1;
+				code.push(this.statementlist[i].argsPython(indent + 1));
+			}
+		if (codes == 0) code.push(makeIndent(indent + 1) + "pass");
+		return code.join("\n");
+	}
+	run() {
+		if (this.status == 0) {
+			code[0].stack.unshift({ statementlist: [this.condition], index: 0 });
+			this.status = 1;
+		}
+		else {
+			code[0].stack[0].index++;
+			let loop = [new LoopBegin(this.condition, true, this.loc)];
+			loop.push(new LoopBody(this.statementlist, this.loc));
+			code[0].stack.unshift({ statementlist: loop, index: 0 });
+			loop.push(new LoopEnd(null, false, this.loc));
+			this.status = 0;
+		}
+	}
+}
+
+class SleepStatement extends Statement {
+	constructor(sec, loc) {
+		super(loc)
+		this.sec = sec; // milli seconds
+		this.state = 0;
+	}
+	clone() {
+		return new SleepStatement(this.sec.clone(), this.loc);
+	}
+	run() {
+		var statement = new CallFunction(["sleep", [this.sec]], this.loc);
+		code[0].stack[0].index++;
+		code[0].stack.unshift({ statementlist: [statement], index: 0 });
+	}
+	argsPython(indent) {
+		var code = makeIndent(indent);
+		python_lib["time"] = 1;
+		return code + "time.sleep(" + this.sec.argsPython() + " / 1000)";
+	}
+}
+
+class NopStatement extends Statement {
+	constructor(loc) { super(loc); }
+	clone() { return new NopStatement(this.loc); }
+	run() { code[0].stack[0].index++; }
+	argsPython(indent) {
+		return makeIndent(indent) + "pass";
+	}
+}
+
+class PauseStatement extends Statement {
+	constructor(loc) { super(loc); }
+	clone() { return new PauseStatement(this.loc); }
+	run() { code[0].stack[0].index++; }
+	argsPython(indent) {
+		return '';
+	}
+}
+
+
+class BreakStatement extends Statement {
+	constructor(loc) { super(loc); }
+	clone() {
+		return new BreakStatement(this.loc);
+	}
+	run() {
+		while (true) {
+			var block = code[0].stack.shift();
+			if (!block) throw new RuntimeError(this.first_line, '繰り返しの中ではありません。');
+			for (var i = 0; i < block.statementlist.length; i++)
+				if (block.statementlist[i] instanceof LoopBegin) return;
+		}
+	}
+	argsPython(indent) {
+		return makeIndent(indent) + "break";
+	}
+}
+
+var graphColor = [
+	'#c00000', '#00c000', '#0000c0', '#007070', '#700070', '#707000'
+];
 
 class GraphicStatement extends Statement {
 	constructor(command, args, loc) {
@@ -5323,7 +7804,7 @@ class GraphicStatement extends Statement {
 		else {
 			code[0].stack[0].index++;
 			if (this.command == 'gOpenWindow') {
-				canvas = new OffscreenCanvas(this.args[0].getValue().value, this.args[1].getValue().value);
+				canvas = new OffscreenCanvas(Number(this.args[0].getJSValue()), Number(this.args[1].getJSValue()) );
 				context = canvas.getContext('2d');
 			}
 			else if (this.command == 'gCloseWindow') {
@@ -5335,38 +7816,38 @@ class GraphicStatement extends Statement {
 			}
 			else if (this.command == 'gSetLineColor') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let r = this.args[0].getValue().value, g = this.args[1].getValue().value, b = this.args[2].getValue().value;
+				let r = Number(this.args[0].getJSValue()), g = Number(this.args[1].getJSValue()), b = Number(this.args[2].getJSValue());
 				context.strokeStyle = "rgb(" + r + "," + g + "," + b + ")";
 			}
 			else if (this.command == 'gSetFillColor') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let r = this.args[0].getValue().value, g = this.args[1].getValue().value, b = this.args[2].getValue().value;
+				let r = Number(this.args[0].getJSValue()), g = Number(this.args[1].getJSValue()), b = Number(this.args[2].getJSValue());
 				context.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
 			}
 			else if (this.command == 'gSetTextColor') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let r = this.args[0].getValue().value, g = this.args[1].getValue().value, b = this.args[2].getValue().value;
+				let r = Number(this.args[0].getJSValue()), g = Number(this.args[1].getJSValue()), b = Number(this.args[2].getJSValue());
 				context.textStyle = "rgb(" + r + "," + g + "," + b + ")";
 			}
 			else if (this.command == 'gSetLineWidth') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				context.lineWidth = this.args[0].getValue().value;
+				context.lineWidth = Number(this.args[0].getJSValue());
 			}
 			else if (this.command == 'gSetFontSize') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				context.font = this.args[0].getValue().value + "px 'sans-serif'";
+				context.font = Number(this.args[0].getJSValue()) + "px 'sans-serif'";
 			}
 			else if (this.command == 'gDrawText') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
 				var temp = context.fillStyle;
 				context.fillStyle = context.textStyle;
-				context.fillText(this.args[0].getValue().value, this.args[1].getValue().value, this.args[2].getValue().value);
+				context.fillText(this.args[0].getJSValue(), Number(this.args[1].getJSValue()), Number(this.args[2].getJSValue()));
 				context.fillStyle = temp;
 			}
 			else if (this.command == 'gDrawLine') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let x1 = this.args[0].getValue().value, y1 = this.args[1].getValue().value,
-					x2 = this.args[2].getValue().value, y2 = this.args[3].getValue().value;
+				let x1 = Number(this.args[0].getJSValue()), y1 = Number(this.args[1].getJSValue()),
+					x2 = Number(this.args[2].getJSValue()), y2 = Number(this.args[3].getJSValue());
 				context.beginPath();
 				context.moveTo(x1, y1);
 				context.lineTo(x2, y2);
@@ -5374,23 +7855,23 @@ class GraphicStatement extends Statement {
 			}
 			else if (this.command == 'gDrawPoint') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let x1 = this.args[0].getValue().value, y1 = this.args[1].getValue().value;
+				let x1 = numthis.args[0].getJSValue(), y1 = this.args[1].getJSValue();
 				context.beginPath();
 				context.arc(x1, y1, 1, 0, Math.PI * 2, false);
 				context.stroke();
 			}
 			else if (this.command == 'gDrawBox') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let x1 = this.args[0].getValue().value, y1 = this.args[1].getValue().value,
-					width = this.args[2].getValue().value, height = this.args[3].getValue().value;
+				let x1 = Number(this.args[0].getJSValue()), y1 = Number(this.args[1].getJSValue()),
+					width = Number(this.args[2].getJSValue()), height = Number(this.args[3].getJSValue());
 				context.beginPath();
 				context.strokeRect(x1, y1, width, height);
 				context.stroke();
 			}
 			else if (this.command == 'gFillBox') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let x1 = this.args[0].getValue().value, y1 = this.args[1].getValue().value,
-					width = this.args[2].getValue().value, height = this.args[3].getValue().value;
+				let x1 = Number(this.args[0].getJSValue()), y1 = Number(this.args[1].getJSValue()),
+					width = Number(this.args[2].getJSValue()), height = Number(this.args[3].getJSValue());
 				context.fillRect(x1, y1, width, height);
 				context.beginPath();
 				context.strokeRect(x1, y1, width, height);
@@ -5398,14 +7879,14 @@ class GraphicStatement extends Statement {
 			}
 			else if (this.command == 'gDrawCircle') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let x1 = this.args[0].getValue().value, y1 = this.args[1].getValue().value, r = this.args[2].getValue().value;
+				let x1 = Number(this.args[0].getJSValue()), y1 = Number(this.args[1].getJSValue()), r = Number(this.args[2].getJSValue());
 				context.beginPath();
 				context.arc(x1, y1, r, 0, Math.PI * 2, false);
 				context.stroke();
 			}
 			else if (this.command == 'gFillCircle') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let x1 = this.args[0].getValue().value, y1 = this.args[1].getValue().value, r = this.args[2].getValue().value;
+				let x1 = Number(this.args[0].getJSValue()), y1 = Number(this.args[1].getJSValue()), r = Number(this.args[2].getJSValue());
 				for (var i = 0; i < 2; i++) {
 					context.beginPath();
 					context.arc(x1, y1, r, 0, Math.PI * 2, false);
@@ -5415,14 +7896,14 @@ class GraphicStatement extends Statement {
 			}
 			else if (this.command == 'gDrawOval') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let x1 = this.args[0].getValue().value, y1 = this.args[1].getValue().value, w = this.args[2].getValue().value, h = this.args[3].getValue().value;
+				let x1 = Number(this.args[0].getJSValue()), y1 = Number(this.args[1].getJSValue()), w = Number(this.args[2].getJSValue()), h = Number(this.args[3].getJSValue());
 				context.beginPath();
 				context.ellipse(x1 + w / 2, y1 + h / 2, w / 2, h / 2, 0, 0, Math.PI * 2);
 				context.stroke();
 			}
 			else if (this.command == 'gFillOval') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let x1 = this.args[0].getValue().value, y1 = this.args[1].getValue().value, w = this.args[2].getValue().value, h = this.args[3].getValue().value;
+				let x1 = Number(this.args[0].getJSValue()), y1 = Number(this.args[1].getJSValue()), w = Number(this.args[2].getJSValue()), h = Number(this.args[3].getJSValue());
 				for (var i = 0; i < 2; i++) {
 					context.beginPath();
 					context.ellipse(x1 + w / 2, y1 + h / 2, w / 2, h / 2, 0, 0, Math.PI * 2);
@@ -5432,8 +7913,8 @@ class GraphicStatement extends Statement {
 			}
 			else if (this.command == 'gDrawArc') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let x1 = this.args[0].getValue().value, y1 = this.args[1].getValue().value, w = this.args[2].getValue().value, h = this.args[3].getValue().value,
-					theta1 = this.args[4].getValue().value, theta2 = this.args[5].getValue().value, style = this.args[6].getValue().value;
+				let x1 = Number(this.args[0].getJSValue()), y1 = Number(this.args[1].getJSValue()), w = Number(this.args[2].getJSValue()), h = Number(this.args[3].getJSValue()),
+					theta1 = Number(this.args[4].getJSValue()), theta2 = Number(this.args[5].getJSValue()), style = Number(this.args[6].getJSValue());
 				context.beginPath();
 				context.ellipse(x1 + w / 2, y1 + h / 2, w / 2, h / 2, 0, -theta1 * Math.PI / 180, -theta2 * Math.PI / 180, true);
 				switch (style) {
@@ -5447,8 +7928,8 @@ class GraphicStatement extends Statement {
 			}
 			else if (this.command == 'gFillArc') {
 				if (context == null) throw new RuntimeError(this.first_line, "描画領域がありません");
-				let x1 = this.args[0].getValue().value, y1 = this.args[1].getValue().value, w = this.args[2].getValue().value, h = this.args[3].getValue().value,
-					theta1 = this.args[4].getValue().value, theta2 = this.args[5].getValue().value, style = this.args[6].getValue().value;
+				let x1 = Number(this.args[0].getJSValue()), y1 = Number(this.args[1].getJSValue()), w = Number(this.args[2].getJSValue()), h = Number(this.args[3].getJSValue()),
+					theta1 = Number(this.args[4].getJSValue()), theta2 = Number(this.args[5].getJSValue()), style = Number(this.args[6].getJSValue());
 				for (var i = 0; i < 2; i++) {
 					context.beginPath();
 					context.ellipse(x1 + w / 2, y1 + h / 2, w / 2, h / 2, 0, -theta1 * Math.PI / 180, -theta2 * Math.PI / 180, true);
@@ -5464,11 +7945,9 @@ class GraphicStatement extends Statement {
 				}
 			}
 			else if (this.command == 'gBarplot') {
-				if (context == null) {
-					var w = this.args[0].getValue().value, h = this.args[1].getValue().value;
-					canvas = new OffscreenCanvas(w, h);
-					context = canvas.getContext('2d');
-				}
+				var w = Number(this.args[0].getValue().getJSValue()), h = Number(this.args[1].getValue().getJSValue());
+				canvas = new OffscreenCanvas(w, h);
+				context = canvas.getContext('2d');
 				// 値の取得
 				var values = array2values(this.args[2], this.loc);
 				var max = 0, min = 0, maxn = 0;
@@ -5509,13 +7988,11 @@ class GraphicStatement extends Statement {
 				}
 			}
 			else if (this.command == 'gLineplot') {
-				if (context == null) {
-					var w = this.args[0].getValue().value, h = this.args[1].getValue().value;
-					canvas = new OffscreenCanvas(w, h);
-					context = canvas.getContext('2d');
-				}
+				var w = Number(this.args[0].getValue().getJSValue()), h = Number(this.args[1].getValue().getJSValue());
+				canvas = new OffscreenCanvas(w, h);
+				context = canvas.getContext('2d');
 				// 値の取得
-				var values = array2values(this.args[2], this.loc);
+				var values = array2values(this.args[2].getValue(), this.loc);
 				var max = 0, min = 0, maxn = 0;
 				for (var i = 0; i < values.length; i++) {
 					var l = values[i].length;
@@ -5597,25 +8074,25 @@ function drawGraph(layout, data, loc) {
 	var div = document.getElementById('graph');
 	var graph_data = [], graph_layout = {};
 	if (layout instanceof DictionaryValue) {
-		for (var key in layout.value) {
-			var val = layout.value[key].getValue();
+		for (var key of layout.getKeys()) {
+			var val = layout.getValue(key);
 			if (val instanceof ArrayValue) {
 				graph_layout[key] = {};
-				for (var key1 in val.value)
-					graph_layout[key][key1] = val2obj(val.value[key1].getValue());
+				for (var key1 of val.getJSValue().keys())
+					graph_layout[key][key1] = val2obj(val.getValue(key1));
 			}
 			else graph_layout[key] = val2obj(val);
 		}
 	}
 	else if (layout) throw new RuntimeError(loc.first_line, "レイアウト情報が辞書になっていません");
 	if (data instanceof ArrayValue) {
-		var dl = data.value.length;
+		var dl = data._value.length;
 		for (var i = 0; i < dl; i++) {
-			var d = data.value[i].getValue();
+			var d = data._value[i].getValue();
 			if (d instanceof DictionaryValue) {
 				var va = {};
-				for (var key in d.value) {
-					var val = d.value[key].getValue();
+				for (var key of d.getKeys()) {
+					var val = d.getValue(key).getJSValue();
 					va[key] = val2obj(val);
 				}
 				graph_data.push(va);
@@ -5624,456 +8101,226 @@ function drawGraph(layout, data, loc) {
 			else throw new RuntimeError(loc.first_line, "データの" + i + "番目の要素が辞書になっていません");
 		}
 	} else throw new RuntimeError(loc.first_line, 'データが配列になっていません');
+	// dump("graph_layout", graph_layout);
 	Plotly.newPlot(div, graph_data, graph_layout);
 }
 
-function val2obj(val) {
-	if (val instanceof ArrayValue) {
-		var rtnv = [];
-		var l = val.value.length;
-		for (var i = 0; i < l; i++) rtnv.push(val2obj(val.value[i]));
-		return rtnv;
+class Flowchart {
+	constructor() {
+		this._canvas = document.getElementById("flowchart");
+		this._context = this._canvas.getContext('2d');
+		this.makeEmpty();
 	}
-	else if (val instanceof DictionaryValue) {
-		var rtnv = {};
-		for (var key in val.value)
-			rtnv[key] = val2obj(val.value[key].getValue());
-		return rtnv;
+	get x0() { return this._x0; }
+	get y0() { return this._y0; }
+	get canvas() { return this._canvas; }
+	get context() { return this._context; }
+	setOrigin(x, y) { this._x0 = x; this._y0 = y; }
+	moveOrigin(x, y) { this._x0 += x; this._y0 += y; }
+	makeEmpty() {
+		this.setOrigin(this.canvas.width / 2, FlowchartSetting.size);
+		this.top = new Parts_Terminal();
+		var bar = new Parts_Bar();
+		var end = new Parts_Terminal();
+		this.top.next = bar;
+		bar.next = end;
+		this.top.setValue("はじめ");
+		end.setValue("おわり");
 	}
-	else return val.value;
-}
-
-/**
- *
- * @param {ArrayValue} a
- * @param {Location} loc
- */
-function array2values(a, loc) {
-	var rtnv = [];
-	var array = null;
-	if (a.rtnv instanceof ArrayValue) {
-		if (a.rtnv.value[0] instanceof ArrayValue) array = a.rtnv;
-		else if (a.rtnv.value instanceof Array) array = new ArrayValue([a.rtnv.value], loc);
-		else throw new RuntimeError(loc.first_line, "グラフに誤った型が使われています");
+	code2flowchart(parse) {
+		flowchart.makeEmpty();
+		Flowchart.appendParts(this.top.next, parse);
+		flowchart.paint();
 	}
-	else if (a.rtnv instanceof Array) array = new ArrayValue(a.rtnv, loc);
-	else throw new RuntimeError(loc.first_line, "棒グラフ・線グラフには配列が必要です");
-
-	for (var i = 0; i < array.length; i++) {
-		var rtnv1 = [];
-		for (var j = 0; j < array.value[i].length; j++)
-			rtnv1.push(array.value[i] instanceof ArrayValue ? array.value[i].value[j].value : array.value[i][j].value);
-		rtnv.push(rtnv1);
-	}
-	return rtnv;
-}
-
-
-
-class If extends Statement {
-	/**
-	 *
-	 * @param {Array} blocks
-	 * @param {Location} loc
-	 */
-	constructor(blocks, loc) {
-		super(loc);
-		this.blocks = blocks;
-		this.running = -1;
-	}
-	clone() {
-		var newblock = [];
-		for (var i = 0; i < this.blocks.length; i++) {
-			var newblock1 = [];
-			for (var j = 0; j < this.blocks[i][1].length; j++) if (this.blocks[i][1][j]) newblock1.push(this.blocks[i][1][j].clone());
-			newblock.push([this.blocks[i][0] ? this.blocks[i][0].clone() : null, newblock1]);
-		}
-		return new If(newblock, this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			this.running = 0;
-			this.state = 1;
-		}
-		else if (this.state == 1) {
-			if (this.running < this.blocks.length) {
-				if (this.blocks[this.running][0]) code[0].stack.unshift({ statementlist: [this.blocks[this.running][0]], index: 0 });
-				this.state = 2;
+	static appendParts(parts, statementlist) {
+		for (var i = 0; i < statementlist.length; i++) {
+			var p = statementlist[i];
+			if (!p) continue;
+			var statement = constructor_name(p);
+			if (statement == "Assign") {
+				var p1 = new Parts_Substitute();
+				var b1 = new Parts_Bar();
+				var c = constructor_name(p.value);
+				var brace = false;
+				// if(c == 'Compare'){brace = true;}
+				p1.setValue(argsPyPEN(p.variable),
+					(brace ? '(' : '') + argsPyPEN(p) + (brace ? ')' : ''), p.operator);
+				parts.next = p1;
+				parts = p1.next = b1;
 			}
-			else {
-				this.state = 0;
-				code[0].stack[0].index++;
+			else if (statement == "Append") {
+				var p1 = new Parts_Append();
+				var b1 = new Parts_Bar();
+				p1.setValue(argsPyPEN(p.variable), argsPyPEN(p.value));
+				parts.next = p1;
+				parts = p1.next = b1;
 			}
-		}
-		else if (this.state == 2) {
-			var flag = this.blocks[this.running][0] ? this.blocks[this.running][0].getValue() : new BooleanValue(true, this.loc);
-			if (flag instanceof BooleanValue) {
-				if (flag.value) {
-					code[0].stack[0].index++;
-					this.state = 0;
-					code[0].stack.unshift({ statementlist: this.blocks[this.running][1], index: 0 });
+			else if (statement == "Extend") {
+				var p1 = new Parts_Extend();
+				var b1 = new Parts_Bar();
+				p1.setValue(argsPyPEN(p.variable), argsPyPEN(p.value));
+				parts.next = p1;
+				parts = p1.next = b1;
+			}
+			else if (statement == "Input") {
+				var p1 = new Parts_Input();
+				var b1 = new Parts_Bar();
+				p1.setValue(argsPyPEN(p.variable), p.type);
+				parts.next = p1;
+				parts = p1.next = b1;
+			}
+			else if (statement == "Output") {
+				var p1 = new Parts_Output();
+				var b1 = new Parts_Bar();
+				var v0 = []
+				for (var j = 0; j < p.value.length; j++) v0.push(argsPyPEN(p.value[j]));
+				p1.setValue(v0.join(','), p.ln);
+				parts.next = p1;
+				parts = p1.next = b1;
+			}
+			else if (statement == "Newline") {
+				var p1 = new Parts_Output();
+				var b1 = new Parts_Bar();
+				p1.setValue('改行', true);
+				parts.next = p1;
+				parts = p1.next = b1;
+			}
+			else if (statement == "If") {
+				var p1 = new Parts_If();
+				var b1 = new Parts_Bar(), b2 = new Parts_Bar(), b3 = new Parts_Bar();
+				var n1 = new Parts_Null(), n2 = new Parts_Null(), n3 = new Parts_Null();
+				p1.setValue(argsPyPEN(p.blocks[0][0]));
+				parts.next = p1;
+				p1.next = n1; n1.next = b1;
+				p1.left = b2; b2._prev = p1; b2.next = n2;
+				p1.right = b3; b3._prev = p1; b3.next = n3;
+				if (p.blocks[0][1]) Flowchart.appendParts(b2, p.blocks[0][1]);
+				if (p.blocks.length > 1) {
+					if (p.blocks.length == 2 && !p.blocks[1][0]) {
+						if (p.blocks[1][1]) Flowchart.appendParts(b3, p.blocks[1][1]);
+					}
+					else throw new RuntimeError(-1, "「そうでなくもし」はフローチャートで表せません。");
 				}
-				else {
-					this.running++;
-					this.state = 1;
-				}
+				parts = b1;
 			}
-			else throw new RuntimeError(this.first_line, "条件式が使われるべき場所なのに，条件式が使われていません");
-		}
-	}
-	makePython(indent) {
-		var code = '';
-		for (var i = 0; i < this.blocks.length; i++) {
-			if (i == 0) code += Parts.makeIndent(indent) + "if " + this.blocks[i][0].makePython(0) + ":\n";
-			else if (this.blocks[i][0]) code += Parts.makeIndent(indent) + "elif " + this.blocks[i][0].makePython(0) + ":\n";
-			else code += Parts.makeIndent(indent) + "else:\n";
-			if (this.blocks[i][1] && this.blocks[i][1].length > 0) {
-				for (var j = 0; j < this.blocks[i][1].length; j++)
-					code += this.blocks[i][1][j].makePython(indent + 1);
+			else if (statement == "ForInc") {
+				var p1 = new Parts_LoopBeginInc(), p2 = new Parts_LoopEnd();
+				var b1 = new Parts_Bar(), b2 = new Parts_Bar();
+				p1.setValue(argsPyPEN(p.variable), argsPyPEN(p.begin), argsPyPEN(p.end), argsPyPEN(p.step));
+				parts.next = p1;
+				p1.next = b1; b1.next = p2; p2.next = b2;
+				p1._end = p2; p2._begin = p1;
+				Flowchart.appendParts(b1, p.statementlist);
+				parts = b2;
 			}
-			else code += Parts.makeIndent(indent + 1) + "pass\n";
-		}
-		return code;
-	}
-}
-
-class LoopBegin extends Statement {
-	/**
-	 * @constructor
-	 * @param {Value} condition nullなら判定しない
-	 * @param {boolean} continuous condition==continuousなら継続
-	 * @param {Location} loc
-	 */
-	constructor(condition, continuous, loc) {
-		super(loc);
-		this.condition = condition;
-		this.continuous = continuous;
-		this.state = 0;
-	}
-	clone() {
-		return new LoopBegin(this.condition ? this.condition.clone() : null, this.continuous, this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			if (this.condition) code[0].stack.unshift({ statementlist: [this.condition], index: 0 });
-			this.state = 1;
-		}
-		else {
-			if (!this.condition || this.condition.getValue().value == this.continuous) code[0].stack[0].index++;
-			else code[0].stack[0].index = -1;
-			this.state = 0;
-		}
-	}
-}
-
-class LoopEnd extends Statement {
-	/**
-	 * @constructor
-	 * @param {Value} condition nullなら判定しない
-	 * @param {boolean} continuous condition==continuousなら継続
-	 * @param {Location} loc
-	 */
-	constructor(condition, continuous, loc) {
-		super(loc);
-		this.condition = condition;
-		this.continuous = continuous;
-		this.state = 0;
-	}
-	clone() {
-		return new LoopEnd(this.condition ? this.condition.clone() : null, this.continuous, this.loc);
-	}
-	run() {
-		if (this.state == 0) {
-			if (this.condition) code[0].stack.unshift({ statementlist: [this.condition], index: 0 });
-			this.state = 1;
-		}
-		else {
-			if (!this.condition || this.condition.getValue.value == this.continuous) code[0].stack[0].index = 0;
-			else code[0].stack[0].index = -1;
-			this.state = 0;
-		}
-	}
-}
-
-class ForIn extends Statement {
-	constructor(array, variable, statementlist, loc) {
-		super(loc);
-		if (!(variable instanceof Variable || variable instanceof UNDEFINED)) throw new RuntimeError(loc.first_line, "繰り返しのカウンタは変数でなくてはいけません");
-		this.array = array;
-		this.variable = variable;
-		this.statementlist = statementlist;
-	}
-	clone() {
-		var state = [];
-		for (var i = 0; i < this.statementlist.length; i++) if (this.statementlist[i]) state.push(this.statementlist[i].clone());
-		return new ForIn(this.array.clone(), this.variable.clone(), state, this.loc);
-	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		var pa = this.array.makePython(), pv = this.variable.makePython();
-		code += "for " + pv + " in " + pa + ":\n";
-		var codes = 0;
-		for (var i = 0; i < this.statementlist.length; i++)
-			if (this.statementlist[i]) {
-				codes = 1;
-				code += this.statementlist[i].makePython(indent + 1);
+			else if (statement == "ForDec") {
+				var p1 = new Parts_LoopBeginDec(), p2 = new Parts_LoopEnd();
+				var b1 = new Parts_Bar(), b2 = new Parts_Bar();
+				p1.setValue(argsPyPEN(p.variable), argsPyPEN(p.begin), argsPyPEN(p.end), argsPyPEN(p.step));
+				parts.next = p1;
+				p1.next = b1; b1.next = p2; p2.next = b2;
+				p1._end = p2; p2._begin = p1;
+				Flowchart.appendParts(b1, p.statementlist);
+				parts = b2;
 			}
-		if (codes == 0) code += Parts.makeIndent(indent + 1) + "pass\n";
-		return code;
-	}
-	run() {
-		if (this.varname instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: [this.array], index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let variable = new Variable(this.variable.varname, this.variable.args, this.loc);
-			let loop = [new ForIn_step(this, variable, this.array, this.loc), new LoopBegin(new BooleanValue(true, this.loc), true, this.loc)];
-			for (let i = 0; i < this.statementlist.length; i++)if (this.statementlist[i]) loop.push(this.statementlist[i].clone());
-			loop.push(new LoopEnd(null, true, this.loc));
-			code[0].stack.unshift({ statementlist: loop, index: 0 });
-			this.state = 0;
-		}
-	}
-}
-
-class ForIn_step extends Statement {
-	constructor(forin, variable, array, loc) {
-		super(loc);
-		this.forin = forin;
-		this.variable = variable;
-		this.array = array;
-		this.index = 0;
-	}
-	clone() {
-		return new ForIn_step(this.forin.clone(), this.variable.clone(), this.array.clone(), this.loc);
-	}
-	run() {
-		code[0].stack[0].index++;
-		if (this.index < this.array.rtnv.length) {
-			let assign = new Assign(this.variable, this.array.rtnv.value[this.index++], null, this.loc);
-			code[0].stack.unshift({ statementlist: [assign], index: 0 });
-		}
-		else {
-			code[0].stack[0].statementlist[1] = new LoopBegin(new BooleanValue(false, true, this.loc), true, this.loc);
-		}
-	}
-}
-
-/**
- * forループ（加算）
- */
-class ForInc extends Statement {
-	/**
-	 * @constructor
-	 * @param {Variable} varname
-	 * @param {Value} begin
-	 * @param {Value} end
-	 * @param {Value} step
-	 * @param {Array<Statement>} statementlist
-	 * @param {Location} loc
-	 */
-	constructor(varname, begin, end, step, statementlist, loc) {
-		super(loc);
-		if (!(varname instanceof Variable || varname instanceof UNDEFINED)) throw new RuntimeError(loc.first_line, "繰り返しのカウンタは変数でなくてはいけません");
-		this.varname = varname;
-		this.begin = begin;
-		this.end = end;
-		this.step = step;
-		this.statementlist = statementlist;
-		this.state = 0;
-	}
-	clone() {
-		var state = [];
-		for (var i = 0; i < this.statementlist.length; i++) if (this.statementlist[i]) state.push(this.statementlist[i].clone());
-		return new ForInc(this.varname.clone(), this.begin.clone(), this.end.clone(), this.step.clone(), state, this.loc);
-	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		var pv = this.varname.makePython(), pb = this.begin.makePython(), pe = this.end.makePython(), ps = this.step.makePython();
-		code += "for " + pv + " in range(" + pb + ", " + pe + "+1, " + ps + "):\n";
-		var codes = 0;
-		for (var i = 0; i < this.statementlist.length; i++)
-			if (this.statementlist[i]) {
-				codes = 1;
-				code += this.statementlist[i].makePython(indent + 1);
+			else if (statement == "ForIn") {
+				var p1 = new Parts_LoopBeginFor(), p2 = new Parts_LoopEnd();
+				var b1 = new Parts_Bar(), b2 = new Parts_Bar();
+				p1.setValue(argsPyPEN(p.array), argsPyPEN(p.variable));
+				parts.next = p1;
+				p1.next = b1; b1.next = p2; p2.next = b2;
+				p1._end = p2; p2._begin = p1;
+				Flowchart.appendParts(b1, p.statementlist);
+				parts = b2;
 			}
-		if (codes == 0) code += Parts.makeIndent(indent + 1) + "pass\n";
-		return code;
-	}
-	run() {
-		if (this.varname instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: [new Assign(this.varname, this.begin, null, this.loc)], index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			if (this.begin.getValue() instanceof IntValue || this.begin.getValue() instanceof FloatValue) {
-				let variable = new Variable(this.varname.varname, this.varname.args, this.loc);
-				let condition = new LE(variable, this.end, this.loc);	// IncとDecの違うところ
-				let loop = [variable, condition, new LoopBegin(condition, true, this.loc)];
-				for (let i = 0; i < this.statementlist.length; i++)if (this.statementlist[i]) loop.push(this.statementlist[i].clone());
-				loop.push(this.step);
-				loop.push(new Assign(variable, this.step, '+', this.loc));	// IncとDecの違うところ
-				loop.push(new LoopEnd(null, true, this.loc));
-				code[0].stack.unshift({ statementlist: loop, index: 0 });
+			else if (statement == "While") {
+				var p1 = new Parts_LoopBegin1(), p2 = new Parts_LoopEnd();
+				var b1 = new Parts_Bar(), b2 = new Parts_Bar();
+				p1.setValue(argsPyPEN(p.condition));
+				parts.next = p1;
+				p1.next = b1; b1.next = p2; p2.next = b2;
+				p1._end = p2; p2._begin = p1;
+				Flowchart.appendParts(b1, p.statementlist);
+				parts = b2;
 			}
-			else throw new RuntimeError(this.first_line, '初期値は数値型である必要があります');
-			this.state = 0;
-		}
-	}
-}
-
-class ForDec extends Statement {
-	constructor(varname, begin, end, step, statementlist, loc) {
-		super(loc);
-		if (!(varname instanceof Variable || varname instanceof Variable)) throw new RuntimeError(loc.first_line, "繰り返しのカウンタは変数でなくてはいけません");
-		this.varname = varname;
-		this.begin = begin;
-		this.end = end;
-		this.step = step;
-		this.statementlist = statementlist;
-		this.state = 0;
-	}
-	clone() {
-		var state = [];
-		for (var i = 0; i < this.statementlist.length; i++) if (this.statementlist[i]) state.push(this.statementlist[i].clone());
-		return new ForDec(this.varname.clone(), this.begin.clone(), this.end.clone(), this.step.clone(), state, this.loc);
-	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		var pv = this.varname.makePython(), pb = this.begin.makePython(), pe = this.end.makePython(), ps = this.step.makePython();
-		code += "for " + pv + " in range(" + pb + ", " + pe + "-1, -" + ps + "):\n";
-		var codes = 0;
-		for (var i = 0; i < this.statementlist.length; i++)
-			if (this.statementlist[i]) {
-				codes = 1;
-				code += this.statementlist[i].makePython(indent + 1);
+			else if (statement == "FileIOStatement") {
+				var p1 = new Parts_Misc();
+				var b1 = new Parts_Bar();
+				p1.setValue(p.command, p.args);
+				parts.next = p1;
+				parts = p1.next = b1;
 			}
-		if (codes == 0) code += Parts.makeIndent(indent + 1) + "pass\n";
-		return code;
-	}
-	run() {
-		if (this.varname instanceof UNDEFINED) throw new RuntimeError(this.first_line, "未完成のプログラムです");
-		if (this.state == 0) {
-			code[0].stack.unshift({ statementlist: [new Assign(this.varname, this.begin, null, this.loc)], index: 0 });
-			this.state = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			if (this.begin.getValue() instanceof IntValue || this.begin.getValue() instanceof FloatValue) {
-				let variable = new Variable(this.varname.varname, this.varname.args, this.loc);
-				let condition = new GE(variable, this.end, this.loc);	// IncとDecの違うところ
-				let loop = [variable, condition, new LoopBegin(condition, true, this.loc)];
-				for (let i = 0; i < this.statementlist.length; i++) if (this.statementlist[i]) loop.push(this.statementlist[i].clone());
-				loop.push(this.step);
-				loop.push(new Assign(variable, this.step, '-', this.loc));	// IncとDecの違うところ
-				loop.push(new LoopEnd(null, true, this.loc));
-				code[0].stack.unshift({ statementlist: loop, index: 0 });
+			else if (statement == "GraphicStatement") {
+				var p1 = new Parts_Misc();
+				var b1 = new Parts_Bar();
+				p1.setValue(p.command, p.args);
+				parts.next = p1;
+				parts = p1.next = b1;
 			}
-			else throw new RuntimeError(this.first_line, '初期値は数値型である必要があります');
-			this.state = 0;
-		}
-	}
-}
-
-class While extends Statement {
-	constructor(condition, statementlist, loc) {
-		super(loc);
-		this.condition = condition;
-		this.statementlist = statementlist;
-		this.status = 0;
-	}
-	clone() {
-		var state = [];
-		for (var i = 0; i < this.statementlist.length; i++) if (this.statementlist[i]) state.push(this.statementlist[i].clone());
-		return new While(this.condition.clone(), state, this.loc);
-	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		code += "while " + this.condition.makePython() + ":\n";
-		var codes = 0;
-		for (var i = 0; i < this.statementlist.length; i++)
-			if (this.statementlist[i]) {
-				codes = 1;
-				code += this.statementlist[i].makePython(indent + 1);
+			else if (statement == "SleepStatement") {
+				var p1 = new Parts_Misc();
+				var b1 = new Parts_Bar();
+				p1.setValue("sleep", [p.sec]);
+				parts.next = p1;
+				parts = p1.next = b1;
 			}
-		if (codes == 0) code += Parts.makeIndent(indent + 1) + "pass\n";
-		return code;
-	}
-	run() {
-		if (this.status == 0) {
-			code[0].stack.unshift({ statementlist: [this.condition], index: 0 });
-			this.status = 1;
-		}
-		else {
-			code[0].stack[0].index++;
-			let loop = [new LoopBegin(this.condition, true, this.loc)];
-			for (var i = 0; i < this.statementlist.length; i++) if (this.statementlist[i]) loop.push(this.statementlist[i].clone());
-			loop.push(new LoopEnd(null, false, this.loc));
-			code[0].stack.unshift({ statementlist: loop, index: 0 });
-			this.status = 0;
-		}
-	}
-}
-
-class SleepStatement extends Statement {
-	constructor(sec, loc) {
-		super(loc)
-		this.sec = new IntValue(sec.value, loc); // milli seconds
-	}
-	clone() {
-		return new SleepStatement(this.sec.clone(), this.loc);
-	}
-	run() {
-		wait_time = this.sec.value;
-		code[0].stack[0].index++;
-	}
-	makePython(indent) {
-		var code = Parts.makeIndent(indent);
-		python_lib["time"] = 1;
-		return code + "time.sleep(" + this.sec.makePython() + " / 1000)\n";
-	}
-}
-
-class NopStatement extends Statement {
-	constructor(loc) { super(loc); }
-	clone() { return new NopStatement(this.loc); }
-	run() { code[0].stack[0].index++; }
-	makePython(indent) {
-		return Parts.makeIndent(indent) + "pass\n";
-	}
-}
-
-class PauseStatement extends Statement {
-	constructor(loc) { super(loc); }
-	clone() { return new PauseStatement(this.loc); }
-	run() { code[0].stack[0].index++; }
-	makePython(indent) {
-		return '';
-	}
-}
-
-
-class BreakStatement extends Statement {
-	constructor(loc) { super(loc); }
-	clone() {
-		return new BreakStatement(this.loc);
-	}
-	run() {
-		while (true) {
-			var block = code[0].stack.shift();
-			if (!block) throw new RuntimeError(this.first_line, '繰り返しの中ではありません。');
-			for (var i = 0; i < block.statementlist.length; i++)
-				if (block.statementlist[i] instanceof LoopBegin) return;
+			else if (statement == "BreakStatement") {
+				var p1 = new Parts_Misc();
+				var b1 = new Parts_Bar();
+				p1.setValue("break", []);
+				parts.next = p1;
+				parts = p1.next = b1;
+			}
+			else if (statement == "DumpStatement") {
+				var p1 = new Parts_Misc();
+				var b1 = new Parts_Bar();
+				p1.setValue("dump", []);
+				parts.next = p1;
+				parts = p1.next = b1;
+			}
+			else if (statement == "NopStatement") {
+				var p1 = new Parts_Misc();
+				var b1 = new Parts_Bar();
+				p1.setValue("NopStatement", []);
+				parts.next = p1;
+				parts = p1.next = b1;
+			}
+			else if (statement == "PauseStatement") {
+				var p1 = new Parts_Misc();
+				var b1 = new Parts_Bar();
+				p1.setValue("PauseStatement", []);
+				parts.next = p1;
+				parts = p1.next = b1;
+			}
 		}
 	}
-	makePython(indent) {
-		return Parts.makeIndent(indent) + "break\n";
+
+	flowchart2code() {
+		if (!flowchart_display) return;
+		var newcode = this.top.appendCode('', 0);
+		editor.getDoc().setValue(newcode);
+		editor.focus();
 	}
+	paint() {
+		if (!flowchart_display) return;
+
+		var canvas_width = this.canvas.width;
+		var canvas_height = this.canvas.height;
+		var p0 = new point(), p1 = new point(), p2 = new point();
+		this.context.clearRect(0, 0, canvas_width, canvas_height);
+		FlowchartSetting.fontsize = FlowchartSetting.size * 2;
+		this.context.font = FlowchartSetting.fontsize + "px 'sans-serif'";
+		this.context.strokeStyle = "rgb(0,0,0)";
+		this.context.fillStyle = "rgb(0,0,0)";
+		this.context.lineWidth = "1px";
+		this.top.calcSize(p0, p1, p2);	// p1が左上，p2が右下
+		this.top.paint({ x: this.x0, y: this.y0 });
+	}
+
+	findParts(x, y) {
+		return this.top.findParts(x, y);
+	}
+
 }
 
 class Parts {
@@ -6153,11 +8400,6 @@ class Parts {
 	appendCode(code, indent) {
 		if (this.next != null) return this.next.appendCode(code, indent);
 		return code;
-	}
-	static makeIndent(indent_level) {
-		var s = "";
-		for (var i = 0; i < indent_level; i++) s += "    ";
-		return s;
 	}
 	editMe() {
 
@@ -6357,7 +8599,7 @@ class Parts_Output extends Parts {
 		return parts.next;
 	}
 	appendCode(code, indent) {
-		code += Parts.makeIndent(indent);
+		code += makeIndent(indent);
 		if (this.text == '改行') code += '改行する\n';
 		else code += (this.newline ? "" : "改行なしで") + "表示する(" + this.text + ")\n";
 		if (this.next != null) return this.next.appendCode(code, indent);
@@ -6434,7 +8676,7 @@ class Parts_Input extends Parts {
 		return parts.next;
 	}
 	appendCode(code, indent) {
-		code += Parts.makeIndent(indent);
+		code += makeIndent(indent);
 		code += this.var;
 		if (this.type > 0) code += "に" + nameOfType[this.type];
 		code += "を入力する\n";
@@ -6516,7 +8758,7 @@ class Parts_Substitute extends Parts {
 		return parts.next;
 	}
 	appendCode(code, indent) {
-		code += Parts.makeIndent(indent);
+		code += makeIndent(indent);
 		code += this.var + (this.operator ? this.operator : "") + "=" + this.val + "\n";
 		if (this.next != null) return this.next.appendCode(code, indent);
 		return code;
@@ -6595,7 +8837,7 @@ class Parts_Append extends Parts {
 		return parts.next;
 	}
 	appendCode(code, indent) {
-		code += Parts.makeIndent(indent);
+		code += makeIndent(indent);
 		code += this.var + "に" + this.val + "を追加する\n";
 		if (this.next != null) return this.next.appendCode(code, indent);
 		return code;
@@ -6673,7 +8915,7 @@ class Parts_Extend extends Parts {
 		return parts.next;
 	}
 	appendCode(code, indent) {
-		code += Parts.makeIndent(indent);
+		code += makeIndent(indent);
 		code += this.var + "に" + this.val + "を連結する\n";
 		if (this.next != null) return this.next.appendCode(code, indent);
 		return code;
@@ -6838,12 +9080,12 @@ class Parts_If extends Parts {
 		return parts.end.next.next;
 	}
 	appendCode(code, indent) {
-		code += Parts.makeIndent(indent);
+		code += makeIndent(indent);
 		code += "もし" + this.condition + "ならば：\n";
-		if (this.left.next instanceof Parts_Null) code += Parts.makeIndent(indent + 1) + "\n";
+		if (this.left.next instanceof Parts_Null) code += makeIndent(indent + 1) + "\n";
 		else code += this.left.appendCode('', indent + 1);
 		if (!(this.right.next instanceof Parts_Null)) {
-			code += Parts.makeIndent(indent) + "そうでなければ：\n"
+			code += makeIndent(indent) + "そうでなければ：\n"
 			code += this.right.appendCode('', indent + 1);
 		}
 
@@ -6981,10 +9223,10 @@ class Parts_LoopBegin1 extends Parts_LoopBegin {
 	}
 
 	appendCode(code, indent) {
-		code += Parts.makeIndent(indent);
+		code += makeIndent(indent);
 		code += this.condition + "の間：\n";
 		var code_inner = this.next.appendCode('', indent + 1);
-		if (code_inner == '') code += Parts.makeIndent(indent + 1) + "\n";
+		if (code_inner == '') code += makeIndent(indent + 1) + "\n";
 		else code += code_inner;
 
 		if (this.end.next != null) return this.end.next.appendCode(code, indent);
@@ -7030,10 +9272,10 @@ class Parts_LoopBeginFor extends Parts_LoopBegin {
 	}
 
 	appendCode(code, indent) {
-		code += Parts.makeIndent(indent);
+		code += makeIndent(indent);
 		code += this.array + "の要素" + this.variable + "について繰り返す：\n";
 		var code_inner = this.next.appendCode('', indent + 1);
-		if (code_inner == '') code += Parts.makeIndent(indent + 1) + "\n";
+		if (code_inner == '') code += makeIndent(indent + 1) + "\n";
 		else code += code_inner;
 
 		if (this.end.next != null) return this.end.next.appendCode(code, indent);
@@ -7087,10 +9329,10 @@ class Parts_LoopBeginInc extends Parts_LoopBegin {
 	}
 
 	appendCode(code, indent) {
-		code += Parts.makeIndent(indent);
+		code += makeIndent(indent);
 		code += this.var + "を" + this.start + "から" + this.goal + "まで" + this.step + "ずつ増やしながら：\n";
 		var code_inner = this.next.appendCode('', indent + 1);
-		if (code_inner == '') code += Parts.makeIndent(indent + 1) + "\n";
+		if (code_inner == '') code += makeIndent(indent + 1) + "\n";
 		else code += code_inner;
 
 		if (this.end.next != null) return this.end.next.appendCode(code, indent);
@@ -7143,10 +9385,10 @@ class Parts_LoopBeginDec extends Parts_LoopBegin {
 	}
 
 	appendCode(code, indent) {
-		code += Parts.makeIndent(indent);
+		code += makeIndent(indent);
 		code += this.var + "を" + this.start + "から" + this.goal + "まで" + this.step + "ずつ減らしながら：\n";
 		var code_inner = this.next.appendCode('', indent + 1);
-		if (code_inner == '') code += Parts.makeIndent(indent + 1) + "\n";
+		if (code_inner == '') code += makeIndent(indent + 1) + "\n";
 		else code += code_inner;
 
 		if (this.end.next != null) return this.end.next.appendCode(code, indent);
@@ -7259,12 +9501,196 @@ class Parts_LoopEnd extends Parts {
 	}
 }
 
+var misc_menu_ja = [
+	//表示            識別子            プログラム上の表現            [引数の意味]
+	["《各種処理》", "none", "《各種処理》", []],
+	["何もしない", "NopStatement", "何もしない", []],
+	["描画領域開く", "gOpenWindow", "描画領域開く(	,	)", ["幅", "高さ"]],
+	["描画領域閉じる", "gCloseWindow", "描画領域閉じる()", []],
+	["描画領域全消去", "gClearWindow", "描画領域全消去()", []],
+	["線色設定", "gSetLineColor", "線色設定(	,	,	)", ["赤", "青", "緑"]],
+	["塗色設定", "gSetFillColor", "塗色設定(	,	,	)", ["赤", "青", "緑"]],
+	["文字色設定", "gSetTextColor", "文字色設定(	,	,	)", ["赤", "青", "緑"]],
+	["線太さ設定", "gSetLineWidth", "線太さ設定(	)", ["太さ"]],
+	["文字サイズ設定", "gSetFontSize", "文字サイズ設定(	)", ["サイズ"]],
+	["文字描画", "gDrawText", "文字描画(	,	,	)", ["文字列", "x", "y"]],
+	["点描画", "gDrawPoint", "点描画(	,	,	,	)", ["x", "y"]],
+	["線描画", "gDrawLine", "線描画(	,	,	,	)", ["x1", "y1", "x2", "y2"]],
+	["矩形描画", "gDrawBox", "矩形描画(	,	,	,	)", ["x", "y", "幅", "高さ"]],
+	["矩形塗描画", "gFillBox", "矩形塗描画(	,	,	,	)", ["x", "y", "幅", "高さ"]],
+	["円描画", "gDrawCircle", "円描画(	,	,	)", ["x", "y", "半径"]],
+	["円塗描画", "gFillCircle", "円塗描画(	,	,	)", ["x", "y", "半径"]],
+	["楕円描画", "gDrawCircle", "楕円描画(	,	,	,	)", ["x", "y", "幅", "高さ"]],
+	["楕円塗描画", "gFillCircle", "楕円塗描画(	,	,	,	)", ["x", "y", "幅", "高さ"]],
+	["弧描画", "gDrawArc", "弧描画(	,	,	,	,	,	,	)", ["x", "y", "幅", "高さ", "開始角", "終了角", "閉じ方"]],
+	["弧塗描画", "gFillArc", "弧塗描画(	,	,	,	,	,	,	)", ["x", "y", "幅", "高さ", "開始角", "終了角", "閉じ方"]],
+	["棒グラフ描画", "gBarplot", "棒グラフ描画(	,	,	)", ["幅", "高さ", "配列"]],
+	["線グラフ描画", "gLineplot", "線グラフ描画(	,	,	)", ["幅", "高さ", "配列"]],
+	["グラフ描画", "gDrawGraph", "グラフ描画(	,	)", ["レイアウト情報", "値の配列"]],
+	["グラフ消去", "gClearGraph", "グラフ消去()", []],
+	["putline", "putline", "putline(	,	)", ["ファイル番号", "文字列"]],
+	["putstr", "putstr", "putstr(	,	)", ["ファイル番号", "文字列"]],
+	["close", "close", "close(	)", ["ファイル番号"]],
+	["待つ", "sleep", "	ミリ秒待つ", ["ミリ秒数"]],
+	["繰り返しを抜ける", "break", "繰り返しを抜ける", []],
+	["変数を確認する", "dump", "変数を確認する", []],
+	["一時停止する", "PauseStatement", "一時停止する", []]
+],
+	misc_menu_en = [
+		//表示            識別子            プログラム上の表現            [引数の意味]
+		["《各種処理》", "none", "《各種処理》", []],
+		["何もしない", "NopStatement", "何もしない", []],
+		["gOpenWindow", "gOpenWindow", "gOpenWindow(	,	)", ["幅", "高さ"]],
+		["gCloseWindow", "gCloseWindow", "gCloseWindow()", []],
+		["gClearWindow", "gClearWindow", "gClearWindow()", []],
+		["gSetLineColor", "gSetLineColor", "gSetLineColor(	,	,	)", ["赤", "青", "緑"]],
+		["gSetFillColor", "gSetFillColor", "gSetFillColor(	,	,	)", ["赤", "青", "緑"]],
+		["gSetTextColor", "gSetTextColor", "gSetTextColor(	,	,	)", ["赤", "青", "緑"]],
+		["gSetLineWidth", "gSetLineWidth", "gSetLineWidth(	)", ["太さ"]],
+		["gSetFontSize", "gSetFontSize", "gSetFontSize(	)", ["サイズ"]],
+		["gDrawText", "gDrawText", "gDrawText(	,	,	)", ["文字列", "x", "y"]],
+		["gDrawPoint", "gDrawPoint", "gDrawPoint(	,	,	,	)", ["x", "y"]],
+		["gDrawLine", "gDrawLine", "gDrawLine(	,	,	,	)", ["x1", "y1", "x2", "y2"]],
+		["gDrawBox", "gDrawBox", "gDrawBox(	,	,	,	)", ["x", "y", "幅", "高さ"]],
+		["gFillBox", "gFillBox", "gFillBox(	,	,	,	)", ["x", "y", "幅", "高さ"]],
+		["gDrawCircle", "gDrawCircle", "gDrawCicle(	,	,	)", ["x", "y", "半径"]],
+		["gFillCircle", "gFillCircle", "gFillCircle(	,	,	)", ["x", "y", "半径"]],
+		["gDrawOval", "gDrawCircle", "gDrawOval(	,	,	,	)", ["x", "y", "幅", "高さ"]],
+		["gFillOval", "gFillCircle", "gFillOval(	,	,	,	)", ["x", "y", "幅", "高さ"]],
+		["gDrawArc", "gDrawArc", "gDrawArc(	,	,	,	,	,	,	)", ["x", "y", "幅", "高さ", "開始角", "終了角", "閉じ方"]],
+		["gFillArc", "gFillArc", "gFillArc(	,	,	,	,	,	,	)", ["x", "y", "幅", "高さ", "開始角", "終了角", "閉じ方"]],
+		["gBarplot", "gBarplot", "gBarplot(	,	,	)", ["幅", "高さ", "値"]],
+		["gLineplot", "gLineplot", "gLineplot(	,	,	)", ["幅", "高さ", "値"]],
+		["gDrawGraph", "gDrawGraph", "gDrawGraph(	,	)", ["レイアウト情報", "値の配列"]],
+		["gClearGraph", "gClearGraph", "gClearGraph()", , []],
+		["putline", "putline", "putline(	,	)", ["ファイル番号", "文字列"]],
+		["putstr", "putstr", "putstr(	,	)", ["ファイル番号", "文字列"]],
+		["close", "close", "close(	)", ["ファイル番号"]],
+		["待つ", "sleep", "	ミリ秒待つ", ["ミリ秒数"]],
+		["繰り返しを抜ける", "break", "繰り返しを抜ける", []],
+		["変数を確認する", "dump", "変数を確認する", []],
+		["一時停止する", "PauseStatement", "一時停止する", []]
+	];
+
+var misc_menu = setting.graphic_command == 0 ? misc_menu_ja : misc_menu_en;
+
+class Parts_Misc extends Parts {
+	constructor() {
+		super();
+		this.setValue("none", []);
+	}
+	setValue(identifier, values) {
+		this._identifier = identifier;
+		this._values = [];
+		for (var i = 0; i < values.length; i++) this._values.push(values[i].argsPyPEN());
+		for (var i = 0; i < misc_menu.length; i++) {
+			if (this._identifier != misc_menu[i][1]) continue;
+			this._command = misc_menu[i][0];
+			var code = misc_menu[i][2];
+			for (var j = 0; j < this.values.length; j++)
+				code = code.replace("\t", this.values[j]);
+			this._text = code;
+			break;
+		}
+	}
+
+	setValuebyText(identifier, values) {
+		this._identifier = identifier;
+		this._values = [];
+		for (var i = 0; i < values.length; i++) this._values.push(values[i]);
+		for (var i = 0; i < misc_menu.length; i++) {
+			if (this._identifier != misc_menu[i][1]) continue;
+			this._command = misc_menu[i][0];
+			var code = misc_menu[i][2];
+			for (var j = 0; j < this.values.length; j++)
+				code = code.replace("\t", this.values[j]);
+			this._text = code;
+			break;
+		}
+	}
+
+	get identifier() { return this._identifier; }
+	get values() { return this._values; }
+
+	calcSize(p0, p1, p2) {
+		this.calcTextsize();    // textWidth, textHeightの計算
+		var size = FlowchartSetting.size;
+		this._height = this._textheight + size * 2;
+		this._width = this._textwidth + size * 4;
+		var x1 = p0.x - this.width / 2;
+		var x2 = p0.x + this.width / 2;
+		var y2 = p0.y + this.height;
+		if (x1 < p1.x) p1.x = x1;
+		if (x2 > p2.x) p2.x = x2;
+		if (y2 > p2.y) p2.y = y2;
+		p0.y = y2;
+		if (this.next == null || this.isBlockEnd) return this;
+		return this.next.calcSize(p0, p1, p2);
+	}
+	paint(position) {
+		var size = FlowchartSetting.size;
+		if (position != null) {
+			this.x1 = position.x - this.width / 2;
+			this.x2 = position.x + this.width / 2;
+			this.y1 = position.y;
+			this.y2 = this.y1 + this.height;
+		}
+		flowchart.context.beginPath();
+		flowchart.context.moveTo(this.x1, this.y1);
+		flowchart.context.lineTo(this.x2, this.y1);
+		flowchart.context.lineTo(this.x2, this.y2);
+		flowchart.context.lineTo(this.x1, this.y2);
+		flowchart.context.lineTo(this.x1, this.y1);
+		flowchart.context.stroke();
+		flowchart.context.fillText(this.text, this.x1 + size * 2, this.y2 - size);
+
+		if (position != null) {
+			position.y = this.y2;
+			if (this.end.next != null) return this.end.next.paint(position);
+			return this.end;
+		}
+		return this;
+	}
+	static appendMe(bar) {
+		var parts = new Parts_Misc();
+		bar.next = parts;
+		parts.next = new Parts_Bar();
+		return parts.next;
+	}
+	appendCode(code, indent) {
+		code += makeIndent(indent);
+		code += this.text + "\n";
+		if (this.next != null) return this.next.appendCode(code, indent);
+		return code;
+	}
+	editMe() {
+		openModalWindowforMisc(this);
+	}
+	edited(identifier, values) {
+		if (values != null) {
+			this.setValuebyText(identifier, values);
+		}
+		flowchart.paint();
+		flowchart.flowchart2code();
+	}
+
+}
+
 /**
  *
  * @param {number} l 表示する行数（-1で非表示）
  */
 function highlightLine(l) {
 
+}
+
+function load_functions() {
+	for (var funcname in defined_functions)
+		varTables[0].vars[funcname] = defined_functions[funcname];
+	if (setting.more_function == 1) {
+		for (var funcname in more_functions)
+			varTables[0].vars[funcname] = more_functions[funcname];
+	}
 }
 
 function reset() {
@@ -7275,9 +9701,11 @@ function reset() {
 	code = null;
 	canvas = null
 	context = null
+	sleeping = null;
 	wait_time = 0;
 	timeouts = [];
 	output_str = ''
+	load_functions();
 }
 
 function run(pypen_source) {
@@ -7313,6 +9741,10 @@ function step() {
 	var l = current_line;
 	do {
 		next_line();
+		if (sleeping) {
+			if (sleeping()) break;
+			else sleeping = null;
+		}
 	} while (run_flag && l == current_line);
 	if (!code) return;
 	if (code[0] && code[0].stack.length > 0) {
@@ -7340,18 +9772,37 @@ function step() {
 function next_line() {
 	var index = code[0].stack[0].index;
 	var statement = code[0].stack[0].statementlist[index];
-	if (statement) {
+	if (statement && typeof statement.run === 'function') {
 		try {
+			// if(debug_mode){
+			// 	textareaAppend('// ' + constructor_name(statement));
+			// 	textareaAppend(
+			// 		statement.getLoc ? "(" + statement.getLoc().first_line +  ')\n': '\n');
+			// }
 			statement.run();
 		}
 		catch (e) {
-			if (e instanceof RuntimeError) output("\n" + e.line + "行目:" + e.message + "\n");
-			else output("実行時エラーです\n" + e + "\n");
-			outputEnd()
-			reset()
+			if (selected_quiz < 0) {
+				if (e.line) textareaAppend(e.line + "行目:");
+				if (e instanceof RuntimeError) textareaAppend(e.message + "\n");
+				else if (e instanceof RangeError) textareaAppend("計算できない値があります。\n" + e.message + "\n");
+				else textareaAppend("（おそらくPyPENのバグなので，コードを添えて開発者に連絡してください）\n" + e.message + "\n");
+				if (debug_mode) {
+					dump();
+					textareaAppend(e.stack);
+				}
+				reset(false);
+			}
+			else throw e;
 		}
 	}
-	else code[0].stack[0].index++;
+	else if (statement) {
+		textareaAppend('内部エラー: 実行できない文があります。\n' +
+			+ "Statement:" + constructor_name(statement) + '\n'
+			+ "Called by:" + constructor_name(code[0].stack[1].statementlist[code[0].stack[1].index]) + " index:" + code[0].stack[1].index + "\n");
+		if (debug_mode) code_dump();
+		code[0].stack[0].index++;
+	}
 	if (!code || !code[0]) return;
 	// 不要になったコードをstackから捨てる
 	index = code[0].stack[0] ? code[0].stack[0].index : -1;
@@ -7366,9 +9817,11 @@ function next_line() {
 		if (code[0] && code[0].stack[0]) {
 			index = code[0].stack[0].index;
 			statement = code[0].stack[0].statementlist[index];
-			if (statement && (statement instanceof Statement)) {
+			if (statement && (statement instanceof Statement || statement instanceof Value)) {
 				if (statement.loc) highlightLine(current_line = statement.first_line);
-				if (statement instanceof PauseStatement) step_flag = true;
+				if (statement instanceof PauseStatement) {
+					step_flag = true;
+				}
 			}
 		}
 		else highlightLine(++current_line);
@@ -7398,17 +9851,33 @@ function makePython(code) {
 }
 
 function code_dump() {
-	let str = '';
+	let str = '**** code dump ****\n';
 	for (let i = 0; i < code.length; i++) {
-		str += 'code[' + i + ']\n';
+		// str += 'code['+i+']\n';
 		for (let j = 0; j < code[i].stack.length; j++) {
-			let statement = [];
-			for (let k = 0; k < code[i].stack[j].statementlist.length; k++)
-				if (code[i].stack[j].statementlist[k]) statement.push(constructor_name(code[i].stack[j].statementlist[k]) + '(' + code[i].stack[j].statementlist[k].state + ')');
-			str += ' stack[' + j + '][' + code[i].stack[j].index + ']' + statement.join(' ') + '\n';
+			for (let k = 0; k < code[i].stack[j].statementlist.length; k++) {
+				str += '[' + i + '][' + j + '][' + k + ']';
+				if (code[i].stack[j].statementlist[k])
+					str += (k == code[i].stack[j].index ? '*' : ' ') +
+						constructor_name(code[i].stack[j].statementlist[k]) +
+						'(' + code[i].stack[j].statementlist[k].state + ')';
+				if (constructor_name(code[i].stack[j].statementlist[k]) == 'Assign') {
+					str += '   varname: ' + code[i].stack[j].statementlist[k].variable.varname;
+					str += '   value: ' + array2code(code[i].stack[j].statementlist[k].value, true);
+				}
+				str += "\n";
+			}
 		}
 	}
-	console.log(str);
+	// console.log(str);
+	textareaAppend(str);
+}
+
+function setRunflag(b) {
+	run_flag = b
+	if (!b) {
+		outputEnd()
+	}
 }
 
 /**
@@ -7420,6 +9889,10 @@ function output(v) {
 		type: 'output',
 		content: v
 	})
+}
+
+function textareaAppend(v) {
+	output(v)
 }
 
 /**
